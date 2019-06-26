@@ -1,0 +1,24 @@
+@import './_fonts';
+@import './header.scss';
+@import './content.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+html, body{
+  height: 100%;
+}
+
+body{
+  font-size: 18px;
+  font-family: 'Roboto';
+  color: #2F3034;
+}
+
+#__next {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
