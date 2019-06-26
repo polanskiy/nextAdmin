@@ -9,6 +9,12 @@ const handle = routes.getRequestHandler(app);
 app.prepare()
   .then(() => {
     const server = express();
+    server.post('/api/login', (req, res) => {
+      console.log('res');
+      return res.json({
+        isAuth: true,
+      });
+    });
 
     server.get('*', (req, res) => handle(req, res));
     server.use(handle).listen(3000, (err) => {

@@ -1,10 +1,8 @@
 import React from 'react';
-import Layout from '../hoc/Layout';
+
+import Auth from '../hoc/Auth';
 
 const Home = () => (
-  <Layout>
-    <div>Home page</div>
-  </Layout>
+  <div>сайт главная</div>
 );
-
-export default Home;
+export default Auth(Home);

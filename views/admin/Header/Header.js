@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = () => (
-  <div className="headerBox">
+  <div className="adminHeaderBox">
     <div>лого</div>
     <div>Административная панель</div>
   </div>

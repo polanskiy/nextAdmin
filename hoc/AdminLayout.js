@@ -2,14 +2,14 @@ import React from 'react';
 import Header from '../views/admin/Header/Header';
 import SideNav from '../views/admin/SideNav/SideNav';
 
-const Layout = ({ children }) => (
+const AdminLayout = ({ children }) => (
   <React.Fragment>
     <Header />
-    <div className="sideContentBox">
+    <div className="adminContentBox">
       <SideNav />
       {children}
     </div>
   </React.Fragment>
 );
 
-export default Layout;
+export default AdminLayout;

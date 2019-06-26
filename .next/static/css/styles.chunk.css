@@ -20,7 +20,7 @@
   font-family: "Ubuntu";
   src: url("/static/fonts/UbuntuMedium.ttf") format("woff2"); }
 
-.headerBox {
+.adminHeaderBox {
   height: 100px;
   background: #EDDDC6;
   color: #2F3034; }
@@ -28,16 +28,16 @@
 button {
   background: #098B8C; }
 
-.sideContentBox {
+.adminContentBox {
   display: flex;
   flex: 1 0 auto; }
 
-.sidenavBox {
+.adminSidenavBox {
   display: flex;
   flex-direction: column;
   background: #000;
   padding: 20px; }
-  .sidenavBox a {
+  .adminSidenavBox a {
     color: #ffffff;
     margin: 10px; }
 

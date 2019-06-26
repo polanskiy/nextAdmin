@@ -3,6 +3,13 @@ import App, { Container } from 'next/app';
 import '../styles/main.scss';
 
 class MyApp extends App {
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: false,
+    };
+  }
+
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -15,7 +22,6 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-
     return (
       <Container>
         <Component {...pageProps} />

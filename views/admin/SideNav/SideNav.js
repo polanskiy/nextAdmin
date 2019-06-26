@@ -1,12 +1,13 @@
 import React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from '../../../routes';
 
 const SideNav = () => (
-  <div className="sidenavBox">
-    <Link href="/">
+  <div className="adminSidenavBox">
+    <Link href="/admin">
       <a style={{ fontSize: 20 }}>Home</a>
     </Link>
-    <Link href="/blogs">
+    <Link route="/admin/pages">
       <a>Blogs</a>
     </Link>
     <Link href="/about">
