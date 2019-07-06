@@ -1,6 +1,7 @@
-@import './_fonts';
-@import './header.scss';
-@import './content.scss';
+@import './fonts.scss';
+@import './admin/header.scss';
+@import './admin/content.scss';
+@import './admin//login.scss';
 
 * {
   padding: 0;

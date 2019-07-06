@@ -9,13 +9,18 @@ const handle = routes.getRequestHandler(app);
 app.prepare()
   .then(() => {
     const server = express();
-    server.post('/api/login', (req, res) => {
-      console.log('res');
-      return res.json({
-        isAuth: true,
-      });
-    });
+    server.post('/api/login', (req, res) => res.json({
+      isAuth: true,
+    }));
 
+    server.get('/api/pages', (req, res) => res.json({
+      pages: [1, 2, 3],
+    }));
+
+    server.get('/admin', (req, res) => {
+      const actualPage = '/admin';
+      app.render(req, res, actualPage);
+    });
     server.get('*', (req, res) => handle(req, res));
     server.use(handle).listen(3000, (err) => {
       if (err) throw err;

@@ -1,19 +1,22 @@
 import React from 'react';
 import { withRouter } from 'next/router';
-import AdminLayout from '../hoc/AdminLayout';
-import Home from '../views/admin/Home/Home';
-import Pages from '../views/admin/Pages/Pages';
+import AdminLayout from '../views/admin/hoc/AdminLayout';
+import Home from '../views/admin/pages/Home/Home';
+import Pages from '../views/admin/pages/Pages/Pages';
+import Articles from '../views/admin/pages/Articles/Articles';
+import Media from '../views/admin/pages/Media/Media';
 
-const Admin = ({ router }) => {
-  console.log('props', router);
+const Admin = ({ slug }) => {
   const renderPage = () => {
-    switch (router.asPath) {
-      case '/admin':
-        return <Home />;
-      case '/admin/pages':
+    switch (slug) {
+      case 'pages':
         return <Pages />;
+      case 'articles':
+        return <Articles />;
+      case 'media':
+        return <Media />;
       default:
-        break;
+        return <Home />;
     }
   };
   return (
@@ -22,4 +25,11 @@ const Admin = ({ router }) => {
     </AdminLayout>
   );
 };
+
+Admin.getInitialProps = ({ query }) => {
+  console.log('query', query);
+  const { slug } = query;
+  return { slug };
+};
+
 export default withRouter(Admin);

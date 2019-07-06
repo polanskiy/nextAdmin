@@ -10,7 +10,7 @@ const Login = () => {
     e.preventDefault();
     const res = await axios({
       method: 'post',
-      url: 'api/login',
+      url: '/api/login',
     });
     console.log('res', res);
     if (res.data.isAuth) {
