@@ -1,6 +1,13 @@
 .adminContentBox{
   display: flex;
   flex: 1 0 auto;
+  button {
+    background: $green;
+    color: $white;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+  }
 }
 
 .adminSidenavBox{
@@ -12,4 +19,19 @@
     color: #ffffff;
     margin: 10px;
   }
+}
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.adminHomeBox{
+  animation: fadeIn 1s;
 }

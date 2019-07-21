@@ -27,7 +27,6 @@ const Admin = ({ slug }) => {
 };
 
 Admin.getInitialProps = ({ query }) => {
-  console.log('query', query);
   const { slug } = query;
   return { slug };
 };

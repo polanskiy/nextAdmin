@@ -12360,7 +12360,6 @@ var Admin = function Admin(_ref) {
 
 Admin.getInitialProps = function (_ref2) {
   var query = _ref2.query;
-  console.log('query', query);
   var slug = query.slug;
   return {
     slug: slug
@@ -12556,7 +12555,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Articles = function Articles() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u0441\u0442\u0430\u0442\u0435\u0435\u0447\u043A\u0438");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "adminArticlesBox"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button"
+  }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0421\u0442\u0430\u0442\u044C\u044E"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Articles);
@@ -12578,7 +12581,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var Home = function Home() {
   console.log('admin home');
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "home");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "adminHomeBox"
+  }, "home");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);

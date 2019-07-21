@@ -25,12 +25,15 @@
   background: #EDDDC6;
   color: #2F3034; }
 
-button {
-  background: #098B8C; }
-
 .adminContentBox {
   display: flex;
   flex: 1 0 auto; }
+  .adminContentBox button {
+    background: #098B8C;
+    color: #fff;
+    padding: 10px;
+    border: 0;
+    cursor: pointer; }
 
 .adminSidenavBox {
   display: flex;
@@ -40,6 +43,17 @@ button {
   .adminSidenavBox a {
     color: #ffffff;
     margin: 10px; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%); }
+  to {
+    opacity: 1;
+    transform: translateX(0%); } }
+
+.adminHomeBox {
+  animation: fadeIn 1s; }
 
 * {
   padding: 0;

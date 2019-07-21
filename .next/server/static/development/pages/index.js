@@ -108,6 +108,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_site_pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/site/pages/Home */ "./views/site/pages/Home.js");
 /* harmony import */ var _views_site_pages_About__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/site/pages/About */ "./views/site/pages/About.js");
 /* harmony import */ var _views_site_pages_Contacts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/site/pages/Contacts */ "./views/site/pages/Contacts.js");
+/* harmony import */ var _views_site_pages_Travels__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../views/site/pages/Travels */ "./views/site/pages/Travels.js");
+/* harmony import */ var _views_site_pages_Blog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/site/pages/Blog */ "./views/site/pages/Blog.js");
+/* harmony import */ var _views_site_pages_FAQ__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../views/site/pages/FAQ */ "./views/site/pages/FAQ.js");
+/* harmony import */ var _views_site_pages_Event__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/site/pages/Event */ "./views/site/pages/Event.js");
+
+
+
+
 
 
 
@@ -125,6 +133,18 @@ var Main = function Main(_ref) {
       case 'contacts':
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_site_pages_Contacts__WEBPACK_IMPORTED_MODULE_4__["default"], null);
 
+      case 'travels':
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_site_pages_Travels__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+
+      case 'blog':
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_site_pages_Blog__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+
+      case 'faq':
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_site_pages_FAQ__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+
+      case 'event':
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_site_pages_Event__WEBPACK_IMPORTED_MODULE_8__["default"], null);
+
       default:
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_views_site_pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], null);
     }
@@ -135,7 +155,6 @@ var Main = function Main(_ref) {
 
 Main.getInitialProps = function (_ref2) {
   var query = _ref2.query;
-  console.log('wtf1', query);
   var page = query.page;
   return {
     page: page
@@ -211,12 +230,20 @@ var SideNav = function SideNav() {
       fontSize: 20
     }
   }, "\u0413\u043B\u0430\u0432\u043D\u0430\u044F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    route: "/about"
+    route: "/travels"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     style: {
       fontSize: 20
     }
-  }, "\u041E \u043D\u0430\u0441")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, "\u0413\u0430\u043B\u0435\u0440\u0435\u044F \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0439")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    route: "/blog"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "\u0411\u043B\u043E\u0433 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0438\u043A\u0430")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    route: "/about"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "\u041E\u0431\u043E \u043C\u043D\u0435")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    route: "/faq"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "\u0412\u043E\u043F\u0440\u043E\u0441 - \u043E\u0442\u0432\u0435\u0442")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    route: "/event"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "Event")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     route: "/contacts"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B")));
 };
@@ -272,6 +299,27 @@ var About = function About() {
 
 /***/ }),
 
+/***/ "./views/site/pages/Blog.js":
+/*!**********************************!*\
+  !*** ./views/site/pages/Blog.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Blog = function Blog() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u0431\u043B\u043E\u0433 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0438\u043A\u0430");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Blog);
+
+/***/ }),
+
 /***/ "./views/site/pages/Contacts.js":
 /*!**************************************!*\
   !*** ./views/site/pages/Contacts.js ***!
@@ -293,6 +341,48 @@ var Contacts = function Contacts() {
 
 /***/ }),
 
+/***/ "./views/site/pages/Event.js":
+/*!***********************************!*\
+  !*** ./views/site/pages/Event.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Event = function Event() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Event");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Event);
+
+/***/ }),
+
+/***/ "./views/site/pages/FAQ.js":
+/*!*********************************!*\
+  !*** ./views/site/pages/FAQ.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var FAQ = function FAQ() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u0412\u043E\u043F\u0440\u043E\u0441-\u043E\u0442\u0432\u0435\u0442");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FAQ);
+
+/***/ }),
+
 /***/ "./views/site/pages/Home.js":
 /*!**********************************!*\
   !*** ./views/site/pages/Home.js ***!
@@ -311,6 +401,29 @@ var Home = function Home() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
+
+/***/ }),
+
+/***/ "./views/site/pages/Travels.js":
+/*!*************************************!*\
+  !*** ./views/site/pages/Travels.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Travels = function Travels() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "travelsBox"
+  }, "\u0413\u0430\u043B\u0435\u0440\u0435\u044F \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u044F");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Travels);
 
 /***/ }),
 
