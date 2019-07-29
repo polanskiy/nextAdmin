@@ -2,11 +2,11 @@ import React from 'react';
 import Header from '../elements/Header';
 
 const Layout = ({ children }) => (
-  <React.Fragment>
+  <div className="globalBox">
     <Header />
     <div className="contentBox">
       {children}
     </div>
-  </React.Fragment>
+  </div>
 );
 export default Layout;

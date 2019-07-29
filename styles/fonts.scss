@@ -21,6 +21,13 @@
 }
 
 @font-face {
+  font-family: "Lobster";
+  src: url("/static/fonts/Lobster.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Ubuntu";
   src: url("/static/fonts/UbuntuMedium.ttf") format("woff2");
 }

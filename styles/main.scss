@@ -3,6 +3,7 @@
 @import './admin/header.scss';
 @import './admin/content.scss';
 @import './admin//login.scss';
+@import './site/header.scss';
 
 * {
   padding: 0;
@@ -17,6 +18,7 @@ body{
   font-size: 18px;
   font-family: 'Roboto';
   color: #2F3034;
+  overflow-x: hidden;
 }
 
 #__next {
