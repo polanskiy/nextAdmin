@@ -1,12 +1,8 @@
 import React from 'react';
-import Header from '../elements/Header';
 
 const Layout = ({ children }) => (
   <div className="globalBox">
-    <Header />
-    <div className="contentBox">
-      {children}
-    </div>
+    {children}
   </div>
 );
 export default Layout;

@@ -1,0 +1,44 @@
+.homeAboutBox {
+  background: $white;
+  padding: 0 0 178px;
+}
+
+.contentMidWrapper {
+  max-width: 1555px;
+  width: 100%;
+  padding: 0 5%;
+  margin: 0 auto;
+}
+
+.homeAboutContentBox {
+  display: flex;
+  align-items: center;
+}
+
+.homeAboutTitle {
+  font-size: 30px;
+  span {
+    font-size: 75px;
+    font-family: 'Lobster';
+  }
+}
+
+.homeAboutText {
+  margin: 25px 0 0;
+  font-size: 25px;
+}
+
+.btn {
+  padding: 30px 50px;
+  font-size: 25px;
+  color: $white;
+  border: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  background: #ED1E79; /* Old browsers */
+  background: -moz-linear-gradient(#ED1E79 , #F60B50 ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(#ED1E79 ,#F60B50 ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(#ED1E79,#F60B50 ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  margin: 35px 0 0;
+}

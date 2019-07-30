@@ -33,6 +33,9 @@ const Header = () => (
         <span>с Дасей Суриковой</span>
       </h1>
       <div className="customFormBox">подобрать</div>
+      <div className="downArr">
+        <img src="/static/images/icons/downArr.svg" alt="down arrow" />
+      </div>
     </div>
   </div>
 );
