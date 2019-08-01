@@ -3,7 +3,7 @@ import Header from '../../elements/Header';
 
 const Travels = () => (
   <div className="travelsBox">
-    <Header class="headerBox_travels" />
+    <Header headerClass="headerBox_travels" />
   </div>
 );
 

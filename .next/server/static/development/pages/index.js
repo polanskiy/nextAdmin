@@ -319,9 +319,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Header = function Header() {
+var Header = function Header(_ref) {
+  var headerClass = _ref.headerClass;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "headerBox headerBox_main"
+    className: "headerBox ".concat(headerClass)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "headerLogoNavBox"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -648,7 +649,9 @@ __webpack_require__.r(__webpack_exports__);
 var Home = function Home() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homePageBox"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAbout__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAdvantages__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_RequestForm__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    headerClass: "headerBox_main"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAbout__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAdvantages__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_RequestForm__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -750,7 +753,7 @@ var Travels = function Travels() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "travelsBox"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "headerBox_travels"
+    headerClass: "headerBox_travels"
   }));
 };
 
@@ -765,7 +768,7 @@ var Travels = function Travels() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\desktop\my\nextAdmin\pages\index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! C:\Users\Marius\Desktop\nextAdmin\pages\index.js */"./pages/index.js");
 
 
 /***/ }),

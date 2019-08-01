@@ -6,7 +6,7 @@ import RequestForm from '../../elements/RequestForm';
 
 const Home = () => (
   <div className="homePageBox">
-    <Header />
+    <Header headerClass="headerBox_main" />
     <HomeAbout />
     <HomeAdvantages />
     <RequestForm />

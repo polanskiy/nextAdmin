@@ -2,8 +2,8 @@ import React from 'react';
 import Nav from './Nav';
 import { Link } from '../../../routes';
 
-const Header = () => (
-  <div className="headerBox headerBox_main">
+const Header = ({ headerClass }) => (
+  <div className={`headerBox ${headerClass}`}>
     <div className="headerLogoNavBox">
       <div className="logoBox">
         <Link route="/">

@@ -6091,10 +6091,10 @@ exports.formatWithValidation = formatWithValidation;
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=D%3A%5Cdesktop%5Cmy%5CnextAdmin%5Cpages%5Cindex.js!./":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=D%3A%5Cdesktop%5Cmy%5CnextAdmin%5Cpages%5Cindex.js ***!
-  \***************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5CMarius%5CDesktop%5CnextAdmin%5Cpages%5Cindex.js!./":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5CMarius%5CDesktop%5CnextAdmin%5Cpages%5Cindex.js ***!
+  \***************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10456,9 +10456,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Header = function Header() {
+var Header = function Header(_ref) {
+  var headerClass = _ref.headerClass;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "headerBox headerBox_main"
+    className: "headerBox ".concat(headerClass)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "headerLogoNavBox"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -10785,7 +10786,9 @@ __webpack_require__.r(__webpack_exports__);
 var Home = function Home() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homePageBox"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAbout__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAdvantages__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_RequestForm__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    headerClass: "headerBox_main"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAbout__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeAdvantages__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_RequestForm__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -10887,7 +10890,7 @@ var Travels = function Travels() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "travelsBox"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    class: "headerBox_travels"
+    headerClass: "headerBox_travels"
   }));
 };
 
@@ -10896,13 +10899,13 @@ var Travels = function Travels() {
 /***/ }),
 
 /***/ 1:
-/*!*******************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=D%3A%5Cdesktop%5Cmy%5CnextAdmin%5Cpages%5Cindex.js ***!
-  \*******************************************************************************************************************/
+/*!*******************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CMarius%5CDesktop%5CnextAdmin%5Cpages%5Cindex.js ***!
+  \*******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=D%3A%5Cdesktop%5Cmy%5CnextAdmin%5Cpages%5Cindex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=D%3A%5Cdesktop%5Cmy%5CnextAdmin%5Cpages%5Cindex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CMarius%5CDesktop%5CnextAdmin%5Cpages%5Cindex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5CMarius%5CDesktop%5CnextAdmin%5Cpages%5Cindex.js!./");
 
 
 /***/ }),
