@@ -4,6 +4,7 @@
 @import './admin/content.scss';
 @import './admin//login.scss';
 @import './site/header.scss';
+@import './site/requestForm.scss';
 @import './site/home.scss';
 
 * {
@@ -11,9 +12,6 @@
   margin: 0;
   list-style-type: none;
   box-sizing: border-box;
-}
-html, body{
-  height: 100%;
 }
 
 body{
@@ -24,7 +22,13 @@ body{
 }
 
 #__next {
-  height: 100%;
   display: flex;
   flex-direction: column;
+  background: #E7EBF0;
+}
+
+.globalBox {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
 }
