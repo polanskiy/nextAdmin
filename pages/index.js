@@ -27,6 +27,7 @@ const Main = ({ page }) => {
         return <Home />;
     }
   };
+  console.log('reeeender');
   return (
     <Layout>
       {renderPage()}
@@ -34,8 +35,7 @@ const Main = ({ page }) => {
   );
 };
 
-
-Main.getInitialProps = ({ query }) => {
+Main.getInitialProps = async ({ query }) => {
   const { page } = query;
   return { page };
 };

@@ -62,7 +62,18 @@
   animation: fadeIn 1s; }
 
 .headerBox {
-  height: 1455px; }
+  position: relative;
+  z-index: 9; }
+
+.headerBg {
+  width: 100%;
+  display: block; }
+
+.headerPositionBox {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%; }
 
 .headerBox_main {
   background: url("/static/images/headerMainBg.jpg") no-repeat; }
@@ -78,7 +89,8 @@
 .logoBox {
   display: flex;
   align-items: center;
-  font-size: 30px; }
+  font-size: 30px;
+  width: 45%; }
   .logoBox a {
     text-decoration: none;
     color: #fff; }
@@ -87,7 +99,8 @@
       height: 140px; }
 
 .headerContactBox {
-  display: flex; }
+  display: flex;
+  width: 55%; }
   .headerContactBox a {
     display: flex;
     justify-content: center;
@@ -98,19 +111,6 @@
     margin: 0 25px 0 0; }
     .headerContactBox a img {
       width: 65%; }
-
-.navBox {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: center;
-  max-width: 140px;
-  width: 100%;
-  min-height: 122px;
-  align-self: flex-start; }
-
-.navBox.active {
-  max-width: 690px; }
 
 .menuFixedBox {
   position: fixed;
@@ -131,7 +131,8 @@
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   transition: .3s;
   border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px; }
+  border-bottom-left-radius: 25px;
+  z-index: 99; }
 
 .menuFixedBox.active {
   max-width: 690px;
@@ -316,7 +317,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/static/images/homeAdvantagesBg.jpg") no-repeat;
   height: 1509px; }
 
 .colorBox {

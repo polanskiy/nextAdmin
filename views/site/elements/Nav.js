@@ -5,14 +5,13 @@ const Nav = () => {
   const [showMenu, toggleMenu] = useState(false);
 
   return (
-    <div className="navBox">
-      <div className={showMenu ? 'menuFixedBox active' : 'menuFixedBox'}>
-        <button className={showMenu ? 'hamburger--arrowturn is-active' : 'hamburger--arrowturn'} type="button" onClick={() => toggleMenu(!showMenu)}>
-          <span className="hamburger-box">
-            <span className="hamburger-inner" />
-          </span>
-        </button>
-        {showMenu && (
+    <div className={showMenu ? 'menuFixedBox active' : 'menuFixedBox'}>
+      <button className={showMenu ? 'hamburger--arrowturn is-active' : 'hamburger--arrowturn'} type="button" onClick={() => toggleMenu(!showMenu)}>
+        <span className="hamburger-box">
+          <span className="hamburger-inner" />
+        </span>
+      </button>
+      {showMenu && (
         <div className="headerMenuBox">
           <Link route="/">
             <a>Главная</a>
@@ -36,8 +35,7 @@ const Nav = () => {
             <a>Контакты</a>
           </Link>
         </div>
-        )}
-      </div>
+      )}
     </div>
   );
 };

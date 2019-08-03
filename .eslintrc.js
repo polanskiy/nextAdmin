@@ -1,5 +1,6 @@
 module.exports = {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "rules": {
         "react/jsx-filename-extension": 0,
         "react/prop-types": 0,
@@ -9,6 +10,10 @@ module.exports = {
         "max-len": 0
     },
     "globals": {
-        "window": true
-    }
+        "window": true,
+        "Image": true
+    },
+    "parserOptions": {
+        "allowImportExportEverywhere": true
+      }
 };
