@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomeAbout = ({ renderHomeAdvantages }) => {
+const BlockAbout = ({ renderNext }) => {
   console.log('about');
   return (
     <div className="homeAboutBox">
@@ -22,7 +22,7 @@ const HomeAbout = ({ renderHomeAdvantages }) => {
             <button type="button" className="btn">Узнать больше</button>
           </div>
           <div className="homeAboutImgBox">
-            <img src="/static/images/dasya.png" alt="дася сурикова туроператор" onLoad={renderHomeAdvantages} />
+            <img src="/static/images/dasya.png" alt="дася сурикова туроператор" onLoad={renderNext} />
           </div>
         </div>
       </div>
@@ -30,4 +30,4 @@ const HomeAbout = ({ renderHomeAdvantages }) => {
   );
 };
 
-export default React.memo(HomeAbout);
+export default React.memo(BlockAbout);

@@ -75,12 +75,6 @@
   width: 100%;
   height: 100%; }
 
-.headerBox_main {
-  background: url("/static/images/headerMainBg.jpg") no-repeat; }
-
-.headerBox_travels {
-  background: url("/static/images/headerTravelsBg.jpg") no-repeat; }
-
 .headerLogoNavBox {
   display: flex;
   align-items: center;
@@ -356,15 +350,28 @@
       content: '';
       background: url("/static/images/icons/star.svg") no-repeat; }
 
+.travelsListBox {
+  background: #fff; }
+
+.travelsList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 70px 0 0; }
+
+.travelsListTitle {
+  font-family: 'Lobster';
+  font-size: 65px; }
+
+.travelsListItem {
+  padding: 20px;
+  border: 1px solid #000;
+  width: 24%;
+  margin: 0 0 25px; }
+
 .homeAboutBox {
   background: #fff;
   padding: 0 0 178px; }
-
-.contentMidWrapper {
-  max-width: 1555px;
-  width: 100%;
-  padding: 0 5%;
-  margin: 0 auto; }
 
 .homeAboutContentBox {
   display: flex;
@@ -419,6 +426,18 @@ body {
 .globalBox {
   max-width: 1920px;
   width: 100%;
+  margin: 0 auto; }
+
+.contentMidWrapper {
+  max-width: 1555px;
+  width: 100%;
+  padding: 0 5%;
+  margin: 0 auto; }
+
+.contentWrapper {
+  max-width: 1755px;
+  width: 100%;
+  padding: 0 5%;
   margin: 0 auto; }
 
 

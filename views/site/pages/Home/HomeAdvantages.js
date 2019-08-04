@@ -1,12 +1,12 @@
 import React from 'react';
 
-const HomeAdvantages = ({ renderRequest }) => {
+const HomeAdvantages = ({ renderNext }) => {
   const bg = new Image();
   bg.src = '/static/images/homeAdvantagesBg.jpg';
-  bg.onload = renderRequest;
-
+  bg.onload = renderNext;
+  console.log('advantages');
   return (
-    <div className="HomeAdvantagesBox" style={bg && { background: `url(${bg.src})` }} onLoad={renderRequest}>
+    <div className="HomeAdvantagesBox" style={bg && { background: `url(${bg.src})` }}>
       <div className="contentMidWrapper">
         <div className="colorBox">
           <p className="advantagesTitle">

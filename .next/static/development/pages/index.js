@@ -11218,13 +11218,13 @@ var Header = function Header(_ref) {
   var title = _ref.title,
       subTitle = _ref.subTitle,
       headerBg = _ref.headerBg;
-  console.log('header', headerBg);
+  console.log('header');
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "headerBox"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "headerBg",
     src: headerBg,
-    alt: "kek"
+    alt: "\u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u044B\u0439 \u0442\u0443\u0440\u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "headerPositionBox"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -11497,9 +11497,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var HomeAbout = next_dynamic__WEBPACK_IMPORTED_MODULE_4___default()({
+var BlockAbout = next_dynamic__WEBPACK_IMPORTED_MODULE_4___default()({
   loader: function loader() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./HomeAbout */ "./views/site/pages/Home/HomeAbout.js"));
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../../elements/BlockAbout */ "./views/site/elements/BlockAbout.js"));
   },
   loading: function loading() {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "LOADING ABOUT");
@@ -11507,9 +11507,9 @@ var HomeAbout = next_dynamic__WEBPACK_IMPORTED_MODULE_4___default()({
   ssr: false,
   loadableGenerated: {
     webpack: function webpack() {
-      return [/*require.resolve*/(/*! ./HomeAbout */ "./views/site/pages/Home/HomeAbout.js")];
+      return [/*require.resolve*/(/*! ../../elements/BlockAbout */ "./views/site/elements/BlockAbout.js")];
     },
-    modules: ['./HomeAbout']
+    modules: ['../../elements/BlockAbout']
   }
 });
 
@@ -11524,85 +11524,68 @@ var Home = function Home() {
       renderForm = _useState4[0],
       setRenderForm = _useState4[1];
 
-  var renderRequestForm =
+  var renderRequestForm = Object(react__WEBPACK_IMPORTED_MODULE_3__["useCallback"])(
   /*#__PURE__*/
-  function () {
-    var _ref = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
-    /*#__PURE__*/
-    _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var _ref2, RequestForm;
-
-      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../../elements/RequestForm */ "./views/site/elements/RequestForm.js"));
-
-            case 2:
-              _ref2 = _context.sent;
-              RequestForm = _ref2.default;
-              setRenderForm(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(RequestForm, null));
-
-            case 5:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function renderRequestForm() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  var renderRequest = Object(react__WEBPACK_IMPORTED_MODULE_3__["useCallback"])(renderRequestForm, []);
-
-  var renderHomeAdvantages =
+  Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
   /*#__PURE__*/
-  function () {
-    var _ref3 = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
-    /*#__PURE__*/
-    _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-      var _ref4, HomeAdvantages;
+  _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var _ref2, RequestForm;
 
-      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./HomeAdvantages */ "./views/site/pages/Home/HomeAdvantages.js"));
+    return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../../elements/RequestForm */ "./views/site/elements/RequestForm.js"));
 
-            case 2:
-              _ref4 = _context2.sent;
-              HomeAdvantages = _ref4.default;
-              setRenderAdv(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(HomeAdvantages, {
-                renderRequest: renderRequest
-              }));
+          case 2:
+            _ref2 = _context.sent;
+            RequestForm = _ref2.default;
+            setRenderForm(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(RequestForm, null));
 
-            case 5:
-            case "end":
-              return _context2.stop();
-          }
+          case 5:
+          case "end":
+            return _context.stop();
         }
-      }, _callee2);
-    }));
+      }
+    }, _callee);
+  })), []);
+  var renderHomeAdvantages = Object(react__WEBPACK_IMPORTED_MODULE_3__["useCallback"])(
+  /*#__PURE__*/
+  Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  /*#__PURE__*/
+  _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+    var _ref4, HomeAdvantages;
 
-    return function renderHomeAdvantages() {
-      return _ref3.apply(this, arguments);
-    };
-  }();
+    return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./HomeAdvantages */ "./views/site/pages/Home/HomeAdvantages.js"));
 
-  var renderAdvantages = Object(react__WEBPACK_IMPORTED_MODULE_3__["useCallback"])(renderHomeAdvantages, []);
+          case 2:
+            _ref4 = _context2.sent;
+            HomeAdvantages = _ref4.default;
+            setRenderAdv(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(HomeAdvantages, {
+              renderNext: renderRequestForm
+            }));
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  })), []);
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "homePageBox"
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_5__["default"], {
     title: "\u0418\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u044F",
     subTitle: "\u0441 \u0414\u0430\u0441\u0435\u0439 \u0421\u0443\u0440\u0438\u043A\u043E\u0432\u043E\u0439",
     headerBg: "/static/images/homeHeaderBg.jpg"
-  }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(HomeAbout, {
-    renderHomeAdvantages: renderAdvantages
+  }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(BlockAbout, {
+    renderNext: renderHomeAdvantages
   }), renderAdv || react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "LOADING ADVANTAGES"), renderForm || react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "LOADING REQUEST FORM"));
 };
 
@@ -11619,20 +11602,93 @@ var Home = function Home() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _elements_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elements/Header */ "./views/site/elements/Header.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next-server/dist/lib/dynamic.js");
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _elements_Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../elements/Header */ "./views/site/elements/Header.js");
 
 
+
+
+
+
+var TravelsList = next_dynamic__WEBPACK_IMPORTED_MODULE_4___default()({
+  loader: function loader() {
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../../elements/TravelsList */ "./views/site/elements/TravelsList.js"));
+  },
+  loading: function loading() {
+    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "LOADING TravelsList");
+  },
+  ssr: false,
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../../elements/TravelsList */ "./views/site/elements/TravelsList.js")];
+    },
+    modules: ['../../elements/TravelsList']
+  }
+});
+var BlockAbout = next_dynamic__WEBPACK_IMPORTED_MODULE_4___default()({
+  loader: function loader() {
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../../elements/BlockAbout */ "./views/site/elements/BlockAbout.js"));
+  },
+  loading: function loading() {
+    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "LOADING BlockAbout");
+  },
+  ssr: false,
+  loadableGenerated: {
+    webpack: function webpack() {
+      return [/*require.resolve*/(/*! ../../elements/BlockAbout */ "./views/site/elements/BlockAbout.js")];
+    },
+    modules: ['../../elements/BlockAbout']
+  }
+});
 
 var Travels = function Travels() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState, 2),
+      requestForm = _useState2[0],
+      setRequestForm = _useState2[1];
+
+  var renderRequestForm = Object(react__WEBPACK_IMPORTED_MODULE_3__["useCallback"])(
+  /*#__PURE__*/
+  Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  /*#__PURE__*/
+  _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var _ref2, RequestForm;
+
+    return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../../elements/RequestForm */ "./views/site/elements/RequestForm.js"));
+
+          case 2:
+            _ref2 = _context.sent;
+            RequestForm = _ref2.default;
+            setRequestForm(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(RequestForm, null));
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  })), []);
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "travelsBox"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_elements_Header__WEBPACK_IMPORTED_MODULE_5__["default"], {
     title: "\u0413\u0430\u043B\u0435\u0440\u0435\u044F \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0439",
     headerClass: "headerBox_travels",
     headerBg: "/static/images/travelsHeaderBg.jpg"
-  }));
+  }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(TravelsList, null), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(BlockAbout, {
+    renderNext: renderRequestForm
+  }), requestForm || react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "LOADING REQUEST FORM"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Travels);

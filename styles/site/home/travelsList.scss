@@ -1,0 +1,22 @@
+.travelsListBox {
+  background: $white;
+}
+
+.travelsList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 70px 0 0;
+}
+
+.travelsListTitle {
+  font-family: 'Lobster';
+  font-size: 65px;
+}
+
+.travelsListItem {
+  padding: 20px;
+  border: 1px solid #000;
+  width: 24%;
+  margin: 0 0 25px;
+}

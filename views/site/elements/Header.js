@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // import Nav from './Nav';
 import { Link } from '../../../routes';
 
 const Header = ({ title, subTitle, headerBg }) => {
-  console.log('header', headerBg);
-
-
+  console.log('header');
   return (
     <div className="headerBox">
-      <img className="headerBg" src={headerBg} alt="kek" />
+      <img className="headerBg" src={headerBg} alt="индивидуальный туроператор" />
       <div className="headerPositionBox">
         <div className="headerLogoNavBox">
           <div className="logoBox">

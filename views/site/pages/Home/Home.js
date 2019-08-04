@@ -2,8 +2,8 @@ import React, { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import Header from '../../elements/Header';
 
-const HomeAbout = dynamic({
-  loader: () => import('./HomeAbout'),
+const BlockAbout = dynamic({
+  loader: () => import('../../elements/BlockAbout'),
   loading: () => <p>LOADING ABOUT</p>,
   ssr: false,
 });
@@ -12,24 +12,20 @@ const Home = () => {
   const [renderAdv, setRenderAdv] = useState(false);
   const [renderForm, setRenderForm] = useState(false);
 
-  const renderRequestForm = async () => {
+  const renderRequestForm = useCallback(async () => {
     const { default: RequestForm } = await import('../../elements/RequestForm');
     setRenderForm(<RequestForm />);
-  };
+  }, []);
 
-  const renderRequest = useCallback(renderRequestForm, []);
-
-
-  const renderHomeAdvantages = async () => {
+  const renderHomeAdvantages = useCallback(async () => {
     const { default: HomeAdvantages } = await import('./HomeAdvantages');
-    setRenderAdv(<HomeAdvantages renderRequest={renderRequest} />);
-  };
-  const renderAdvantages = useCallback(renderHomeAdvantages, []);
+    setRenderAdv(<HomeAdvantages renderNext={renderRequestForm} />);
+  }, []);
 
   return (
     <div className="homePageBox">
       <Header title="Индивидуальные путешествия" subTitle="с Дасей Суриковой" headerBg="/static/images/homeHeaderBg.jpg" />
-      <HomeAbout renderHomeAdvantages={renderAdvantages} />
+      <BlockAbout renderNext={renderHomeAdvantages} />
       {renderAdv || <p>LOADING ADVANTAGES</p>}
       {renderForm || <p>LOADING REQUEST FORM</p>}
     </div>

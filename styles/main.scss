@@ -5,7 +5,7 @@
 @import './admin//login.scss';
 @import './site/header.scss';
 @import './site/requestForm.scss';
-@import './site/home.scss';
+@import './site/home/home.scss';
 
 * {
   padding: 0;
@@ -30,5 +30,19 @@ body{
 .globalBox {
   max-width: 1920px;
   width: 100%;
+  margin: 0 auto;
+}
+
+.contentMidWrapper {
+  max-width: 1555px;
+  width: 100%;
+  padding: 0 5%;
+  margin: 0 auto;
+}
+
+.contentWrapper {
+  max-width: 1755px;
+  width: 100%;
+  padding: 0 5%;
   margin: 0 auto;
 }
