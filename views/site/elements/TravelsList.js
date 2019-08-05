@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '../../../routes';
 
 const TravelsList = () => (
   <div className="travelsListBox">
@@ -6,25 +7,27 @@ const TravelsList = () => (
       <p className="travelsListTitle">Наши лучшие направления!</p>
       <div className="travelsList">
         <div className="travelsListItem">
-      Азербайджан - Баку
+          <Link route="travels" params={{ article: 'baku' }}>
+            <a>Азербайджан - Баку</a>
+          </Link>
         </div>
         <div className="travelsListItem">
-      Греция - Острова
+          Греция - Острова
         </div>
         <div className="travelsListItem">
-      Тбилиси - Грузия
+          Тбилиси - Грузия
         </div>
         <div className="travelsListItem">
-      Италия - Рим
+          Италия - Рим
         </div>
         <div className="travelsListItem">
-      Тенерифе
+          Тенерифе
         </div>
         <div className="travelsListItem">
-      Турция - Стамбул
+          Турция - Стамбул
         </div>
         <div className="travelsListItem">
-      Франция - Париж
+          Франция - Париж
         </div>
       </div>
     </div>

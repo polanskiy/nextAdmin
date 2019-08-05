@@ -13,7 +13,6 @@ const BlockAbout = dynamic({
   loading: () => <p>LOADING BlockAbout</p>,
   ssr: false,
 });
-
 const Travels = () => {
   const [requestForm, setRequestForm] = useState(false);
 

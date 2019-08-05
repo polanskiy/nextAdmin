@@ -6,6 +6,7 @@
 @import './site/header.scss';
 @import './site/requestForm.scss';
 @import './site/home/home.scss';
+@import './site//travels/travels.scss';
 
 * {
   padding: 0;
@@ -45,4 +46,9 @@ body{
   width: 100%;
   padding: 0 5%;
   margin: 0 auto;
+}
+
+.whiteBg {
+  background: $white;
+  padding: 0 0 178px;
 }

@@ -2,7 +2,9 @@ import React from 'react';
 // import Nav from './Nav';
 import { Link } from '../../../routes';
 
-const Header = ({ title, subTitle, headerBg }) => {
+const Header = ({
+  title, subTitle, headerBg, noSearch,
+}) => {
   console.log('header');
   return (
     <div className="headerBox">
@@ -36,7 +38,7 @@ const Header = ({ title, subTitle, headerBg }) => {
             <br />
             <span>{subTitle}</span>
           </h1>
-          <div className="customFormBox">подобрать</div>
+          {!noSearch && <div className="customFormBox">подобрать</div>}
           <div className="downArr">
             <img src="/static/images/icons/downArr.svg" alt="down arrow" />
           </div>

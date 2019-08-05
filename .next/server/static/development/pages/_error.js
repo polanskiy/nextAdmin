@@ -121,7 +121,7 @@ var Error = function Error() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Marius\Desktop\nextAdmin\pages\_error.js */"./pages/_error.js");
+module.exports = __webpack_require__(/*! D:\desktop\my\nextAdmin\pages\_error.js */"./pages/_error.js");
 
 
 /***/ }),

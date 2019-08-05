@@ -3,7 +3,7 @@ import React from 'react';
 const BlockAbout = ({ renderNext }) => {
   console.log('about');
   return (
-    <div className="homeAboutBox">
+    <div className="whiteBg">
       <div className="contentMidWrapper">
         <div className="homeAboutContentBox">
           <div className="homeAboutTextBox">

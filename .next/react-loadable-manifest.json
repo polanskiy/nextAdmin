@@ -11,22 +11,14 @@
     {
       "id": "./views/site/elements/RequestForm.js",
       "name": "./views/site/elements/RequestForm.js",
-      "file": "static/chunks/4.js",
-      "publicPath": "static/chunks/4.js"
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
     }
   ],
   "../../elements/TravelsList": [
     {
       "id": "./views/site/elements/TravelsList.js",
       "name": "./views/site/elements/TravelsList.js",
-      "file": "static/chunks/2.js",
-      "publicPath": "static/chunks/2.js"
-    }
-  ],
-  "./HomeAdvantages": [
-    {
-      "id": "./views/site/pages/Home/HomeAdvantages.js",
-      "name": "./views/site/pages/Home/HomeAdvantages.js",
       "file": "static/chunks/3.js",
       "publicPath": "static/chunks/3.js"
     }
