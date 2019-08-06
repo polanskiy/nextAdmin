@@ -11,16 +11,16 @@
     {
       "id": "./views/site/elements/RequestForm.js",
       "name": "./views/site/elements/RequestForm.js",
-      "file": "static/chunks/4.js",
-      "publicPath": "static/chunks/4.js"
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
     }
   ],
   "../../elements/TravelsList": [
     {
       "id": "./views/site/elements/TravelsList.js",
       "name": "./views/site/elements/TravelsList.js",
-      "file": "static/chunks/2.js",
-      "publicPath": "static/chunks/2.js"
+      "file": "static/chunks/4.js",
+      "publicPath": "static/chunks/4.js"
     }
   ],
   "./HomeAdvantages": [

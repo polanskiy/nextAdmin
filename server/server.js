@@ -36,6 +36,12 @@ app.prepare()
       app.render(req, res, actualPage);
     });
 
+    server.get('/travels', (req, res) => {
+      console.log('asd');
+      const actualPage = '/travels';
+      app.render(req, res, actualPage);
+    });
+
     // GET
     server.get('/api/auth', auth, (req, res) => {
       res.json({

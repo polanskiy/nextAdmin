@@ -20,6 +20,10 @@
     "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/travels": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }

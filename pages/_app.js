@@ -1,5 +1,6 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import Nav from '../views/site/elements/Nav';
 import '../styles/main.scss';
 
 class MyApp extends App {
@@ -12,18 +13,18 @@ class MyApp extends App {
 
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    return { pageProps, pathname: ctx.pathname };
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, pathname } = this.props;
     return (
       <Container>
+        {pathname !== '/admin' && <Nav />}
         <Component {...pageProps} />
       </Container>
     );
