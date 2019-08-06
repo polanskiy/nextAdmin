@@ -2,17 +2,23 @@
 @import './fonts.scss';
 @import './admin/header.scss';
 @import './admin/content.scss';
-@import './admin//login.scss';
+@import './admin/login.scss';
+@import './admin/articles.scss';
 @import './site/header.scss';
 @import './site/requestForm.scss';
 @import './site/home/home.scss';
 @import './site//travels/travels.scss';
+@import './tabs.scss';
 
 * {
   padding: 0;
   margin: 0;
   list-style-type: none;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
 }
 
 body{
@@ -23,6 +29,7 @@ body{
 }
 
 #__next {
+  height: 100%;
   display: flex;
   flex-direction: column;
   background: #E7EBF0;
