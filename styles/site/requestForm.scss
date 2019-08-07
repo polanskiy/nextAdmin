@@ -16,10 +16,10 @@
 .requestForm {
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
+  max-width: 900px;
   width: 100%;
   padding: 0 5%;
-  margin: 140px auto 0;
+  margin: 70px auto 0;
   button {
     margin: 0 auto!important;
   }
@@ -30,7 +30,7 @@
   flex-direction: column;
   margin: 0 0 50px;
   span {
-    font-size: 25px;
+    font-size: 16px;
     color: $white;
     margin: 0 0 15px;
   }
@@ -53,7 +53,7 @@
 .footerBox {
   text-align: center;
   color: $white;
-  font-size: 25px;
-  margin: 175px 0 75px;
-  opacity: .3;
+  font-size: 16px;
+  margin: 135px 0 75px;
+  opacity: .7;
 }

@@ -8,6 +8,8 @@ const { Article } = require('./models/article');
 const { Page } = require('./models/page');
 const { User } = require('./models/user');
 const { auth } = require('./middleware/auth');
+const { imagesPath } = require('./config/paths');
+const imagesRoute = require('./upload');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -22,6 +24,11 @@ app.prepare()
     const server = express();
     server.use(bodyParser.json());
     server.use(cookieParser());
+
+    // FILES ROUTES
+    server.use('/images', express.static(imagesPath));
+
+    server.use('/api/images', imagesRoute);
 
     server.post('/api/login', (req, res) => res.json({
       isAuth: true,

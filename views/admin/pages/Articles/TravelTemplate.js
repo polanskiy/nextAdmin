@@ -1,20 +1,33 @@
-import React from 'react';
-import Editor from '../../elements/Editor/Editor';
+import React, { useState } from 'react';
 import Tiny from '../../elements/Editor/Tiny';
-// import MyEditor from '../../elements/Editor/MyEditor';
+import Uploader from '../../elements/Uploader/Uploader';
 
 const TravelTemplate = () => {
+  const [titleData, setTitleData] = useState('');
+  const [descrData, setDescrData] = useState('');
+
   const title = 'travelTemplateTitle';
   const descr = 'travelTemplateDescr';
   return (
     <div className="travelTemplateBox">
-      {/* <Editor /> */}
-      {/* <MyEditor /> */}
-      <div className={title}><Tiny className={title} /></div>
-      <div className={descr}><Tiny className={descr} /></div>
-      <input type="text" placeholder="Подзаголовок" />
-      <input type="file" placeholder="Картинка шапки" />
-      <textarea name="" id="" cols="30" rows="10" placeholder="Текст описания" />
+      <Tiny
+        selector={title}
+        title="Заголовок путешествия"
+        font="Lobster"
+        data={titleData}
+        setData={setTitleData}
+        size="60px"
+      />
+      <Tiny
+        selector={descr}
+        title="Описание путешествия"
+        data={descrData}
+        setData={setDescrData}
+      />
+      <div>
+        <p>Бэкграунд шапки:</p>
+        <Uploader />
+      </div>
     </div>
   );
 };

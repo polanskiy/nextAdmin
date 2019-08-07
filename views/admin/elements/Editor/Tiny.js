@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
-const Tiny = ({ className }) => {
-  const [text, setText] = useState();
-
-  const handleText = (e) => {
-    const value = e.target.getContent();
-    setText(value);
-  };
-  console.log('text', text);
-  return (
-    <React.Fragment>
+const Tiny = ({
+  selector, font, title, data, setData, size,
+}) => (
+  <div>
+    <p className="adminEditorTitle">
+      {title}
+        :
+    </p>
+    <div className={`${selector}`}>
       <Editor
-        initialValue={text}
+        initialValue={data}
         init={{
           menubar: false,
-          selector: `.${className}`,
+          selector: `.${selector}`,
           content_css: '/_next/static/css/styles.chunk.css',
           // inline: true,
           images_upload_base_path: './',
@@ -41,17 +40,17 @@ const Tiny = ({ className }) => {
           powerpaste_html_import: 'clean',
           font_formats: 'Roboto;Lobster;',
           setup(ed) {
-            ed.on('init', function () {
-              this.execCommand('fontName', false, 'Pacifico');
-              this.execCommand('fontSize', false, '22px');
+            ed.on('init', function kek() {
+              this.execCommand('fontName', false, font || 'Roboto');
+              this.execCommand('fontSize', false, size || '16px');
             });
           },
         }}
-        onChange={handleText}
+        onChange={e => setData(e.target.getContent())}
       />
-      <textarea rows="20" cols="10" value={text} />
-    </React.Fragment>
-  );
-};
+    </div>
+  </div>
+
+);
 
 export default Tiny;
