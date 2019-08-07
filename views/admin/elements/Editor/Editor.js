@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
@@ -25,13 +25,30 @@ class EditorComponent extends Component {
      });
    }
 
+   handleImage = (e) => {
+  console.log('eee', e)
+   }
+
    render() {
      const { editorState } = this.state;
+
      return (
        <div>
          <Editor
            editorState={editorState}
            onEditorStateChange={this.handleEditor}
+           toolbar={{
+            image: {
+              className: undefined,
+              component: undefined,
+              popupClassName: undefined,
+              urlEnabled: true,
+              uploadEnabled: true,
+              alignmentEnabled: true,
+              uploadCallback: this.handleImage,
+              previewImage: false,
+            },
+           }}
            localization={{
              locale: 'ru',
            }}

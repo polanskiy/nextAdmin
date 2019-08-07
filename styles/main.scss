@@ -10,6 +10,14 @@
 @import './site//travels/travels.scss';
 @import './tabs.scss';
 
+.tox-notifications-container {
+  display: none!important;
+}
+
+.tox-statusbar__branding {
+  display: none!important;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -29,7 +37,7 @@ body{
 }
 
 #__next {
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
   background: #E7EBF0;
