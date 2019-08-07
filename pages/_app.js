@@ -3,6 +3,7 @@ import App, { Container } from 'next/app';
 import Nav from '../views/site/elements/Nav';
 import '../styles/main.scss';
 
+
 class MyApp extends App {
   constructor(props) {
     super(props);
