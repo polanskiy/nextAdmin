@@ -1,4 +1,4 @@
-.HomeAdvantagesBox {
+.homeAdvantagesBox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,14 +8,6 @@
 .colorBox {
   background: linear-gradient(#662D8C, #ED1E79);
   padding: 60px 140px 90px;
-}
-
-.advantagesTitle {
-  font-family: 'Lobster';
-  font-size: 45px;
-  color: $white;
-  text-align: center;
-  letter-spacing: 3px;
 }
 
 .advantagesSubTitle {

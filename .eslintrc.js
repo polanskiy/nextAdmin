@@ -12,7 +12,10 @@ module.exports = {
     },
     "globals": {
         "window": true,
-        "Image": true
+        "Image": true,
+        "browser": true,
+        "node": true,
+        "FormData": true
     },
     "parserOptions": {
         "allowImportExportEverywhere": true

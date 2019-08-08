@@ -50,7 +50,6 @@ const Uploader = () => {
         style={{ display: 'none' }}
         type="file"
         id="files"
-        name="image"
         onChange={e => uploadVideo(e)}
         accept="image/*"
       />

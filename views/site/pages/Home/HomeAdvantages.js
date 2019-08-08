@@ -4,12 +4,12 @@ const HomeAdvantages = ({ renderNext }) => {
   const bg = new Image();
   bg.src = '/static/images/homeAdvantagesBg.jpg';
   bg.onload = renderNext;
-  console.log('advantages');
+
   return (
-    <div className="HomeAdvantagesBox" style={bg && { background: `url(${bg.src})` }}>
+    <div className="homeAdvantagesBox" style={bg && { background: `url(${bg.src})` }}>
       <div className="contentMidWrapper">
         <div className="colorBox">
-          <p className="advantagesTitle">
+          <p className="title">
           Почему
             <br />
           индивидуальные туры?
