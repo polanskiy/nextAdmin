@@ -47,9 +47,9 @@ const Tabs = ({
   return (
     <div className={tabsBoxClass}>
       <div className={tabHeaderBoxClass}>
-        {renderTabs(children)}
+        {children && renderTabs(children)}
       </div>
-      {renderContent(children)}
+      {children && renderContent(children)}
     </div>
   );
 };

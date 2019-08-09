@@ -5,15 +5,10 @@ const pageSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  title: {
-    type: String,
-  },
-  description: {
-    type: String,
-  },
-  slider: {
-    type: mongoose.ObjectId,
-  },
+  elements: [{
+    name: String,
+    value: String,
+  }],
 }, { timestamps: true });
 
 const Page = mongoose.model('Page', pageSchema);

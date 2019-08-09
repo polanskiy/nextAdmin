@@ -1,7 +1,7 @@
 import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
-const Tiny = ({
+const TextEditor = ({
   selector, font, title, data, setData, size,
 }) => (
   <div>
@@ -46,11 +46,11 @@ const Tiny = ({
             });
           },
         }}
-        onChange={e => setData(e.target.getContent())}
+        onBlur={e => setData(e.target.getContent())}
       />
     </div>
   </div>
 
 );
 
-export default Tiny;
+export default TextEditor;

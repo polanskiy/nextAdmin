@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Tiny from '../../elements/Editor/Tiny';
+import Tiny from '../../elements/Editor/TextEditor';
 import Uploader from '../../elements/Uploader/Uploader';
 
 const TravelTemplate = () => {

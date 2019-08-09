@@ -3,7 +3,7 @@ const { Page } = require('../models/page');
 
 const router = express.Router();
 
-router.get('/api/pages', (req, res) => {
+router.get('/', (req, res) => {
   console.log('wow');
   Page.find().exec((err, doc) => {
     if (err) return res.status(400).send(err);
@@ -11,7 +11,7 @@ router.get('/api/pages', (req, res) => {
   });
 });
 
-router.post('/api/page', (req, res) => {
+router.post('/', (req, res) => {
   const page = new Page(req.body);
   page.save((err, doc) => {
     if (err) return res.status(400).send(err);
@@ -22,7 +22,17 @@ router.post('/api/page', (req, res) => {
   });
 });
 
-router.delete('/api/pages', (req, res) => {
+router.patch('/', (req, res) => {
+  Page.findByIdAndUpdate(req.body.id, req.body, { new: true }, (err, doc) => {
+    if (err) return res.status(400).send(err);
+    res.json({
+      success: true,
+      doc,
+    });
+  });
+});
+
+router.delete('/', (req, res) => {
   const { id } = req.query;
   Page.findByIdAndDelete(id, (err) => {
     if (err) return res.status(400).send(err);
