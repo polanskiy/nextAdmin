@@ -29,11 +29,11 @@ const Pagers = () => {
     };
   }, []);
 
-  const updatePage = (name, value, id) => {
+  const updatePage = (id, value) => {
     axios({
       method: 'patch',
       url: '/api/pages',
-      data: { id },
+      data: { id, value },
     });
   };
 

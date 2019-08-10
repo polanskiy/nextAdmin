@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.patch('/1', (req, res) => {
+router.patch('/', (req, res) => {
   Page.updateOne({ 'elements._id': req.body.id }, { $set: { 'elements.$.value': req.body.value } }, (err, doc) => {
     if (err) return res.status(400).send(err);
     console.log('doc', doc);

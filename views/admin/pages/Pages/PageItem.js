@@ -9,11 +9,9 @@ const PageItem = ({ page, updatePage }) => {
           <TextEditor
             key={item.name}
             selector={`${page.name}TitleEditor`}
-            title="Заголовок путешествия"
-            font="Lobster"
+            title="Заголовок"
             data={item.value}
-            setData={value => updatePage('title', value, page._id)}
-            size="60px"
+            setData={value => updatePage(item._id, value)}
           />
         );
 

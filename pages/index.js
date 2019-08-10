@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Layout from '../views/site/hoc/Layout';
 import Home from '../views/site/pages/Home/Home';
 import About from '../views/site/pages/About/About';
@@ -34,6 +35,29 @@ const Main = ({ page }) => {
 
 Main.getInitialProps = async ({ query }) => {
   const { page } = query;
+  // switch (page) {
+  //   case 'about':
+  //     console.log('hahaha1');
+  //     break;
+  //   case 'contacts':
+  //     console.log('hahaha2');
+  //     break;
+  //   case 'blog':
+  //     console.log('hahaha3');
+  //     break;
+  //   case 'faq':
+  //     console.log('hahaha4');
+  //     break;
+  //   case 'event':
+  //     console.log('hahaha5');
+  //     break;
+  //   default:
+  //     elements = await axios({
+  //       method: 'get',
+  //       url: '/api/pages/',
+  //     });
+  //     console.log('hahaha6', elements);
+  // }
   return { page };
 };
 
