@@ -15,6 +15,7 @@ const handle = routes.getRequestHandler(app);
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/site', { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 
 app.prepare()
   .then(() => {

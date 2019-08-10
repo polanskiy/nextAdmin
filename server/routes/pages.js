@@ -22,12 +22,12 @@ router.post('/', (req, res) => {
   });
 });
 
-router.patch('/', (req, res) => {
-  Page.findByIdAndUpdate(req.body.id, req.body, { new: true }, (err, doc) => {
+router.patch('/1', (req, res) => {
+  Page.updateOne({ 'elements._id': req.body.id }, { $set: { 'elements.$.value': req.body.value } }, (err, doc) => {
     if (err) return res.status(400).send(err);
-    res.json({
-      success: true,
-      doc,
+    console.log('doc', doc);
+    return res.status(200).json({
+      update: true,
     });
   });
 });
