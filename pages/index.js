@@ -33,8 +33,21 @@ const Main = ({ page }) => {
   );
 };
 
-Main.getInitialProps = async ({ query }) => {
+Main.getInitialProps = async ({ query, req }) => {
   const { page } = query;
+  let elements = [];
+  console.log('req', req);
+  if (req) {
+    elements = await axios({
+      method: 'get',
+      url: '/api/pages/',
+    });
+  } else {
+    elements = await axios({
+      method: 'get',
+      url: '/api/pages/',
+    });
+  }
   // switch (page) {
   //   case 'about':
   //     console.log('hahaha1');
@@ -58,6 +71,7 @@ Main.getInitialProps = async ({ query }) => {
   //     });
   //     console.log('hahaha6', elements);
   // }
+  console.log('elements', elements);
   return { page };
 };
 
