@@ -12,7 +12,6 @@ const Login = () => {
       method: 'post',
       url: '/api/login',
     });
-    console.log('res', res);
     if (res.data.isAuth) {
       if (window) {
         window.localStorage.setItem('token', '123');

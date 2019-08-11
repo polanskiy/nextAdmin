@@ -14,8 +14,8 @@ const Uploader = () => {
       url: '/api/images',
       data: formData,
     })
-      .then((res) => {
-        console.log('res', res);
+      .then(() => {
+        console.log('res');
       });
     e.target.value = null;
   };

@@ -32,10 +32,10 @@ app.prepare()
     });
 
     server.get('/travels', (req, res) => {
+      console.log('travelsssssssssssssssssssss');
       const actualPage = '/travels';
       app.render(req, res, actualPage);
     });
-
 
     server.use('/api', apiRouter);
 
@@ -47,6 +47,6 @@ app.prepare()
     });
   })
   .catch((ex) => {
-    console.error(ex.stack);
+    console.error('123');
     process.exit(1);
   });

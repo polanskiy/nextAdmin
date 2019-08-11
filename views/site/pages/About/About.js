@@ -9,7 +9,7 @@ const BlockAbout = dynamic({
 });
 
 
-const About = () => {
+const About = ({ pages }) => {
   const [colorBox, setColorBox] = useState(false);
   const [sliderBox, setSliderBox] = useState(false);
 
@@ -24,10 +24,10 @@ const About = () => {
     setColorBox(<AboutColorBox renderNext={renderSlider} />);
   }, []);
 
-
+  console.log('pages, ', pages);
   return (
     <div>
-      <Header title="Персональный туропратор" subTitle="Дася Сурикова" headerBg="/static/images/aboutHeaderBg.jpg" noSearch />
+      <Header title={pages[0].value} subTitle="Дася Сурикова" headerBg="/static/images/aboutHeaderBg.jpg" noSearch />
       <BlockAbout renderNext={renderColorBox} />
       {colorBox || <p>LOADING COLOR BOX</p>}
       {sliderBox || <p>LOADING SLIDER BOX</p>}

@@ -77,7 +77,7 @@ userSchema.methods.deleteToken = function (token, cb) {
   user.updateOne({
     $unset: { token: 1 },
   }, (err, userr) => {
-    console.log('userr', userr);
+    console.log('userr');
     if (err) return cb(err);
     return cb(null, userr);
   });

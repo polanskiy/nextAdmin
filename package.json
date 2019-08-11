@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server",
-    "dev": "nodemon server/server"
+    "dev": "nodemon server/server",
+    "build": "next build",
+    "prod": "cross-env NODE_ENV=production node server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +39,7 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "cross-env": "^5.2.0"
   }
 }
