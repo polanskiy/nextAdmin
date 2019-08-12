@@ -4,7 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 const TextEditor = ({
   selector, font, title, data, setData, size,
 }) => (
-  <div>
+  <React.Fragment>
     <p className="adminEditorTitle">
       {title}
         :
@@ -12,8 +12,14 @@ const TextEditor = ({
     <div className={`${selector}`}>
       <Editor
         initialValue={data}
+        apiKey="ferbxo2i5dzep5bkr3ijc3ex5a5fffycvhnqmvsmqd9f66z5"
         init={{
           menubar: false,
+          branding: false,
+          resize: false,
+          max_width: 800,
+          width: 800,
+          height: 300,
           selector: `.${selector}`,
           content_css: '/_next/static/css/styles.chunk.css',
           // inline: true,
@@ -35,7 +41,7 @@ const TextEditor = ({
           valid_styles: {
             '*': 'font-size,font-family,color,text-decoration,text-align',
           },
-          fontsize_formats: '11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 32px 34px 36px 38px 40px 48px 56px 72px 78px 80px 96px 120px 160px 190px',
+          fontsize_formats: '11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 32px 34px 36px 38px 40px 45px 56px 60px 72px 78px 80px',
           powerpaste_word_import: 'clean',
           powerpaste_html_import: 'clean',
           font_formats: 'Roboto;Lobster;',
@@ -49,7 +55,7 @@ const TextEditor = ({
         onBlur={e => setData(e.target.getContent())}
       />
     </div>
-  </div>
+  </React.Fragment>
 
 );
 

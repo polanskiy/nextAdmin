@@ -1,7 +1,10 @@
 import React from 'react';
+import Blog from '../views/site/pages/Blog/Blog';
 
-const Blog = () => (
-  <div>блог путешественника</div>
+const BlogPage = () => (
+  <div>
+    <Blog />
+  </div>
 );
 
-export default Blog;
+export default BlogPage;

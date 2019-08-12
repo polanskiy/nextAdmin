@@ -5,10 +5,16 @@ const pageSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  elements: [{
-    name: String,
-    value: String,
-  }],
+  title: {
+    type: String,
+  },
+  about: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  images: { type: Object },
 }, { timestamps: true });
 
 const Page = mongoose.model('Page', pageSchema);

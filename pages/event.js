@@ -1,7 +1,8 @@
 import React from 'react';
+import Event from '../views/site/pages/Event/Event';
 
-const Event = () => (
-  <div>Event</div>
+const EventPage = () => (
+  <div><Event /></div>
 );
 
-export default Event;
+export default EventPage;

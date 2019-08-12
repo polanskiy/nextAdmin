@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../../elements/Header';
 import TravelAbout from './TravelAbout';
+import Slider from '../../elements/Slider';
+import RequestForm from '../../elements/RequestForm';
 
 const TravelItem = () => (
   <div className="travelItemBox">
@@ -22,6 +24,8 @@ const TravelItem = () => (
       </div>
     </div>
     <TravelAbout />
+    <Slider />
+    <RequestForm />
   </div>
 );
 

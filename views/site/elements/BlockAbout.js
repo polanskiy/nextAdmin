@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlockAbout = ({ renderNext }) => {
+const BlockAbout = () => {
   console.log('about');
   return (
     <div className="whiteBg">
@@ -22,7 +22,7 @@ const BlockAbout = ({ renderNext }) => {
             <button type="button" className="btn">Узнать больше</button>
           </div>
           <div className="homeAboutImgBox">
-            <img src="/static/images/dasya.png" alt="дася сурикова туроператор" onLoad={renderNext} />
+            <img src="/static/images/dasya.png" alt="дася сурикова туроператор" />
           </div>
         </div>
       </div>

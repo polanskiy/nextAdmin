@@ -1,7 +1,10 @@
 import React from 'react';
+import FAQ from '../views/site/pages/FAQ/FAQ';
 
-const FAQ = () => (
-  <div>Вопрос-ответ</div>
+const FAQPage = () => (
+  <div>
+    <FAQ />
+  </div>
 );
 
-export default FAQ;
+export default FAQPage;

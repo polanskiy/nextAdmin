@@ -4,9 +4,9 @@ import Layout from '../views/site/hoc/Layout';
 import About from '../views/site/pages/About/About';
 
 
-const AboutPage = ({ pages }) => (
+const AboutPage = () => (
   <Layout>
-    <About pages={pages[0].elements} />
+    <About />
   </Layout>
 );
 
@@ -14,9 +14,9 @@ AboutPage.getInitialProps = async (ctx) => {
   console.log('req');
   const axioscfg = ctx.req ? { baseURL: 'http://localhost:3000' } : {};
   const res = await axios.get('/api/pages', axioscfg);
-  console.log(res.data);
+  console.log(res);
 
-  return { pages: res.data };
+  return {};
 };
 
 

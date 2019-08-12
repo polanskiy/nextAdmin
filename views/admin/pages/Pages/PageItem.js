@@ -2,16 +2,16 @@ import React from 'react';
 import TextEditor from '../../elements/Editor/TextEditor';
 
 const PageItem = ({ page, updatePage }) => {
-  const renderElements = () => page.elements.map((item) => {
-    switch (item.name) {
+  const renderElements = () => Object.keys(page).map((item) => {
+    switch (item) {
       case 'title':
         return (
           <TextEditor
-            key={item.name}
+            key={item}
             selector={`${page.name}TitleEditor`}
             title="Заголовок"
-            data={item.value}
-            setData={value => updatePage(item._id, value)}
+            data={page[item]}
+            setData={value => updatePage({ id: page._id, [item]: value })}
           />
         );
 

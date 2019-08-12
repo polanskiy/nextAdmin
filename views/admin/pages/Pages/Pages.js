@@ -29,11 +29,11 @@ const Pagers = () => {
     };
   }, []);
 
-  const updatePage = (id, value) => {
+  const updatePage = (newPage) => {
     axios({
       method: 'patch',
       url: '/api/pages',
-      data: { id, value },
+      data: newPage,
     });
   };
 
@@ -48,15 +48,14 @@ const Pagers = () => {
   ));
 
   return (
-    <div>
-      <div>Странички</div>
+    <React.Fragment>
       <Tabs>
         {
         pageList.data.length
           ? renderPages() : <div>страниц нет</div>
         }
       </Tabs>
-    </div>
+    </React.Fragment>
 
   );
 };
