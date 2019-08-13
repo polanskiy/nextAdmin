@@ -59,7 +59,7 @@ router.delete('/', async (req, res) => {
   if (!filename || filename === '') res.json({ success: false, message: 'No filename' });
   try {
     fs.unlinkSync(path.join(imagesPath, filename));
-    fs.unlinkSync(path.join(`${imagesPath}/thumbs`, `thumb-${filename}`));
+    fs.unlinkSync(path.join(`${imagesPath}/thumbs`, `thumb-${filename.replace('png', 'jpg')}`));
     res.json({ success: true });
   } catch (e) {
     res.json({ success: false, message: e });

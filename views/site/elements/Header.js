@@ -2,7 +2,13 @@ import React from 'react';
 import xss from 'xss';
 import { Link } from '../../../routes';
 
-
+const options = {
+  whiteList: {
+    p: ['style'],
+    span: ['style'],
+    br: ['style'],
+  },
+};
 const Header = ({ title = 'заголовок отсутствует', headerBg, noSearch }) => (
   <div className="headerBox">
     <img className="headerBg" src={headerBg} alt="индивидуальный туроператор" />
@@ -30,9 +36,7 @@ const Header = ({ title = 'заголовок отсутствует', headerBg,
         {/* <Nav /> */}
       </div>
       <div className="headerContentBox">
-        <h1 className="headerTitle">
-          <div dangerouslySetInnerHTML={{ __html: xss(title) }} />
-        </h1>
+        <div dangerouslySetInnerHTML={{ __html: xss(title, options) }} />
         {!noSearch && <div className="customFormBox">подобрать</div>}
         <div className="downArr">
           <img src="/static/images/icons/downArr.svg" alt="down arrow" />

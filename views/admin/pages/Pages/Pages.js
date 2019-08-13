@@ -29,8 +29,9 @@ const Pagers = () => {
     };
   }, []);
 
-  const updatePage = (newPage) => {
-    axios({
+  const updatePage = async (newPage) => {
+    console.log('newPage', newPage);
+    await axios({
       method: 'patch',
       url: '/api/pages',
       data: newPage,
@@ -42,6 +43,7 @@ const Pagers = () => {
       role="presentation"
       key={item.name}
       name={item.name}
+      style={{ width: '100%' }}
     >
       <PageItem page={item} data-id={item._id} updatePage={updatePage} />
     </div>

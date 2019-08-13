@@ -8,7 +8,9 @@ const AdminLayout = ({ children }) => (
     <Header />
     <div className="adminContentBox">
       <SideNav />
-      {children}
+      <div className="adminContent">
+        {children}
+      </div>
     </div>
   </React.Fragment>
 );

@@ -1,9 +1,6 @@
 @import './colors.scss';
 @import './fonts.scss';
-@import './admin/header.scss';
-@import './admin/content.scss';
-@import './admin/login.scss';
-@import './admin/articles.scss';
+@import './admin/admin.scss';
 @import './site/header.scss';
 @import './site/requestForm.scss';
 @import './site/home/home.scss';
@@ -80,4 +77,25 @@ body{
   top: 0;
   width: 100%;
   height: 100%;
+}
+
+.sliderItem {
+  background: green;
+  color: $white;
+  margin: 10px;
+}
+
+.slick-track {
+  display: flex;
+  margin: 0 -10px;
+
+}
+
+.slick-slide {
+  margin: 0 10px;
+}
+
+.mce-content-body {
+  padding: 10px;
+  background: #ccc;
 }

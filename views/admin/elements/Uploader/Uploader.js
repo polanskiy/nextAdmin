@@ -1,21 +1,20 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 
-const Uploader = () => {
+const Uploader = ({ updateImage }) => {
   const uploadVideo = (e) => {
     const file = e.target.files;
     const formData = new FormData();
     for (let i = 0; i < file.length; i += 1) {
       formData.append('image', file[i]);
     }
-    console.log('formData', formData);
     axios({
       method: 'post',
       url: '/api/images',
       data: formData,
     })
-      .then(() => {
-        console.log('res');
+      .then((res) => {
+        updateImage(res.data.images.filename);
       });
     e.target.value = null;
   };
@@ -26,27 +25,24 @@ const Uploader = () => {
     Input.current.click();
   };
 
-  const fetchImages = () => {
-    axios({
-      method: 'get',
-      url: 'http://localhost:3000/api/images',
-    })
-      .then((res) => {
-        console.log('reees', res);
-      });
-  };
+  // const fetchImages = () => {
+  //   axios({
+  //     method: 'get',
+  //     url: 'http://localhost:3000/api/images',
+  //   })
+  //     .then((res) => {
+  //       console.log('reees', res);
+  //     });
+  // };
 
   return (
     <form style={{ marginBottom: 10 }}>
       <button type="button" onClick={onClick}>
-        <span>Добавить</span>
-      </button>
-      <button type="button" onClick={fetchImages}>
-        <span>взять</span>
+        <span>Загрузить</span>
       </button>
       <input
         ref={Input}
-        multiple
+        // multiple
         style={{ display: 'none' }}
         type="file"
         id="files"
