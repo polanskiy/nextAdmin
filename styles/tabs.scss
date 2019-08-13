@@ -54,3 +54,57 @@
   background: #9369BF;
   color:#fff;
 }
+
+.travelTabsBox {
+  display: flex;
+}
+
+.travelTabsHeader {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+}
+
+.travelTabsBox .activeTab {
+  background: #F60B50;
+  color:#fff;
+  transition: .2s;
+}
+
+.travelTab {
+  position: relative;
+  cursor: pointer;
+  padding: 20px 20px 20px 40px;
+  transition: .2s;
+  margin: 0 0 1px;
+  background: $white;
+  color: #393939;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.travelTab:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 25%;
+  transform: translateX(100%);
+  border: 15px solid transparent;
+  border-left: 15px solid transparent;
+  transition: .2s;
+}
+
+.travelTab.activeTab:after {
+  border-left: 15px solid #F60B50;
+  transition: .2s;
+}
+
+.travelTabContent {
+  color: $white;
+  font-size: 16px;
+  padding: 0 0 0 10%;
+  max-height: 450px;
+  overflow-y: scroll;
+  width: 100%;
+}
