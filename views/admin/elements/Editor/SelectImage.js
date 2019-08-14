@@ -20,16 +20,16 @@ const SelectImage = ({ page, image, updatePage }) => {
     }
   };
   return (
-    <div>
+    <div className="adminPageElement">
       <p>
         {image}
       :
       </p>
-      <div>
+      <div className="adminBtnsBox">
         <Uploader updateImage={updateImage} />
-        {nowImage && <button type="button" onClick={() => updateImage(null)}>Удалить</button>}
+        {nowImage && <button type="button" className="adminBtn adminDelBtn" onClick={() => updateImage(null)}>Удалить</button>}
       </div>
-      <div className="editorImageBox">
+      <div className={nowImage ? 'editorImageBox' : 'editorImageBox borderDashed'}>
         {nowImage ? <img src={nowImage} alt="" />
           : <p>изображения нет</p>}
       </div>

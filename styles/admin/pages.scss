@@ -1,7 +1,22 @@
 .editorImageBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 400px;
   width: 100%;
+  min-height: 200px;
   img {
     max-width: 100%;
   }
 }
+.borderDashed {
+  border: 1px dashed #000;
+}
+
+.adminPageElement {
+  max-width: 840px;
+  padding: 20px;
+  margin: 0 0 20px;
+  background: $white;
+}
+

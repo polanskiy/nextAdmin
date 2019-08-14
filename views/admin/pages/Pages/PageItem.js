@@ -9,13 +9,15 @@ const PageItem = ({ page, updatePage }) => {
       case 'title':
       case 'description':
         return (
-          <TextEditor
-            key={item}
-            selector={`${page.name}${item}TitleEditor`}
-            title={item}
-            data={page[item]}
-            setData={value => updatePage({ id: page._id, [item]: value })}
-          />
+          <div className="adminPageElement">
+            <TextEditor
+              key={item}
+              selector={`${page.name}${item}TitleEditor`}
+              title={item}
+              data={page[item]}
+              setData={value => updatePage({ id: page._id, [item]: value })}
+            />
+          </div>
         );
       case 'images':
         return Object.keys(page[item]).map(image => <SelectImage key={image} page={page} image={image} updatePage={updatePage} />);

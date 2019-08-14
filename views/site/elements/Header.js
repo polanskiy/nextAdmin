@@ -37,7 +37,28 @@ const Header = ({ title = 'заголовок отсутствует', headerBg,
       </div>
       <div className="headerContentBox">
         <div dangerouslySetInnerHTML={{ __html: xss(title, options) }} />
-        {!noSearch && <div className="customFormBox">подобрать</div>}
+        {!noSearch
+       && (
+       <div className="contentWrapper">
+         <div className="customFormBox">
+           <label htmlFor="way" className="way">
+             <input className="customFormItem" placeholder="Направление" />
+           </label>
+           <label htmlFor="rest" className="rest">
+             <input className="customFormItem" placeholder="Тип отдыха" />
+           </label>
+           <label htmlFor="budget" className="budget">
+             <input className="customFormItem" placeholder="Бюджет" />
+           </label>
+           <div className="customFormItem customFormSearchItem">
+             <div className="customFormItemBtn"><img src="/static/images/icons/plus.svg" alt="" /></div>
+             <div className="customFormItemBtn"><img src="/static/images/icons/search.svg" alt="" /></div>
+             <div className="customFormItemBtn customSearchBtn">подобрать</div>
+           </div>
+         </div>
+       </div>
+       )
+        }
         <div className="downArr">
           <img src="/static/images/icons/downArr.svg" alt="down arrow" />
         </div>

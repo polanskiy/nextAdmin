@@ -2,13 +2,6 @@
   display: flex;
   flex: 1 0 auto;
   background: #E7EBF0;
-  button {
-    background: $green;
-    color: $white;
-    padding: 10px;
-    border: 0;
-    cursor: pointer;
-  }
 }
 
 .adminSidenavBox{
@@ -40,4 +33,22 @@
 .adminContent {
   width: 100%;
   padding: 20px;
+}
+
+.adminBtn {
+  background: $green;
+  color: $white;
+  padding: 10px;
+  border: 0;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+}
+
+.adminBtnsBox {
+  display: flex;
+  margin: 0 0 20px;
+}
+
+.adminDelBtn {
+  background: red!important;
 }

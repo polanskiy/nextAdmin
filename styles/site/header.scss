@@ -191,7 +191,7 @@
   flex-direction: column;
 }
 
-.headerTitle{
+.headerTitle {
   font-size: 60px;
   letter-spacing: 5px;
   font-family: 'Lobster';
@@ -200,12 +200,83 @@
 }
 
 .customFormBox {
+  display: flex;
   height: 130px;
   background: $white;
   margin: 95px 0 0;
+  label {
+    position: relative;
+    border: 1px solid rgba(57,57,57,.4);
+    &:before {
+      position: absolute;
+      top: 30%;
+      content: '';
+      left: 40px;
+    }
+  }
 }
 
-.downArr{
+.way { 
+  &:before {
+    background: url('/static/images/icons/direction.svg') no-repeat;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+.rest { 
+  &:before {
+    background: url('/static/images/icons/rest.svg') no-repeat;
+    width: 38px;
+    height: 41px;
+  }
+}
+
+.budget { 
+  &:before {
+    background: url('/static/images/icons/budget.svg') no-repeat;
+    width: 45px;
+    height: 38px;
+  }
+}
+
+.customFormItem { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  font-size: 22px;
+  border: 0;
+  padding: 0 0 0 100px;
+
+}
+
+.customFormSearchItem {
+  padding: 0;
+  border: 0;
+  .customFormItemBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(57,57,57,.4);
+    width: 25%;
+    height: 100%;
+    img {
+      width: 31px;
+    }
+  }
+  .customSearchBtn {
+    width: 50%;
+    background: $pink;
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.downArr {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,7 +286,7 @@
   border-radius: 50%;
   cursor: pointer;
   margin: 90px 0 0;
-  img{
+  img {
     width: 50%;
   }
 }

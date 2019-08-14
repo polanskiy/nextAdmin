@@ -36,8 +36,8 @@ const Uploader = ({ updateImage }) => {
   // };
 
   return (
-    <form style={{ marginBottom: 10 }}>
-      <button type="button" onClick={onClick}>
+    <React.Fragment>
+      <button type="button" onClick={onClick} className="adminBtn">
         <span>Загрузить</span>
       </button>
       <input
@@ -49,7 +49,7 @@ const Uploader = ({ updateImage }) => {
         onChange={e => uploadVideo(e)}
         accept="image/*"
       />
-    </form>
+    </React.Fragment>
   );
 };
 
