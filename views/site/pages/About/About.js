@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import Header from '../../elements/Header';
 
@@ -8,31 +8,26 @@ const BlockAbout = dynamic({
   ssr: false,
 });
 
+const Slider = dynamic({
+  loader: () => import('../../elements/Slider'),
+  loading: () => <p>LOADING ABOUT</p>,
+  ssr: false,
+});
 
-const About = () => {
-  const [colorBox, setColorBox] = useState(false);
-  const [sliderBox, setSliderBox] = useState(false);
+const AboutColorBox = dynamic({
+  loader: () => import('./AboutColorBox'),
+  loading: () => <p>LOADING ABOUT</p>,
+  ssr: false,
+});
 
 
-  const renderSlider = useCallback(async () => {
-    const { default: Slider } = await import('../../elements/Slider');
-    setSliderBox(<Slider />);
-  }, []);
-
-  const renderColorBox = useCallback(async () => {
-    const { default: AboutColorBox } = await import('./AboutColorBox');
-    setColorBox(<AboutColorBox renderNext={renderSlider} />);
-  }, []);
-
-  return (
-    <div>
-      <Header title="Туроператор" subTitle="Дася Сурикова" headerBg="/static/images/aboutHeaderBg.jpg" noSearch />
-      <BlockAbout renderNext={renderColorBox} />
-      {colorBox || <p>LOADING COLOR BOX</p>}
-      {sliderBox || <p>LOADING SLIDER BOX</p>}
-
-    </div>
-  );
-};
+const About = ({ page }) => (
+  <React.Fragment>
+    <Header title={page.title} headerBg={page.images.header} noSearch />
+    <BlockAbout />
+    <Slider />
+    <AboutColorBox />
+  </React.Fragment>
+);
 
 export default About;

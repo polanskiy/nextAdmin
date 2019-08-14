@@ -3,15 +3,13 @@ import axios from 'axios';
 import TravelsPage from '../views/site/pages/Travels/Travels';
 import TravelItem from '../views/site/pages/Travels/TravelItem';
 
-const Travels = ({ article, pages }) => {
+const Travels = ({ article, page }) => {
   const renderArticle = () => {
-    console.log('article', article, pages);
     if (article !== 'travels' && article) {
       return <TravelItem article={article} />;
     }
-    return <TravelsPage />;
+    return <TravelsPage page={page} />;
   };
-
   return (
     <div className="travelsBox">
       {renderArticle()}
@@ -20,16 +18,17 @@ const Travels = ({ article, pages }) => {
 };
 
 Travels.getInitialProps = async ({ query, req }) => {
-  if (req) {
-    console.log('req');
-  } else {
-    const res = await axios({
-      get: 'get',
-      url: '/api/pages',
+  const axioscfg = req ? { baseURL: 'http://localhost:3000' } : {};
+  let travelPage = {};
+  try {
+    const res = await axios.get('/api/pages', axioscfg);
+    res.data.forEach((page) => {
+      if (page.name === 'travels') travelPage = page;
     });
+  } catch (e) {
+    console.log('err main getinitialprops');
   }
-
-  return { article: query.article };
+  return { article: query.article, page: travelPage };
 };
 
 export default Travels;

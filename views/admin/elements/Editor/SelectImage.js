@@ -2,16 +2,22 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Uploader from '../Uploader/Uploader';
 
-const SelectImage = ({ page, image, updatePage }) => {
+const SelectImage = ({
+  page, image, updatePage, setNowImages, nowImages,
+}) => {
   const [nowImage, setNowImage] = useState(page.images[image]);
   const updateImage = (newImageName) => {
     if (newImageName) {
       const newImg = `/static/images/${newImageName}`;
       setNowImage(newImg);
-      updatePage({ id: page._id, images: { ...page.images, [image]: newImg } });
+      const newImages = { ...nowImages, [image]: newImg };
+      setNowImages(newImages);
+      updatePage({ id: page._id, images: newImages });
     } else {
+      const delImage = { ...nowImages, [image]: '' };
       setNowImage(newImageName);
-      updatePage({ id: page._id, images: { ...page.images, [image]: '' } });
+      setNowImages(delImage);
+      updatePage({ id: page._id, images: delImage });
       axios({
         method: 'delete',
         url: '/api/images',

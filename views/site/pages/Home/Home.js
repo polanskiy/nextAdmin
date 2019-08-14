@@ -22,8 +22,8 @@ const Home = ({ page }) => (
   <div className="homePageBox">
     {console.log(page)}
     <Header title={page.title} headerBg={page.images.header} />
-    <BlockAbout />
-    <HomeAdvantages />
+    <BlockAbout aboutText={page.about} aboutImg={page.images.about} />
+    <HomeAdvantages descriptionText={page.description} descriptionImg={page.images.description} />
     <RequestForm />
   </div>
 );

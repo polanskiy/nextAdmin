@@ -4,19 +4,24 @@ import Layout from '../views/site/hoc/Layout';
 import About from '../views/site/pages/About/About';
 
 
-const AboutPage = () => (
+const AboutPage = ({ page }) => (
   <Layout>
-    <About />
+    <About page={page} />
   </Layout>
 );
 
 AboutPage.getInitialProps = async (ctx) => {
-  console.log('req');
   const axioscfg = ctx.req ? { baseURL: 'http://localhost:3000' } : {};
-  const res = await axios.get('/api/pages', axioscfg);
-  console.log(res);
-
-  return {};
+  let aboutPage = {};
+  try {
+    const res = await axios.get('/api/pages', axioscfg);
+    res.data.forEach((page) => {
+      if (page.name === 'about') aboutPage = page;
+    });
+  } catch (e) {
+    console.log('err AboutPage getinitialprops');
+  }
+  return { page: aboutPage };
 };
 
 

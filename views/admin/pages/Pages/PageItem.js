@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextEditor from '../../elements/Editor/TextEditor';
 import SelectImage from '../../elements/Editor/SelectImage';
 
 const PageItem = ({ page, updatePage }) => {
+  const [nowImages, setNowImages] = useState(page.images);
+
   const renderElements = () => Object.keys(page).map((item) => {
     switch (item) {
       case 'about':
       case 'title':
       case 'description':
         return (
-          <div className="adminPageElement">
+          <div className="adminPageElement" key={item}>
             <TextEditor
-              key={item}
               selector={`${page.name}${item}TitleEditor`}
               title={item}
               data={page[item]}
@@ -20,7 +21,7 @@ const PageItem = ({ page, updatePage }) => {
           </div>
         );
       case 'images':
-        return Object.keys(page[item]).map(image => <SelectImage key={image} page={page} image={image} updatePage={updatePage} />);
+        return Object.keys(nowImages).map(image => <SelectImage key={image} page={page} image={image} updatePage={updatePage} setNowImages={setNowImages} nowImages={nowImages} />);
       default:
         return null;
     }

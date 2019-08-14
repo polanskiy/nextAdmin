@@ -17,10 +17,8 @@ Main.getInitialProps = async (ctx) => {
   const axioscfg = ctx.req ? { baseURL: 'http://localhost:3000' } : {};
   let homePage = {};
   try {
-    const res = await axios.get('/api/pages', axioscfg);
-    res.data.forEach((page) => {
-      if (page.name === 'home') homePage = page;
-    });
+    const res = await axios.get('/api/pages/home', axioscfg);
+    homePage = res.data;
   } catch (e) {
     console.log('err main getinitialprops');
   }

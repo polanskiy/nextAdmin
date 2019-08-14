@@ -6,9 +6,13 @@ const options = {
   whiteList: {
     p: ['style'],
     span: ['style'],
-    br: ['style'],
+    br: [],
+    strong: [],
+    ul: [],
+    li: [],
   },
 };
+
 const Header = ({ title = 'заголовок отсутствует', headerBg, noSearch }) => (
   <div className="headerBox">
     <img className="headerBg" src={headerBg} alt="индивидуальный туроператор" />

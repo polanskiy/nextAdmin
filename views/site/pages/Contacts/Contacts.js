@@ -2,9 +2,9 @@ import React from 'react';
 import Header from '../../elements/Header';
 import RequestForm from '../../elements/RequestForm';
 
-const Contacts = () => (
+const Contacts = ({ page }) => (
   <div>
-    <Header title="Контакты" headerBg="/static/images/blogHeaderBg.jpg" />
+    <Header title={page.title} headerBg={page.images.header} />
     <p>
     Форма заказа вашего
     </p>

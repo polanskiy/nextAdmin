@@ -11,6 +11,15 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:name', (req, res) => {
+  const { name } = req.params;
+  console.log('name', name);
+  Page.findOne({ name }, (err, doc) => {
+    if (err) return res.status(400).send(err);
+    return res.send(doc);
+  });
+});
+
 router.post('/', (req, res) => {
   const page = new Page(req.body);
   page.save((err, doc) => {
