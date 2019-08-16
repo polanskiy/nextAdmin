@@ -24,7 +24,7 @@ const Home = ({ page }) => (
     <Header title={page.title} headerBg={page.images.header} />
     <BlockAbout aboutText={page.about} aboutImg={page.images.about} />
     <HomeAdvantages descriptionText={page.description} descriptionImg={page.images.description} />
-    <RequestForm />
+    <RequestForm footerImg={page.images.footer} />
   </div>
 );
 export default Home;

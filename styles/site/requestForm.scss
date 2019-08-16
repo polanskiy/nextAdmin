@@ -1,4 +1,5 @@
 .requestFormBox {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -13,9 +14,17 @@
   text-align: center;
 }
 
+.requestFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
 .requestForm {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   max-width: 900px;
   width: 100%;
   padding: 0 5%;
