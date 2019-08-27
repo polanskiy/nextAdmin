@@ -1,0 +1,17 @@
+.adminModalBox {
+  
+}
+.modal-transition-enter {
+  transform: translateX(-100%);
+}
+.modal-transition-enter-active {
+  transition: transform 300ms;
+  transform: translateX(0);
+}
+.modal-transition-exit {
+  transform: translateX(0);
+}
+.modal-transition-exit-active {
+  transition: transform 300ms;
+  transform: translateX(-100%);
+}

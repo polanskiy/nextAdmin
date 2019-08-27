@@ -26,7 +26,7 @@ const Travels = ({ page }) => (
     <Header title={page.title} headerClass="headerBox_travels" headerBg={page.images.header} />
     <TravelsList />
     <BlockAbout aboutText={page.about} aboutImg={page.images.about} />
-    <RequestForm />
+    <RequestForm footerImg={page.images.footer} />
   </div>
 );
 

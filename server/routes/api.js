@@ -1,6 +1,7 @@
 const express = require('express');
 const pagesRoute = require('./pages');
 const articlesRoute = require('./articles');
+const travelsRoute = require('./travels');
 const imagesRoute = require('./images');
 const { User } = require('../models/user');
 const { auth } = require('../middleware/auth');
@@ -49,6 +50,7 @@ router.post('/login', (req, res) => {
 
 router.use('/pages', pagesRoute);
 router.use('/articles', articlesRoute);
+router.use('/travels', travelsRoute);
 router.use('/images', imagesRoute);
 
 module.exports = router;

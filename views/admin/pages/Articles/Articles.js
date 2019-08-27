@@ -1,12 +1,12 @@
 import React from 'react';
 import Tabs from '../../../site/elements/Tabs';
-import TravelTemplate from './TravelTemplate';
+import Travels from './Travels/Travels';
 
 const Articles = () => (
   <div className="adminArticlesBox">
     <Tabs>
       <div name="Путешествия" style={{ width: '100%' }}>
-        <TravelTemplate />
+        <Travels />
       </div>
       <div name="Блог">блог</div>
     </Tabs>

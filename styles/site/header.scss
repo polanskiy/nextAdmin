@@ -216,6 +216,21 @@
   }
 }
 
+.noMargin {
+  margin: 0;
+}
+
+.vis {
+  opacity: 1;
+  visibility: visible;
+  transition: .3s;
+}
+
+.invis {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .way { 
   &:before {
     background: url('/static/images/icons/direction.svg') no-repeat;
@@ -235,6 +250,31 @@
 .budget { 
   &:before {
     background: url('/static/images/icons/budget.svg') no-repeat;
+    width: 45px;
+    height: 38px;
+  }
+}
+
+.calendar { 
+  &:before {
+    background: url('/static/images/icons/calendar.svg') no-repeat;
+    width: 32px;
+    height: 36px;
+  }
+}
+
+.city { 
+  &:before {
+    background: url('/static/images/icons/city.svg') no-repeat;
+    width: 39px;
+    height: 39px;
+  }
+}
+
+.participants {
+  width: 100%;
+  &:before {
+    background: url('/static/images/icons/participants.svg') no-repeat;
     width: 45px;
     height: 38px;
   }

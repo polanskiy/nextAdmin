@@ -15,7 +15,8 @@ module.exports = {
         "Image": true,
         "browser": true,
         "node": true,
-        "FormData": true
+        "FormData": true,
+        "document": true
     },
     "parserOptions": {
         "allowImportExportEverywhere": true

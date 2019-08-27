@@ -4,7 +4,7 @@ import Router from 'next/router';
 const Auth = Component => (props) => {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
-    const token = window.localStorage.getItem('token');
+    const token = window.localStorage.getItem('tokendasya');
     if (Router.pathname !== '/login' && !token) {
       Router.push('/login');
     } else if (Router.pathname === '/blogs') {

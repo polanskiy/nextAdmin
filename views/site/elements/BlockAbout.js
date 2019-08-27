@@ -1,14 +1,7 @@
 import React from 'react';
 import xss from 'xss';
+import xssOptions from '../../../utils/xssOptions';
 
-const options = {
-  whiteList: {
-    p: ['style'],
-    span: ['style'],
-    br: [],
-    strong: [],
-  },
-};
 const BlockAbout = ({ aboutText, aboutImg }) => {
   console.log('about', aboutImg);
   return (
@@ -16,7 +9,7 @@ const BlockAbout = ({ aboutText, aboutImg }) => {
       <div className="contentMidWrapper">
         <div className="homeAboutContentBox">
           <div className="homeAboutTextBox">
-            <div dangerouslySetInnerHTML={{ __html: xss(aboutText, options) }} />
+            <div dangerouslySetInnerHTML={{ __html: xss(aboutText, xssOptions) }} />
             <button type="button" className="btn">Узнать больше</button>
           </div>
           <div className="homeAboutImgBox">
