@@ -4,7 +4,7 @@ import TravelsTable from './TravelsTable';
 import NewTravel from './NewTravel/NewTravel';
 import useToggle from '../../../../../utils/useToggle';
 
-const Travels = () => {
+const Travels = (props) => {
   const initialData = {
     username: '',
     password: '',
@@ -46,6 +46,7 @@ const Travels = () => {
         /> */}
         <div>
           <TravelsTable
+            {...props}
             travelList={travelList}
           />
         </div>

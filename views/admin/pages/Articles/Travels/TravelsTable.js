@@ -6,44 +6,40 @@ import request from '../../../../../utils/request';
 import DeleteWarning from '../../../elements/Modal/DeleteWarning';
 
 const TravelsTable = ({
-  travelList, setDeviceUpdate, setDeviceData, toggleOpen, preloader, fetchDevices, deviceData,
-  showError, initialData, edit,
+  travelList, router,
 }) => {
   const [deviceId, setDeviceId] = useState(false);
   const [showDelWarn, setShowDelWarn] = useToggle(false);
 
-  const delDevice = async () => {
-    preloader();
-    await request(`/server/api/satellite/${deviceId}`, 'delete');
-    fetchDevices();
-    setShowDelWarn();
-    setDeviceId(false);
-    preloader();
-  };
+  // const delDevice = async () => {
+  //   preloader();
+  //   await request(`/server/api/satellite/${deviceId}`, 'delete');
+  //   fetchDevices();
+  //   setShowDelWarn();
+  //   setDeviceId(false);
+  //   preloader();
+  // };
 
   const handleTableIcon = (e, row) => {
     const { dataset } = e.target;
     const {
-      id, name, ipaddr, type, port, config, configured,
+      id,
     } = row;
+    console.log('row', row);
     if (dataset.name === 'del') {
       setDeviceId(id);
       setShowDelWarn();
-    } else if (dataset.name === 'update') {
-      setDeviceUpdate(true);
-      setDeviceData({
-        id, name, ipaddr, type, port, config, configured,
-      });
-      toggleOpen();
-    } else if (dataset.name === 'view') {
-      window.open(`/satellite/?id=${id}`);
-    } else if (dataset.name === 'reload') {
-      setDeviceData({
-        id, name, ipaddr, type, port, config, configured,
-      });
+    } else if (dataset.name === 'edit') {
+      console.log('kek');
+      // router.push(`/admin/articles/${row._id}`);
+      // setDeviceUpdate(true);
+      // setDeviceData({
+      //   id, name, ipaddr, type, port, config, configured,
+      // });
+      // toggleOpen();
     }
   };
-  const Setting = Config(edit);
+  const Setting = Config();
   const { columns } = Setting;
   console.log('travelList', travelList);
   return (
@@ -52,7 +48,7 @@ const TravelsTable = ({
         ? (
           <Table data={travelList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
         ) : <div>Путешествий нет</div>}
-      <DeleteWarning confirmDel={delDevice} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
+      {/* <DeleteWarning confirmDel={delDevice} isOpen={showDelWarn} toggleOpen={setShowDelWarn} /> */}
     </React.Fragment>
   );
 };

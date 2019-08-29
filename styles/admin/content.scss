@@ -15,6 +15,13 @@
   }
 }
 
+.adminSidenavSticky {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 40px;
+}
+
 @keyframes fadeIn{
   from {
     opacity: 0;
@@ -47,6 +54,9 @@
 .adminBtnsBox {
   display: flex;
   margin: 0 0 20px;
+  div {
+    margin: 0 20px 0 0;
+  }
 }
 
 .adminDelBtn {

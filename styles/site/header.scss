@@ -77,10 +77,13 @@
   top: 0;
   right: 0;
   min-height: 80px;
-  background: #F1C40F; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #F1C40F 0%, #E67E22 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #F1C40F 0%,#E67E22 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #F1C40F 0%,#E67E22 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f1c40f+0,e67e22+100 */
+  background: #f1c40f; /* Old browsers */
+  background: -moz-linear-gradient(left,  #f1c40f 0%, #e67e22 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #f1c40f 0%,#e67e22 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #f1c40f 0%,#e67e22 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1c40f', endColorstr='#e67e22',GradientType=1 ); /* IE6-9 */
+
   transition: .3s;
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;

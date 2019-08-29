@@ -16,6 +16,7 @@ router.get('/:name', (req, res) => {
   console.log('name', name);
   Page.findOne({ name }, (err, doc) => {
     if (err) return res.status(400).send(err);
+    console.log('doc', doc);
     return res.send(doc);
   });
 });

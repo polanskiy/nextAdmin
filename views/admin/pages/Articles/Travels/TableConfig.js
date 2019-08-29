@@ -1,5 +1,6 @@
 import React from 'react';
 import { textFilter } from 'react-bootstrap-table2-filter';
+import { Link } from '../../../../../routes';
 // import { BtnTable } from '../../../styles/Common';
 // import { ReactComponent as Trash } from '../../../../../static/images/icons/del.svg';
 // import { ReactComponent as Edit } from '../../../../../static/images/icons/edit.svg';
@@ -11,10 +12,13 @@ import formatter from '../../../../../utils/tableFormatters';
 
 
 export default function () {
-  function iconFormatter() {
+  function iconFormatter(cell, row) {
+    console.log('rowrowrowrow', row, cell);
     return (
       <React.Fragment>
-        <div data-name="edit" bg="main">edit</div>
+        <Link route={`/admin/articles/${row._id}`}>
+          <a>Редактировать</a>
+        </Link>
         <div data-name="del" bg="red">delete</div>
       </React.Fragment>
     );

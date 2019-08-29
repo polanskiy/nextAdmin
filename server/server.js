@@ -32,7 +32,6 @@ app.prepare()
     });
 
     server.get('/travels', (req, res) => {
-      console.log('travelsssssssssssssssssssss');
       const actualPage = '/travels';
       app.render(req, res, actualPage);
     });

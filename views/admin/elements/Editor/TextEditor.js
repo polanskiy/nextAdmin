@@ -2,7 +2,7 @@ import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
 const TextEditor = ({
-  selector, font, title, data, setData, size,
+  selector, font, title, data, setData, size, handleFocus,
 }) => (
   <React.Fragment>
     <p className="adminEditorTitle">
@@ -18,8 +18,7 @@ const TextEditor = ({
           branding: false,
           resize: false,
           max_width: 800,
-          width: 800,
-          height: 300,
+          max_height: 300,
           selector: `.${selector}`,
           content_css: '/_next/static/css/styles.chunk.css',
           // inline: true,
@@ -32,6 +31,7 @@ const TextEditor = ({
             'powerpaste',
             'link',
             'tinymcespellchecker',
+            'autoresize',
           ],
           toolbar: [
             'undo redo | bold italic underline | fontselect fontsizeselect',
@@ -49,6 +49,7 @@ const TextEditor = ({
             ed.on('init', function kek() {
               this.execCommand('fontName', false, font || 'Roboto');
               this.execCommand('fontSize', false, size || '16px');
+              handleFocus();
             });
           },
         }}

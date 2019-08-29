@@ -5,7 +5,6 @@ import Header from '../../elements/Header';
 const BlockAbout = dynamic({
   loader: () => import('../../elements/BlockAbout'),
   loading: () => <p>LOADING ABOUT</p>,
-  ssr: false,
 });
 const HomeAdvantages = dynamic({
   loader: () => import('./HomeAdvantages'),

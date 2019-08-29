@@ -4,17 +4,15 @@ const { Travel } = require('../models/travel');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  console.log('wow');
   Travel.find().exec((err, doc) => {
     if (err) return res.status(400).send(err);
     return res.send(doc);
   });
 });
 
-router.get('/:name', (req, res) => {
-  const { name } = req.params;
-  console.log('name', name);
-  Travel.findOne({ name }, (err, doc) => {
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+  Travel.findOne({ _id: id }, (err, doc) => {
     if (err) return res.status(400).send(err);
     return res.send(doc);
   });
@@ -32,7 +30,7 @@ router.post('/', (req, res) => {
 });
 
 router.patch('/', (req, res) => {
-  Travel.updateOne({ _id: req.body.id }, { $set: { ...req.body } }, (err, doc) => {
+  Travel.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({
       update: true,
