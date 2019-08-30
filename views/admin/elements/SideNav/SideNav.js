@@ -10,8 +10,8 @@ const SideNav = () => (
       <Link route="admin" params={{ slug: 'pages' }}>
         <a style={{ fontSize: 20 }}>Страницы</a>
       </Link>
-      <Link route="admin" params={{ slug: 'articles' }}>
-        <a>Статьи</a>
+      <Link route="admin" params={{ slug: 'travels' }}>
+        <a>Путешествия</a>
       </Link>
       <Link route="admin" params={{ slug: 'media' }}>
         <a>Медиа</a>

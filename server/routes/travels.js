@@ -12,10 +12,18 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  Travel.findOne({ _id: id }, (err, doc) => {
-    if (err) return res.status(400).send(err);
-    return res.send(doc);
-  });
+  const { byRoute } = req.query;
+  if (byRoute) {
+    Travel.findOne({ route: id }, (err, doc) => {
+      if (err) return res.status(400).send(err);
+      return res.send(doc);
+    });
+  } else {
+    Travel.findOne({ _id: id }, (err, doc) => {
+      if (err) return res.status(400).send(err);
+      return res.send(doc);
+    });
+  }
 });
 
 router.post('/', (req, res) => {
@@ -30,7 +38,7 @@ router.post('/', (req, res) => {
 });
 
 router.patch('/', (req, res) => {
-  Travel.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
+  Travel.updateOne({ _id: req.body.id }, { $set: { ...req.body } }, (err, doc) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({
       update: true,

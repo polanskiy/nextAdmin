@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import request from '../../../../../utils/request';
+import request from '../../../../utils/request';
 import TravelsTable from './TravelsTable';
 import NewTravel from './NewTravel/NewTravel';
-import useToggle from '../../../../../utils/useToggle';
+import useToggle from '../../../../utils/useToggle';
 
 const Travels = (props) => {
   const initialData = {

@@ -8,7 +8,9 @@ module.exports = {
         "no-console": 0,
         "no-underscore-dangle": 0,
         "max-len": 0,
-        "jsx-a11y/no-static-element-interactions": 0
+        "jsx-a11y/no-static-element-interactions": 0,
+        "jsx-a11y/no-autofocus": 0,
+        "no-nested-ternary": 0
     },
     "globals": {
         "window": true,

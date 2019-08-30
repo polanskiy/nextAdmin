@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextEditor from '../../../../elements/Editor/TextEditor';
+import TextEditor from '../../../elements/Editor/TextEditor';
 
 const TabItem = ({
   tab, updateTravel, travelData, handleFocus,
@@ -36,7 +36,6 @@ const TabItem = ({
     updateTravel({ ...travelData, tabs: newTabs });
   };
 
-  console.log('tab', tab);
   return (
     <div className="adminTabItemBox">
       <p className="adminEditorTitle">Заголовок вкладки:</p>

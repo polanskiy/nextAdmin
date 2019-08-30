@@ -8,26 +8,18 @@ const TravelItem = ({ article }) => {
   console.log('article', article);
   return (
     <div className="travelItemBox">
-      <Header title="Айзербайджан - Баку" subTitle="Посетите удивительную «страну огней»" headerBg="/static/images/travelItemHeaderBg.jpg" noSearch />
+      <Header title={article.title} headerBg={article.images.header} noSearch />
       <div className="whiteBg">
         <div className="contentMidWrapper travelItemDescrBox">
           <div className="travelItemDescrText">
-          Почему огней? Потому что сейчас современный Баку сверкает огнями всю ночь, а над городом возвышается его современный символ - три башни в форме пламени. Тема огня имеет и исторические корни - когда-то здесь жили племена огнепоклонников, а одна из достопримечательностей страны - «горящая» гора Янардаг.
-            <br />
-            {' '}
-            <br />
-          Удовольствие от путешествия в Баку из Москвы самолетом начнется уже в аэропорту столицы этой уникальной страны. Новый современный, красивый и комфортабельный терминал аэропорта позволяет всем пассажирам чувствовать себя VIP-персонами.
-            <br />
-            {' '}
-            <br />
-          Цены на авиабилеты в Баку очень удивляют и радуют туристов: они стали доступными и дают возможность легко посетить Азербайджан на уик-энд.
+            {article.text}
           </div>
           <button type="button" className="btn">Забронировать поездку</button>
         </div>
       </div>
-      <TravelAbout />
+      <TravelAbout tabs={article.tabs} tabsBg={article.images.tabs} />
       <Slider />
-      <RequestForm />
+      <RequestForm footerImg={article.images.footer} />
     </div>
   );
 };

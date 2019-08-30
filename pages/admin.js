@@ -3,9 +3,9 @@ import { withRouter } from 'next/router';
 import AdminLayout from '../views/admin/hoc/AdminLayout';
 import Home from '../views/admin/pages/Home/Home';
 import Pages from '../views/admin/pages/Pages/Pages';
-import Articles from '../views/admin/pages/Articles/Articles';
+import Travels from '../views/admin/pages/Travels/Travels';
 import Media from '../views/admin/pages/Media/Media';
-import TravelTemplate from '../views/admin/pages/Articles/Travels/TravelTemplate/TravelTemplate';
+import TravelTemplate from '../views/admin/pages/Travels/TravelTemplate/TravelTemplate';
 
 const Admin = (props) => {
   console.log('props', props);
@@ -14,8 +14,8 @@ const Admin = (props) => {
       switch (props.slug) {
         case 'pages':
           return <Pages {...props} />;
-        case 'articles':
-          return <Articles {...props} />;
+        case 'travels':
+          return <Travels {...props} />;
         case 'media':
           return <Media {...props} />;
         default:

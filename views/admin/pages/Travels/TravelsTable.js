@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Table from '../../../elements/Table/Table';
+import Table from '../../elements/Table/Table';
 import Config from './TableConfig';
-import useToggle from '../../../../../utils/useToggle';
-import request from '../../../../../utils/request';
-import DeleteWarning from '../../../elements/Modal/DeleteWarning';
+import useToggle from '../../../../utils/useToggle';
+import request from '../../../../utils/request';
+import DeleteWarning from '../../elements/Modal/DeleteWarning';
 
 const TravelsTable = ({
   travelList, router,
@@ -44,7 +44,7 @@ const TravelsTable = ({
   console.log('travelList', travelList);
   return (
     <React.Fragment>
-      { travelList.data.length
+      { travelList.isFetching ? <p>загрузка путешествий</p> : travelList.data.length
         ? (
           <Table data={travelList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
         ) : <div>Путешествий нет</div>}

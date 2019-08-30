@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import request from '../../../../../../utils/request';
-import TextEditor from '../../../../elements/Editor/TextEditor';
-import Uploader from '../../../../elements/Uploader/Uploader';
+import React, { useState, useEffect, useCallback } from 'react';
+import request from '../../../../../utils/request';
+import TextEditor from '../../../elements/Editor/TextEditor';
+import SelectImage from '../../../elements/Editor/SelectImage';
 import TabItem from './TabItem';
 
 const TravelTemplate = ({ id }) => {
   const [travelData, setTravelData] = useState({ data: null, isFetching: false });
+  const [nowImages, setNowImages] = useState({});
   const [uri, setUri] = useState('');
   const { data, isFetching } = travelData;
-  const kek = React.createRef();
+  const kek = useCallback(React.createRef(), []);
 
   const fetchTravelData = async () => {
     setTravelData({ data: null, isFetching: true });
@@ -16,8 +17,15 @@ const TravelTemplate = ({ id }) => {
       const res = await request(`/api/travels/${id}`);
       setTravelData({ data: res.data, isFetching: false });
       setUri(res.data.route);
+      setNowImages(res.data.images);
     } catch (e) {
       console.log('err');
+    }
+  };
+
+  const handleFocus = () => {
+    if (kek && kek.current) {
+      kek.current.focus();
     }
   };
 
@@ -25,7 +33,12 @@ const TravelTemplate = ({ id }) => {
     fetchTravelData();
   }, []);
 
+  useEffect(() => {
+    handleFocus();
+  }, [kek]);
+
   const updateTravel = async (newTravel) => {
+    console.log('newTravel', newTravel);
     await request('/api/travels', 'patch', newTravel);
   };
 
@@ -46,16 +59,12 @@ const TravelTemplate = ({ id }) => {
   const addTab = async () => {
     const newTab = {
       name: '',
-      value: ''
-    }
+      value: '',
+    };
     const tabs = [...data.tabs];
     tabs.push(newTab);
-    await updateTravel({ ...data, tabs: tabs });
+    await updateTravel({ ...data, tabs });
     fetchTravelData();
-  };
-
-  const handleFocus = () => {
-    kek.current.focus();
   };
 
   const renderTabs = () => data.tabs.map(tab => (
@@ -68,6 +77,7 @@ const TravelTemplate = ({ id }) => {
     />
   ));
 
+  const renderImages = () => Object.keys(nowImages).map(image => <SelectImage key={image} page={data} image={image} updatePage={updateTravel} setNowImages={setNowImages} nowImages={nowImages} />);
 
   console.log('travelData', travelData);
 
@@ -75,11 +85,18 @@ const TravelTemplate = ({ id }) => {
   const textSelector = 'textSelector';
   return (
     <div className="travelTemplateBox">
+      <input
+        type="text"
+        autoFocus
+        ref={kek}
+        style={{
+          opacity: 0, height: 0, margin: 0, padding: 0, border: 0, cursor: 'default',
+        }}
+      />
       {isFetching && 'загрузка'}
       {data
         ? (
           <React.Fragment>
-            <input type="text" autoFocus ref={kek} style={{ opacity: 0, height: 0, margin: 0, padding: 0, border: 0, cursor: 'default' }} />
             <div className="adminPageElement">
               <p>URI страницы:</p>
               <input type="text" placeholder="URI страницы" value={uri} onChange={e => handleUri(e.target.value)} />
@@ -110,7 +127,9 @@ const TravelTemplate = ({ id }) => {
               {renderTabs()}
             </div>
 
-
+            <div className="adminPageElement">
+              {renderImages()}
+            </div>
             {/* <div>
               <p>Бэкграунд шапки:</p>
               <Uploader />

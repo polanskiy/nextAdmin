@@ -9,7 +9,7 @@ const TravelsList = ({ articles }) => {
         <p className="travelsListTitle">Наши лучшие направления!</p>
         <div className="travelsList">
           <div className="travelsListItem">
-            <Link route="travels" params={{ article: 'baku' }}>
+            <Link route="travels" params={{ article: articles[0].route }}>
               <a>{articles[0].title}</a>
             </Link>
           </div>

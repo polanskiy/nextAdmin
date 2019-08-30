@@ -4,6 +4,13 @@ import SelectImage from '../../elements/Editor/SelectImage';
 
 const PageItem = ({ page, updatePage }) => {
   const [nowImages, setNowImages] = useState(page.images);
+  const kek = React.createRef();
+
+  const handleFocus = () => {
+    if (kek.current) {
+      kek.current.focus();
+    }
+  };
 
   const renderElements = () => Object.keys(page).map((item) => {
     switch (item) {
@@ -17,6 +24,7 @@ const PageItem = ({ page, updatePage }) => {
               title={item}
               data={page[item]}
               setData={value => updatePage({ id: page._id, [item]: value })}
+              handleFocus={handleFocus}
             />
           </div>
         );
@@ -28,7 +36,17 @@ const PageItem = ({ page, updatePage }) => {
   });
 
   return (
-    <div>{renderElements()}</div>
+    <div>
+      <input
+        type="text"
+        autoFocus
+        ref={kek}
+        style={{
+          opacity: 0, height: 0, margin: 0, padding: 0, border: 0, cursor: 'default',
+        }}
+      />
+      {renderElements()}
+    </div>
   );
 };
 

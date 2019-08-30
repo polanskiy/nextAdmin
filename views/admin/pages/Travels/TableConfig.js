@@ -1,13 +1,13 @@
 import React from 'react';
 import { textFilter } from 'react-bootstrap-table2-filter';
-import { Link } from '../../../../../routes';
+import { Link } from '../../../../routes';
 // import { BtnTable } from '../../../styles/Common';
 // import { ReactComponent as Trash } from '../../../../../static/images/icons/del.svg';
 // import { ReactComponent as Edit } from '../../../../../static/images/icons/edit.svg';
 // import { ReactComponent as Config } from '../../../images/config.svg';
 // import { ReactComponent as Update } from '../../../images/update.svg';
 // import { ReactComponent as View } from '../../../images/eye.svg';
-import formatter from '../../../../../utils/tableFormatters';
+import formatter from '../../../../utils/tableFormatters';
 // import { div } from '../../../styles/Table';
 
 
@@ -16,7 +16,7 @@ export default function () {
     console.log('rowrowrowrow', row, cell);
     return (
       <React.Fragment>
-        <Link route={`/admin/articles/${row._id}`}>
+        <Link route={`/admin/travels/${row._id}`}>
           <a>Редактировать</a>
         </Link>
         <div data-name="del" bg="red">delete</div>
