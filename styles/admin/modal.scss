@@ -1,6 +1,22 @@
 .adminModalBox {
-  
+  background: rgba(0,0,0,.4);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 99999;
 }
+
+.adminModalBody{
+  max-width: 450px;
+  margin: 80px auto 0;
+  width: 100%;
+  padding: 20px;
+  background: $white;
+}
+
 .modal-transition-enter {
   transform: translateX(-100%);
 }
@@ -14,4 +30,19 @@
 .modal-transition-exit-active {
   transition: transform 300ms;
   transform: translateX(-100%);
+}
+
+.preloader-transition-enter {
+  opacity: 0.01;
+}
+.preloader-transition-enter-active {
+  transition: 300ms;
+  opacity: 1;
+}
+.preloader-transition-exit {
+  opacity: 1;
+}
+.preloader-transition-exit-active {
+  transition: 300ms;
+  opacity: 0.01;
 }

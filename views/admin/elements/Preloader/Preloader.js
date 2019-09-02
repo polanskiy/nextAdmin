@@ -6,8 +6,8 @@ const Preloader = ({ isOpen }) => (
   <React.Fragment>
     <CSSTransition
       in={isOpen}
-      className="modal-transition"
-      classNames="modal-transition"
+      className="preloader-transition"
+      classNames="preloader-transition"
       unmountOnExit
       timeout={300}
     >

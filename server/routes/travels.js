@@ -4,10 +4,18 @@ const { Travel } = require('../models/travel');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  Travel.find().exec((err, doc) => {
-    if (err) return res.status(400).send(err);
-    return res.send(doc);
-  });
+  const { onlyPublic } = req.query;
+  if (onlyPublic) {
+    Travel.find({ public: true }).exec((err, doc) => {
+      if (err) return res.status(400).send(err);
+      return res.send(doc);
+    });
+  } else {
+    Travel.find().exec((err, doc) => {
+      if (err) return res.status(400).send(err);
+      return res.send(doc);
+    });
+  }
 });
 
 router.get('/:id', (req, res) => {
@@ -38,7 +46,7 @@ router.post('/', (req, res) => {
 });
 
 router.patch('/', (req, res) => {
-  Travel.updateOne({ _id: req.body.id }, { $set: { ...req.body } }, (err, doc) => {
+  Travel.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({
       update: true,
@@ -46,9 +54,10 @@ router.patch('/', (req, res) => {
   });
 });
 
-router.delete('/', (req, res) => {
-  const { id } = req.query;
-  Travel.findByIdAndDelete(id, (err) => {
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  console.log('id', id);
+  Travel.findByIdAndDelete({ _id: id }, (err) => {
     if (err) return res.status(400).send(err);
     return res.json(true);
   });

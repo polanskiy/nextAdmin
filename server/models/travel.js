@@ -11,13 +11,18 @@ const travelSchema = mongoose.Schema({
   },
   text: {
     type: String,
-    required: true,
   },
   tabs: [{
     name: String,
     value: String,
   }],
   images: { type: Object },
+  slides: [{
+    name: String,
+    value: String,
+  }],
+  public: Boolean,
+  position: Number,
   author: {
     type: String,
     default: 'n/a',

@@ -21,3 +21,12 @@
   background: $white;
 }
 
+.flexElements {
+  display: flex;
+  flex-wrap: wrap;
+  >div {
+    width: 25%;
+    min-width: 350px;
+  }
+}
+

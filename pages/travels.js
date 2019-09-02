@@ -4,7 +4,6 @@ import TravelsPage from '../views/site/pages/Travels/Travels';
 import TravelItem from '../views/site/pages/Travels/TravelItem';
 
 const Travels = ({ article, page, articles }) => {
-  console.log('article', article);
   const renderArticle = () => {
     if (article !== 'travels' && article) {
       return <TravelItem article={article} />;
@@ -27,12 +26,11 @@ Travels.getInitialProps = async (props) => {
 
   try {
     const res = await axios.get('/api/pages/travels', axioscfg);
-    articles = await axios.get('/api/travels', axioscfg);
+    articles = await axios.get('/api/travels/?onlyPublic=1', axioscfg);
     travelPage = res.data;
   } catch (e) {
     console.log('err main getinitialprops');
   }
-  console.log('props', props);
   if (query.article) {
     try {
       const res = await axios.get(`/api/travels/${query.article}/?byRoute=1`, axioscfg);

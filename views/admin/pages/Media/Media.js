@@ -5,12 +5,12 @@ import MediaImages from './MediaImages';
 
 const Media = () => (
   <div className="adminArticlesBox">
-    <Tabs>
+    {/* <Tabs>
       <div name="Картинки" style={{ width: '100%' }}>
         <MediaImages />
       </div>
       <div name="Видео">видосики</div>
-    </Tabs>
+    </Tabs> */}
   </div>
 );
 

@@ -6,7 +6,7 @@ const Portal = ({
 }) => {
   const modalMarkup = (
     <div className="adminModalBox" onMouseDown={onClose}>
-      <div onMouseDown={e => e.stopPropagation()}>
+      <div className="adminModalBody" onMouseDown={e => e.stopPropagation()}>
         <div>
           <div>
             <div onClick={onClose}>X</div>

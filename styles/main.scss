@@ -4,8 +4,9 @@
 @import './site/header.scss';
 @import './site/requestForm.scss';
 @import './site/home/home.scss';
-@import './site//travels/travels.scss';
-@import './site//about.scss';
+@import './site/travels/travels.scss';
+@import './site/about.scss';
+@import './site/slider.scss';
 @import './tabs.scss';
 
 .tox-notifications-container {
@@ -79,21 +80,7 @@ body{
   height: 100%;
 }
 
-.sliderItem {
-  background: green;
-  color: $white;
-  margin: 10px;
-}
 
-.slick-track {
-  display: flex;
-  margin: 0 -10px;
-
-}
-
-.slick-slide {
-  margin: 0 10px;
-}
 
 .mce-content-body {
   padding: 10px;

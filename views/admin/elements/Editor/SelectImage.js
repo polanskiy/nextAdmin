@@ -12,12 +12,13 @@ const SelectImage = ({
       setNowImage(newImg);
       const newImages = { ...nowImages, [image]: newImg };
       setNowImages(newImages);
-      updatePage({ id: page._id, images: newImages });
+      updatePage({ _id: page._id, images: newImages });
     } else {
       const delImage = { ...nowImages, [image]: '' };
+      console.log('delImage', delImage);
       setNowImage(newImageName);
       setNowImages(delImage);
-      updatePage({ id: page._id, images: delImage });
+      updatePage({ _id: page._id, images: delImage });
       axios({
         method: 'delete',
         url: '/api/images',

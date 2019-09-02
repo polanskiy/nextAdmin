@@ -1,0 +1,62 @@
+.nextArrow, .prevArrow {
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  &:before {
+    position: absolute;
+    content: '>';
+    color: #000;
+    font-size: 86px;
+  }
+}
+
+.prevArrow {
+  left: 5px;
+  &:before {
+    content: '<';
+  }
+  z-index: 999;
+}
+
+.sliderItem {
+  display: flex;
+  text-align: center;
+  margin: 10px;
+}
+
+.slick-slider {
+  position: relative;
+}
+
+.slick-track {
+  display: flex;
+  margin: 0 -10px;
+}
+
+.slick-slide {
+  margin: 0 10px;
+}
+
+.slick-dots {
+  display: flex!important;
+  justify-content: center;
+  li {
+    padding: 5px;
+  }
+  .slick-active {
+    div {
+      background: #ccc;
+    }
+  }
+}
+
+.sliderDot {
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+}

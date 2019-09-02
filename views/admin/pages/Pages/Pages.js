@@ -30,7 +30,6 @@ const Pagers = () => {
   }, []);
 
   const updatePage = async (newPage) => {
-    console.log('newPage', newPage);
     await axios({
       method: 'patch',
       url: '/api/pages',

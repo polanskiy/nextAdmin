@@ -5,7 +5,7 @@ const PortalPreloader = () => {
   const modalMarkup = (
     <div className="adminPreloaderBox">
       <div>
-     123
+       Загрузка...
       </div>
     </div>
   );

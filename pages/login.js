@@ -8,7 +8,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('login');
     const res = await axios({
       method: 'post',
       url: '/api/login',

@@ -6,49 +6,37 @@ import request from '../../../../utils/request';
 import DeleteWarning from '../../elements/Modal/DeleteWarning';
 
 const TravelsTable = ({
-  travelList, router,
+  travelList, fetchTravels,
 }) => {
-  const [deviceId, setDeviceId] = useState(false);
+  const [travelId, setTravelId] = useState(false);
   const [showDelWarn, setShowDelWarn] = useToggle(false);
 
-  // const delDevice = async () => {
-  //   preloader();
-  //   await request(`/server/api/satellite/${deviceId}`, 'delete');
-  //   fetchDevices();
-  //   setShowDelWarn();
-  //   setDeviceId(false);
-  //   preloader();
-  // };
+  const delTravel = async () => {
+    await request(`/api/travels/${travelId}`, 'delete');
+    fetchTravels();
+    setShowDelWarn();
+    setTravelId(false);
+  };
 
   const handleTableIcon = (e, row) => {
     const { dataset } = e.target;
     const {
-      id,
+      _id,
     } = row;
-    console.log('row', row);
     if (dataset.name === 'del') {
-      setDeviceId(id);
+      setTravelId(_id);
       setShowDelWarn();
-    } else if (dataset.name === 'edit') {
-      console.log('kek');
-      // router.push(`/admin/articles/${row._id}`);
-      // setDeviceUpdate(true);
-      // setDeviceData({
-      //   id, name, ipaddr, type, port, config, configured,
-      // });
-      // toggleOpen();
     }
   };
   const Setting = Config();
   const { columns } = Setting;
-  console.log('travelList', travelList);
   return (
     <React.Fragment>
       { travelList.isFetching ? <p>загрузка путешествий</p> : travelList.data.length
         ? (
           <Table data={travelList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
         ) : <div>Путешествий нет</div>}
-      {/* <DeleteWarning confirmDel={delDevice} isOpen={showDelWarn} toggleOpen={setShowDelWarn} /> */}
+      <DeleteWarning confirmDel={delTravel} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
     </React.Fragment>
   );
 };

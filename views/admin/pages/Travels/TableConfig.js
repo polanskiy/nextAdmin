@@ -13,7 +13,6 @@ import formatter from '../../../../utils/tableFormatters';
 
 export default function () {
   function iconFormatter(cell, row) {
-    console.log('rowrowrowrow', row, cell);
     return (
       <React.Fragment>
         <Link route={`/admin/travels/${row._id}`}>

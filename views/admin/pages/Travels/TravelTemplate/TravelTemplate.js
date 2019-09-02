@@ -1,26 +1,26 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import request from '../../../../../utils/request';
-import TextEditor from '../../../elements/Editor/TextEditor';
-import SelectImage from '../../../elements/Editor/SelectImage';
-import TabItem from './TabItem';
+import Settings from './Settings';
+import Text from './Text';
+import Tabs from './Tabs';
+import Images from './Images';
+import Slides from './Slides';
 
-const TravelTemplate = ({ id }) => {
+const TravelTemplate = ({ id, preloader }) => {
   const [travelData, setTravelData] = useState({ data: null, isFetching: false });
-  const [nowImages, setNowImages] = useState({});
-  const [uri, setUri] = useState('');
   const { data, isFetching } = travelData;
   const kek = useCallback(React.createRef(), []);
 
   const fetchTravelData = async () => {
     setTravelData({ data: null, isFetching: true });
+    preloader();
     try {
       const res = await request(`/api/travels/${id}`);
       setTravelData({ data: res.data, isFetching: false });
-      setUri(res.data.route);
-      setNowImages(res.data.images);
     } catch (e) {
       console.log('err');
     }
+    preloader();
   };
 
   const handleFocus = () => {
@@ -38,51 +38,15 @@ const TravelTemplate = ({ id }) => {
   }, [kek]);
 
   const updateTravel = async (newTravel) => {
-    console.log('newTravel', newTravel);
-    await request('/api/travels', 'patch', newTravel);
+    preloader();
+    try {
+      await request('/api/travels', 'patch', newTravel);
+    } catch (err) {
+      console.log('err update travel');
+    }
+    preloader();
   };
 
-  const handleTitle = (title) => {
-    // setTravelData({ data: { ...travelData, title }, isFetching: false });
-    updateTravel({ ...data, title });
-  };
-
-  const handleText = (text) => {
-    updateTravel({ ...data, text });
-  };
-
-  const handleUri = (route) => {
-    updateTravel({ ...data, route });
-    setUri(route);
-  };
-
-  const addTab = async () => {
-    const newTab = {
-      name: '',
-      value: '',
-    };
-    const tabs = [...data.tabs];
-    tabs.push(newTab);
-    await updateTravel({ ...data, tabs });
-    fetchTravelData();
-  };
-
-  const renderTabs = () => data.tabs.map(tab => (
-    <TabItem
-      key={tab._id}
-      tab={tab}
-      updateTravel={updateTravel}
-      travelData={data}
-      handleFocus={handleFocus}
-    />
-  ));
-
-  const renderImages = () => Object.keys(nowImages).map(image => <SelectImage key={image} page={data} image={image} updatePage={updateTravel} setNowImages={setNowImages} nowImages={nowImages} />);
-
-  console.log('travelData', travelData);
-
-  const titleSelector = 'titleSelector';
-  const textSelector = 'textSelector';
   return (
     <div className="travelTemplateBox">
       <input
@@ -97,43 +61,11 @@ const TravelTemplate = ({ id }) => {
       {data
         ? (
           <React.Fragment>
-            <div className="adminPageElement">
-              <p>URI страницы:</p>
-              <input type="text" placeholder="URI страницы" value={uri} onChange={e => handleUri(e.target.value)} />
-            </div>
-            <div className="adminPageElement">
-              <TextEditor
-                selector={titleSelector}
-                title="Заголовок путешествия"
-                data={data.title}
-                setData={handleTitle}
-                focus={titleSelector}
-                handleFocus={handleFocus}
-              />
-            </div>
-            <div className="adminPageElement">
-              <TextEditor
-                selector={textSelector}
-                title="Текст путешествия"
-                data={data.text}
-                setData={handleText}
-                handleFocus={handleFocus}
-              />
-            </div>
-            <div className="adminPageElement">
-              <div className="adminBtnsBox">
-                <button type="button" onClick={addTab} className="adminBtn">Добавить вкладку</button>
-              </div>
-              {renderTabs()}
-            </div>
-
-            <div className="adminPageElement">
-              {renderImages()}
-            </div>
-            {/* <div>
-              <p>Бэкграунд шапки:</p>
-              <Uploader />
-            </div> */}
+            <Settings data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
+            <Text data={data} updateTravel={updateTravel} handleFocus={handleFocus} />
+            <Tabs data={data} fetchTravelData={fetchTravelData} handleFocus={handleFocus} updateTravel={updateTravel} />
+            <Images data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
+            <Slides data={data} setTravelData={setTravelData} updateTravel={updateTravel} fetchTravelData={fetchTravelData} />
           </React.Fragment>
         ) : 'такого путешествия нет'}
     </div>

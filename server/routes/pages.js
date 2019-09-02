@@ -4,7 +4,6 @@ const { Page } = require('../models/page');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  console.log('wow');
   Page.find().exec((err, doc) => {
     if (err) return res.status(400).send(err);
     return res.send(doc);
@@ -13,10 +12,8 @@ router.get('/', (req, res) => {
 
 router.get('/:name', (req, res) => {
   const { name } = req.params;
-  console.log('name', name);
   Page.findOne({ name }, (err, doc) => {
     if (err) return res.status(400).send(err);
-    console.log('doc', doc);
     return res.send(doc);
   });
 });
@@ -33,7 +30,7 @@ router.post('/', (req, res) => {
 });
 
 router.patch('/', (req, res) => {
-  Page.updateOne({ _id: req.body.id }, { $set: { ...req.body } }, (err, doc) => {
+  Page.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({
       update: true,

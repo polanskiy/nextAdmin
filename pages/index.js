@@ -5,7 +5,6 @@ import Home from '../views/site/pages/Home/Home';
 
 
 const Main = ({ page }) => {
-  console.log('reeeender');
   return (
     <Layout>
       <Home page={page} />

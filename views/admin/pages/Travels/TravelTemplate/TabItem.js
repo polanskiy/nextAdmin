@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextEditor from '../../../elements/Editor/TextEditor';
 
 const TabItem = ({
-  tab, updateTravel, travelData, handleFocus,
+  tab, updateTravel, travelData, handleFocus, fetchTravelData,
 }) => {
   const [tabName, setTabName] = useState(tab.name);
   const [tabValue, setTabValue] = useState(tab.value);
@@ -36,10 +36,19 @@ const TabItem = ({
     updateTravel({ ...travelData, tabs: newTabs });
   };
 
+  const handleDelete = () => {
+    const newTabs = travelData.tabs.filter(item => item._id !== tab._id);
+    updateTravel({ ...travelData, tabs: newTabs });
+    fetchTravelData();
+  };
+
   return (
     <div className="adminTabItemBox">
-      <p className="adminEditorTitle">Заголовок вкладки:</p>
-      <input type="text" value={tabName} onChange={handleTabName} />
+      <div className="adminEditorTitle">
+        <p>Заголовок вкладки:</p>
+        <button type="button" className="adminBtn adminDelBtn" onClick={handleDelete}>Удалить</button>
+      </div>
+      <input type="text" value={tabName} onChange={handleTabName} className="adminArticleInput" />
       <div>
         <TextEditor
           selector={tab._id}

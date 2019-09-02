@@ -3,7 +3,6 @@ import xss from 'xss';
 import xssOptions from '../../../utils/xssOptions';
 
 const BlockAbout = ({ aboutText, aboutImg }) => {
-  console.log('about', aboutImg);
   return (
     <div className="whiteBg">
       <div className="contentMidWrapper">
