@@ -2,13 +2,13 @@ import React from 'react';
 import Header from '../../elements/Header';
 import RequestForm from '../../elements/RequestForm';
 
-const Event = () => (
+const Event = ({ page }) => (
   <div>
-    <Header title="Event" headerBg="/static/images/eventHeaderBg.jpg" />
+    <Header title={page.title} headerBg={page.images.header} />
     <p>
     Гарантирую индивидуальный подход к каждому клиенту и максимальное соответствие его запросам.
     </p>
-    <RequestForm />
+    <RequestForm footerImg={page.images.footer} />
   </div>
 );
 
