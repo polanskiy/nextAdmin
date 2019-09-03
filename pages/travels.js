@@ -4,6 +4,7 @@ import TravelsPage from '../views/site/pages/Travels/Travels';
 import TravelItem from '../views/site/pages/Travels/TravelItem';
 
 const Travels = ({ article, page, articles }) => {
+  console.log('article', article);
   const renderArticle = () => {
     if (article !== 'travels' && article) {
       return <TravelItem article={article} />;

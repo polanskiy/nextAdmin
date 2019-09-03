@@ -202,11 +202,12 @@
   color: $white;
 }
 
-.customFormBox {
+.customFormBox, .customFormBoxSecond {
   display: flex;
-  height: 130px;
+  height: 100px;
   background: $white;
-  margin: 95px 0 0;
+  margin: 95px auto 0;
+  width: 100%;
   label {
     position: relative;
     border: 1px solid rgba(57,57,57,.4);
@@ -217,6 +218,10 @@
       left: 40px;
     }
   }
+}
+
+.customFormBoxSecond {
+  margin-top: 0;
 }
 
 .noMargin {
@@ -283,21 +288,27 @@
   }
 }
 
-.customFormItem { 
+.customFormInput { 
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
   height: 100%;
-  font-size: 22px;
+  font-size: 18px;
   border: 0;
   padding: 0 0 0 100px;
+  width: -webkit-fill-available;
+}
 
+.customFormItem {
+  width: 24%;
 }
 
 .customFormSearchItem {
+  display: flex;
   padding: 0;
   border: 0;
+  width: 28%;
   .customFormItemBtn {
     display: flex;
     align-items: center;

@@ -21,7 +21,7 @@ const RequestForm = ({ footerImg }) => (
           </label>
           <label htmlFor="message" className="requestFormLabel">
             <span>Ваше сообщение</span>
-            <textarea rows="9" name="message" />
+            <textarea rows="5" name="message" />
           </label>
           <button type="button" className="btn">Отправить Вопрос</button>
         </form>

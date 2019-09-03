@@ -11,12 +11,31 @@
 
 .travelsListTitle {
   font-family: 'Lobster';
-  font-size: 65px;
+  font-size: 45px;
 }
 
 .travelsListItem {
-  padding: 20px;
-  border: 1px solid #000;
-  width: 24%;
+  max-width: 360px;
+  width: 100%;
   margin: 0 0 25px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.travelListLink {
+  position: relative;
+  cursor: pointer;
+  height: 220px;
+  * {
+    color: #000!important;
+    font-family: 'Roboto'!important;
+    font-size: 16px!important;
+  }
+  span {
+    position: absolute;
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    padding: 50px 80px 30px 10px
+  }
 }

@@ -41,7 +41,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     const imgFile = fs.readFileSync(images.path);
     const fileName = images.filename.split('.')[0];
     await sharp(imgFile)
-      .resize(200, 200)
+      .resize(360, 220)
       .toFormat('jpeg')
       .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
         console.log(err, info);
