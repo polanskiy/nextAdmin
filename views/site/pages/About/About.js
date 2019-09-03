@@ -25,7 +25,6 @@ const About = ({ page }) => (
   <React.Fragment>
     <Header title={page.title} headerBg={page.images.header} noSearch />
     <BlockAbout />
-    <Slider />
     <AboutColorBox />
   </React.Fragment>
 );

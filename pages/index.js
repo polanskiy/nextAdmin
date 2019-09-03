@@ -4,13 +4,11 @@ import Layout from '../views/site/hoc/Layout';
 import Home from '../views/site/pages/Home/Home';
 
 
-const Main = ({ page }) => {
-  return (
-    <Layout>
-      <Home page={page} />
-    </Layout>
-  );
-};
+const Main = ({ page }) => (
+  <Layout>
+    <Home page={page} />
+  </Layout>
+);
 
 Main.getInitialProps = async (ctx) => {
   const axioscfg = ctx.req ? { baseURL: 'http://localhost:3000' } : {};

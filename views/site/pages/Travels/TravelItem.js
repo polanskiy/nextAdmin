@@ -1,8 +1,10 @@
 import React from 'react';
+import xss from 'xss';
 import Header from '../../elements/Header';
 import TravelAbout from './TravelAbout';
 import Slider from '../../elements/Slider';
 import RequestForm from '../../elements/RequestForm';
+import xssOptions from '../../../../utils/xssOptions';
 
 const TravelItem = ({ article }) => (
   <div className="travelItemBox">
@@ -12,9 +14,7 @@ const TravelItem = ({ article }) => (
           <React.Fragment>
             <div className="whiteBg">
               <div className="contentMidWrapper travelItemDescrBox">
-                <div className="travelItemDescrText">
-                  {article.text}
-                </div>
+                <div dangerouslySetInnerHTML={{ __html: xss(article.text, xssOptions) }} />
                 <button type="button" className="btn">Забронировать поездку</button>
               </div>
             </div>
