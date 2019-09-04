@@ -14,6 +14,9 @@
   text-align: left;
   font-size: 14px;
   outline: 0;
+  div {
+    display: inline;
+  }
 }
 
 .table thead th input{
@@ -50,7 +53,6 @@
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  top: -250%;
   width: 100%;
   background: #fff;
   border: 1px solid #cecece;
@@ -83,14 +85,14 @@
   padding: .5rem .75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: blue;
+  color: $green;
   background-color: #fff;
   border: 1px solid #a4b7c1;
 }
 
 .page-link{
   padding: 5px;
-  color: blue;
+  color: $green;
   text-decoration: none;
   border: 1px solid #000;
 }
@@ -98,7 +100,7 @@
 .page-item.active .page-link{
   color: #fff;
   text-decoration: none;
-  background: blue;
+  background: $green;
 }
 
 .table thead th .filterBoxTable{
@@ -130,7 +132,7 @@
       opacity: 0; 
     }
     &:focus{
-      border-bottom: 2px solid blue;
+      border-bottom: 2px solid $green;
     }
   }
   select {
@@ -154,4 +156,25 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 15px;
+}
+
+.danger {
+  background: red!important;
+}
+
+.tableIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 35px;
+  height: 35px;
+  width: 100%;
+  padding: 5px;
+  background: $green;
+  cursor: pointer;
+  svg {
+    width: 35px;
+    height: 35px;
+    pointer-events: none;
+  }
 }

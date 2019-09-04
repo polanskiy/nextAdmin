@@ -4,18 +4,7 @@ import TravelsTable from './TravelsTable';
 import NewTravel from './NewTravel/NewTravel';
 
 const Travels = (props) => {
-  const initialData = {
-    username: '',
-    password: '',
-    email: '',
-    fullname: '',
-    roles: [],
-  };
-
   const [travelList, setTravelList] = useState({ data: [], isFetching: false });
-  const [userData, setUserData] = useState(initialData);
-  const [userUpdate, setUserUpdate] = useState(false);
-
   let isMount = true;
 
   const fetchTravels = async () => {
@@ -38,8 +27,9 @@ const Travels = (props) => {
   return (
     <React.Fragment>
       <div>
+        <h1 className="adminTitle">Путешествия:</h1>
         <NewTravel travelList={travelList.data} fetchTravels={fetchTravels} />
-        <div>
+        <div className="adminPageElement">
           <TravelsTable
             {...props}
             travelList={travelList}

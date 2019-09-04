@@ -11,11 +11,12 @@ const Images = ({ data, setTravelData, updateTravel }) => {
       key={image}
       page={data}
       image={image}
-      updatePage={updateTravel}
+      updateData={updateTravel}
       setNowImages={handleImages}
       nowImages={data.images}
     />
   ));
+
   return (
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Фоновые изображения:</h1>

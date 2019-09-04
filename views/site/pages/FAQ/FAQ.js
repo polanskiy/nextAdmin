@@ -2,18 +2,13 @@ import React from 'react';
 import Header from '../../elements/Header';
 import RequestForm from '../../elements/RequestForm';
 
-const FAQ = () => (
+const FAQ = ({ page }) => (
   <div>
-    <Header title="Вопрос-ответ" headerBg="/static/images/blogHeaderBg.jpg" />
-    <p>Вы помогаете с получением визы?</p>
-    <p>
-- Да, могу полностью подготовить все документы для подачи в визовый центр
-
-- Возможность сопровождения в визовый центр или подача без личного присутствия (зависит от страны, где получаете визу)
-
-- Если хотите, можете самостоятельно оформить визу
-    </p>
-    <RequestForm />
+    <Header title={page.title.value} headerBg={page.images.header} />
+    <div className="contentMidWrapper">
+      {page.description.value}
+    </div>
+    <RequestForm footerImg={page.images.footer} />
   </div>
 );
 

@@ -10,12 +10,10 @@ ContactsPage.getInitialProps = async (ctx) => {
   const axioscfg = ctx.req ? { baseURL: 'http://localhost:3000' } : {};
   let contactsPage = {};
   try {
-    const res = await axios.get('/api/pages', axioscfg);
-    res.data.forEach((page) => {
-      if (page.name === 'contacts') contactsPage = page;
-    });
+    const res = await axios.get('/api/pages/contacts', axioscfg);
+    contactsPage = res.data;
   } catch (e) {
-    console.log('err contactsPage getinitialprops');
+    console.log('err contacts getinitialprops');
   }
   return { page: contactsPage };
 };

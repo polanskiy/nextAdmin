@@ -1,27 +1,58 @@
 import React from 'react';
+import xss from 'xss';
 import { textFilter } from 'react-bootstrap-table2-filter';
+import xssOptions from '../../../../utils/xssOptions';
 import { Link } from '../../../../routes';
-// import { BtnTable } from '../../../styles/Common';
-// import { ReactComponent as Trash } from '../../../../../static/images/icons/del.svg';
-// import { ReactComponent as Edit } from '../../../../../static/images/icons/edit.svg';
-// import { ReactComponent as Config } from '../../../images/config.svg';
-// import { ReactComponent as Update } from '../../../images/update.svg';
-// import { ReactComponent as View } from '../../../images/eye.svg';
+import Edit from '../../../../static/images/icons/edit.svg';
+import True from '../../../../static/images/icons/trrue.svg';
+import False from '../../../../static/images/icons/false.svg';
+import Trash from '../../../../static/images/icons/garbage.svg';
 import formatter from '../../../../utils/tableFormatters';
-// import { div } from '../../../styles/Table';
-
 
 export default function () {
-  function iconFormatter(cell, row) {
+  const iconFormatter = (cell, row) => (
+    <div className="flexItems">
+      <Link route={`/admin/travels/${row._id}`}>
+        <div className="tableIcon">
+          <Edit fill="white" />
+        </div>
+      </Link>
+      <div data-name="del" className="tableIcon danger">
+        <Trash fill="white" />
+      </div>
+    </div>
+  );
+  const publicFormatter = (cell, row) => (
+    <React.Fragment>
+      <div className="tableIcon">
+        {row.public
+          ? (
+            <True fill="white" />
+          )
+          : (
+            <False fill="white" />
+          )
+      }
+      </div>
+    </React.Fragment>
+  );
+
+  function nameFormatter(cell, row) {
     return (
-      <React.Fragment>
-        <Link route={`/admin/travels/${row._id}`}>
-          <a>Редактировать</a>
-        </Link>
-        <div data-name="del" bg="red">delete</div>
-      </React.Fragment>
+      <div
+        className="nameFormatterBox"
+        dangerouslySetInnerHTML={{ __html: xss(row.title, xssOptions) }}
+      />
     );
   }
+
+  const placeholder = (column, colIndex, { filterElement, sortElement }) => (
+    <div className="filterBoxTable">
+      { filterElement }
+      {sortElement}
+    </div>
+  );
+
   return {
     columns: [
       {
@@ -34,6 +65,27 @@ export default function () {
           </React.Fragment>
         ),
         editable: false,
+        formatter: nameFormatter,
+        headerFormatter: placeholder,
+        filter: textFilter({
+          className: 'customPlaceholder',
+          placeholder: 'Название',
+        }),
+        headerStyle: {
+          width: 80,
+        },
+      },
+      {
+        dataField: 'public',
+        text: 'Опубликовано',
+        sort: true,
+        sortCaret: order => (
+          <React.Fragment>
+            {order ? order === 'asc' ? <div deg="-90deg">&#8249;</div> : <div deg="90deg">&#8249;</div> : <div deg="90deg">&#8249;</div>}
+          </React.Fragment>
+        ),
+        editable: false,
+        formatter: publicFormatter,
         headerStyle: {
           width: 80,
         },
@@ -75,7 +127,7 @@ export default function () {
         formatter: iconFormatter,
         editable: false,
         headerStyle: {
-          width: 200,
+          width: 30,
         },
       },
     ],

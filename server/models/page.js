@@ -6,13 +6,13 @@ const pageSchema = mongoose.Schema({
     required: true,
   },
   title: {
-    type: String,
+    type: Object,
   },
   about: {
-    type: String,
+    type: Object,
   },
   description: {
-    type: String,
+    type: Object,
   },
   images: { type: Object },
 }, { timestamps: true });

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Uploader from '../Uploader/Uploader';
 
 const SelectImage = ({
-  page, image, updatePage, setNowImages, nowImages,
+  page, image, updateData, setNowImages, nowImages,
 }) => {
   const [nowImage, setNowImage] = useState(page.images[image]);
   const updateImage = (newImageName) => {
@@ -12,13 +12,13 @@ const SelectImage = ({
       setNowImage(newImg);
       const newImages = { ...nowImages, [image]: newImg };
       setNowImages(newImages);
-      updatePage({ _id: page._id, images: newImages });
+      updateData({ _id: page._id, images: newImages });
     } else {
       const delImage = { ...nowImages, [image]: '' };
       console.log('delImage', delImage);
       setNowImage(newImageName);
       setNowImages(delImage);
-      updatePage({ _id: page._id, images: delImage });
+      updateData({ _id: page._id, images: delImage });
       axios({
         method: 'delete',
         url: '/api/images',

@@ -8,12 +8,14 @@ import Media from '../views/admin/pages/Media/Media';
 import TravelTemplate from '../views/admin/pages/Travels/TravelTemplate/TravelTemplate';
 import Preloader from '../views/admin/elements/Preloader/Preloader';
 import useToggle from '../utils/useToggle';
+import PageTemplate from '../views/admin/pages/Pages/PageTemplate/PageTemplate';
 
 const Admin = (props) => {
   const [isOpen, toggleOpen] = useToggle(false);
+  const { slug, id } = props;
   const renderPage = () => {
-    if (!props.id) {
-      switch (props.slug) {
+    if (!id) {
+      switch (slug) {
         case 'pages':
           return <Pages {...props} preloader={toggleOpen} />;
         case 'travels':
@@ -21,14 +23,18 @@ const Admin = (props) => {
         case 'media':
           return <Media {...props} preloader={toggleOpen} />;
         default:
-          return <Home {...props} preloader={toggleOpen} />;
+          return <Pages {...props} preloader={toggleOpen} />;
+          // return <Home {...props} preloader={toggleOpen} />;
       }
-    } else {
-      return <TravelTemplate id={props.id} preloader={toggleOpen} />;
+    } else if (slug === 'travels') {
+      return <TravelTemplate id={id} preloader={toggleOpen} />;
+    } else if (slug === 'pages') {
+      return <PageTemplate name={id} preloader={toggleOpen} />;
     }
+    return null;
   };
   return (
-    <AdminLayout>
+    <AdminLayout slug={slug}>
       {renderPage()}
       <Preloader isOpen={isOpen} />
     </AdminLayout>

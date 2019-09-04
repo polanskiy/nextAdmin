@@ -1,25 +1,15 @@
 import React from 'react';
+import xss from 'xss';
+import xssOptions from '../../../../utils/xssOptions';
 
-const AboutColorBox = ({ renderNext }) => {
-  const bg = new Image();
-  bg.src = '/static/images/aboutColorBoxBg.jpg';
-  bg.onload = renderNext;
-
-  return (
-    <div className="aboutColorBox" style={bg && { background: `url(${bg.src})` }}>
-      <div className="contentMidWrapper">
-        <div className="colorBox">
-          <p className="title">Что я могу сделать для Вас?</p>
-          <p className="aboutPageColorText">
-          Я помогу подобрать для Вас оптимальный туристический маршрут любой сложности,  качественно организую подходящий Вам вариант трансфера в выбранную страну, обеспечу бронирование отеля, апартаментов, виллы и т.д.,  в соответствии с вашими пожеланиями, сделаю расчет стоимости вашего путешествия.
-            <br />
-            <br />
-          Во время Вашей поездки я нахожусь на связи, Вы можете звонить и консультироваться со мной по любым вопросам Вашего отдыха.
-          </p>
-        </div>
+const AboutColorBox = ({ aboutText, aboutImg }) => (
+  <div className="aboutColorBox" style={{ background: `url(${aboutImg})` }}>
+    <div className="contentMidWrapper">
+      <div className="colorBox">
+        <div dangerouslySetInnerHTML={{ __html: xss(aboutText, xssOptions) }} />
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default AboutColorBox;

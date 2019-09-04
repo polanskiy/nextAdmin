@@ -1,27 +1,14 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import Header from '../../elements/Header';
-
-const BlockAbout = dynamic({
-  loader: () => import('../../elements/BlockAbout'),
-  loading: () => <p>LOADING ABOUT</p>,
-});
-const HomeAdvantages = dynamic({
-  loader: () => import('./HomeAdvantages'),
-  loading: () => <p>LOADING ABOUT</p>,
-  ssr: false,
-});
-const RequestForm = dynamic({
-  loader: () => import('../../elements/RequestForm'),
-  loading: () => <p>LOADING ABOUT</p>,
-  ssr: false,
-});
+import RequestForm from '../../elements/RequestForm';
+import HomeAdvantages from './HomeAdvantages';
+import BlockAbout from '../../elements/BlockAbout';
 
 const Home = ({ page }) => (
   <div className="homePageBox">
-    <Header title={page.title} headerBg={page.images.header} />
-    <BlockAbout aboutText={page.about} aboutImg={page.images.about} />
-    <HomeAdvantages descriptionText={page.description} descriptionImg={page.images.description} />
+    <Header title={page.title.value} headerBg={page.images.header} />
+    <BlockAbout aboutText={page.about.value} aboutImg={page.images.about} />
+    <HomeAdvantages descriptionText={page.description.value} descriptionImg={page.images.description} />
     <RequestForm footerImg={page.images.footer} />
   </div>
 );

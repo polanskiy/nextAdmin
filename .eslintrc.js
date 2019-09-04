@@ -12,7 +12,8 @@ module.exports = {
         "jsx-a11y/no-autofocus": 0,
         "no-nested-ternary": 0,
         "jsx-a11y/label-has-for": 0,
-        "jsx-a11y/label-has-associated-control":0
+        "jsx-a11y/label-has-associated-control":0,
+        "jsx-a11y/click-events-have-key-events": 0
     },
     "globals": {
         "window": true,

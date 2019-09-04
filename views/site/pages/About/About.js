@@ -1,31 +1,15 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import Header from '../../elements/Header';
-
-const BlockAbout = dynamic({
-  loader: () => import('../../elements/BlockAbout'),
-  loading: () => <p>LOADING ABOUT</p>,
-  ssr: false,
-});
-
-const Slider = dynamic({
-  loader: () => import('../../elements/Slider'),
-  loading: () => <p>LOADING ABOUT</p>,
-  ssr: false,
-});
-
-const AboutColorBox = dynamic({
-  loader: () => import('./AboutColorBox'),
-  loading: () => <p>LOADING ABOUT</p>,
-  ssr: false,
-});
-
+import BlockAbout from '../../elements/BlockAbout';
+import AboutColorBox from './AboutColorBox';
+import RequestForm from '../../elements/RequestForm';
 
 const About = ({ page }) => (
   <React.Fragment>
-    <Header title={page.title} headerBg={page.images.header} noSearch />
-    <BlockAbout />
-    <AboutColorBox />
+    <Header title={page.title.value} headerBg={page.images.header} noSearch />
+    <BlockAbout aboutText={page.about.value} aboutImg={page.images.about} />
+    <AboutColorBox aboutText={page.description.value} aboutImg={page.images.colorBox} />
+    <RequestForm footerImg={page.images.footer} />
   </React.Fragment>
 );
 

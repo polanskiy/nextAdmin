@@ -4,7 +4,7 @@ import RequestForm from '../../elements/RequestForm';
 
 const Contacts = ({ page }) => (
   <div>
-    <Header title={page.title} headerBg={page.images.header} />
+    <Header title={page.title.value} headerBg={page.images.header} />
     <p>
     Форма заказа вашего
     </p>

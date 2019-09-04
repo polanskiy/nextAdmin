@@ -23,9 +23,9 @@ const RequestForm = dynamic({
 
 const Travels = ({ page, articles }) => (
   <div className="travelsBox">
-    <Header title={page.title} headerClass="headerBox_travels" headerBg={page.images.header} />
+    <Header title={page.title.value} headerClass="headerBox_travels" headerBg={page.images.header} />
     <TravelsList articles={articles} />
-    <BlockAbout aboutText={page.about} aboutImg={page.images.about} />
+    <BlockAbout aboutText={page.about.value} aboutImg={page.images.about} />
     <RequestForm footerImg={page.images.footer} />
   </div>
 );

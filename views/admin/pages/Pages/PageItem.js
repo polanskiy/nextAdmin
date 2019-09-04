@@ -23,7 +23,7 @@ const PageItem = ({ page, updatePage }) => {
               selector={`${page.name}${item}TitleEditor`}
               title={item}
               data={page[item]}
-              setData={value => updatePage({ id: page._id, [item]: value })}
+              setData={value => updatePage({ _id: page._id, [item]: value })}
               handleFocus={handleFocus}
             />
           </div>

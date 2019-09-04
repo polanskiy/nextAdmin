@@ -1,3 +1,9 @@
+.sliderBox {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .nextArrow, .prevArrow {
   position: absolute;
   top: 40%;
@@ -28,6 +34,7 @@
 
 .slick-slider {
   position: relative;
+  padding: 0 25px;
 }
 
 .slick-track {
@@ -37,6 +44,9 @@
 
 .slick-slide {
   margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slick-dots {

@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from '../../../../routes';
 
-const SideNav = () => (
-  <div className="adminSidenavBox">
-    <div className="adminSidenavSticky">
-      <Link href="/admin">
+const SideNav = ({ slug }) => {
+  const [active, setActive] = useState(slug || 'pages');
+
+  return (
+    <div className="adminSidenavBox">
+      <div className="adminSidenavSticky">
+        {/* <Link href="/admin">
         <a style={{ fontSize: 20 }}>Главная</a>
-      </Link>
-      <Link route="admin" params={{ slug: 'pages' }}>
-        <a style={{ fontSize: 20 }}>Страницы</a>
-      </Link>
-      <Link route="admin" params={{ slug: 'travels' }}>
-        <a>Путешествия</a>
-      </Link>
-      <Link route="admin" params={{ slug: 'media' }}>
+      </Link> */}
+        <Link route="admin" params={{ slug: 'pages' }}>
+          <a className={active === 'pages' ? 'adminActiveNav' : undefined} onClick={() => setActive('pages')}>Страницы</a>
+        </Link>
+        <Link route="admin" params={{ slug: 'travels' }}>
+          <a className={active === 'travels' ? 'adminActiveNav' : undefined} onClick={() => setActive('travels')}>Путешествия</a>
+        </Link>
+        {/* <Link route="admin" params={{ slug: 'media' }}>
         <a>Медиа</a>
-      </Link>
+      </Link> */}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default SideNav;

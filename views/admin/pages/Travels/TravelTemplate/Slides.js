@@ -30,7 +30,7 @@ const Slides = ({
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Слайды:</h1>
       <div className="adminBtnsBox">
-        <button type="button" onClick={addSlide} className="adminBtn">Добавить слайд:</button>
+        <button type="button" onClick={addSlide} className="adminBtn">Добавить слайд</button>
       </div>
       <div className="flexElements">
         {renderSlides()}

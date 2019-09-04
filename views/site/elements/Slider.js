@@ -54,12 +54,11 @@ const Slider = ({ slides }) => {
   };
 
   return (
-    <div>
-      <h2> Multiple items </h2>
+    <React.Fragment>
       <Slick {...settings}>
         {renderSlides()}
       </Slick>
-    </div>
+    </React.Fragment>
   );
 };
 

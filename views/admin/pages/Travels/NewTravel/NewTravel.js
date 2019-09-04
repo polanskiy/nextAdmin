@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import request from '../../../../../utils/request';
 import Modal from '../../../elements/Modal/Modal';
 import useToggle from '../../../../../utils/useToggle';
+import translit from '../../../../../utils/translit';
 
 
 const NewTravel = ({ travelList, fetchTravels }) => {
@@ -10,7 +11,7 @@ const NewTravel = ({ travelList, fetchTravels }) => {
 
   const createTravel = async () => {
     const newPostion = travelList.length + 1;
-    const route = title;
+    const route = translit(title);
     const initialData = {
       title,
       route,
@@ -29,7 +30,7 @@ const NewTravel = ({ travelList, fetchTravels }) => {
 
   return (
     <React.Fragment>
-      <button type="button" onClick={toggleOpen}>
+      <button type="button" onClick={toggleOpen} className="adminBtn mgb">
         Добавить
       </button>
       <Modal title="Добавление Путешествия" isOpen={isOpen} toggleOpen={toggleOpen}>

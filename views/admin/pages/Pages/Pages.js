@@ -1,64 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Tabs from '../../../site/elements/Tabs';
-import PageItem from './PageItem';
+import React, { useState, useEffect } from 'react';
+import Table from '../../elements/Table/Table';
+import Config from './TableConfig';
+import useToggle from '../../../../utils/useToggle';
+import request from '../../../../utils/request';
+import DeleteWarning from '../../elements/Modal/DeleteWarning';
 
-const Pagers = () => {
+const Travels = (props) => {
   const [pageList, setPageList] = useState({ data: [], isFetching: false });
+  const [travelId, setTravelId] = useState(false);
+  const [showDelWarn, setShowDelWarn] = useToggle(false);
   let isMount = true;
 
-  const fetchPages = async () => {
+  const fetchTravels = async () => {
+    if (isMount) setPageList({ data: [], isFetching: true });
     try {
-      setPageList({ data: [], isFetching: true });
-      const res = await axios({
-        method: 'get',
-        url: '/api/pages',
-      });
-      if (isMount) {
-        setPageList({ data: res.data, isFetching: false });
-      }
+      const res = await request('/api/pages/', 'get');
+      if (isMount) setPageList({ data: res.data, isFetching: false });
     } catch (e) {
-      console.log('ошибка загрузки страниц');
+      if (isMount) setPageList({ data: [], isFetching: false });
     }
   };
 
+  const delTravel = async () => {
+    await request(`/api/travels/${travelId}`, 'delete');
+    fetchTravels();
+    setShowDelWarn();
+    setTravelId(false);
+  };
+
+  const handleTableIcon = (e, row) => {
+    const { dataset } = e.target;
+    const {
+      _id,
+    } = row;
+    if (dataset.name === 'del') {
+      setTravelId(_id);
+      setShowDelWarn();
+    }
+  };
+  const Setting = Config();
+  const { columns } = Setting;
+
+
   useEffect(() => {
-    fetchPages();
+    fetchTravels();
     return () => {
       isMount = false;
     };
   }, []);
 
-  const updatePage = async (newPage) => {
-    await axios({
-      method: 'patch',
-      url: '/api/pages',
-      data: newPage,
-    });
-  };
-
-  const renderPages = () => pageList.data.map(item => (
-    <div
-      role="presentation"
-      key={item.name}
-      name={item.name}
-      style={{ width: '100%' }}
-    >
-      <PageItem page={item} data-id={item._id} updatePage={updatePage} />
-    </div>
-  ));
-
   return (
     <React.Fragment>
-      <Tabs>
-        {
-        pageList.data.length
-          ? renderPages() : <div>страниц нет</div>
-        }
-      </Tabs>
+      <div>
+        <h1 className="adminTitle">Страницы:</h1>
+        <div className="adminPageElement">
+          <React.Fragment>
+            { pageList.isFetching ? <p>загрузка страниц</p> : pageList.data.length
+              ? (
+                <Table data={pageList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
+              ) : <div>Страниц нет</div>}
+            <DeleteWarning confirmDel={delTravel} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
+          </React.Fragment>
+        </div>
+      </div>
     </React.Fragment>
-
   );
 };
-
-export default Pagers;
+export default Travels;

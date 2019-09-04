@@ -24,7 +24,6 @@ const Tabs = ({
       </div>
     );
   };
-
   const renderContent = (tabs) => {
     if (tabs.length) {
       return (tabs.map((tab, i) => (
