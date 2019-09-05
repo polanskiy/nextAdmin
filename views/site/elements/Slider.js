@@ -1,7 +1,10 @@
 import React from 'react';
 import Slick from 'react-slick';
+import Arr from '../../../static/images/icons/sliderAngle.svg';
 
-const Slider = ({ slides }) => {
+const Slider = ({
+  slides, className, dots, colorArr, slidesToShow, fade,
+}) => {
   const renderSlides = () => slides.map(item => (
     <div
       className="sliderItem"
@@ -13,30 +16,32 @@ const Slider = ({ slides }) => {
   ));
 
   const SampleNextArrow = (props) => {
-    const { style, onClick } = props;
+    const { onClick } = props;
     return (
       <div
         role="presentation"
         className="nextArrow"
-        style={{ ...style, display: 'block' }}
         onClick={onClick}
-      />
+      >
+        <Arr fill={colorArr} />
+      </div>
     );
   };
 
   const SamplePrevArrow = (props) => {
-    const { style, onClick } = props;
+    const { onClick } = props;
     return (
       <div
         role="presentation"
         className="prevArrow"
-        style={{ ...style, display: 'block' }}
         onClick={onClick}
-      />
+      >
+        <Arr fill={colorArr} />
+      </div>
     );
   };
 
-  const slideToShow = slides.lenght >= 3 ? 3 : 1;
+  const slideToShow = slides.length >= 2 ? slidesToShow : 1;
 
   const settings = {
     customPaging() {
@@ -44,13 +49,16 @@ const Slider = ({ slides }) => {
         <div className="sliderDot" />
       );
     },
-    dots: true,
+    dots,
     infinite: true,
     speed: 1000,
     slidesToShow: slideToShow,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    className,
+    adaptiveHeight: true,
+    fade,
   };
 
   return (

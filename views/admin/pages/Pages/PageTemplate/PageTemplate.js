@@ -1,14 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import request from '../../../../../utils/request';
 import i from '../../../../../utils/i18n';
-// import Settings from './Settings';
 import Text from './Text';
-// import Tabs from './Tabs';
 import Images from './Images';
-// import Slides from './Slides';
+import Slides from '../../../elements/Slides/Slides';
 
 const PageTemplate = ({ name, preloader }) => {
   const [pageData, setPageData] = useState({ data: null, isFetching: false });
+  const [slideList, setSlideList] = useState([]);
   const { data, isFetching } = pageData;
   const kek = useCallback(React.createRef(), []);
 
@@ -24,6 +23,7 @@ const PageTemplate = ({ name, preloader }) => {
     try {
       const res = await request(`/api/pages/${name}`);
       setPageData({ data: res.data, isFetching: false });
+      setSlideList(res.data.slides);
     } catch (e) {
       console.log('err');
     }
@@ -39,12 +39,12 @@ const PageTemplate = ({ name, preloader }) => {
   }, [kek]);
 
 
-  const updatePage = async (newTravel) => {
+  const updatePage = async (newData) => {
     preloader();
     try {
-      await request('/api/pages', 'patch', newTravel);
+      await request('/api/pages', 'patch', newData);
     } catch (err) {
-      console.log('err update travel');
+      console.log('err update page');
     }
     preloader();
   };
@@ -63,14 +63,17 @@ const PageTemplate = ({ name, preloader }) => {
       {data
         ? (
           <React.Fragment>
-            <h1>{i(data.name)}</h1>
-            <Text data={data} updatePage={updatePage} handleFocus={handleFocus} />
+            <h1 className="adminTitle">{i(data.name)}</h1>
+            <Text data={data} updateData={updatePage} handleFocus={handleFocus} />
             <Images data={data} setTravelData={setPageData} updateData={updatePage} />
-            {/* <Tabs data={data} fetchTravelData={fetchTravelData} handleFocus={handleFocus} updateTravel={updateTravel} />
-
-            <Slides data={data} setTravelData={setTravelData} updateTravel={updateTravel} fetchTravelData={fetchTravelData} /> */}
+            <Slides
+              data={data}
+              slideList={slideList}
+              setSlideList={setSlideList}
+              updateData={updatePage}
+            />
           </React.Fragment>
-        ) : 'такого путешествия нет'}
+        ) : 'такой страницы нет'}
     </div>
   );
 };

@@ -1,14 +1,22 @@
 import React from 'react';
 import Header from '../../elements/Header';
 import BlockAbout from '../../elements/BlockAbout';
-import AboutColorBox from './AboutColorBox';
+import ColorBox from '../../elements/ColorBox';
 import RequestForm from '../../elements/RequestForm';
+import SmallSlider from '../../elements/SmallSlider';
 
 const About = ({ page }) => (
   <React.Fragment>
     <Header title={page.title.value} headerBg={page.images.header} noSearch />
     <BlockAbout aboutText={page.about.value} aboutImg={page.images.about} />
-    <AboutColorBox aboutText={page.description.value} aboutImg={page.images.colorBox} />
+    <ColorBox text={page.description.value} colorBg={page.images.description} />
+    <SmallSlider
+      text={page.slider.value}
+      slides={page.slides}
+      link="/travels"
+      textLink="Галерея путешествий"
+      sliderBg={page.images.slider}
+    />
     <RequestForm footerImg={page.images.footer} />
   </React.Fragment>
 );

@@ -6,9 +6,30 @@
 }
 
 .aboutColorBox { 
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1200px;
-  background-repeat: no-repeat!important;
+}
+
+.colorPositionBox {
+  position: absolute;
+  width: 100%;
+}
+
+.orngBtn {
+  border: 0;
+  display: flex;
+  width: max-content;
+  color: $white;
+  padding: 20px 40px;
+  border-radius: 45px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 35px 0 0; 
+  background: #000;
+  background: #f1c40f; /* Old browsers */
+  background: -moz-linear-gradient(bottom,  #f1c40f 0%, #e67e22 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(bottom,  #f1c40f 0%,#e67e22 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #f1c40f 0%,#e67e22 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }

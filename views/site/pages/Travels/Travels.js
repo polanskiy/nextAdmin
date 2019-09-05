@@ -1,24 +1,8 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import Header from '../../elements/Header';
-
-const TravelsList = dynamic({
-  loader: () => import('../../elements/TravelsList'),
-  loading: () => <p>LOADING TravelsList</p>,
-  ssr: false,
-});
-
-const BlockAbout = dynamic({
-  loader: () => import('../../elements/BlockAbout'),
-  loading: () => <p>LOADING BlockAbout</p>,
-  ssr: false,
-});
-
-const RequestForm = dynamic({
-  loader: () => import('../../elements/RequestForm'),
-  loading: () => <p>LOADING BlockAbout</p>,
-  ssr: false,
-});
+import TravelsList from '../../elements/TravelsList';
+import BlockAbout from '../../elements/BlockAbout';
+import RequestForm from '../../elements/RequestForm';
 
 
 const Travels = ({ page, articles }) => (

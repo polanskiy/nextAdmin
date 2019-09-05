@@ -14,7 +14,14 @@ const pageSchema = mongoose.Schema({
   description: {
     type: Object,
   },
+  slider: {
+    type: Object,
+  },
   images: { type: Object },
+  slides: [{
+    name: String,
+    value: String,
+  }],
 }, { timestamps: true });
 
 const Page = mongoose.model('Page', pageSchema);

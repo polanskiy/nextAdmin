@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from '../../../routes';
+import useToggle from '../../../utils/useToggle';
 
 const Nav = () => {
-  const [showMenu, toggleMenu] = useState(false);
+  const [showMenu, toggleMenu] = useToggle(false);
 
   return (
     <div className={showMenu ? 'menuFixedBox active' : 'menuFixedBox'}>
-      <button className={showMenu ? 'hamburger--arrowturn is-active' : 'hamburger--arrowturn'} type="button" onClick={() => toggleMenu(!showMenu)}>
+      {showMenu && <div className="closeMenuBox" onClick={toggleMenu} />}
+      <button className={showMenu ? 'hamburger--arrowturn is-active' : 'hamburger--arrowturn'} type="button" onClick={toggleMenu}>
         <span className="hamburger-box">
           <span className="hamburger-inner" />
         </span>

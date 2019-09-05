@@ -2,9 +2,9 @@ import React from 'react';
 import TextEditor from '../../../elements/Editor/TextEditor';
 import i from '../../../../../utils/i18n';
 
-const Text = ({ data, handleFocus, updatePage }) => {
+const Text = ({ data, handleFocus, updateData }) => {
   const handleTitle = (item, newText) => {
-    updatePage({ ...data, [item]: { value: newText, type: 'text' } });
+    updateData({ ...data, [item]: { value: newText, type: 'text' } });
   };
 
   const renderEditor = () => Object.keys(data).map((item) => {

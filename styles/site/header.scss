@@ -87,12 +87,20 @@
   transition: .3s;
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
-  z-index: 99;
+  z-index: 9999;
 }
 
 .menuFixedBox.active {
   max-width: 420px;
   min-height: 590px;
+}
+
+.closeMenuBox {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .headerMenuBox {
@@ -139,7 +147,9 @@
   background-color: transparent;
   border: 0;
   margin: 0;
-  overflow: visible; }
+  overflow: visible; 
+  outline: 0;
+}
   .hamburger--arrowturn:hover {
     opacity: 0.7; }
   .hamburger--arrowturn.is-active:hover {

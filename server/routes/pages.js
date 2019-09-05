@@ -30,6 +30,7 @@ router.post('/', (req, res) => {
 });
 
 router.patch('/', (req, res) => {
+  console.log('req.body', req.body);
   Page.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({

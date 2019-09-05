@@ -4,10 +4,11 @@ import Settings from './Settings';
 import Text from './Text';
 import Tabs from './Tabs';
 import Images from './Images';
-import Slides from './Slides';
+import Slides from '../../../elements/Slides/Slides';
 
 const TravelTemplate = ({ id, preloader }) => {
   const [travelData, setTravelData] = useState({ data: null, isFetching: false });
+  const [slideList, setSlideList] = useState([]);
   const { data, isFetching } = travelData;
   const kek = useCallback(React.createRef(), []);
 
@@ -17,6 +18,7 @@ const TravelTemplate = ({ id, preloader }) => {
     try {
       const res = await request(`/api/travels/${id}`);
       setTravelData({ data: res.data, isFetching: false });
+      setSlideList(res.data.slides);
     } catch (e) {
       console.log('err');
     }
@@ -61,11 +63,17 @@ const TravelTemplate = ({ id, preloader }) => {
       {data
         ? (
           <React.Fragment>
+            <h1 className="adminTitle">{data.title.value}</h1>
             <Settings data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
             <Text data={data} updateTravel={updateTravel} handleFocus={handleFocus} />
             <Tabs data={data} fetchTravelData={fetchTravelData} handleFocus={handleFocus} updateTravel={updateTravel} />
             <Images data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
-            <Slides data={data} setTravelData={setTravelData} updateTravel={updateTravel} fetchTravelData={fetchTravelData} />
+            <Slides
+              data={data}
+              slideList={slideList}
+              setSlideList={setSlideList}
+              updateData={updateTravel}
+            />
           </React.Fragment>
         ) : 'такого путешествия нет'}
     </div>

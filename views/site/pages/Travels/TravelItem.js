@@ -20,7 +20,14 @@ const TravelItem = ({ article }) => (
             </div>
             <TravelAbout tabs={article.tabs} tabsBg={article.images.tabs} />
             <div className="sliderBox">
-              <Slider slides={article.slides} />
+              <Slider
+                slides={article.slides}
+                className="travelSlider"
+                dots
+                colorArr="#000"
+                slidesToShow={1}
+                fade={false}
+              />
             </div>
             <RequestForm footerImg={article.images.footer} />
           </React.Fragment>

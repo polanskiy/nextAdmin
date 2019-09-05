@@ -2,7 +2,7 @@ import React from 'react';
 import SlideItem from './SlideItem';
 
 const Slides = ({
-  data, setTravelData, updateTravel, fetchTravelData,
+  data, updateData, fetchData, setData,
 }) => {
   const addSlide = async () => {
     const newSlide = {
@@ -11,17 +11,17 @@ const Slides = ({
     };
     const slides = [...data.slides];
     slides.push(newSlide);
-    await updateTravel({ ...data, slides });
-    fetchTravelData();
+    await updateData({ ...data, slides });
+    fetchData();
   };
 
   const renderSlides = () => data.slides.map((slide, i) => (
     <SlideItem
       key={slide._id}
-      setTravelData={setTravelData}
+      setData={setData}
       slide={slide}
       data={data}
-      updateTravel={updateTravel}
+      updateTravel={updateData}
       index={i}
     />
   ));

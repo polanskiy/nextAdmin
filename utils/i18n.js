@@ -1,14 +1,15 @@
 export default (word) => {
   const kek = {
-    home: 'главная',
-    travels: 'путешествия',
-    about: 'обо мне',
-    faq: 'вопрос-ответ',
-    event: 'event',
-    contacts: 'контакты',
-    blog: 'блог',
-    description: 'описание',
-    title: 'заголовок',
+    home: 'Главная',
+    travels: 'Путешествия',
+    about: 'Обо мне',
+    faq: 'Вопрос-Ответ',
+    event: 'Еvent',
+    contacts: 'Контакты',
+    blog: 'Блог',
+    description: 'Описание',
+    title: 'Заголовок',
+    slider: 'Карусель',
   };
   return kek[word];
 };
