@@ -22,6 +22,7 @@ const PageTemplate = ({ name, preloader }) => {
     preloader();
     try {
       const res = await request(`/api/pages/${name}`);
+      console.log(' res.data', res.data);
       setPageData({ data: res.data, isFetching: false });
       setSlideList(res.data.slides);
     } catch (e) {
@@ -40,6 +41,7 @@ const PageTemplate = ({ name, preloader }) => {
 
 
   const updatePage = async (newData) => {
+    console.log('newData', newData);
     preloader();
     try {
       await request('/api/pages', 'patch', newData);
@@ -48,7 +50,7 @@ const PageTemplate = ({ name, preloader }) => {
     }
     preloader();
   };
-
+  console.log('slideList', slideList);
   return (
     <div className="travelTemplateBox">
       <input
@@ -66,12 +68,14 @@ const PageTemplate = ({ name, preloader }) => {
             <h1 className="adminTitle">{i(data.name)}</h1>
             <Text data={data} updateData={updatePage} handleFocus={handleFocus} />
             <Images data={data} setTravelData={setPageData} updateData={updatePage} />
+            {slideList && (
             <Slides
               data={data}
               slideList={slideList}
               setSlideList={setSlideList}
               updateData={updatePage}
             />
+            )}
           </React.Fragment>
         ) : 'такой страницы нет'}
     </div>

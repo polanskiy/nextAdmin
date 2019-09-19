@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
 router.get('/:name', (req, res) => {
   const { name } = req.params;
   Page.findOne({ name }, (err, doc) => {
+    console.log('docdocdocdocdocdocdocdocdocs', doc);
+
     if (err) return res.status(400).send(err);
     return res.send(doc);
   });
@@ -30,7 +32,6 @@ router.post('/', (req, res) => {
 });
 
 router.patch('/', (req, res) => {
-  console.log('req.body', req.body);
   Page.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({

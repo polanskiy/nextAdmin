@@ -8,7 +8,7 @@ const Text = ({ data, handleFocus, updateData }) => {
   };
 
   const renderEditor = () => Object.keys(data).map((item) => {
-    if (data[item].type === 'text') {
+    if (data[item] && data[item].type === 'text') {
       return (
         <TextEditor
           key={item}
