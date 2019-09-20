@@ -14,19 +14,23 @@ const Login = () => {
       data: { login, password: pass },
     });
     if (res.data.isAuth) {
-      if (window) {
-        window.localStorage.setItem('tokendasya', '123');
-        Router.push('/admin');
-      }
+      Router.push('/admin');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={login} onChange={e => setLogin(e.target.value)} />
-      <input type="text" value={pass} onChange={e => setPass(e.target.value)} />
-      <input type="submit" value="Войти" onClick={handleSubmit} />
-    </form>
+    <div className="loginBox">
+      <form onSubmit={handleSubmit} className="loginFormBox">
+        <input type="text" value={login} onChange={e => setLogin(e.target.value)} placeholder="Логин" />
+        <input type="text" value={pass} onChange={e => setPass(e.target.value)} placeholder="Пароль" />
+        <input
+          type="submit"
+          value="Войти"
+          onClick={handleSubmit}
+          style={login && pass ? { background: '#098B8C' } : undefined}
+        />
+      </form>
+    </div>
   );
 };
 export default Login;

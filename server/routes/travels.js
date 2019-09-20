@@ -1,19 +1,24 @@
 const express = require('express');
 const { Travel } = require('../models/travel');
+const { auth } = require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', auth, (req, res) => {
   const { onlyPublic } = req.query;
   if (onlyPublic) {
     Travel.find({ public: true }).exec((err, doc) => {
       if (err) return res.status(400).send(err);
       return res.send(doc);
     });
-  } else {
+  } else if (req.isAuth) {
     Travel.find().exec((err, doc) => {
       if (err) return res.status(400).send(err);
       return res.send(doc);
+    });
+  } else {
+    return res.status(401).json({
+      isAuth: false,
     });
   }
 });
@@ -34,33 +39,50 @@ router.get('/:id', (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
-  const travel = new Travel(req.body);
-  travel.save((err, doc) => {
-    if (err) return res.status(400).send(err);
-    return res.status(200).json({
-      post: true,
-      travelId: doc._id,
+router.post('/', auth, (req, res) => {
+  if (req.isAuth) {
+    const travel = new Travel(req.body);
+    travel.save((err, doc) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).json({
+        post: true,
+        travelId: doc._id,
+      });
     });
-  });
+  } else {
+    return res.status(401).json({
+      isAuth: false,
+    });
+  }
 });
 
-router.patch('/', (req, res) => {
-  Travel.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
-    if (err) return res.status(400).send(err);
-    return res.status(200).json({
-      update: true,
+router.patch('/', auth, (req, res) => {
+  if (req.isAuth) {
+    Travel.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).json({
+        update: true,
+      });
     });
-  });
+  } else {
+    return res.status(401).json({
+      isAuth: false,
+    });
+  }
 });
 
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  console.log('id', id);
-  Travel.findByIdAndDelete({ _id: id }, (err) => {
-    if (err) return res.status(400).send(err);
-    return res.json(true);
-  });
+router.delete('/:id', auth, (req, res) => {
+  if (req.isAuth) {
+    const { id } = req.params;
+    Travel.findByIdAndDelete({ _id: id }, (err) => {
+      if (err) return res.status(400).send(err);
+      return res.json(true);
+    });
+  } else {
+    return res.status(401).json({
+      isAuth: false,
+    });
+  }
 });
 
 module.exports = router;

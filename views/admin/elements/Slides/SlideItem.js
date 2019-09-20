@@ -20,11 +20,9 @@ const SlideItem = ({
 
   const handleSlides = (newSlides) => {
     const newData = { ...data, slides: newSlides };
-    console.log('newData', newData);
     setSlideList(newSlides);
     updateData(newData);
   };
-  console.log('data', data);
 
   const delSlide = () => {
     const newSlides = slideList.filter(item => item._id !== slide._id);

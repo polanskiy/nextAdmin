@@ -119,6 +119,9 @@
     text-decoration: none;
     padding: 20px 0 12px 100px;
   }
+  a.activeMenu {
+    text-decoration: underline;
+  }
 }
 
 @keyframes fadeIn{

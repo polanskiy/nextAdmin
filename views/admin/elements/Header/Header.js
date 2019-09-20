@@ -1,18 +1,29 @@
 import React from 'react';
+import Router from 'next/router';
+import axios from 'axios';
 import { Link } from '../../../../routes';
 
-const Header = () => (
-  <div className="adminHeaderBox">
-    <div>
-      <div>лого</div>
-      <div>Административная панель</div>
+const Header = () => {
+  const handleLogout = () => {
+    window.localStorage.setItem('tokendasya', '');
+    Router.push('/login');
+  };
+
+  return (
+    <div className="adminHeaderBox">
+      <div>
+        <h1>Административная панель</h1>
+      </div>
+      <div>
+        <Link route="/">
+          <a target="_blank">Перейти на сайт</a>
+        </Link>
+      </div>
+      <div>
+        <button type="button" onClick={handleLogout} className="adminBtn">Выйти</button>
+      </div>
     </div>
-    <div>
-      <Link route="/">
-        <a target="_blank">Посмотреть сайт</a>
-      </Link>
-    </div>
-  </div>
-);
+  );
+};
 
 export default Header;

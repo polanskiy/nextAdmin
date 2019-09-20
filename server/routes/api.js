@@ -29,9 +29,9 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   User.findOne({ login: req.body.login }, (er, user) => {
-    if (!user) return res.json({ isAuth: false, error: 'Неверный логин' });
+    if (!user) return res.json({ isAuth: false, error: 'Неверные данные' });
     return user.comparePass(req.body.password, (errr, isMatch) => {
-      if (!isMatch) return res.json({ isAuth: false, error: 'Неверный пароль' });
+      if (!isMatch) return res.json({ isAuth: false, error: 'Неверные данные' });
 
       return user.generateToken((err, userr) => {
         if (err) return res.status(200).send(err);

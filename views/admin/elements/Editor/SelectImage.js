@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Uploader from '../Uploader/Uploader';
+import i from '../../../../utils/i18n';
 
 const SelectImage = ({
   page, image, updateData, setNowImages, nowImages,
@@ -15,7 +16,6 @@ const SelectImage = ({
       updateData({ _id: page._id, images: newImages });
     } else {
       const delImage = { ...nowImages, [image]: '' };
-      console.log('delImage', delImage);
       setNowImage(newImageName);
       setNowImages(delImage);
       updateData({ _id: page._id, images: delImage });
@@ -29,7 +29,7 @@ const SelectImage = ({
   return (
     <div className="adminPageElement">
       <p>
-        {image}
+        {i(image)}
       :
       </p>
       <div className="adminBtnsBox">

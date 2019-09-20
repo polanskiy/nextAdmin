@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 const staticPathes = require('../config/paths');
+const { auth } = require('../middleware/auth');
 
 const router = express.Router();
 const { imagesPath } = staticPathes;
@@ -23,46 +24,62 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-router.get('/', async (req, res) => {
-  const videoFiles = fs.readdirSync(imagesPath);
-  const filesArr = [];
-  videoFiles.forEach((file) => {
-    filesArr.push({
-      name: file,
-      url: `/images/${file}`,
+router.get('/', auth, async (req, res) => {
+  if (req.isAuth) {
+    const videoFiles = fs.readdirSync(imagesPath);
+    const filesArr = [];
+    videoFiles.forEach((file) => {
+      filesArr.push({
+        name: file,
+        url: `/images/${file}`,
+      });
     });
+    return res.json(filesArr);
+  }
+  return res.status(401).json({
+    isAuth: false,
   });
-  res.json(filesArr);
 });
 
-router.post('/', upload.single('image'), async (req, res) => {
-  const images = req.file;
-  try {
-    const imgFile = fs.readFileSync(images.path);
-    const fileName = images.filename.split('.')[0];
-    await sharp(imgFile)
-      .resize(360, 220)
-      .toFormat('jpeg')
-      .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
-        console.log(err, info);
-      });
-  } catch (err) {
-    console.error('133323', err);
-  }
+router.post('/', auth, upload.single('image'), async (req, res) => {
+  if (req.isAuth) {
+    const images = req.file;
+    try {
+      const imgFile = fs.readFileSync(images.path);
+      const fileName = images.filename.split('.')[0];
+      await sharp(imgFile)
+        .resize(360, 220)
+        .toFormat('jpeg')
+        .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
+          console.log(err, info);
+        });
+    } catch (err) {
+      console.error('133323', err);
+    }
 
-  if (images.length === 0) res.json({ success: false, message: 'No Video' });
-  res.json({ success: true, images });
+    if (images.length === 0) res.json({ success: false, message: 'No Video' });
+    return res.json({ success: true, images });
+  }
+  return res.status(401).json({
+    isAuth: false,
+  });
 });
 
 router.delete('/', async (req, res) => {
-  const { filename } = req.body;
-  if (!filename || filename === '') res.json({ success: false, message: 'No filename' });
-  try {
-    fs.unlinkSync(path.join(imagesPath, filename));
-    fs.unlinkSync(path.join(`${imagesPath}/thumbs`, `thumb-${filename.replace('png', 'jpg')}`));
-    res.json({ success: true });
-  } catch (e) {
-    res.json({ success: false, message: e });
+  if (req.isAuth) {
+    const { filename } = req.body;
+    if (!filename || filename === '') res.json({ success: false, message: 'No filename' });
+    try {
+      fs.unlinkSync(path.join(imagesPath, filename));
+      fs.unlinkSync(path.join(`${imagesPath}/thumbs`, `thumb-${filename.replace('png', 'jpg')}`));
+      return res.json({ success: true });
+    } catch (e) {
+      return res.json({ success: false, message: e });
+    }
+  } else {
+    return res.status(401).json({
+      isAuth: false,
+    });
   }
 });
 

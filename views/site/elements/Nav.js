@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from '../../../routes';
 import useToggle from '../../../utils/useToggle';
 
-const Nav = () => {
+const Nav = ({ pathname }) => {
   const [showMenu, toggleMenu] = useToggle(false);
 
   return (
@@ -16,25 +16,25 @@ const Nav = () => {
       {showMenu && (
         <div className="headerMenuBox">
           <Link route="/">
-            <a>Главная</a>
+            <a className={pathname === '/' ? 'activeMenu' : undefined}>Главная</a>
           </Link>
           <Link route="/travels">
-            <a>Галерея путешествий</a>
+            <a className={pathname === '/travels' ? 'activeMenu' : undefined}>Галерея путешествий</a>
           </Link>
           <Link route="/blog">
-            <a>Блог путешественника</a>
+            <a className={pathname === '/blog' ? 'activeMenu' : undefined}>Блог путешественника</a>
           </Link>
           <Link route="/about">
-            <a>Обо мне</a>
+            <a className={pathname === '/about' ? 'activeMenu' : undefined}>Обо мне</a>
           </Link>
           <Link route="/faq">
-            <a>Вопрос - ответ</a>
+            <a className={pathname === '/faq' ? 'activeMenu' : undefined}>Вопрос - ответ</a>
           </Link>
           <Link route="/event">
-            <a>Event</a>
+            <a className={pathname === '/event' ? 'activeMenu' : undefined}>Event</a>
           </Link>
           <Link route="/contacts">
-            <a>Контакты</a>
+            <a className={pathname === '/contacts' ? 'activeMenu' : undefined}>Контакты</a>
           </Link>
         </div>
       )}

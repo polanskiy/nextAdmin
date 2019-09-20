@@ -61,7 +61,7 @@ export default function () {
         sort: true,
         sortCaret: order => (
           <React.Fragment>
-            {order ? order === 'asc' ? <div deg="-90deg">&#8249;</div> : <div deg="90deg">&#8249;</div> : <div deg="90deg">&#8249;</div>}
+            {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
           </React.Fragment>
         ),
         editable: false,
@@ -81,7 +81,7 @@ export default function () {
         sort: true,
         sortCaret: order => (
           <React.Fragment>
-            {order ? order === 'asc' ? <div deg="-90deg">&#8249;</div> : <div deg="90deg">&#8249;</div> : <div deg="90deg">&#8249;</div>}
+            {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
           </React.Fragment>
         ),
         editable: false,
@@ -98,7 +98,7 @@ export default function () {
         sort: true,
         sortCaret: order => (
           <React.Fragment>
-            {order ? order === 'asc' ? <div deg="-90deg">&#8249;</div> : <div deg="90deg">&#8249;</div> : <div deg="90deg">&#8249;</div>}
+            {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
           </React.Fragment>
         ),
         headerStyle: {
@@ -113,7 +113,7 @@ export default function () {
         sort: true,
         sortCaret: order => (
           <React.Fragment>
-            {order ? order === 'asc' ? <div deg="-90deg">&#8249;</div> : <div deg="90deg">&#8249;</div> : <div deg="90deg">&#8249;</div>}
+            {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
           </React.Fragment>
         ),
         headerStyle: {

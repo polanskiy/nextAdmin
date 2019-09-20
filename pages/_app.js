@@ -30,7 +30,7 @@ class MyApp extends App {
           <title>Путешествия с Дасей Суриковой</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
         </Head>
-        {pathname !== '/admin' && <Nav />}
+        {pathname !== '/admin' && pathname !== '/login' && <Nav pathname={pathname} />}
         <Component {...pageProps} />
       </Container>
     );

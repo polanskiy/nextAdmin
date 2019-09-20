@@ -10,6 +10,9 @@ export default (word) => {
     description: 'Описание',
     title: 'Заголовок',
     slider: 'Карусель',
+    header: 'Шапка',
+    footer: 'Подвал',
+    tabs: 'Вкладки',
   };
   return kek[word];
 };

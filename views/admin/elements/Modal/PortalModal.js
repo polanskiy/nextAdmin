@@ -9,8 +9,8 @@ const Portal = ({
       <div className="adminModalBody" onMouseDown={e => e.stopPropagation()}>
         <div>
           <div>
-            <div onClick={onClose}>X</div>
-            <div>{title}</div>
+            <div className="adminModalClose" onClick={onClose}>&times;</div>
+            <div className="adminModalTitle">{title}</div>
           </div>
           <div>
             {children}

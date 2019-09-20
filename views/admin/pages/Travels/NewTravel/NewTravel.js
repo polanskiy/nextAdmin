@@ -26,6 +26,8 @@ const NewTravel = ({ travelList, fetchTravels }) => {
     };
     await request('/api/travels', 'post', initialData);
     fetchTravels();
+    toggleOpen();
+    setTitle('');
   };
 
   return (
@@ -34,9 +36,25 @@ const NewTravel = ({ travelList, fetchTravels }) => {
         Добавить
       </button>
       <Modal title="Добавление Путешествия" isOpen={isOpen} toggleOpen={toggleOpen}>
-        <input type="text" placeholder="Название" value={title} onChange={(e) => { setTitle(e.target.value); }} />
-        <button type="button" onClick={createTravel}>Создать</button>
-        <button type="button">Отмена</button>
+        <input
+          type="text"
+          placeholder="Название"
+          value={title}
+          onChange={(e) => { setTitle(e.target.value); }}
+          className="adminModalInput"
+        />
+        <div className="adminBtnsBox">
+          <button
+            type="button"
+            className="adminBtn"
+            onClick={title ? createTravel : undefined}
+            style={title ? undefined : { background: 'gray' }}
+          >
+Создать
+
+          </button>
+          <button type="button" className="adminBtn danger">Отмена</button>
+        </div>
       </Modal>
     </React.Fragment>
   );

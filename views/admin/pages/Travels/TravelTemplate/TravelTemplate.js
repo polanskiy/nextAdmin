@@ -63,7 +63,7 @@ const TravelTemplate = ({ id, preloader }) => {
       {data
         ? (
           <React.Fragment>
-            <h1 className="adminTitle">{data.title.value}</h1>
+            <h1 className="adminTitle">{data.route}</h1>
             <Settings data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
             <Text data={data} updateTravel={updateTravel} handleFocus={handleFocus} />
             <Tabs data={data} fetchTravelData={fetchTravelData} handleFocus={handleFocus} updateTravel={updateTravel} />
