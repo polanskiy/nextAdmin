@@ -14,6 +14,7 @@ const Login = () => {
       data: { login, password: pass },
     });
     if (res.data.isAuth) {
+      console.log('kek');
       Router.push('/admin');
     }
   };

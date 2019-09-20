@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
 
       return user.generateToken((err, userr) => {
         if (err) return res.status(200).send(err);
-        return res.cookie('auth', userr.token).json({
+        return res.cookie('auth', userr.token, { maxAge: 2 * 60 * 60 * 1000 }).json({
           isAuth: true,
           id: userr._id,
           login: userr.login,
