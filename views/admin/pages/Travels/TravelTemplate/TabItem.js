@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextEditor from '../../../elements/Editor/TextEditor';
 
 const TabItem = ({
-  tab, updateTravel, travelData, handleFocus, fetchTravelData,
+  tab, updateTravel, travelData, handleFocus, fetchTravelData, setTravelData,
 }) => {
   const [tabName, setTabName] = useState(tab.name);
   const [tabValue, setTabValue] = useState(tab.value);
@@ -22,7 +22,7 @@ const TabItem = ({
     updateTravel({ ...travelData, tabs: newTabs });
   };
 
-  const handleTabValue = (value) => {
+  const handleTabValue = async (value) => {
     setTabValue(value);
     const newTabs = travelData.tabs.map((item) => {
       const newTab = { ...item };
@@ -33,12 +33,13 @@ const TabItem = ({
       }
       return item;
     });
+    setTravelData({ data: { ...travelData, tabs: newTabs }, isFetching: false });
     updateTravel({ ...travelData, tabs: newTabs });
   };
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     const newTabs = travelData.tabs.filter(item => item._id !== tab._id);
-    updateTravel({ ...travelData, tabs: newTabs });
+    await updateTravel({ ...travelData, tabs: newTabs });
     fetchTravelData();
   };
 

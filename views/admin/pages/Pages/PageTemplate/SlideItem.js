@@ -23,7 +23,6 @@ const SlideItem = ({
     setData({ data: { ...newData, isFetching: false } });
     updateData(newData);
   };
-  console.log('data', data);
 
   const delSlide = () => {
     const newSlides = data.slides.filter(item => item._id !== slide._id);

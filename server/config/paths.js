@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs');
 
 const publicPath = path.resolve('static');
-console.log('publicPath');
 
 const imagesPath = path.join(publicPath, 'images');
 

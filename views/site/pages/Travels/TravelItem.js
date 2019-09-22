@@ -13,9 +13,11 @@ const TravelItem = ({ article }) => (
         && (
           <React.Fragment>
             <div className="whiteBg">
-              <div className="contentMidWrapper travelItemDescrBox">
+              <div className="contentMidWrapper">
                 <div dangerouslySetInnerHTML={{ __html: xss(article.text, xssOptions) }} />
-                <button type="button" className="btn">Забронировать поездку</button>
+                <div className="tac">
+                  <button type="button" className="btn">Забронировать поездку</button>
+                </div>
               </div>
             </div>
             <TravelAbout tabs={article.tabs} tabsBg={article.images.tabs} />

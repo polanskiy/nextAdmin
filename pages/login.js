@@ -14,7 +14,6 @@ const Login = () => {
       data: { login, password: pass },
     });
     if (res.data.isAuth) {
-      console.log('kek');
       Router.push('/admin');
     }
   };
@@ -23,7 +22,7 @@ const Login = () => {
     <div className="loginBox">
       <form onSubmit={handleSubmit} className="loginFormBox">
         <input type="text" value={login} onChange={e => setLogin(e.target.value)} placeholder="Логин" />
-        <input type="text" value={pass} onChange={e => setPass(e.target.value)} placeholder="Пароль" />
+        <input type="password" value={pass} onChange={e => setPass(e.target.value)} placeholder="Пароль" />
         <input
           type="submit"
           value="Войти"

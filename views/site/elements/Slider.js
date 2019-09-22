@@ -57,7 +57,6 @@ const Slider = ({
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     className,
-    adaptiveHeight: true,
     fade,
   };
 

@@ -65,7 +65,7 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
   });
 });
 
-router.delete('/', async (req, res) => {
+router.delete('/', auth, async (req, res) => {
   if (req.isAuth) {
     const { filename } = req.body;
     if (!filename || filename === '') res.json({ success: false, message: 'No filename' });

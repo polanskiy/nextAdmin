@@ -20,7 +20,7 @@ const TravelAbout = ({ tabs, tabsBg }) => {
     <div className="travelAboutBox">
       <img className="headerBg" src={tabsBg} alt="индивидуальный туроператор" />
       <div className="imgBg">
-        <div className="contentWrapper ">
+        <div className="contentMidWrapper ">
           <Tabs tabsBoxClass="travelTabsBox" tabHeaderBoxClass="travelTabsHeader" tabHeaderClass="travelTab">
             {show && renderTabs()}
           </Tabs>

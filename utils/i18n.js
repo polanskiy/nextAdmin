@@ -13,6 +13,7 @@ export default (word) => {
     header: 'Шапка',
     footer: 'Подвал',
     tabs: 'Вкладки',
+    thumb: 'Превью',
   };
   return kek[word];
 };

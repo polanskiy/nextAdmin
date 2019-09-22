@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100px;
   height: 100px;
-  background: #EDDDC6;
+  background: $mainBg;
   color: #2F3034;
   padding: 0 40px;
   h1 {
@@ -12,5 +12,14 @@
   }
   a {
     color: #000;
+  }
+  div {
+    flex: 1;
+  }
+  div:nth-child(2){
+    text-align: center;
+  }
+  div:nth-child(3){
+    text-align: right;
   }
 }

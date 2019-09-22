@@ -3,7 +3,7 @@ import TabItem from './TabItem';
 
 
 const Tabs = ({
-  data, handleFocus, fetchTravelData, updateTravel,
+  data, handleFocus, fetchTravelData, updateTravel, setTravelData,
 }) => {
   const addTab = async () => {
     const newTab = {
@@ -24,6 +24,7 @@ const Tabs = ({
       travelData={data}
       handleFocus={handleFocus}
       fetchTravelData={fetchTravelData}
+      setTravelData={setTravelData}
     />
   ));
 

@@ -22,7 +22,6 @@ const PageTemplate = ({ name, preloader }) => {
     preloader();
     try {
       const res = await request(`/api/pages/${name}`);
-      console.log(' res.data', res.data);
       setPageData({ data: res.data, isFetching: false });
       setSlideList(res.data.slides);
     } catch (e) {
@@ -41,7 +40,6 @@ const PageTemplate = ({ name, preloader }) => {
 
 
   const updatePage = async (newData) => {
-    console.log('newData', newData);
     preloader();
     try {
       await request('/api/pages', 'patch', newData);
@@ -50,7 +48,7 @@ const PageTemplate = ({ name, preloader }) => {
     }
     preloader();
   };
-  console.log('slideList', slideList);
+
   return (
     <div className="travelTemplateBox">
       <input

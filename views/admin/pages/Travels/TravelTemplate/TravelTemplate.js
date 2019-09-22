@@ -11,6 +11,7 @@ const TravelTemplate = ({ id, preloader }) => {
   const [slideList, setSlideList] = useState([]);
   const { data, isFetching } = travelData;
   const kek = useCallback(React.createRef(), []);
+  let isMount = true;
 
   const fetchTravelData = async () => {
     setTravelData({ data: null, isFetching: true });
@@ -32,7 +33,10 @@ const TravelTemplate = ({ id, preloader }) => {
   };
 
   useEffect(() => {
-    fetchTravelData();
+    if (isMount) fetchTravelData();
+    return () => {
+      isMount = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -66,7 +70,13 @@ const TravelTemplate = ({ id, preloader }) => {
             <h1 className="adminTitle">{data.route}</h1>
             <Settings data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
             <Text data={data} updateTravel={updateTravel} handleFocus={handleFocus} />
-            <Tabs data={data} fetchTravelData={fetchTravelData} handleFocus={handleFocus} updateTravel={updateTravel} />
+            <Tabs
+              data={data}
+              fetchTravelData={fetchTravelData}
+              handleFocus={handleFocus}
+              updateTravel={updateTravel}
+              setTravelData={setTravelData}
+            />
             <Images data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
             <Slides
               data={data}

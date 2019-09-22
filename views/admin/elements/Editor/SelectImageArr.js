@@ -5,7 +5,6 @@ import Uploader from '../Uploader/Uploader';
 const SelectImageArr = ({
   handleItems, items, item,
 }) => {
-
   const updateImage = (newImageName) => {
     if (newImageName) {
       const newImg = `/static/images/${newImageName}`;
