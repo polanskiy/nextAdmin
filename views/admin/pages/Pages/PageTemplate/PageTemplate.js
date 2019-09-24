@@ -64,7 +64,7 @@ const PageTemplate = ({ name, preloader }) => {
         ? (
           <React.Fragment>
             <h1 className="adminTitle">{i(data.name)}</h1>
-            <Text data={data} updateData={updatePage} handleFocus={handleFocus} />
+            <Text data={data} updateData={updatePage} handleFocus={handleFocus} setPageData={setPageData} />
             <Images data={data} setTravelData={setPageData} updateData={updatePage} />
             {slideList && (
             <Slides

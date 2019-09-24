@@ -2,8 +2,11 @@ import React from 'react';
 import TextEditor from '../../../elements/Editor/TextEditor';
 import i from '../../../../../utils/i18n';
 
-const Text = ({ data, handleFocus, updateData }) => {
+const Text = ({
+  data, handleFocus, updateData, setPageData,
+}) => {
   const handleTitle = (item, newText) => {
+    setPageData({ data: { ...data, [item]: { value: newText, type: 'text' } }, isFetching: false });
     updateData({ ...data, [item]: { value: newText, type: 'text' } });
   };
 

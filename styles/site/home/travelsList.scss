@@ -31,11 +31,14 @@
     font-family: 'Roboto'!important;
     font-size: 16px!important;
   }
-  span {
+  p > span:first-child {
     position: absolute;
     background: #fff;
     bottom: 0;
     left: 0;
     padding: 50px 80px 30px 10px
+  }
+  p > span:not(:first-child) {
+    display: none;
   }
 }
