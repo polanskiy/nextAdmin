@@ -8,7 +8,12 @@ import SmallSlider from '../../elements/SmallSlider';
 const About = ({ page }) => (
   <React.Fragment>
     <Header title={page.title.value} headerBg={page.images.header} noSearch />
-    <BlockAbout aboutText={page.about.value} aboutImg={page.images.about} />
+    <BlockAbout
+      btnLink="/contacts"
+      btnText="Задать вопрос"
+      aboutText={page.about.value}
+      aboutImg={page.images.about}
+    />
     <ColorBox text={page.description.value} colorBg={page.images.description} />
     <SmallSlider
       text={page.slider.value}
