@@ -9,7 +9,7 @@ const About = ({ page }) => (
   <React.Fragment>
     <Header title={page.title.value} headerBg={page.images.header} noSearch />
     <BlockAbout
-      btnLink="/contacts"
+      btnLink="/contacts/form"
       btnText="Задать вопрос"
       aboutText={page.about.value}
       aboutImg={page.images.about}

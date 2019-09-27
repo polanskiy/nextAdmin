@@ -3,7 +3,7 @@ import SearchForm from '../../elements/SearchForm';
 import CelebForm from '../../elements/CelebForm';
 
 const ContactsForm = () => (
-  <div>
+  <div id="form">
     <p className="contactsTitle">
 Форма заказа вашего
       <br />

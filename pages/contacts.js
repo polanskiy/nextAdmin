@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Contacts from '../views/site/pages/Contacts/Contacts';
 
-const ContactsPage = ({ page }) => (
-  <div><Contacts page={page} /></div>
+const ContactsPage = props => (
+  <div><Contacts {...props} /></div>
 );
 
 ContactsPage.getInitialProps = async (ctx) => {
@@ -15,7 +15,8 @@ ContactsPage.getInitialProps = async (ctx) => {
   } catch (e) {
     console.log('err contacts getinitialprops');
   }
-  return { page: contactsPage };
+  console.log('props', ctx.query.id);
+  return { page: contactsPage, scrollTo: ctx.query.id };
 };
 
 export default ContactsPage;
