@@ -9,6 +9,7 @@
 @import './site/slider.scss';
 @import './tabs.scss';
 @import './site/event.scss';
+@import './site/contacts.scss';
 
 .tox-notifications-container {
   display: none!important;
@@ -61,7 +62,7 @@ body{
 
 .whiteBg {
   background: $white;
-  padding: 0;
+  padding: 40px 0;
 }
 
 .title { 

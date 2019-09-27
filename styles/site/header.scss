@@ -311,6 +311,29 @@
   border: 0;
   padding: 0 0 0 100px;
   width: -webkit-fill-available;
+  outline: 0;
+}
+
+.react-datepicker-wrapper {
+  display: flex!important;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 100px!important;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    input {
+      height: 100%;
+      align-self: flex-end;
+      font-size: 18px;
+      border: 0;
+      width: -webkit-fill-available;
+      outline: 0;
+    }
+  }
 }
 
 .customFormItem {
@@ -344,6 +367,8 @@
 }
 
 .downArr {
+  position: absolute;
+  bottom: 240px;
   display: flex;
   justify-content: center;
   align-items: center;

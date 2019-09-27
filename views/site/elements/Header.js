@@ -6,7 +6,6 @@ import SearchForm from './SearchForm';
 
 const Header = ({ title = 'заголовок отсутствует', headerBg, noSearch }) => (
   <div className="headerBox">
-    {console.log(title)}
     <img className="headerBg" src={headerBg} alt="индивидуальный туроператор" />
     <div className="headerPositionBox">
       <div className="headerLogoNavBox">

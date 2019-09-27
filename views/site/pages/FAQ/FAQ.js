@@ -6,7 +6,7 @@ import RequestForm from '../../elements/RequestForm';
 
 const FAQ = ({ page }) => (
   <div>
-    <Header title={page.title.value} headerBg={page.images.header} />
+    <Header title={page.title.value} headerBg={page.images.header} noSearch />
     <div className="contentMidWrapper">
       <div dangerouslySetInnerHTML={{ __html: xss(page.description.value, xssOptions) }} />
     </div>

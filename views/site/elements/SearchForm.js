@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'moment/locale/ru';
+import '../../../styles/site/datePicker.scss';
+import moment from 'moment';
+import ruDate from 'date-fns/locale/ru';
+import { isAfter } from 'date-fns';
 import useToggle from '../../../utils/useToggle';
 
 const SearchForm = () => {
   const [isOpen, toggleOpen] = useToggle(false);
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+
+  const dateChange = ({ startD, endD }) => {
+    let start = null;
+    let end = null;
+    start = startD || startDate;
+    end = endD || endDate || startD;
+    end = isAfter(start, end) ? start : end;
+    const convertStart = moment(start).toDate();
+    const convertEnd = moment(end).toDate();
+    if (start)setStartDate(convertStart);
+    if (end) setEndDate(convertEnd);
+  };
+
+  const dpConfig = {
+    selectsStart: true,
+    showTimeSelect: false,
+    className: 'dateInput',
+    dateFormat: 'dd.MM.yyyy',
+    placeholderText: 'Выберите дату',
+    locale: ruDate,
+  };
 
   return (
     <div className="contentMidWrapper">
@@ -24,10 +53,30 @@ const SearchForm = () => {
       </div>
       <div className={isOpen ? 'customFormBoxSecond vis' : 'customFormBoxSecond invis'}>
         <label htmlFor="calendar" className="calendar customFormItem">
-          <input className="customFormInput" placeholder="Дата вылета" />
+          <DatePicker
+            {...dpConfig}
+            selected={startDate}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            onChange={date => dateChange({ startD: date })}
+            minDate={Date.now()}
+            className="customFormInputDate"
+            placeholderText="Дата вылета"
+          />
         </label>
         <label htmlFor="calendar" className="calendar customFormItem">
-          <input className="customFormInput" placeholder="Дата прилета" />
+          <DatePicker
+            {...dpConfig}
+            selected={endDate}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate || Date.now()}
+            onChange={date => dateChange({ endD: date })}
+            className="customFormInputDate"
+            placeholderText="Дата прилета"
+          />
         </label>
         <label htmlFor="city" className="city customFormItem">
           <input className="customFormInput" placeholder="Город вылета" />

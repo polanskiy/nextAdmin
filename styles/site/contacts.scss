@@ -1,0 +1,25 @@
+
+.contactsTitle {
+  font-size: 24px;
+  text-align: center;
+  margin: 40px 0 0;
+  span {
+    font-family: 'Lobster';
+    font-size: 38px;
+  }
+}
+
+.customCelebFormSearchItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $pink;
+  color: $white;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.customFormItemLong {
+  width: 100%;
+}
