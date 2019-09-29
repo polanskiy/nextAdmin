@@ -9,6 +9,7 @@ const translit = require('translit')({
   ж: 'zh',
   з: 'z',
   и: 'i',
+  й: 'y',
   к: 'k',
   л: 'l',
   м: 'm',

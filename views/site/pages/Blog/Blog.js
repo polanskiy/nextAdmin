@@ -3,11 +3,11 @@ import Header from '../../elements/Header';
 import BlogList from './BlogList';
 import RequestForm from '../../elements/RequestForm';
 
-const Blog = () => (
+const Blog = ({ page, articles }) => (
   <div>
-    <Header title="Блог Самые интересные и полезные статьи" headerBg="/static/images/blogHeaderBg.jpg" />
+    <Header title={page.title.value} headerBg={page.images.header} />
     <BlogList />
-    <RequestForm />
+    <RequestForm footerImg={page.images.footer} />
   </div>
 );
 

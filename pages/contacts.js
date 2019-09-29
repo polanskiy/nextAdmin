@@ -15,7 +15,6 @@ ContactsPage.getInitialProps = async (ctx) => {
   } catch (e) {
     console.log('err contacts getinitialprops');
   }
-  console.log('props', ctx.query.id);
   return { page: contactsPage, scrollTo: ctx.query.id };
 };
 

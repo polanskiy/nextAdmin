@@ -5,10 +5,16 @@ const articleSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  text: {
+  route: {
     type: String,
     required: true,
   },
+  text: {
+    type: String,
+  },
+  images: { type: Object },
+  public: Boolean,
+  position: Number,
   author: {
     type: String,
     default: 'n/a',

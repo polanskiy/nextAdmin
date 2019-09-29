@@ -36,6 +36,11 @@ app.prepare()
       app.render(req, res, actualPage);
     });
 
+    server.get('/blog', (req, res) => {
+      const actualPage = '/blog';
+      app.render(req, res, actualPage);
+    });
+
     // server.get('/contacts/:id', (req, res) => {
     //   const actualPage = '/contacts';
     //   const query = { title: req.params.id };
