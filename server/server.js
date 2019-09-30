@@ -3,6 +3,7 @@ const next = require('next');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const compression = require('compression');
 const routes = require('../routes');
 
 const { imagesPath } = require('./config/paths');
@@ -22,6 +23,8 @@ app.prepare()
     const server = express();
     server.use(bodyParser.json());
     server.use(cookieParser());
+    server.use(compression());
+    console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
     // FILES ROUTES
     server.use('/images', express.static(imagesPath));
