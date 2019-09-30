@@ -14,6 +14,7 @@ const Uploader = ({ updateImage }) => {
       data: formData,
     })
       .then((res) => {
+        console.log('res.data', res.data);
         updateImage(res.data.images.filename);
       });
     e.target.value = null;

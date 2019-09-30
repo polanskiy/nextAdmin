@@ -44,6 +44,7 @@ router.get('/', auth, async (req, res) => {
 router.post('/', auth, upload.single('image'), async (req, res) => {
   if (req.isAuth) {
     const images = req.file;
+    console.log('images', images);
     try {
       const imgFile = fs.readFileSync(images.path);
       const fileName = images.filename.split('.')[0];

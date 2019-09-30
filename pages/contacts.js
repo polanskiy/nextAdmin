@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import Contacts from '../views/site/pages/Contacts/Contacts';
+import Layout from '../views/site/hoc/Layout';
 
 const ContactsPage = props => (
-  <div><Contacts {...props} /></div>
+  <Layout><Contacts {...props} /></Layout>
 );
 
 ContactsPage.getInitialProps = async (ctx) => {
@@ -15,6 +16,7 @@ ContactsPage.getInitialProps = async (ctx) => {
   } catch (e) {
     console.log('err contacts getinitialprops');
   }
+  console.log('ctx', ctx.query.id);
   return { page: contactsPage, scrollTo: ctx.query.id };
 };
 

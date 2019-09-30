@@ -36,7 +36,14 @@ const ArticleTemplate = ({ id, preloader }) => {
   }, []);
 
   useEffect(() => {
-    handleFocus();
+    setTimeout(() => {
+      handleFocus();
+    }, 0);
+    setTimeout(() => {
+      const lol = document.querySelector('.mce-edit-focus');
+
+      console.log('lol', lol);
+    }, 550);
   }, [kek]);
 
   const updateArticle = async (newArticle) => {

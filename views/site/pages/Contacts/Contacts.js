@@ -10,7 +10,6 @@ const Contacts = (props) => {
     if (scrollTo) {
       console.log('scrollTo');
       const element = document.getElementById(scrollTo);
-      console.log('element', element);
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 0);

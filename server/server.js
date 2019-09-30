@@ -41,11 +41,11 @@ app.prepare()
       app.render(req, res, actualPage);
     });
 
-    // server.get('/contacts/:id', (req, res) => {
-    //   const actualPage = '/contacts';
-    //   const query = { title: req.params.id };
-    //   app.render(req, res, actualPage, query);
-    // });
+    server.get('/contacts/:id', (req, res) => {
+      const actualPage = '/contacts';
+      const query = { id: req.params.id };
+      app.render(req, res, actualPage, query);
+    });
 
     server.use('/api', apiRouter);
 

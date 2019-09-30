@@ -40,7 +40,9 @@ const TravelTemplate = ({ id, preloader }) => {
   }, []);
 
   useEffect(() => {
-    handleFocus();
+    setTimeout(() => {
+      handleFocus();
+    }, 0);
   }, [kek]);
 
   const updateTravel = async (newTravel) => {

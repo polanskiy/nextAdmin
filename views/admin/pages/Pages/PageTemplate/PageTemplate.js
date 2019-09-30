@@ -35,7 +35,9 @@ const PageTemplate = ({ name, preloader }) => {
   }, []);
 
   useEffect(() => {
-    handleFocus();
+    setTimeout(() => {
+      handleFocus();
+    }, 0);
   }, [kek]);
 
 
