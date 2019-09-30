@@ -39,11 +39,6 @@ const ArticleTemplate = ({ id, preloader }) => {
     setTimeout(() => {
       handleFocus();
     }, 0);
-    setTimeout(() => {
-      const lol = document.querySelector('.mce-edit-focus');
-
-      console.log('lol', lol);
-    }, 550);
   }, [kek]);
 
   const updateArticle = async (newArticle) => {
@@ -51,7 +46,7 @@ const ArticleTemplate = ({ id, preloader }) => {
     try {
       await request('/api/articles', 'patch', newArticle);
     } catch (err) {
-      console.log('err update travel');
+      console.log('err update articles');
     }
     preloader();
   };

@@ -18,7 +18,7 @@ export default function request(url, method = 'get', data = {}, limit = 10, offs
       .then((res) => {
         const { data: resData } = res;
 
-        if (resData.error && (resData.error.code === '204' || resData.error.code === '202')) {
+        if (resData.error && (resData.error.code === '204' || resData.error.code === '202'|| resData.error.code === '401')) {
           window.localStorage.removeItem('tokendasya');
           window.location.reload();
         }

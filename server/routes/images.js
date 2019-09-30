@@ -58,6 +58,8 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
       console.error('133323', err);
     }
 
+    images.url = `/static/images/${images.filename}`;
+
     if (images.length === 0) res.json({ success: false, message: 'No Video' });
     return res.json({ success: true, images });
   }

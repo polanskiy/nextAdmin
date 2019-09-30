@@ -19,7 +19,7 @@ const TextEditor = ({
     })
       .then((res) => {
         console.log('wwwwwww', res);
-        success(res.data.images.path);
+        success(res.data.images.url);
       });
   };
 
@@ -57,9 +57,10 @@ const TextEditor = ({
               'undo redo | bold italic underline | fontselect fontsizeselect',
               'forecolor backcolor | alignleft aligncenter alignright alignfull | numlist bullist outdent indent | link | image',
             ],
-            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br',
+            image_advtab: true,
+            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br,img[src|style|alt]',
             valid_styles: {
-              '*': 'font-size,font-family,color,text-decoration,text-align',
+              '*': 'font-size,font-family,color,text-decoration,text-align,border,margin,border-style,border-width,margin-left,margin-right,margin-top,margin-bottom,width,height,float',
             },
             fontsize_formats: '11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 32px 34px 36px 38px 40px 45px 56px 60px 72px 78px 80px',
             powerpaste_allow_local_images: true,
