@@ -24,7 +24,6 @@ app.prepare()
     server.use(bodyParser.json());
     server.use(cookieParser());
     server.use(compression());
-    console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
     // FILES ROUTES
     server.use('/images', express.static(imagesPath));
@@ -60,6 +59,6 @@ app.prepare()
     });
   })
   .catch((ex) => {
-    console.error('123');
+    console.error('123', ex);
     process.exit(1);
   });

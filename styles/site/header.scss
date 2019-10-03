@@ -201,18 +201,14 @@
 
 .headerContentBox {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: calc(100% - 464px); //345
+  height: calc(100% - 165px); //345
   flex-direction: column;
 }
 
 .headerTitle {
-  font-size: 60px;
-  letter-spacing: 5px;
-  font-family: 'Lobster';
-  text-align: center;
-  color: $white;
+  margin: 80px 0 0;
+  padding: 0 20px;
 }
 
 .customFormBox, .customFormBoxSecond {
@@ -382,4 +378,63 @@
   img {
     width: 50%;
   }
+}
+
+@media only screen and (max-width: 1600px) {
+  .downArr {
+    display: none;
+  }
+  .headerTitle {
+    margin: 20px 0 0;
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .headerContentBox {
+    justify-content: center;
+    align-items: center;
+    .contentMidWrapper {
+      display: none;
+    }
+  }
+  .headerBg {
+    object-fit: none;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .headerBox {
+    height: 100vh;
+  }
+
+  .headerTitle {
+    * {
+      font-size: 45px!important;
+    }
+  }
+
+  .headerPhone {
+    visibility: hidden;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .headerTitle {
+      * {
+        font-size: 45px!important;
+      }
+    }
+    
+    .headerLogoNavBox {
+      flex-direction: column;
+      .logoBox, .headerContactBox {
+        align-self: flex-start;
+      }
+      .headerContactBox {
+        width: 100%;
+        padding: 0 0 0 30px;
+      }
+    }
 }

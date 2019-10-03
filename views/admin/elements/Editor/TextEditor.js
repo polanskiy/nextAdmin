@@ -6,10 +6,7 @@ const TextEditor = ({
   selector, font, title, data, setData, size, handleFocus,
 }) => {
   const handleLocalImg = (e, success) => {
-    console.log('localimg', e, success);
     const blob = e.blob();
-    const { type } = e.blob();
-    console.log('blob', blob);
     const formData = new FormData();
     formData.append('image', blob);
     axios({
@@ -18,7 +15,6 @@ const TextEditor = ({
       data: formData,
     })
       .then((res) => {
-        console.log('wwwwwww', res);
         success(res.data.images.url);
       });
   };
