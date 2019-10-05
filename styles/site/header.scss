@@ -36,7 +36,7 @@
   }
 }
 
-.headerContactBox{
+.headerContactBox {
   display: flex;
   width: 55%;
   a{
@@ -406,11 +406,15 @@
 @media only screen and (max-width: 992px) {
   .headerBox {
     height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .headerTitle {
-    * {
-      font-size: 45px!important;
+    p {
+      span:first-child {
+        font-size: 45px!important;
+      }
     }
   }
 
@@ -421,20 +425,39 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .headerTitle {
-      * {
-        font-size: 45px!important;
-      }
+  .headerLogoNavBox {
+    flex-direction: column;
+    .logoBox, .headerContactBox {
+      align-self: flex-start;
     }
+    .headerContactBox {
+      width: 100%;
+      padding: 0 0 0 30px;
+    }
+  }
+
+  .headerContactBox {
+    a{
+      display: flex;
+      justify-content: center;
+      width: 39px;
+      height: 39px;
+      border: 1px solid $white;
+      border-radius: 50%;
+      margin: 0 25px 0 0;
+    }
+  }
     
-    .headerLogoNavBox {
-      flex-direction: column;
-      .logoBox, .headerContactBox {
-        align-self: flex-start;
-      }
-      .headerContactBox {
-        width: 100%;
-        padding: 0 0 0 30px;
+  .headerContentBox {
+    height: calc(100% - 195px);
+  }
+
+  .logoBox{
+    a{
+      img{
+        max-width: 126px;
+        height: auto;
       }
     }
+  }
 }

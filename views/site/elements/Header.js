@@ -20,7 +20,7 @@ const Header = ({ title = 'заголовок отсутствует', headerBg,
   }, []);
 
   return (
-    <div className="headerBox" style={{ background: width <= 992 ? `url(${headerBg})` : 'transparent' }}>
+    <div className="headerBox" style={{ backgroundImage: width <= 992 ? `url(${headerBg})` : 'transparent' }}>
       {width > 992 && <img className="headerBg" src={headerBg} alt="индивидуальный туроператор" /> }
       <div className="headerPositionBox">
         <div className="headerLogoNavBox">
