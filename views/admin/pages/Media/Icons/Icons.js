@@ -8,7 +8,7 @@ const Icons = () => {
   const fetchImages = async () => {
     try {
       setIconList({ data: [], isFetching: true });
-      const res = await request('/api/images/icon/', 'get');
+      const res = await request('/api/images/icons/', 'get');
       console.log('res', res);
       if (isMount) setIconList({ data: res.data, isFetching: false });
     } catch (e) {
