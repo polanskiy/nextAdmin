@@ -7,8 +7,8 @@ const Auth = Component => (props) => {
   useEffect(() => {
     const theCookies = document.cookie.split(';');
     const cookie = theCookies[0].split('=')[1];
-    if (Router.pathname !== '/login' && !cookie) {
-      Router.push('/login');
+    if (Router.pathname !== '/dlogin' && !cookie) {
+      Router.push('/dlogin');
     } else if (Router.pathname === '/blogs') {
       setIsAuth(true);
     } else if (cookie) {

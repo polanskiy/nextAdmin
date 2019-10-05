@@ -1,0 +1,10 @@
+.adminMediaIconBox {
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    width: 20%;
+    img {
+      max-width: 100px;
+    }
+  }
+}

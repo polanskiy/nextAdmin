@@ -5,7 +5,6 @@ const Images = ({ data, setTravelData, updateTravel }) => {
   const handleImages = (images) => {
     setTravelData({ data: { ...data, images }, isFetching: false });
   };
-  console.log('data.images', data.images);
   const renderImages = () => Object.keys(data.images).map(image => (
     <SelectImage
       key={image}

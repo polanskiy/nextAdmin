@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 
-const Uploader = ({ updateImage }) => {
+const Uploader = ({ updateImage, link = '' }) => {
   const uploadVideo = (e) => {
     const file = e.target.files;
     const formData = new FormData();
@@ -10,7 +10,7 @@ const Uploader = ({ updateImage }) => {
     }
     axios({
       method: 'post',
-      url: '/api/images',
+      url: `/api/images/${link}`,
       data: formData,
     })
       .then((res) => {

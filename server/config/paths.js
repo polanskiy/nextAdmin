@@ -4,6 +4,7 @@ const fs = require('fs');
 const publicPath = path.resolve('static');
 
 const imagesPath = path.join(publicPath, 'images');
+const iconsPath = path.join(imagesPath, 'useIcons');
 
 
 try {
@@ -14,4 +15,5 @@ try {
 
 module.exports = {
   imagesPath,
+  iconsPath,
 };
