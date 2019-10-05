@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import NewIcon from './NewIcon';
 
-const MediaImages = () => {
-  const [imageList, setImageList] = useState({ data: [], isFetching: false });
+const Icons = () => {
+  const [iconList, setIconList] = useState({ data: [], isFetching: false });
   let isMount = true;
   const fetchImages = async () => {
     try {
-      setImageList({ data: [], isFetching: true });
+      setIconList({ data: [], isFetching: true });
       const res = await axios({
         method: 'get',
-        url: 'http://localhost:3000/api/images',
+        url: 'http://localhost:3000/api/images/icon',
       });
-      if (isMount) setImageList({ data: res.data, isFetching: false });
+      console.log('res', res);
+      if (isMount) setIconList({ data: res.data, isFetching: false });
     } catch (e) {
       console.log('ошибка загрузки изображений');
-      setImageList({ data: [], isFetching: false });
+      setIconList({ data: [], isFetching: false });
     }
   };
 
@@ -40,18 +42,22 @@ const MediaImages = () => {
       });
   };
 
-  const renderThumbs = () => imageList.data.map(img => (
+  const renderIcons = () => iconList.data.map(img => (
     <div role="presentation" key={img.name} data-name={img.name} onClick={deleteImage}>
-      <img src={`/static/images/thumbs/thumb-${img.name}`} alt={`${img.name}`} />
+      <img src={img.url} alt={`${img.name}`} />
     </div>
   ));
+
   return (
     <div>
-      <p>картинки</p>
-      {imageList.isFetching
-        ? <div>загрузка изображений</div> : renderThumbs()}
+      <p>Иконки путешествий:</p>
+      <NewIcon />
+      <div className="adminMediaIconBox">
+        {iconList.isFetching
+          ? <div>загрузка изображений</div> : renderIcons()}
+      </div>
     </div>
   );
 };
 
-export default MediaImages;
+export default Icons;

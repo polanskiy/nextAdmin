@@ -19,9 +19,9 @@ const SideNav = ({ slug }) => {
         <Link route="admin" params={{ slug: 'articles' }}>
           <a className={active === 'articles' ? 'adminActiveNav' : undefined} onClick={() => setActive('articles')}>Статьи</a>
         </Link>
-        {/* <Link route="admin" params={{ slug: 'media' }}>
-        <a>Медиа</a>
-      </Link> */}
+        <Link route="admin" params={{ slug: 'media' }}>
+          <a>Медиа</a>
+        </Link>
       </div>
     </div>
   );

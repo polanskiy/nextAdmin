@@ -1,12 +1,11 @@
 import React from 'react';
 import Router from 'next/router';
-import axios from 'axios';
 import { Link } from '../../../../routes';
 
 const Header = () => {
   const handleLogout = () => {
     window.localStorage.setItem('tokendasya', '');
-    Router.push('/login');
+    Router.push('/dlogin');
   };
 
   return (

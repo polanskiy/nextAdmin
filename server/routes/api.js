@@ -16,16 +16,16 @@ router.get('/auth', auth, (req, res) => {
   });
 });
 
-router.post('/register', (req, res) => {
-  const user = new User(req.body);
-  user.save((err, doc) => {
-    if (err) return res.status(400).send(err);
-    return res.status(200).json({
-      success: true,
-      user: doc,
-    });
-  });
-});
+// router.post('/register', (req, res) => {
+//   const user = new User(req.body);
+//   user.save((err, doc) => {
+//     if (err) return res.status(400).send(err);
+//     return res.status(200).json({
+//       success: true,
+//       user: doc,
+//     });
+//   });
+// });
 
 router.post('/login', (req, res) => {
   User.findOne({ login: req.body.login }, (er, user) => {

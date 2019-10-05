@@ -31,7 +31,7 @@ class MyApp extends App {
           <title>Путешествия с Дасей Суриковой</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
         </Head>
-        {pathname !== '/admin' && pathname !== '/login' && <Nav pathname={pathname} />}
+        {pathname !== '/admin' && pathname !== '/dlogin' && <Nav pathname={pathname} />}
         <Component {...pageProps} />
         <NextNprogress
           color="linear-gradient(to right, #f1c40f 0%, #e67e22 100%)"
