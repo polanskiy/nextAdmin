@@ -41,7 +41,7 @@ const SelectImage = ({
       axios({
         method: 'delete',
         url: `/api/images/${name}`,
-        data: { filename: nowImage.split('images/')[1] },
+        data: { filename: nowImage.split(`${name}/`)[1] },
       });
     }
   };
