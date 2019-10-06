@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import xss from 'xss';
 import xssOptions from '../../../../utils/xssOptions';
 import Tabs from '../../elements/Tabs';
 
 const TravelAbout = ({ tabs, tabsBg }) => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    setShow(true);
-  }, []);
   const renderTabs = () => tabs.map(tab => (
     <div
       name={tab.name}
@@ -21,9 +17,11 @@ const TravelAbout = ({ tabs, tabsBg }) => {
       <img className="headerBg" src={tabsBg} alt="индивидуальный туроператор" />
       <div className="imgBg">
         <div className="contentMidWrapper ">
+          {tabs.length && (
           <Tabs tabsBoxClass="travelTabsBox" tabHeaderBoxClass="travelTabsHeader" tabHeaderClass="travelTab">
-            {show && renderTabs()}
+            { renderTabs()}
           </Tabs>
+          )}
         </div>
       </div>
     </div>

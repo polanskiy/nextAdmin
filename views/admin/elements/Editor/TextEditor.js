@@ -71,7 +71,7 @@ const TextEditor = ({
               });
             },
           }}
-          onBlur={(e) => { setData(e.target.getContent()); }}
+          onChange={(e) => { setData(e.target.getContent()); }}
         />
       </div>
     </React.Fragment>

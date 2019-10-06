@@ -7,7 +7,6 @@ import Slides from '../../../elements/Slides/Slides';
 
 const PageTemplate = ({ name, preloader }) => {
   const [pageData, setPageData] = useState({ data: null, isFetching: false });
-  const [slideList, setSlideList] = useState([]);
   const { data, isFetching } = pageData;
   const kek = useCallback(React.createRef(), []);
 
@@ -18,12 +17,11 @@ const PageTemplate = ({ name, preloader }) => {
   };
 
   const fetchPageData = async () => {
-    setPageData({ data: null, isFetching: true });
+    setPageData({ data: pageData.data, isFetching: true });
     preloader();
     try {
       const res = await request(`/api/pages/${name}`);
       setPageData({ data: res.data, isFetching: false });
-      setSlideList(res.data.slides);
     } catch (e) {
       console.log('err');
     }
@@ -68,16 +66,16 @@ const PageTemplate = ({ name, preloader }) => {
             <h1 className="adminTitle">{i(data.name)}</h1>
             <Text data={data} updateData={updatePage} handleFocus={handleFocus} setPageData={setPageData} />
             <Images data={data} setTravelData={setPageData} updateData={updatePage} />
-            {slideList && (
+            {data.slides && (
             <Slides
               data={data}
-              slideList={slideList}
-              setSlideList={setSlideList}
+              setPageData={setPageData}
               updateData={updatePage}
             />
             )}
           </React.Fragment>
         ) : 'такой страницы нет'}
+      <button type="button" className="adminBtn absoluteBtn" onClick={() => updatePage(data)}>Сохранить</button>
     </div>
   );
 };

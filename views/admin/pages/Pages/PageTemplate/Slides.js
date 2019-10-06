@@ -1,5 +1,6 @@
 import React from 'react';
 import SlideItem from './SlideItem';
+import randomId from '../../../../../utils/randomId';
 
 const Slides = ({
   data, updateData, fetchData, setData,
@@ -8,6 +9,7 @@ const Slides = ({
     const newSlide = {
       name: '',
       value: '',
+      id: randomId(6),
     };
     const slides = [...data.slides];
     slides.push(newSlide);
@@ -17,7 +19,7 @@ const Slides = ({
 
   const renderSlides = () => data.slides.map((slide, i) => (
     <SlideItem
-      key={slide._id}
+      key={slide.id}
       setData={setData}
       slide={slide}
       data={data}

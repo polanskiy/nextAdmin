@@ -2,7 +2,7 @@ import React from 'react';
 import SelectImageArr from '../Editor/SelectImageArr';
 
 const SlideItem = ({
-  slide, updateData, data, index, slideList, setSlideList,
+  slide, updateData, data, index, setPageData,
 }) => {
   // const handleName = (e) => {
   //   const { value } = e.target;
@@ -20,12 +20,12 @@ const SlideItem = ({
 
   const handleSlides = (newSlides) => {
     const newData = { ...data, slides: newSlides };
-    setSlideList(newSlides);
+    setPageData({ data: newData, isFetching: false });
     updateData(newData);
   };
 
   const delSlide = () => {
-    const newSlides = slideList.filter(item => item._id !== slide._id);
+    const newSlides = data.slides.filter(item => item.id !== slide.id);
     handleSlides(newSlides);
   };
 
@@ -42,11 +42,11 @@ const SlideItem = ({
       {/* <p>текст:</p>
       <input type="text" value={slide.name} onChange={handleName} /> */}
       <SelectImageArr
-        key={slide._id}
+        key={slide.id}
         page={data}
         item={slide}
         handleItems={handleSlides}
-        items={slideList}
+        items={data.slides}
       />
     </div>
   );

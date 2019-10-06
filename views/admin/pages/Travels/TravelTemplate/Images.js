@@ -13,6 +13,7 @@ const Images = ({ data, setTravelData, updateTravel }) => {
       updateData={updateTravel}
       setNowImages={handleImages}
       nowImages={data.images}
+      name={data._id}
       thumb
     />
   ));

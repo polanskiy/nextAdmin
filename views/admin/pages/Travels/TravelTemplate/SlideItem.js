@@ -2,7 +2,7 @@ import React from 'react';
 import SelectImageArr from '../../../elements/Editor/SelectImageArr';
 
 const SlideItem = ({
-  slide, updateData, data, setData, index,
+  slide, updateData, data, index, setTravelData,
 }) => {
   // const handleName = (e) => {
   //   const { value } = e.target;
@@ -20,7 +20,7 @@ const SlideItem = ({
 
   const handleSlides = (newSlides) => {
     const newData = { ...data, slides: newSlides };
-    setData({ data: { ...newData, isFetching: false } });
+    setTravelData({ data: newData, isFetching: false });
     updateData(newData);
   };
 

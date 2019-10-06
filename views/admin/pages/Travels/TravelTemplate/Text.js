@@ -2,13 +2,15 @@ import React from 'react';
 import TextEditor from '../../../elements/Editor/TextEditor';
 
 
-const Text = ({ data, updateTravel, handleFocus }) => {
+const Text = ({
+  data, handleFocus, setTravelData,
+}) => {
   const handleTitle = (title) => {
-    updateTravel({ ...data, title });
+    setTravelData({ data: { ...data, title }, isFetching: false });
   };
 
   const handleText = (text) => {
-    updateTravel({ ...data, text });
+    setTravelData({ data: { ...data, text }, isFetching: false });
   };
   return (
     <div className="adminPageElement">
