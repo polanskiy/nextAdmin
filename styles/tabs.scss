@@ -70,18 +70,27 @@
   background: #F60B50;
   color:#fff;
   transition: .2s;
+  .st0 {
+    fill: #fff;
+  }
 }
 
 .travelTab {
+  display: flex;
+  align-items: center;
   position: relative;
   cursor: pointer;
-  padding: 20px 20px 20px 40px;
+  padding: 10px 20px 10px 40px;
   transition: .2s;
   margin: 0 0 1px;
   background: $white;
   color: #393939;
   font-size: 16px;
   font-weight: bold;
+  svg {
+    height: 40px;
+    margin: 0 20px 0 0;
+  }
 }
 
 .travelTab:after {

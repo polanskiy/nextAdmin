@@ -34,8 +34,6 @@ const Tabs = ({
     />
   ));
 
-  console.log('data.tabs', data.tabs);
-
   return (
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Вкладки:</h1>

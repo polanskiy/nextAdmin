@@ -47,6 +47,7 @@ const TabItem = ({
       setIconList({ data: [], isFetching: true });
       toggleOpen();
       const res = await request('/api/images/useIcons/', 'get');
+      console.log('res.data', res.data);
       if (isMount) setIconList({ data: res.data, isFetching: false });
     } catch (e) {
       console.log('ошибка загрузки изображений');
@@ -87,7 +88,7 @@ const TabItem = ({
       />
     </div>
   ));
-  console.log('tab.icon', tab.icon);
+
   return (
     <div className="adminTabItemBox">
       <div className="adminEditorTitle">

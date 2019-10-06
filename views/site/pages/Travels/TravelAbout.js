@@ -9,6 +9,7 @@ const TravelAbout = ({ tabs, tabsBg }) => {
       name={tab.name}
       className="travelTabContent"
       key={tab._id}
+      icon={tab.icon}
       dangerouslySetInnerHTML={{ __html: xss(tab.value, xssOptions) }}
     />
   ));

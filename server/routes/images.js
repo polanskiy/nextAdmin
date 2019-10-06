@@ -53,7 +53,7 @@ router.get('/useIcons', auth, async (req, res) => {
     videoFiles.forEach((file) => {
       filesArr.push({
         name: file,
-        url: `/images/useIcons/${file}`,
+        url: `/static/images/useIcons/${file}`,
         time: fs.statSync(`${iconsPath}/${file}`).mtime.getTime(),
       });
     });
