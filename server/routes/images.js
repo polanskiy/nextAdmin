@@ -94,13 +94,14 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
 router.post('/:type', auth, upload.single('image'), async (req, res) => {
   if (req.isAuth) {
     const images = req.file;
+    const dir = req.params.type;
     try {
       fs.readFileSync(images.path);
     } catch (err) {
       console.error('133323', err);
     }
 
-    images.url = `/static/images/useIcons/${images.filename}`;
+    images.url = `/static/images/${dir}/${images.filename}`;
 
     if (images.length === 0) res.json({ success: false, message: 'No image' });
     return res.json({ success: true, images });
