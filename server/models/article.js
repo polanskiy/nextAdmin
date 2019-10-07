@@ -5,6 +5,10 @@ const articleSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  subtitle: {
+    type: String,
+    required: true,
+  },
   route: {
     type: String,
     required: true,

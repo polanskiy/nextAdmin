@@ -4,7 +4,9 @@ import xssOptions from '../../../utils/xssOptions';
 import { Link } from '../../../routes';
 import SearchForm from './SearchForm';
 
-const Header = ({ title = 'заголовок отсутствует', headerBg, noSearch }) => {
+const Header = ({
+  title = 'заголовок отсутствует', subtitle, headerBg, noSearch,
+}) => {
   const [width, setWidth] = useState('');
 
   const handleSize = () => {
@@ -26,31 +28,32 @@ const Header = ({ title = 'заголовок отсутствует', headerBg,
         <div className="headerLogoNavBox">
           <div className="logoBox">
             <Link route="/">
-              <a style={{ fontSize: 20 }}>
+              <a>
                 <img src="/static/images/logo.png" alt="logo" />
               </a>
             </Link>
             <a href="tel:+ 7 (905) 524 16 10" className="headerPhone">+ 7 (905) 524 16 10</a>
           </div>
           <div className="headerContactBox">
-            <a style={{ fontSize: 20 }}>
+            <a>
               <img src="/static/images/icons/phone.svg" alt="logo" />
             </a>
-            <a style={{ fontSize: 20 }}>
+            <a href="https://instagram.com/dasya_travel/" target="_blank" rel="noopener noreferrer">
               <img src="/static/images/icons/inst.svg" alt="logo" />
             </a>
-            <a style={{ fontSize: 20 }}>
+            <a href="https://www.facebook.com/dasya.surikovatravel" target="_blank" rel="noopener noreferrer">
               <img src="/static/images/icons/fb.svg" alt="logo" />
             </a>
           </div>
         </div>
         <div className="headerContentBox">
           <div dangerouslySetInnerHTML={{ __html: xss(title, xssOptions) }} className="headerTitle" />
+          <div dangerouslySetInnerHTML={{ __html: xss(subtitle, xssOptions) }} className="headerSubTitle" />
           {!noSearch
-       && (
-       <SearchForm />
-       )
-        }
+            && (
+            <SearchForm />
+            )
+          }
           <div className="downArr">
             <img src="/static/images/icons/downArr.svg" alt="down arrow" />
           </div>

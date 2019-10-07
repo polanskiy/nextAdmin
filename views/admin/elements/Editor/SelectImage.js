@@ -22,7 +22,7 @@ const SelectImage = ({
       setNowImage(newImg);
       let newImages = {};
       if (image === 'header' && thumb) {
-        newImages = { ...nowImages, [image]: newImg, thumb: `/static/images/thumbs/thumb-${newImageName}` };
+        newImages = { ...nowImages, [image]: newImg, thumb: `/static/images/${name}/thumb-${newImageName}` };
       } else {
         newImages = { ...nowImages, [image]: newImg };
       }
@@ -56,7 +56,7 @@ const SelectImage = ({
         {image !== 'thumb'
         && (
         <>
-          <Uploader updateImage={updateImage} link={name} />
+          <Uploader updateImage={updateImage} link={name} thumb={image === 'header' && thumb} />
           {nowImage && <button type="button" className="adminBtn adminDelBtn" onClick={() => updateImage(null)}>Удалить</button>}
         </>
         )

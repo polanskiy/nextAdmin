@@ -84,7 +84,7 @@ const TabItem = ({
       <img
         src={img.url}
         alt={`${img.name}`}
-        style={{ border: nowIcon === img.name ? '3px solid red' : '3px solid transparent' }}
+        style={{ border: nowIcon === img.url ? '3px solid red' : '3px solid transparent' }}
       />
     </div>
   ));
@@ -120,7 +120,7 @@ const TabItem = ({
         <div className="adminMediaIconBox">
           {renderIcons()}
         </div>
-        <div className="adminBtnsBox">
+        <div className="adminBtnsBox center">
           <button
             type="button"
             className="adminBtn"

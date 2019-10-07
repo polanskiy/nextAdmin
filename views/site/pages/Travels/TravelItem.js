@@ -8,7 +8,12 @@ import xssOptions from '../../../../utils/xssOptions';
 
 const TravelItem = ({ article }) => (
   <div className="travelItemBox">
-    <Header title={article.public ? article.title : 'Такого путешествия нет'} headerBg={article.images.header} noSearch />
+    <Header
+      title={article.public ? article.title : 'Такого путешествия нет'}
+      subtitle={article.public ? article.subtitle : ''}
+      headerBg={article.images.header}
+      noSearch
+    />
     {article.public
         && (
           <React.Fragment>

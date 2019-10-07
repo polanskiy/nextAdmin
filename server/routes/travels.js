@@ -27,7 +27,9 @@ router.get('/:id', (req, res) => {
   const { id } = req.params;
   const { byRoute } = req.query;
   if (byRoute) {
+    console.log('id', id);
     Travel.findOne({ route: id }, (err, doc) => {
+      console.log('doc', doc);
       if (err) return res.status(400).send(err);
       return res.send(doc);
     });

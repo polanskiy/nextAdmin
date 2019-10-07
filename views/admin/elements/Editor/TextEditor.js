@@ -20,7 +20,7 @@ const TextEditor = ({
   };
 
   return (
-    <React.Fragment>
+    <div>
       <p className="adminEditorTitle">
         {title}
         :
@@ -74,7 +74,7 @@ const TextEditor = ({
           onChange={(e) => { setData(e.target.getContent()); }}
         />
       </div>
-    </React.Fragment>
+    </div>
 
   );
 };
