@@ -3,11 +3,10 @@ import TextEditor from '../../../elements/Editor/TextEditor';
 import i from '../../../../../utils/i18n';
 
 const Text = ({
-  data, handleFocus, updateData, setPageData,
+  data, handleFocus, setPageData,
 }) => {
   const handleTitle = (item, newText) => {
     setPageData({ data: { ...data, [item]: { value: newText, type: 'text' } }, isFetching: false });
-    updateData({ ...data, [item]: { value: newText, type: 'text' } });
   };
 
   const renderEditor = () => Object.keys(data).map((item) => {

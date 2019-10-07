@@ -15,11 +15,14 @@ const travelSchema = mongoose.Schema({
   tabs: [{
     name: String,
     value: String,
+    icon: String,
+    id: String,
   }],
   images: { type: Object },
   slides: [{
     name: String,
     value: String,
+    id: String,
   }],
   public: Boolean,
   position: Number,

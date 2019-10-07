@@ -14,6 +14,7 @@ const Images = ({ data, setTravelData, updateData }) => {
       updateData={updateData}
       setNowImages={handleImages}
       nowImages={data.images}
+      name={data.name}
     />
   ));
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import SlideItem from './SlideItem';
-import randomId from '../../../../utils/randomId';
+import randomId from '../../../../../utils/randomId';
 
 const Slides = ({
-  data, updateData, setPageData,
+  data, updateData, setTravelData,
 }) => {
   const addSlide = async () => {
     const newSlide = {
@@ -14,13 +14,13 @@ const Slides = ({
     const slides = [...data.slides];
     slides.push(newSlide);
     await updateData({ ...data, slides });
-    setPageData({ data: { ...data, slides }, isFetching: false });
+    setTravelData({ data: { ...data, slides }, isFetching: false });
   };
 
   const renderSlides = () => data.slides.map((slide, i) => (
     <SlideItem
       key={slide.id}
-      setPageData={setPageData}
+      setTravelData={setTravelData}
       slide={slide}
       data={data}
       updateData={updateData}

@@ -1,9 +1,16 @@
+
+.adminTravelTabsBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .adminTabItemBox {
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
   padding: 10px;
-  margin: 0 0 10px;
+  margin: 0 10px 20px;
+  flex: 1 0 45%;
 }
 
 .adminSmallTitle {
@@ -18,5 +25,28 @@
     font-size: 16px!important;
     text-align: left!important;
     white-space: nowrap!important;
+  }
+}
+
+.adminTabSettings {
+  display: flex;
+}
+
+.adminTabIconBox {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 15px;
+  * {
+    margin: 0 10px 0 0;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    height: 49px;
+    padding: 0 6px;
+    img {
+      height: 40px;
+    }
   }
 }

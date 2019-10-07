@@ -4,7 +4,7 @@ import Uploader from '../Uploader/Uploader';
 import i from '../../../../utils/i18n';
 
 const SelectImage = ({
-  page, image, updateData, setNowImages, nowImages, thumb,
+  page, image, updateData, setNowImages, nowImages, thumb, name = '',
 }) => {
   const [nowImage, setNowImage] = useState(page.images[image]);
 
@@ -13,8 +13,12 @@ const SelectImage = ({
   }, [page.images]);
 
   const updateImage = (newImageName) => {
+    let path = '/static/images/';
+    if (name) {
+      path = `/static/images/${name}/`;
+    }
     if (newImageName) {
-      const newImg = `/static/images/${newImageName}`;
+      const newImg = `${path}${newImageName}`;
       setNowImage(newImg);
       let newImages = {};
       if (image === 'header' && thumb) {
@@ -36,8 +40,8 @@ const SelectImage = ({
       updateData({ _id: page._id, images: delImage });
       axios({
         method: 'delete',
-        url: '/api/images',
-        data: { filename: nowImage.split('images/')[1] },
+        url: `/api/images/${name}`,
+        data: { filename: nowImage.split(`${name}/`)[1] },
       });
     }
   };
@@ -52,7 +56,7 @@ const SelectImage = ({
         {image !== 'thumb'
         && (
         <>
-          <Uploader updateImage={updateImage} />
+          <Uploader updateImage={updateImage} link={name} />
           {nowImage && <button type="button" className="adminBtn adminDelBtn" onClick={() => updateImage(null)}>Удалить</button>}
         </>
         )

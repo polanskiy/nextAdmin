@@ -9,7 +9,7 @@ const SelectImageArr = ({
     if (newImageName) {
       const newImg = `/static/images/${newImageName}`;
       const newImages = items.map((itemm) => {
-        if (itemm._id === item._id) {
+        if (itemm.id === item.id) {
           const newItem = { ...itemm };
           newItem.value = newImg;
           return newItem;
@@ -19,7 +19,7 @@ const SelectImageArr = ({
       handleItems(newImages);
     } else {
       const newImages = items.map((itemm) => {
-        if (itemm._id === item._id) {
+        if (itemm.id === item.id) {
           const newItem = { ...itemm };
           newItem.value = '';
           return newItem;

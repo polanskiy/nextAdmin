@@ -26,16 +26,6 @@ const Uploader = ({ updateImage, link = '' }) => {
     Input.current.click();
   };
 
-  // const fetchImages = () => {
-  //   axios({
-  //     method: 'get',
-  //     url: 'http://localhost:3000/api/images',
-  //   })
-  //     .then((res) => {
-  //       console.log('reees', res);
-  //     });
-  // };
-
   return (
     <React.Fragment>
       <button type="button" onClick={onClick} className="adminBtn">

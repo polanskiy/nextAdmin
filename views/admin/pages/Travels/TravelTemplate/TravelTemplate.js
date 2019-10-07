@@ -4,22 +4,20 @@ import Settings from './Settings';
 import Text from './Text';
 import Tabs from './Tabs';
 import Images from './Images';
-import Slides from '../../../elements/Slides/Slides';
+import Slides from './Slides';
 
 const TravelTemplate = ({ id, preloader }) => {
   const [travelData, setTravelData] = useState({ data: null, isFetching: false });
-  const [slideList, setSlideList] = useState([]);
   const { data, isFetching } = travelData;
   const kek = useCallback(React.createRef(), []);
   let isMount = true;
 
   const fetchTravelData = async () => {
-    setTravelData({ data: null, isFetching: true });
+    setTravelData({ data: travelData.data, isFetching: true });
     preloader();
     try {
       const res = await request(`/api/travels/${id}`);
       setTravelData({ data: res.data, isFetching: false });
-      setSlideList(res.data.slides);
     } catch (e) {
       console.log('err');
     }
@@ -71,7 +69,7 @@ const TravelTemplate = ({ id, preloader }) => {
           <React.Fragment>
             <h1 className="adminTitle">{data.route}</h1>
             <Settings data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
-            <Text data={data} updateTravel={updateTravel} handleFocus={handleFocus} />
+            <Text data={data} setTravelData={setTravelData} handleFocus={handleFocus} />
             <Tabs
               data={data}
               fetchTravelData={fetchTravelData}
@@ -82,12 +80,12 @@ const TravelTemplate = ({ id, preloader }) => {
             <Images data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
             <Slides
               data={data}
-              slideList={slideList}
-              setSlideList={setSlideList}
+              setTravelData={setTravelData}
               updateData={updateTravel}
             />
           </React.Fragment>
         ) : 'такого путешествия нет'}
+      <button type="button" className="adminBtn absoluteBtn" onClick={() => updateTravel(data)}>Сохранить</button>
     </div>
   );
 };

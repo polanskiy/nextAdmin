@@ -21,6 +21,7 @@ const pageSchema = mongoose.Schema({
   slides: [{
     name: String,
     value: String,
+    id: String,
   }],
 }, { timestamps: true });
 

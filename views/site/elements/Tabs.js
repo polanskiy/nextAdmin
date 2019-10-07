@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactSVG from 'react-svg';
 
 const Tabs = ({
   children, tabHeaderClass, tabsBoxClass, tabHeaderBoxClass, startTab, activeTabClass,
@@ -6,6 +7,7 @@ const Tabs = ({
   const [activeTab, setActiveTab] = useState(startTab - 1);
 
   const renderTabs = (tabs) => {
+    console.log('tabs', tabs);
     if (tabs.length) {
       return (tabs.map((tab, i) => (
         <div
@@ -14,6 +16,7 @@ const Tabs = ({
           className={activeTab === i ? `${tabHeaderClass} ${activeTabClass}` : tabHeaderClass}
           onClick={() => setActiveTab(i)}
         >
+          <ReactSVG src={tab.props.icon} />
           {tab.props.name}
         </div>
       )));
