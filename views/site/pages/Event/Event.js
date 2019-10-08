@@ -1,12 +1,11 @@
 import React from 'react';
 import Header from '../../elements/Header';
-import RequestForm from '../../elements/RequestForm';
 import BlockAbout from '../../elements/BlockAbout';
 import ColorBox from '../../elements/ColorBox';
 import SmallSlider from '../../elements/SmallSlider';
 
 const Event = ({ page }) => (
-  <div>
+  <div className="eventBox">
     <Header title={page.title.value} headerBg={page.images.header} noSearch />
     <div className="contentMidWrapper">
       <p className="eventTitle">
@@ -58,7 +57,6 @@ const Event = ({ page }) => (
     />
     <ColorBox text={page.description.value} colorBg={page.images.description} />
     <SmallSlider text={page.slider.value} slides={page.slides} link="/event" textLink="Заказать праздник" sliderBg={page.images.slider} />
-    <RequestForm footerImg={page.images.footer} />
   </div>
 );
 

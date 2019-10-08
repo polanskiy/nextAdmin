@@ -65,31 +65,31 @@ router.get('/useIcons', auth, async (req, res) => {
   });
 });
 
-router.post('/', auth, upload.single('image'), async (req, res) => {
-  if (req.isAuth) {
-    const images = req.file;
-    try {
-      const imgFile = fs.readFileSync(images.path);
-      const fileName = images.filename.split('.')[0];
-      await sharp(imgFile)
-        .resize(360, 220)
-        .toFormat('jpeg')
-        .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
-          console.log(err, info);
-        });
-    } catch (err) {
-      console.error('133323', err);
-    }
+// router.post('/', auth, upload.single('image'), async (req, res) => {
+//   if (req.isAuth) {
+//     const images = req.file;
+//     try {
+//       const imgFile = fs.readFileSync(images.path);
+//       const fileName = images.filename.split('.')[0];
+//       await sharp(imgFile)
+//         .resize(360, 220)
+//         .toFormat('jpeg')
+//         .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
+//           console.log(err, info);
+//         });
+//     } catch (err) {
+//       console.error('133323', err);
+//     }
 
-    images.url = `/static/images/${images.filename}`;
+//     images.url = `/static/images/${images.filename}`;
 
-    if (images.length === 0) res.json({ success: false, message: 'No Video' });
-    return res.json({ success: true, images });
-  }
-  return res.status(401).json({
-    isAuth: false,
-  });
-});
+//     if (images.length === 0) res.json({ success: false, message: 'No Video' });
+//     return res.json({ success: true, images });
+//   }
+//   return res.status(401).json({
+//     isAuth: false,
+//   });
+// });
 
 router.post('/:type', auth, upload.single('image'), async (req, res) => {
   if (req.isAuth) {
@@ -98,7 +98,9 @@ router.post('/:type', auth, upload.single('image'), async (req, res) => {
     const isThumb = req.query.thumb;
     try {
       const imgFile = fs.readFileSync(images.path);
-      if (isThumb) {
+      console.log('isThumb', isThumb);
+      if (isThumb !== 'false') {
+        console.log('wwwwwwwwww');
         const fileName = images.filename.split('.')[0];
         await sharp(imgFile)
           .resize(360, 220)

@@ -7,7 +7,7 @@ import { Link } from '../../../routes';
 const SmallSlider = ({
   text, slides, link, textLink, sliderBg,
 }) => (
-  <div className="smallSliderBox" style={{ background: `url(${sliderBg}) no-repeat` }}>
+  <div className="smallSliderBox" style={{ backgroundImage: `url(${sliderBg})` }}>
     <div className="smallSliderText">
       <div dangerouslySetInnerHTML={{ __html: xss(text, xssOptions) }} />
       <Link route={link}>

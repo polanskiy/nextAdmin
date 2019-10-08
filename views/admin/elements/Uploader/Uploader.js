@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 
-const Uploader = ({ updateImage, link = '', thumb }) => {
+const Uploader = ({ updateImage, link = '', thumb = false }) => {
   const uploadVideo = (e) => {
     const file = e.target.files;
     const formData = new FormData();
     for (let i = 0; i < file.length; i += 1) {
       formData.append('image', file[i]);
     }
-
+    console.log('thumb', thumb);
     axios({
       method: 'post',
       url: `/api/images/${link}/?thumb=${thumb}`,

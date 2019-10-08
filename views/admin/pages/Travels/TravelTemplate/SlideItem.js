@@ -47,6 +47,7 @@ const SlideItem = ({
         item={slide}
         handleItems={handleSlides}
         items={data.slides}
+        name={data._id}
       />
     </div>
   );

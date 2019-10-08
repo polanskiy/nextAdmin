@@ -11,9 +11,9 @@ const Travels = ({ article, page, articles }) => {
     return <TravelsPage page={page} articles={articles} />;
   };
   return (
-    <div className="travelsBox">
+    <>
       {renderArticle()}
-    </div>
+    </>
   );
 };
 
@@ -23,7 +23,6 @@ Travels.getInitialProps = async (props) => {
   let travelPage = {};
   let articles = [];
   let article;
-
   if (query.article) {
     try {
       const res = await axios.get(`/api/travels/${query.article}/?byRoute=1`, axioscfg);
@@ -40,7 +39,6 @@ Travels.getInitialProps = async (props) => {
       console.log('err main getinitialprops');
     }
   }
-
   return { article, page: travelPage, articles: articles.data };
 };
 

@@ -56,7 +56,7 @@ const Icons = () => {
   return (
     <div>
       <p>Иконки путешествий:</p>
-      <div>
+      <div className="adminUploadIcon">
         <Uploader link="useIcons" updateImage={fetchImages} />
         <button
           type="button"

@@ -20,7 +20,6 @@ const NewTravel = ({ travelList, fetchTravels }) => {
       images: {
         header: '',
         tabs: '',
-        footer: '',
       },
       public: false,
       position: newPostion,

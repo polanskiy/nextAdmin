@@ -1,6 +1,8 @@
 .headerBox {
-  position: relative;
-  z-index: 9;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .headerBg {
@@ -16,9 +18,11 @@
 }
 
 .headerLogoNavBox{
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 2;
 }
 
 .logoBox{
@@ -200,10 +204,12 @@
   /* HEADER CONTENT */
 
 .headerContentBox {
+  position: relative;
   display: flex;
   align-items: center;
   height: calc(100% - 165px); //345
   flex-direction: column;
+  z-index: 2;
 }
 
 .headerTitle {
@@ -364,6 +370,18 @@
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
+  }
+}
+
+.cloudBox {
+  width: 100%;
+  position: absolute;
+  height: 100vh;
+  img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
   }
 }
 

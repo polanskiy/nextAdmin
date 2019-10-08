@@ -3,7 +3,6 @@ import xss from 'xss';
 import Header from '../../elements/Header';
 import TravelAbout from './TravelAbout';
 import Slider from '../../elements/Slider';
-import RequestForm from '../../elements/RequestForm';
 import xssOptions from '../../../../utils/xssOptions';
 
 const TravelItem = ({ article }) => (
@@ -36,7 +35,6 @@ const TravelItem = ({ article }) => (
                 fade={false}
               />
             </div>
-            <RequestForm footerImg={article.images.footer} />
           </React.Fragment>
         )
     }

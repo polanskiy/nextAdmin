@@ -22,7 +22,6 @@ const About = ({ page }) => (
       textLink="Галерея путешествий"
       sliderBg={page.images.slider}
     />
-    <RequestForm footerImg={page.images.footer} />
   </React.Fragment>
 );
 

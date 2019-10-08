@@ -1,8 +1,9 @@
 .requestFormBox {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  background: url('/static/images/requestBg.jpg') no-repeat;
+  padding: 100px 0 0;
 }
 
 .requestFormTitle {
@@ -16,7 +17,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
 }
 
 .requestForm {

@@ -16,7 +16,7 @@ const Images = ({ data, setTravelData, updateTravel }) => {
           setNowImages={handleImages}
           nowImages={data.images}
           name={data._id}
-          thumb
+          thumb={image === 'header'}
         />
       );
     } return null;
