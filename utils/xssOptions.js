@@ -6,5 +6,6 @@ export default {
     strong: [],
     ul: ['style'],
     li: ['style'],
+    img: ['style', 'src', 'alt'],
   },
 };

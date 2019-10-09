@@ -3,7 +3,7 @@ import axios from 'axios';
 import Contacts from '../views/site/pages/Contacts/Contacts';
 import Layout from '../views/site/hoc/Layout';
 
-const ContactsPage = props => (
+const ContactsPage = (props) => (
   <Layout>
     <Contacts {...props} />
   </Layout>

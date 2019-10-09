@@ -1,4 +1,3 @@
-@import './homeAdvantages.scss';
 @import './travelsList.scss';
 
 
@@ -55,4 +54,54 @@
 
 .tac {
   text-align: center;
+}
+
+.colorBox {
+  background: linear-gradient(#662D8C, #ED1E79);
+  padding: 60px 140px 90px;
+  ul li {
+    position: relative;
+    &:before {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      left: -64px;
+      content: '';
+      background: url('/static/images/icons/star.svg') no-repeat;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 992px) {
+  .homeAboutTextBox, .homeAboutImgBox {
+    width: 50%;
+    max-width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .homeAboutTextBox {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .homeAboutImgBox {
+    margin: 0 0 35px;
+  }
+
+  .homeAboutContentBox {
+    flex-direction: column;
+  }
+  .colorBox {
+    padding: 20px 20px 20px 80px;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .homeAboutImgBox {
+    max-width: 80%;
+    width: 100%;
+  }
 }

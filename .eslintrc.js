@@ -13,7 +13,8 @@ module.exports = {
         "no-nested-ternary": 0,
         "jsx-a11y/label-has-for": 0,
         "jsx-a11y/label-has-associated-control":0,
-        "jsx-a11y/click-events-have-key-events": 0
+        "jsx-a11y/click-events-have-key-events": 0,
+        "react/jsx-props-no-spreading": 0
     },
     "globals": {
         "window": true,

@@ -16,7 +16,6 @@ const Icons = () => {
     try {
       setIconList({ data: [], isFetching: true });
       const res = await request('/api/images/useIcons/', 'get');
-      console.log('res', res);
       if (isMount) setIconList({ data: res.data, isFetching: false });
     } catch (e) {
       console.log('ошибка загрузки изображений');

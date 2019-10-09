@@ -29,14 +29,14 @@ Blog.getInitialProps = async (props) => {
     articles = await axios.get('/api/articles/?onlyPublic=1', axioscfg);
     blogPage = res.data;
   } catch (e) {
-    console.log('err main getinitialprops');
+    console.log('err Blog getinitialprops');
   }
   if (query.article) {
     try {
       const res = await axios.get(`/api/articles/${query.article}/?byRoute=1`, axioscfg);
       article = res.data;
     } catch (e) {
-      console.log('err main getinitialprops');
+      console.log('err Blog getinitialprops');
     }
   }
 

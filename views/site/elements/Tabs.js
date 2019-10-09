@@ -7,7 +7,6 @@ const Tabs = ({
   const [activeTab, setActiveTab] = useState(startTab - 1);
 
   const renderTabs = (tabs) => {
-    console.log('tabs', tabs);
     if (tabs.length) {
       return (tabs.map((tab, i) => (
         <div

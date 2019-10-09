@@ -28,7 +28,7 @@ Travels.getInitialProps = async (props) => {
       const res = await axios.get(`/api/travels/${query.article}/?byRoute=1`, axioscfg);
       article = res.data;
     } catch (e) {
-      console.log('err main getinitialprops');
+      console.log('err Travels getinitialprops');
     }
   } else {
     try {
@@ -36,7 +36,7 @@ Travels.getInitialProps = async (props) => {
       articles = await axios.get('/api/travels/?onlyPublic=1', axioscfg);
       travelPage = res.data;
     } catch (e) {
-      console.log('err main getinitialprops');
+      console.log('err Travels getinitialprops');
     }
   }
   return { article, page: travelPage, articles: articles.data };

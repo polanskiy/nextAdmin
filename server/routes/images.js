@@ -98,15 +98,13 @@ router.post('/:type', auth, upload.single('image'), async (req, res) => {
     const isThumb = req.query.thumb;
     try {
       const imgFile = fs.readFileSync(images.path);
-      console.log('isThumb', isThumb);
       if (isThumb !== 'false') {
-        console.log('wwwwwwwwww');
         const fileName = images.filename.split('.')[0];
         await sharp(imgFile)
           .resize(360, 220)
           .toFormat('jpeg')
           .toFile(`${imagesPath}/${dir}/thumb-${fileName}.jpg`, (err, info) => {
-            console.log(err, info);
+            // console.log(err, info);
           });
       }
     } catch (err) {

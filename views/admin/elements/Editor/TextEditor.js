@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { Editor } from '@tinymce/tinymce-react';
 
 const TextEditor = ({
-  selector, font, title, data, setData, size, handleFocus,
+  selector, font, title, data, setData, size, handleFocus, name,
 }) => {
+  useEffect(() => {
+    dynamic(() => import('../../../../public/tinymce/tinymce.min'));
+    dynamic(() => import('../../../../public/tinymce/themes/silver/theme.min'));
+  }, []);
+
   const handleLocalImg = (e, success) => {
     const blob = e.blob();
     const formData = new FormData();
     formData.append('image', blob);
     axios({
       method: 'post',
-      url: '/api/images',
+      url: `/api/images/${name}`,
       data: formData,
     })
       .then((res) => {
@@ -28,13 +34,14 @@ const TextEditor = ({
       <div className={`${selector}`}>
         <Editor
           initialValue={data}
-          apiKey="ferbxo2i5dzep5bkr3ijc3ex5a5fffycvhnqmvsmqd9f66z5"
+          // apiKey="ferbxo2i5dzep5bkr3ijc3ex5a5fffycvhnqmvsmqd9f66z5"
           init={{
             menubar: false,
             branding: false,
             resize: false,
             max_width: 800,
             max_height: 300,
+            language: 'ru',
             selector: `.${selector}`,
             content_css: '/_next/static/css/styles.chunk.css',
             // inline: true,
@@ -44,9 +51,7 @@ const TextEditor = ({
             plugins: [
               'image imagetools',
               'lists',
-              'powerpaste',
               'link',
-              'tinymcespellchecker',
               'autoresize',
             ],
             toolbar: [
@@ -64,9 +69,9 @@ const TextEditor = ({
             powerpaste_html_import: 'clean',
             font_formats: 'Roboto;Lobster;',
             setup(ed) {
-              ed.on('init', function kek() {
-                this.execCommand('fontName', false, font || 'Roboto');
-                this.execCommand('fontSize', false, size || '16px');
+              ed.on('init', () => {
+                // this.execCommand('fontName', false, font || 'Roboto');
+                // this.execCommand('fontSize', false, size || '16px');
                 handleFocus();
               });
             },

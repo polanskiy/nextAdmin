@@ -7,7 +7,6 @@ const Contacts = (props) => {
 
   useEffect(() => {
     if (scrollTo) {
-      console.log('scrollTo');
       const element = document.getElementById(scrollTo);
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });

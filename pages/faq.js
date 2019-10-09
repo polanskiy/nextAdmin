@@ -15,7 +15,7 @@ FAQPage.getInitialProps = async (ctx) => {
     const res = await axios.get('/api/pages/faq', axioscfg);
     faqPage = res.data;
   } catch (e) {
-    console.log('err main getinitialprops');
+    console.log('err FAQPage getinitialprops');
   }
   return { page: faqPage };
 };

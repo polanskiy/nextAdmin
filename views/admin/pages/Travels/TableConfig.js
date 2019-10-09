@@ -3,10 +3,10 @@ import xss from 'xss';
 import { textFilter } from 'react-bootstrap-table2-filter';
 import xssOptions from '../../../../utils/xssOptions';
 import { Link } from '../../../../routes';
-import Edit from '../../../../static/images/icons/edit.svg';
-import True from '../../../../static/images/icons/trrue.svg';
-import False from '../../../../static/images/icons/false.svg';
-import Trash from '../../../../static/images/icons/garbage.svg';
+import Edit from '../../../../public/static/images/icons/edit.svg';
+import True from '../../../../public/static/images/icons/trrue.svg';
+import False from '../../../../public/static/images/icons/false.svg';
+import Trash from '../../../../public/static/images/icons/garbage.svg';
 import formatter from '../../../../utils/tableFormatters';
 
 export default function () {
@@ -23,7 +23,7 @@ export default function () {
     </div>
   );
   const publicFormatter = (cell, row) => (
-    <React.Fragment>
+    <>
       <div className="tableIcon">
         {row.public
           ? (
@@ -31,10 +31,9 @@ export default function () {
           )
           : (
             <False fill="white" />
-          )
-      }
+          )}
       </div>
-    </React.Fragment>
+    </>
   );
 
   function nameFormatter(cell, row) {
@@ -59,10 +58,10 @@ export default function () {
         dataField: 'title',
         text: 'Название',
         sort: true,
-        sortCaret: order => (
-          <React.Fragment>
+        sortCaret: (order) => (
+          <>
             {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
-          </React.Fragment>
+          </>
         ),
         editable: false,
         formatter: nameFormatter,
@@ -79,10 +78,10 @@ export default function () {
         dataField: 'public',
         text: 'Опубликовано',
         sort: true,
-        sortCaret: order => (
-          <React.Fragment>
+        sortCaret: (order) => (
+          <>
             {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
-          </React.Fragment>
+          </>
         ),
         editable: false,
         formatter: publicFormatter,
@@ -96,10 +95,10 @@ export default function () {
         editable: false,
         formatter: formatter.dateFormat,
         sort: true,
-        sortCaret: order => (
-          <React.Fragment>
+        sortCaret: (order) => (
+          <>
             {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
-          </React.Fragment>
+          </>
         ),
         headerStyle: {
           width: 110,
@@ -111,10 +110,10 @@ export default function () {
         editable: false,
         formatter: formatter.dateFormat,
         sort: true,
-        sortCaret: order => (
-          <React.Fragment>
+        sortCaret: (order) => (
+          <>
             {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
-          </React.Fragment>
+          </>
         ),
         headerStyle: {
           width: 110,

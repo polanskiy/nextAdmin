@@ -31,13 +31,13 @@ const ArticlesTable = ({
   const Setting = Config();
   const { columns } = Setting;
   return (
-    <React.Fragment>
+    <>
       { articleList.isFetching ? <p>загрузка статей</p> : articleList.data.length
         ? (
           <Table data={articleList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
         ) : <div>Статей нет</div>}
       <DeleteWarning confirmDel={delArticle} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
-    </React.Fragment>
+    </>
   );
 };
 

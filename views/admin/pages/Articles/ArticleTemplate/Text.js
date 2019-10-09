@@ -4,7 +4,6 @@ import TextEditor from '../../../elements/Editor/TextEditor';
 
 const Text = ({ data, updateArticle, handleFocus }) => {
   const handleTitle = (title) => {
-    console.log('title', title);
     updateArticle({ ...data, title });
   };
 

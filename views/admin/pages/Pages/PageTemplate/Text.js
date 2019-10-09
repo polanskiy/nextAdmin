@@ -20,18 +20,19 @@ const Text = ({
           setData={(value) => { handleTitle(item, value); }}
           focus={`${item}Selector`}
           handleFocus={handleFocus}
+          name={data.id}
         />
       );
     } return null;
   });
 
   return (
-    <React.Fragment>
+    <>
       <div className="adminPageElement">
         <h1 className="adminArticleTitle">Текст:</h1>
         {renderEditor()}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

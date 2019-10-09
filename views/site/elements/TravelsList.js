@@ -4,8 +4,7 @@ import xssOptions from '../../../utils/xssOptions';
 import { Link } from '../../../routes';
 
 const TravelsList = ({ articles }) => {
-  console.log('articles', articles);
-  const renderTravelList = () => articles.map(article => (
+  const renderTravelList = () => articles.map((article) => (
     <div className="travelsListItem" key={article._id} style={{ backgroundImage: `url(${article.images.thumb})` }}>
       <Link route="travels" params={{ article: article.route }}>
         <div

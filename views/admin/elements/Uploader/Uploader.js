@@ -8,14 +8,12 @@ const Uploader = ({ updateImage, link = '', thumb = false }) => {
     for (let i = 0; i < file.length; i += 1) {
       formData.append('image', file[i]);
     }
-    console.log('thumb', thumb);
     axios({
       method: 'post',
       url: `/api/images/${link}/?thumb=${thumb}`,
       data: formData,
     })
       .then((res) => {
-        console.log('res.data', res.data);
         updateImage(res.data.images.filename);
       });
     e.target.value = null;
@@ -28,7 +26,7 @@ const Uploader = ({ updateImage, link = '', thumb = false }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <button type="button" onClick={onClick} className="adminBtn">
         <span>Загрузить</span>
       </button>
@@ -38,10 +36,10 @@ const Uploader = ({ updateImage, link = '', thumb = false }) => {
         style={{ display: 'none' }}
         type="file"
         id="files"
-        onChange={e => uploadVideo(e)}
+        onChange={(e) => uploadVideo(e)}
         accept="image/*"
       />
-    </React.Fragment>
+    </>
   );
 };
 

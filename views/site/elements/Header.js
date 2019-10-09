@@ -43,11 +43,10 @@ const Header = ({
         {!noSearch
           && (
           <SearchForm />
-          )
-        }
-        <div className="downArr" onClick={handleScroll}>
-          <img src="/static/images/icons/downArr.svg" alt="down arrow" />
-        </div>
+          )}
+      </div>
+      <div className="downArr" onClick={handleScroll}>
+        <img src="/static/images/icons/downArr.svg" alt="down arrow" />
       </div>
     </div>
   );
