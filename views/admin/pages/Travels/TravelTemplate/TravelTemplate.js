@@ -24,6 +24,8 @@ const TravelTemplate = ({ id, preloader }) => {
     preloader();
   };
 
+  console.log('travelData', travelData);
+
   const handleFocus = () => {
     if (kek && kek.current) {
       kek.current.focus();
@@ -66,7 +68,7 @@ const TravelTemplate = ({ id, preloader }) => {
       {isFetching && 'загрузка'}
       {data
         ? (
-          <React.Fragment>
+          <>
             <h1 className="adminTitle">{data.route}</h1>
             <Settings data={data} setTravelData={setTravelData} updateTravel={updateTravel} />
             <Text data={data} setTravelData={setTravelData} handleFocus={handleFocus} />
@@ -83,7 +85,7 @@ const TravelTemplate = ({ id, preloader }) => {
               setTravelData={setTravelData}
               updateData={updateTravel}
             />
-          </React.Fragment>
+          </>
         ) : 'такого путешествия нет'}
       <button type="button" className="adminBtn absoluteBtn" onClick={() => updateTravel(data)}>Сохранить</button>
     </div>
