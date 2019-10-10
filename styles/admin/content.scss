@@ -98,6 +98,7 @@
   align-items: center;
   justify-content: center;
   form {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: 600px;
@@ -111,6 +112,10 @@
     input[type=submit] {
       border: 0;
       color: #fff;
+    }
+    p {
+      position: absolute;
+      bottom: -50px;
     }
   }
 }
