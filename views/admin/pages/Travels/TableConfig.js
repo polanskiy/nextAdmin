@@ -3,10 +3,10 @@ import xss from 'xss';
 import { textFilter } from 'react-bootstrap-table2-filter';
 import xssOptions from '../../../../utils/xssOptions';
 import { Link } from '../../../../routes';
-import Edit from '../../../../public/static/images/icons/edit.svg';
-import True from '../../../../public/static/images/icons/trrue.svg';
-import False from '../../../../public/static/images/icons/false.svg';
-import Trash from '../../../../public/static/images/icons/garbage.svg';
+import Edit from '../../../../static/images/icons/edit.svg';
+import True from '../../../../static/images/icons/trrue.svg';
+import False from '../../../../static/images/icons/false.svg';
+import Trash from '../../../../static/images/icons/garbage.svg';
 import formatter from '../../../../utils/tableFormatters';
 
 export default function () {

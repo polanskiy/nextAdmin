@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 
-const publicPath = path.resolve('public');
+const publicPath = path.resolve('static');
 
-const imagesPath = path.join(publicPath, '/static/images');
+const imagesPath = path.join(publicPath, 'images');
 const iconsPath = path.join(imagesPath, 'useIcons');
 
 

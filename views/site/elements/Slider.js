@@ -1,6 +1,6 @@
 import React from 'react';
 import Slick from 'react-slick';
-import Arr from '../../../public/static/images/icons/sliderAngle.svg';
+import Arr from '../../../static/images/icons/sliderAngle.svg';
 
 const Slider = ({
   slides, className, dots, colorArr, slidesToShow, fade,

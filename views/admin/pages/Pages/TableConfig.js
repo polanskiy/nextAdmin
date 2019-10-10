@@ -1,7 +1,7 @@
 import React from 'react';
 import { textFilter } from 'react-bootstrap-table2-filter';
 import { Link } from '../../../../routes';
-import Edit from '../../../../public/static/images/icons/edit.svg';
+import Edit from '../../../../static/images/icons/edit.svg';
 import formatter from '../../../../utils/tableFormatters';
 import i from '../../../../utils/i18n';
 
