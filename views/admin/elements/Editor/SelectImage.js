@@ -13,16 +13,16 @@ const SelectImage = ({
   }, [page.images]);
 
   const updateImage = (newImageName) => {
-    let path = '/static/images/';
+    let path = '/public/static/images/';
     if (name) {
-      path = `/static/images/${name}/`;
+      path = `/public/static/images/${name}/`;
     }
     if (newImageName) {
       const newImg = `${path}${newImageName}`;
       setNowImage(newImg);
       let newImages = {};
       if (image === 'header' && thumb) {
-        newImages = { ...nowImages, [image]: newImg, thumb: `/static/images/${name}/thumb-${newImageName}` };
+        newImages = { ...nowImages, [image]: newImg, thumb: `/public/static/images/${name}/thumb-${newImageName}` };
       } else {
         newImages = { ...nowImages, [image]: newImg };
       }
