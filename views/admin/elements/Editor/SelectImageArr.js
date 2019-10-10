@@ -29,7 +29,7 @@ const SelectImageArr = ({
       handleItems(newImages);
       axios({
         method: 'delete',
-        url: `/api/images${name}`,
+        url: `/api/images/${name}`,
         data: { filename: item.value.split(`${name}/`)[1] },
       });
     }

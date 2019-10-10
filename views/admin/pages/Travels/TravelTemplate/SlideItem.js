@@ -25,7 +25,7 @@ const SlideItem = ({
   };
 
   const delSlide = () => {
-    const newSlides = data.slides.filter(item => item.id !== slide.id);
+    const newSlides = data.slides.filter((item) => item.id !== slide.id);
     handleSlides(newSlides);
   };
 
