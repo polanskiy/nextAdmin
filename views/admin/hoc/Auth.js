@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Router from 'next/router';
 
-const Auth = Component => (props) => {
+const Auth = (Component) => (props) => {
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
@@ -17,9 +17,9 @@ const Auth = Component => (props) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       {isAuth && <Component {...props} />}
-    </React.Fragment>
+    </>
   );
 };
 export default Auth;

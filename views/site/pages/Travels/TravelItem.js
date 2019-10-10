@@ -15,7 +15,7 @@ const TravelItem = ({ article }) => (
     />
     {article.public
         && (
-          <React.Fragment>
+          <>
             <div className="whiteBg">
               <div className="contentMidWrapper">
                 <div dangerouslySetInnerHTML={{ __html: xss(article.text, xssOptions) }} />
@@ -35,9 +35,8 @@ const TravelItem = ({ article }) => (
                 fade={false}
               />
             </div>
-          </React.Fragment>
-        )
-    }
+          </>
+        )}
   </div>
 );
 

@@ -1,10 +1,14 @@
 import React from 'react';
+import Head from 'next/head';
 import Header from '../elements/Header/Header';
 import SideNav from '../elements/SideNav/SideNav';
 import Auth from './Auth';
 
 const AdminLayout = ({ children, slug }) => (
-  <React.Fragment>
+  <>
+    <Head>
+      <script src="/static/tinymce.min.js" />
+    </Head>
     <Header />
     <div className="adminContentBox">
       <SideNav slug={slug} />
@@ -12,6 +16,7 @@ const AdminLayout = ({ children, slug }) => (
         {children}
       </div>
     </div>
-  </React.Fragment>
+  </>
 );
+
 export default Auth(AdminLayout);

@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
-import dynamic from 'next/dynamic';
+import React from 'react';
 import axios from 'axios';
 import { Editor } from '@tinymce/tinymce-react';
 
 const TextEditor = ({
-  selector, font, title, data, setData, size, handleFocus, name,
+  selector, title, data, setData, handleFocus, name,
 }) => {
-  useEffect(() => {
-    dynamic(() => import('../../../../public/tinymce/tinymce.min'));
-    dynamic(() => import('../../../../public/tinymce/themes/silver/theme.min'));
-  }, []);
-
   const handleLocalImg = (e, success) => {
     const blob = e.blob();
     const formData = new FormData();
@@ -53,13 +47,25 @@ const TextEditor = ({
               'lists',
               'link',
               'autoresize',
+              'searchreplace',
+              'table',
+              'code',
+              'wordcount',
             ],
             toolbar: [
-              'undo redo | bold italic underline | fontselect fontsizeselect',
-              'forecolor backcolor | alignleft aligncenter alignright alignfull | numlist bullist outdent indent | link | image',
+              'undo redo | bold italic underline | fontselect fontsizeselect | formatselect blockquote',
+              'forecolor backcolor | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | link | image | searchreplace | table ',
+            ],
+            table_default_attributes: {
+              border: '2',
+            },
+            table_class_list: [
+              { title: 'None', value: '' },
+              { title: 'Dog', value: 'dog' },
+              { title: 'Cat', value: 'cat' },
             ],
             image_advtab: true,
-            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br,img[src|style|alt]',
+            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br,img[src|style|alt],table,td,tr,th',
             valid_styles: {
               '*': 'font-size,font-family,color,text-decoration,text-align,border,margin,border-style,border-width,margin-left,margin-right,margin-top,margin-bottom,width,height,float',
             },
