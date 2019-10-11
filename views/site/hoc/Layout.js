@@ -2,21 +2,29 @@ import React, { useEffect } from 'react';
 
 const Layout = ({ children }) => {
   useEffect(() => {
+    let timer;
     if (document) {
       if (document.readyState !== 'loading') {
         const globalBox = document.querySelector('.globalBox');
         if (globalBox !== null) {
-          globalBox.classList.remove('preloadCss');
+          timer = setTimeout(() => {
+            globalBox.classList.remove('preloadCss');
+          }, 2000);
         }
       } else {
-        document.addEventListener('DOMContentLoaded', () => { 
+        document.addEventListener('DOMContentLoaded', () => {
           const globalBox = document.querySelector('.globalBox');
           if (globalBox !== null) {
-            globalBox.classList.remove('preloadCss');
+            timer = setTimeout(() => {
+              globalBox.classList.remove('preloadCss');
+            }, 2000);
           }
         });
       }
     }
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (

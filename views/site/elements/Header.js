@@ -15,7 +15,7 @@ const Header = ({
   };
 
   return (
-    <div className="headerBox" style={{ backgroundImage: `url(${headerBg})` }}>
+    <div className="headerBox" style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(${headerBg})` }}>
       <div className="headerLogoNavBox">
         <div className="logoBox">
           <Link route="/">
