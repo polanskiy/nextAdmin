@@ -224,7 +224,9 @@
 }
 
 .headerSubTitle {
-  margin: 20px 0 0;
+  margin: 20px auto 0;
+  max-width: 1020px;
+  width: 100%;
 }
 
 .customFormBox, .customFormBoxSecond {
