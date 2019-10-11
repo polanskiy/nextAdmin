@@ -1,60 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import xss from 'xss';
 import xssOptions from '../../../utils/xssOptions';
 import { Link } from '../../../routes';
 import SearchForm from './SearchForm';
 
-const Header = ({ title = 'заголовок отсутствует', headerBg, noSearch }) => {
-  const [width, setWidth] = useState('');
-
-  const handleSize = () => {
-    setWidth(window.innerWidth);
+const Header = ({
+  title = 'заголовок отсутствует', subtitle = '', headerBg, noSearch,
+}) => {
+  const handleScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
   };
 
-  useEffect(() => {
-    handleSize();
-    window.addEventListener('resize', handleSize);
-    return () => {
-      window.removeEventListener('resize', handleSize);
-    };
-  }, []);
-
   return (
-    <div className="headerBox" style={{ background: width <= 992 ? `url(${headerBg})` : 'transparent' }}>
-      {width > 992 && <img className="headerBg" src={headerBg} alt="индивидуальный туроператор" /> }
-      <div className="headerPositionBox">
-        <div className="headerLogoNavBox">
-          <div className="logoBox">
-            <Link route="/">
-              <a style={{ fontSize: 20 }}>
-                <img src="/static/images/logo.png" alt="logo" />
-              </a>
-            </Link>
-            <a href="tel:+ 7 (905) 524 16 10" className="headerPhone">+ 7 (905) 524 16 10</a>
-          </div>
-          <div className="headerContactBox">
-            <a style={{ fontSize: 20 }}>
-              <img src="/static/images/icons/phone.svg" alt="logo" />
+    <div className="headerBox" style={{ backgroundImage: `url(${headerBg})` }}>
+      <div className="headerLogoNavBox">
+        <div className="logoBox">
+          <Link route="/">
+            <a>
+              <img src="/static/images/logo.png" alt="logo" />
             </a>
-            <a style={{ fontSize: 20 }}>
-              <img src="/static/images/icons/inst.svg" alt="logo" />
-            </a>
-            <a style={{ fontSize: 20 }}>
-              <img src="/static/images/icons/fb.svg" alt="logo" />
-            </a>
-          </div>
+          </Link>
+          <a href="tel:+ 7 (905) 524 16 10" className="headerPhone">+ 7 (905) 524 16 10</a>
         </div>
-        <div className="headerContentBox">
-          <div dangerouslySetInnerHTML={{ __html: xss(title, xssOptions) }} className="headerTitle" />
-          {!noSearch
-       && (
-       <SearchForm />
-       )
-        }
-          <div className="downArr">
-            <img src="/static/images/icons/downArr.svg" alt="down arrow" />
-          </div>
+        <div className="headerContactBox">
+          <a href="tel:+ 7 (905) 524 16 10">
+            <img src="/static/images/icons/phone.svg" alt="logo" />
+          </a>
+          <a href="https://instagram.com/dasya_travel/" target="_blank" rel="noopener noreferrer">
+            <img src="/static/images/icons/inst.svg" alt="logo" />
+          </a>
+          <a href="https://www.facebook.com/dasya.surikovatravel" target="_blank" rel="noopener noreferrer">
+            <img src="/static/images/icons/fb.svg" alt="logo" />
+          </a>
         </div>
+      </div>
+      <div className="headerContentBox">
+        <div dangerouslySetInnerHTML={{ __html: xss(title, xssOptions) }} className="headerTitle" />
+        <div dangerouslySetInnerHTML={{ __html: xss(subtitle, xssOptions) }} className="headerSubTitle" />
+        {!noSearch
+          && (
+          <SearchForm />
+          )}
+      </div>
+      <div className="downArr" onClick={handleScroll}>
+        <img src="/static/images/icons/downArr.svg" alt="down arrow" />
       </div>
     </div>
   );

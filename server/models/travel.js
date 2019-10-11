@@ -5,6 +5,9 @@ const travelSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  subtitle: {
+    type: String,
+  },
   route: {
     type: String,
     required: true,

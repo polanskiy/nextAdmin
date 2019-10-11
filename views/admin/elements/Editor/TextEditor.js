@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Editor } from '@tinymce/tinymce-react';
 
 const TextEditor = ({
-  selector, font, title, data, setData, size, handleFocus,
+  selector, title, data, setData, handleFocus, name,
 }) => {
   const handleLocalImg = (e, success) => {
     const blob = e.blob();
@@ -11,7 +11,7 @@ const TextEditor = ({
     formData.append('image', blob);
     axios({
       method: 'post',
-      url: '/api/images',
+      url: `/api/images/${name}`,
       data: formData,
     })
       .then((res) => {
@@ -20,7 +20,7 @@ const TextEditor = ({
   };
 
   return (
-    <React.Fragment>
+    <div>
       <p className="adminEditorTitle">
         {title}
         :
@@ -28,13 +28,14 @@ const TextEditor = ({
       <div className={`${selector}`}>
         <Editor
           initialValue={data}
-          apiKey="ferbxo2i5dzep5bkr3ijc3ex5a5fffycvhnqmvsmqd9f66z5"
+          // apiKey="ferbxo2i5dzep5bkr3ijc3ex5a5fffycvhnqmvsmqd9f66z5"
           init={{
             menubar: false,
             branding: false,
             resize: false,
             max_width: 800,
             max_height: 300,
+            language: 'ru',
             selector: `.${selector}`,
             content_css: '/_next/static/css/styles.chunk.css',
             // inline: true,
@@ -44,17 +45,27 @@ const TextEditor = ({
             plugins: [
               'image imagetools',
               'lists',
-              'powerpaste',
               'link',
-              'tinymcespellchecker',
               'autoresize',
+              'searchreplace',
+              'table',
+              'code',
+              'wordcount',
             ],
             toolbar: [
-              'undo redo | bold italic underline | fontselect fontsizeselect',
-              'forecolor backcolor | alignleft aligncenter alignright alignfull | numlist bullist outdent indent | link | image',
+              'undo redo | bold italic underline | fontselect fontsizeselect | formatselect blockquote',
+              'forecolor backcolor | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | link | image | searchreplace | table ',
+            ],
+            table_default_attributes: {
+              border: '2',
+            },
+            table_class_list: [
+              { title: 'None', value: '' },
+              { title: 'Dog', value: 'dog' },
+              { title: 'Cat', value: 'cat' },
             ],
             image_advtab: true,
-            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br,img[src|style|alt]',
+            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br,img[src|style|alt],table,td,tr,th',
             valid_styles: {
               '*': 'font-size,font-family,color,text-decoration,text-align,border,margin,border-style,border-width,margin-left,margin-right,margin-top,margin-bottom,width,height,float',
             },
@@ -64,9 +75,9 @@ const TextEditor = ({
             powerpaste_html_import: 'clean',
             font_formats: 'Roboto;Lobster;',
             setup(ed) {
-              ed.on('init', function kek() {
-                this.execCommand('fontName', false, font || 'Roboto');
-                this.execCommand('fontSize', false, size || '16px');
+              ed.on('init', () => {
+                // this.execCommand('fontName', false, font || 'Roboto');
+                // this.execCommand('fontSize', false, size || '16px');
                 handleFocus();
               });
             },
@@ -74,7 +85,7 @@ const TextEditor = ({
           onChange={(e) => { setData(e.target.getContent()); }}
         />
       </div>
-    </React.Fragment>
+    </div>
 
   );
 };

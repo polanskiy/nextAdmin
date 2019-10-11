@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Header from '../../elements/Header';
-import RequestForm from '../../elements/RequestForm';
 import ContactsForm from './ContactsForm';
 
 const Contacts = (props) => {
@@ -8,7 +7,6 @@ const Contacts = (props) => {
 
   useEffect(() => {
     if (scrollTo) {
-      console.log('scrollTo');
       const element = document.getElementById(scrollTo);
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -17,10 +15,9 @@ const Contacts = (props) => {
   }, [scrollTo]);
 
   return (
-    <div>
+    <div className="contactsBox">
       <Header title={page.title.value} headerBg={page.images.header} noSearch />
       <ContactsForm />
-      <RequestForm footerImg={page.images.footer} />
     </div>
   );
 };

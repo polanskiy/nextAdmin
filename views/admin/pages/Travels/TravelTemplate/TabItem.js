@@ -47,7 +47,6 @@ const TabItem = ({
       setIconList({ data: [], isFetching: true });
       toggleOpen();
       const res = await request('/api/images/useIcons/', 'get');
-      console.log('res.data', res.data);
       if (isMount) setIconList({ data: res.data, isFetching: false });
     } catch (e) {
       console.log('ошибка загрузки изображений');
@@ -70,12 +69,12 @@ const TabItem = ({
   };
 
   const handleDelete = async () => {
-    const newTabs = travelData.tabs.filter(item => item.id !== tab.id);
+    const newTabs = travelData.tabs.filter((item) => item.id !== tab.id);
     setTravelData({ data: { ...travelData, tabs: newTabs }, isFecthinf: false });
     await updateTravel({ ...travelData, tabs: newTabs });
   };
 
-  const renderIcons = () => iconList.data.map(img => (
+  const renderIcons = () => iconList.data.map((img) => (
     <div
       role="presentation"
       key={img.name}
@@ -84,7 +83,7 @@ const TabItem = ({
       <img
         src={img.url}
         alt={`${img.name}`}
-        style={{ border: nowIcon === img.name ? '3px solid red' : '3px solid transparent' }}
+        style={{ border: nowIcon === img.url ? '3px solid red' : '3px solid transparent' }}
       />
     </div>
   ));
@@ -120,7 +119,7 @@ const TabItem = ({
         <div className="adminMediaIconBox">
           {renderIcons()}
         </div>
-        <div className="adminBtnsBox">
+        <div className="adminBtnsBox center">
           <button
             type="button"
             className="adminBtn"

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 
-const Uploader = ({ updateImage, link = '' }) => {
+const Uploader = ({ updateImage, link = '', thumb = false }) => {
   const uploadVideo = (e) => {
     const file = e.target.files;
     const formData = new FormData();
@@ -10,11 +10,10 @@ const Uploader = ({ updateImage, link = '' }) => {
     }
     axios({
       method: 'post',
-      url: `/api/images/${link}`,
+      url: `/api/images/${link}/?thumb=${thumb}`,
       data: formData,
     })
       .then((res) => {
-        console.log('res.data', res.data);
         updateImage(res.data.images.filename);
       });
     e.target.value = null;
@@ -27,7 +26,7 @@ const Uploader = ({ updateImage, link = '' }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <button type="button" onClick={onClick} className="adminBtn">
         <span>Загрузить</span>
       </button>
@@ -37,10 +36,10 @@ const Uploader = ({ updateImage, link = '' }) => {
         style={{ display: 'none' }}
         type="file"
         id="files"
-        onChange={e => uploadVideo(e)}
+        onChange={(e) => uploadVideo(e)}
         accept="image/*"
       />
-    </React.Fragment>
+    </>
   );
 };
 

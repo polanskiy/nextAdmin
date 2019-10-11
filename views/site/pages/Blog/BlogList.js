@@ -2,7 +2,7 @@ import React from 'react';
 
 const BlogList = () => (
   <div className="blogListBox">
-    <ul>
+    {/* <ul>
       <li>7 самых красивых пляжей в мире.</li>
       <li>
 Ручная кладь в самолёте:
@@ -15,8 +15,8 @@ const BlogList = () => (
       <li>
 Расшифровка типов питания
 в отелях.
-      </li>
-    </ul>
+      </li>s
+    </ul> */}
   </div>
 );
 

@@ -3,11 +3,11 @@ import axios from 'axios';
 import Uploader from '../Uploader/Uploader';
 
 const SelectImageArr = ({
-  handleItems, items, item,
+  handleItems, items, item, name,
 }) => {
   const updateImage = (newImageName) => {
     if (newImageName) {
-      const newImg = `/static/images/${newImageName}`;
+      const newImg = `/static/images/${name}/${newImageName}`;
       const newImages = items.map((itemm) => {
         if (itemm.id === item.id) {
           const newItem = { ...itemm };
@@ -29,8 +29,8 @@ const SelectImageArr = ({
       handleItems(newImages);
       axios({
         method: 'delete',
-        url: '/api/images',
-        data: { filename: item.value.split('images/')[1] },
+        url: `/api/images/${name}`,
+        data: { filename: item.value.split(`${name}/`)[1] },
       });
     }
   };
@@ -38,7 +38,7 @@ const SelectImageArr = ({
   return (
     <div className="adminPageElement">
       <div className="adminBtnsBox">
-        <Uploader updateImage={updateImage} />
+        <Uploader updateImage={updateImage} link={name} />
         {item.value && <button type="button" className="adminBtn adminDelBtn" onClick={() => updateImage(null)}>Удалить</button>}
       </div>
       <div className={item.value ? 'editorImageBox' : 'editorImageBox borderDashed'}>

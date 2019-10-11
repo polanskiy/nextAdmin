@@ -13,7 +13,7 @@ EventPage.getInitialProps = async (ctx) => {
     const res = await axios.get('/api/pages/event', axioscfg);
     eventPage = res.data;
   } catch (e) {
-    console.log('err main getinitialprops');
+    console.log('err EventPage getinitialprops');
   }
   return { page: eventPage };
 };

@@ -25,7 +25,7 @@ const Travels = (props) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <div>
         <h1 className="adminTitle">Путешествия:</h1>
         <NewTravel travelList={travelList.data} fetchTravels={fetchTravels} />
@@ -37,7 +37,7 @@ const Travels = (props) => {
           />
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 export default Travels;

@@ -11,9 +11,9 @@ const Travels = ({ article, page, articles }) => {
     return <TravelsPage page={page} articles={articles} />;
   };
   return (
-    <div className="travelsBox">
+    <>
       {renderArticle()}
-    </div>
+    </>
   );
 };
 
@@ -23,23 +23,22 @@ Travels.getInitialProps = async (props) => {
   let travelPage = {};
   let articles = [];
   let article;
-
-  try {
-    const res = await axios.get('/api/pages/travels', axioscfg);
-    articles = await axios.get('/api/travels/?onlyPublic=1', axioscfg);
-    travelPage = res.data;
-  } catch (e) {
-    console.log('err main getinitialprops');
-  }
   if (query.article) {
     try {
       const res = await axios.get(`/api/travels/${query.article}/?byRoute=1`, axioscfg);
       article = res.data;
     } catch (e) {
-      console.log('err main getinitialprops');
+      console.log('err Travels getinitialprops');
+    }
+  } else {
+    try {
+      const res = await axios.get('/api/pages/travels', axioscfg);
+      articles = await axios.get('/api/travels/?onlyPublic=1', axioscfg);
+      travelPage = res.data;
+    } catch (e) {
+      console.log('err Travels getinitialprops');
     }
   }
-
   return { article, page: travelPage, articles: articles.data };
 };
 

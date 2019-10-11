@@ -4,7 +4,7 @@ import SideNav from '../elements/SideNav/SideNav';
 import Auth from './Auth';
 
 const AdminLayout = ({ children, slug }) => (
-  <React.Fragment>
+  <>
     <Header />
     <div className="adminContentBox">
       <SideNav slug={slug} />
@@ -12,6 +12,7 @@ const AdminLayout = ({ children, slug }) => (
         {children}
       </div>
     </div>
-  </React.Fragment>
+  </>
 );
+
 export default Auth(AdminLayout);

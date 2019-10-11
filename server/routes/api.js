@@ -28,7 +28,6 @@ router.get('/auth', auth, (req, res) => {
 // });
 
 router.post('/login', (req, res) => {
-  console.log('login', req.body);
   User.findOne({ login: req.body.login }, (er, user) => {
     if (!user) return res.json({ isAuth: false, error: 'Неверные данные' });
     return user.comparePass(req.body.password, (errr, isMatch) => {

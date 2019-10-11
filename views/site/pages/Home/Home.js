@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../../elements/Header';
-import RequestForm from '../../elements/RequestForm';
 import BlockAbout from '../../elements/BlockAbout';
 import ColorBox from '../../elements/ColorBox';
 
@@ -14,7 +13,6 @@ const Home = ({ page }) => (
       aboutImg={page.images.about}
     />
     <ColorBox text={page.description.value} colorBg={page.images.description} />
-    <RequestForm footerImg={page.images.footer} />
   </div>
 );
 export default Home;

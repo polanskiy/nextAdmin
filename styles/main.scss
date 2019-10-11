@@ -10,6 +10,7 @@
 @import './tabs.scss';
 @import './site/event.scss';
 @import './site/contacts.scss';
+@import 'site/faq.scss';
 
 .tox-notifications-container {
   display: none!important;
@@ -22,16 +23,20 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
 body{
   font-size: 18px;
   font-family: 'Roboto';
   color: #2F3034;
   overflow-x: hidden;
 }
+
+.preloadCss * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+ }
 
 #__next {
   height: 100%;
@@ -41,9 +46,13 @@ body{
 }
 
 .globalBox {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .contentMidWrapper {
@@ -62,7 +71,7 @@ body{
 
 .whiteBg {
   background: $white;
-  padding: 40px 0;
+  padding: 80px 0;
 }
 
 .title { 

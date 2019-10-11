@@ -65,38 +65,48 @@ router.get('/useIcons', auth, async (req, res) => {
   });
 });
 
-router.post('/', auth, upload.single('image'), async (req, res) => {
-  if (req.isAuth) {
-    const images = req.file;
-    try {
-      const imgFile = fs.readFileSync(images.path);
-      const fileName = images.filename.split('.')[0];
-      await sharp(imgFile)
-        .resize(360, 220)
-        .toFormat('jpeg')
-        .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
-          console.log(err, info);
-        });
-    } catch (err) {
-      console.error('133323', err);
-    }
+// router.post('/', auth, upload.single('image'), async (req, res) => {
+//   if (req.isAuth) {
+//     const images = req.file;
+//     try {
+//       const imgFile = fs.readFileSync(images.path);
+//       const fileName = images.filename.split('.')[0];
+//       await sharp(imgFile)
+//         .resize(360, 220)
+//         .toFormat('jpeg')
+//         .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
+//           console.log(err, info);
+//         });
+//     } catch (err) {
+//       console.error('133323', err);
+//     }
 
-    images.url = `/static/images/${images.filename}`;
+//     images.url = `/static/images/${images.filename}`;
 
-    if (images.length === 0) res.json({ success: false, message: 'No Video' });
-    return res.json({ success: true, images });
-  }
-  return res.status(401).json({
-    isAuth: false,
-  });
-});
+//     if (images.length === 0) res.json({ success: false, message: 'No Video' });
+//     return res.json({ success: true, images });
+//   }
+//   return res.status(401).json({
+//     isAuth: false,
+//   });
+// });
 
 router.post('/:type', auth, upload.single('image'), async (req, res) => {
   if (req.isAuth) {
     const images = req.file;
     const dir = req.params.type;
+    const isThumb = req.query.thumb;
     try {
-      fs.readFileSync(images.path);
+      const imgFile = fs.readFileSync(images.path);
+      if (isThumb !== 'false') {
+        const fileName = images.filename.split('.')[0];
+        await sharp(imgFile)
+          .resize(360, 220)
+          .toFormat('jpeg')
+          .toFile(`${imagesPath}/${dir}/thumb-${fileName}.jpg`, (err, info) => {
+            // console.log(err, info);
+          });
+      }
     } catch (err) {
       console.error('133323', err);
     }
@@ -136,6 +146,7 @@ router.delete('/:type', auth, async (req, res) => {
     if (!filename || filename === '') res.json({ success: false, message: 'No filename' });
     try {
       fs.unlinkSync(path.join(`${imagesPath}/${dir}`, filename));
+      fs.unlinkSync(path.join(`${imagesPath}/${dir}`, `thumb-${filename.replace('png', 'jpg')}`));
       return res.json({ success: true });
     } catch (e) {
       return res.json({ success: false, message: e });

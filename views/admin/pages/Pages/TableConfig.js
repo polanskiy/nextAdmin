@@ -37,10 +37,10 @@ export default function () {
         dataField: 'name',
         text: 'Название',
         sort: true,
-        sortCaret: order => (
-          <React.Fragment>
+        sortCaret: (order) => (
+          <>
             {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
-          </React.Fragment>
+          </>
         ),
         editable: false,
         formatter: nameFormatter,
@@ -59,10 +59,10 @@ export default function () {
         editable: false,
         formatter: formatter.dateFormat,
         sort: true,
-        sortCaret: order => (
-          <React.Fragment>
+        sortCaret: (order) => (
+          <>
             {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
-          </React.Fragment>
+          </>
         ),
         headerStyle: {
           width: 110,
@@ -74,10 +74,10 @@ export default function () {
         editable: false,
         formatter: formatter.dateFormat,
         sort: true,
-        sortCaret: order => (
-          <React.Fragment>
+        sortCaret: (order) => (
+          <>
             {order ? order === 'asc' ? <div className="carretTop"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div> : <div className="carret"><i className="tableArrow" /></div>}
-          </React.Fragment>
+          </>
         ),
         headerStyle: {
           width: 110,

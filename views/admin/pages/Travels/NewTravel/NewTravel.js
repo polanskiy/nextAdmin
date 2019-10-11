@@ -11,14 +11,14 @@ const NewTravel = ({ travelList, fetchTravels }) => {
 
   const createTravel = async () => {
     const newPostion = travelList.length + 1;
-    const route = translit(title);
+    const route = translit(title.toLowerCase()).replace(/\s/g, '_').replace(/,/g, '').replace(/–/g, '-');
     const initialData = {
       title,
+      subtitle: '',
       route,
       tabs: [],
       images: {
         header: '',
-        footer: '',
         tabs: '',
       },
       public: false,

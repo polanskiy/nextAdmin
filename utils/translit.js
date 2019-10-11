@@ -22,6 +22,7 @@ const translit = require('translit')({
   у: 'u',
   ф: 'f',
   х: 'h',
+  ц: 'c',
   ч: 'ch',
   ш: 'sh',
   щ: 'sch',
