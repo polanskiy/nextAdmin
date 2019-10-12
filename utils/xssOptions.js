@@ -10,5 +10,6 @@ export default {
     ul: ['style'],
     li: ['style'],
     img: ['style', 'src', 'alt'],
+    ol: ['style'],
   },
 };

@@ -225,6 +225,7 @@
 
 .headerSubTitle {
   margin: 20px auto 0;
+  padding: 0 20px;
   max-width: 1020px;
   width: 100%;
 }
@@ -463,6 +464,11 @@
       font-size: 34px!important;
     }
   }
+  .headerSubTitle {
+    * {
+      font-size: 18px!important;
+    }
+  }
 
   .headerPhone {
     visibility: hidden;
@@ -522,6 +528,12 @@
       border: 1px solid $white;
       border-radius: 50%;
       margin: 0 12px 0 0;
+    }
+  }
+
+  .headerMenuBox {
+    a {
+      padding: 20px 0 12px 40px;
     }
   }
 }

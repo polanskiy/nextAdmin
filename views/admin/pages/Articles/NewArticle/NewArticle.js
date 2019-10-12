@@ -15,10 +15,8 @@ const NewArticle = ({ articleList, fetchArticles }) => {
     const initialData = {
       title,
       route,
-      tabs: [],
       images: {
         header: '',
-        footer: '',
       },
       public: false,
       position: newPostion,
