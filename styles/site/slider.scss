@@ -94,7 +94,22 @@
   }
 }
 
+@media only screen and (max-width: 992px) {
+  .sliderItem {
+    img {
+      max-width: 500px;
+    }
+  }
+}
 
-.smallSlider {
-  
+@media only screen and (max-width: 600px) {
+  .sliderItem {
+    img {
+      max-width: 350px;
+    }
+  }
+
+  .prevArrow, .nextArrow {
+    display: none;
+  }
 }

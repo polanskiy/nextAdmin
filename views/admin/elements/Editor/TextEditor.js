@@ -65,7 +65,7 @@ const TextEditor = ({
               { title: 'Cat', value: 'cat' },
             ],
             image_advtab: true,
-            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br,img[src|style|alt],table,td,tr,th',
+            valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li,br,img[src|style|alt],table,td,tr,th,h1[style],h2[style],h3[style]',
             valid_styles: {
               '*': 'font-size,font-family,color,text-decoration,text-align,border,margin,border-style,border-width,margin-left,margin-right,margin-top,margin-bottom,width,height,float',
             },

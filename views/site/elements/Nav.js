@@ -5,6 +5,10 @@ import useToggle from '../../../utils/useToggle';
 const Nav = ({ pathname }) => {
   const [showMenu, toggleMenu] = useToggle(false);
 
+  const closeMenu = (e) => {
+    if (e.target.localName === 'a') toggleMenu();
+  };
+
   return (
     <div className={showMenu ? 'menuFixedBox active' : 'menuFixedBox'}>
       {showMenu && <div className="closeMenuBox" onClick={toggleMenu} />}
@@ -14,7 +18,7 @@ const Nav = ({ pathname }) => {
         </span>
       </button>
       {showMenu && (
-        <div className="headerMenuBox">
+        <div className="headerMenuBox" onClick={closeMenu}>
           <Link route="/">
             <a className={pathname === '/' ? 'activeMenu' : undefined}>Главная</a>
           </Link>

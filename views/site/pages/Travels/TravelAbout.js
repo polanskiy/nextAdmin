@@ -14,16 +14,13 @@ const TravelAbout = ({ tabs, tabsBg }) => {
     />
   ));
   return (
-    <div className="travelAboutBox">
-      <img className="headerBg" src={tabsBg} alt="индивидуальный туроператор" />
-      <div className="imgBg">
-        <div className="contentMidWrapper ">
-          {tabs.length && (
+    <div className="travelAboutBox" style={{ backgroundImage: `url(${tabsBg})` }}>
+      <div className="contentMidWrapper ">
+        {tabs.length && (
           <Tabs tabsBoxClass="travelTabsBox" tabHeaderBoxClass="travelTabsHeader" tabHeaderClass="travelTab">
             { renderTabs()}
           </Tabs>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

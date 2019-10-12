@@ -5,7 +5,7 @@ import Arr from '../../../static/images/icons/sliderAngle.svg';
 const Slider = ({
   slides, className, dots, colorArr, slidesToShow, fade,
 }) => {
-  const renderSlides = () => slides.map((item) => (
+  const renderSlides = () => slides.map(item => (
     <div
       className="sliderItem"
       key={item._id}

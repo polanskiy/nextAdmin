@@ -130,3 +130,47 @@ border-radius: 10px;
     outline: 1px solid slategrey;
   }
 }
+
+
+@media only screen and (max-width: 768px) {
+  .contentMidWrapper  {
+    .travelTabsBox {
+      flex-direction: column;
+    }
+    .travelTab:after {
+      display: none;  
+    }
+    .travelTab.activeTab:after {
+      display: none;
+    }
+    .travelTabsHeader {
+      flex-direction: row;
+      flex-wrap: wrap;
+      .travelTab {
+        flex: 1;
+      }
+    }
+    .travelTabContent {
+      padding: 0;
+      margin: 35px 0 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 468px) {
+  .contentMidWrapper  {
+    .travelTabsHeader {
+      min-width: 200px;
+      width: 100%;
+      .travelTab {
+        flex: 1;
+        font-size: 14px;
+        padding: 5px 10px 5px 20px;
+        white-space: nowrap;
+        svg {
+          height: 30px;
+        }
+      }
+    }
+  }
+}

@@ -449,10 +449,6 @@
   .headerBg {
     object-fit: none;
   }
-
-  .headerTitle {
-    margin: 0 0 100px;
-  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -463,32 +459,29 @@
   }
 
   .headerTitle {
-    p {
-      span {
-        font-size: 38px!important;
-      }
+    * {
+      font-size: 34px!important;
     }
   }
 
   .headerPhone {
     visibility: hidden;
+    position: absolute;
   }
 
 }
 
 @media only screen and (max-width: 768px) {
-  .headerLogoNavBox {
-    flex-direction: column;
-    .logoBox, .headerContactBox {
-      align-self: flex-start;
-    }
-    .headerContactBox {
-      width: 100%;
-      padding: 0 0 0 30px;
+  .menuFixedBox {
+    max-width: 75px;
+    min-height: 65px;
+    .hamburger--arrowturn {
+      transform: translateX(1px) translateY(8px);
     }
   }
 
   .headerContactBox {
+    width: 100%;
     a{
       display: flex;
       justify-content: center;
@@ -509,11 +502,26 @@
   }
 
   .logoBox{
+    width: max-content;
     a{
       img{
         max-width: 126px;
         height: auto;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 368px) {
+  .headerContactBox {
+    a{
+      display: flex;
+      justify-content: center;
+      width: 29px;
+      height: 29px;
+      border: 1px solid $white;
+      border-radius: 50%;
+      margin: 0 12px 0 0;
     }
   }
 }
