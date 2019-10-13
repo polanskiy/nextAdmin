@@ -15,12 +15,16 @@ const Settings = ({ data, setArticleData, updateArticle }) => {
   return (
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Настройки:</h1>
-      <p>URI страницы:</p>
-      <input type="text" placeholder="URI страницы" value={data.route} onChange={e => handleUri(e.target.value)} className="adminArticleInput" />
-      <label>
-        <span>Опубликовать:</span>
-        <input type="checkbox" onChange={handlePublic} defaultChecked={data.public} />
-      </label>
+      <div className="adminSettingsBox">
+        <label className="adminSettingsRoute">
+          <span>URI страницы:</span>
+          <input type="text" placeholder="URI страницы" value={data.route} onChange={e => handleUri(e.target.value)} className="adminArticleInput" />
+        </label>
+        <label className="adminArticleSettingsPublic">
+          <span>Опубликовать:</span>
+          <input type="checkbox" onChange={handlePublic} defaultChecked={data.public} />
+        </label>
+      </div>
     </div>
   );
 };

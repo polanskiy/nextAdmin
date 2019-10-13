@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../../elements/Header';
-import BlogList from './BlogList';
+import TravelsList from '../../elements/TravelsList';
 
 const Blog = ({ page, articles }) => (
-  <div>
+  <div className="blogBox">
     <Header title={page.title.value} headerBg={page.images.header} />
-    <BlogList />
+    <TravelsList articles={articles} route="blog" />
   </div>
 );
 

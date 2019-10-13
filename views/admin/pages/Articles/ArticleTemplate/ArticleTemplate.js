@@ -10,8 +10,8 @@ const ArticleTemplate = ({ id, preloader }) => {
   const kek = useCallback(React.createRef(), []);
   let isMount = true;
 
-  const fetchArticleData = async () => {
-    setArticleData({ data: null, isFetching: true });
+  const fetchTravelData = async () => {
+    setArticleData({ data: articleData.data, isFetching: true });
     preloader();
     try {
       const res = await request(`/api/articles/${id}`);
@@ -29,7 +29,7 @@ const ArticleTemplate = ({ id, preloader }) => {
   };
 
   useEffect(() => {
-    if (isMount) fetchArticleData();
+    if (isMount) fetchTravelData();
     return () => {
       isMount = false;
     };
@@ -41,12 +41,12 @@ const ArticleTemplate = ({ id, preloader }) => {
     }, 0);
   }, [kek]);
 
-  const updateArticle = async (newArticle) => {
+  const updateArticle = async (newTravel) => {
     preloader();
     try {
-      await request('/api/articles', 'patch', newArticle);
+      await request('/api/articles', 'patch', newTravel);
     } catch (err) {
-      console.log('err update articles');
+      console.log('err update article');
     }
     preloader();
   };
@@ -64,13 +64,14 @@ const ArticleTemplate = ({ id, preloader }) => {
       {isFetching && 'загрузка'}
       {data
         ? (
-          <React.Fragment>
+          <>
             <h1 className="adminTitle">{data.route}</h1>
             <Settings data={data} setArticleData={setArticleData} updateArticle={updateArticle} />
-            <Text data={data} updateArticle={updateArticle} handleFocus={handleFocus} />
+            <Text data={data} setArticleData={setArticleData} handleFocus={handleFocus} />
             <Images data={data} setArticleData={setArticleData} updateArticle={updateArticle} />
-          </React.Fragment>
-        ) : 'такой статьи нет'}
+          </>
+        ) : 'такого путешествия нет'}
+      <button type="button" className="adminBtn absoluteBtn" onClick={() => updateArticle(data)}>Сохранить</button>
     </div>
   );
 };

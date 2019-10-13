@@ -14,6 +14,7 @@ const NewArticle = ({ articleList, fetchArticles }) => {
     const route = translit(title);
     const initialData = {
       title,
+      subtitle: '',
       route,
       images: {
         header: '',

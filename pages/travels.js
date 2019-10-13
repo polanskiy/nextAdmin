@@ -5,10 +5,13 @@ import TravelItem from '../views/site/pages/Travels/TravelItem';
 
 const Travels = ({ article, page, articles }) => {
   const renderArticle = () => {
+    console.log('article', article);
+    console.log('articles', articles);
     if (article !== 'travels' && article) {
       return <TravelItem article={article} />;
-    }
-    return <TravelsPage page={page} articles={articles} />;
+    } if (page.title) {
+      return <TravelsPage page={page} articles={articles} />;
+    } return <p>404</p>;
   };
   return (
     <>

@@ -5,18 +5,22 @@ const Images = ({ data, setArticleData, updateArticle }) => {
   const handleImages = (images) => {
     setArticleData({ data: { ...data, images }, isFetching: false });
   };
-
-  const renderImages = () => Object.keys(data.images).map(image => (
-    <SelectImage
-      key={image}
-      page={data}
-      image={image}
-      updateData={updateArticle}
-      setNowImages={handleImages}
-      nowImages={data.images}
-      thumb
-    />
-  ));
+  const renderImages = () => Object.keys(data.images).map((image) => {
+    if (image !== 'thumb') {
+      return (
+        <SelectImage
+          key={image}
+          page={data}
+          image={image}
+          updateData={updateArticle}
+          setNowImages={handleImages}
+          nowImages={data.images}
+          name={data._id}
+          thumb={image === 'header'}
+        />
+      );
+    } return null;
+  });
 
   return (
     <div className="adminPageElement">

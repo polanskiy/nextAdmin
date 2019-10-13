@@ -58,7 +58,7 @@ router.post('/', auth, (req, res) => {
 
 router.patch('/', auth, (req, res) => {
   if (req.isAuth) {
-    Travel.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err, doc) => {
+    Travel.updateOne({ _id: req.body._id }, { $set: { ...req.body } }, (err) => {
       if (err) return res.status(400).send(err);
       return res.status(200).json({
         update: true,

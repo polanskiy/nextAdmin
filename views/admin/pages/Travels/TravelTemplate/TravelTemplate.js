@@ -24,8 +24,6 @@ const TravelTemplate = ({ id, preloader }) => {
     preloader();
   };
 
-  console.log('travelData', travelData);
-
   const handleFocus = () => {
     if (kek && kek.current) {
       kek.current.focus();

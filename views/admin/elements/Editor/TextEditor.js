@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Editor } from '@tinymce/tinymce-react';
 
 const TextEditor = ({
-  selector, title, data, setData, handleFocus, name,
+  selector, title, data, setData, handleFocus, name, height = 300,
 }) => {
   const handleLocalImg = (e, success) => {
     const blob = e.blob();
@@ -11,7 +11,7 @@ const TextEditor = ({
     formData.append('image', blob);
     axios({
       method: 'post',
-      url: `/api/images/${name}`,
+      url: `/api/images/${name}?thumb=false`,
       data: formData,
     })
       .then((res) => {
@@ -34,7 +34,7 @@ const TextEditor = ({
             branding: false,
             resize: false,
             max_width: 800,
-            max_height: 300,
+            max_height: height,
             language: 'ru',
             selector: `.${selector}`,
             content_css: '/_next/static/css/styles.chunk.css',

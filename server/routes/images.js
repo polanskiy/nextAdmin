@@ -96,6 +96,7 @@ router.post('/:type', auth, upload.single('image'), async (req, res) => {
     const images = req.file;
     const dir = req.params.type;
     const isThumb = req.query.thumb;
+    console.log('isThumb', isThumb);
     try {
       const imgFile = fs.readFileSync(images.path);
       if (isThumb !== 'false') {

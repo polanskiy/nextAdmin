@@ -5,15 +5,18 @@ import BlogItem from '../views/site/pages/Blog/BlogItem';
 
 const Blog = ({ article, page, articles }) => {
   const renderArticle = () => {
+    console.log('article', article);
+    console.log('articles', articles);
     if (article !== 'blog' && article) {
       return <BlogItem article={article} />;
-    }
-    return <BlogPage page={page} articles={articles} />;
+    } if (page.title) {
+      return <BlogPage page={page} articles={articles} />;
+    } return <p>404</p>;
   };
   return (
-    <div className="travelsBox">
+    <>
       {renderArticle()}
-    </div>
+    </>
   );
 };
 
@@ -23,23 +26,22 @@ Blog.getInitialProps = async (props) => {
   let blogPage = {};
   let articles = [];
   let article;
-
-  try {
-    const res = await axios.get('/api/pages/blog', axioscfg);
-    articles = await axios.get('/api/articles/?onlyPublic=1', axioscfg);
-    blogPage = res.data;
-  } catch (e) {
-    console.log('err Blog getinitialprops');
-  }
   if (query.article) {
     try {
       const res = await axios.get(`/api/articles/${query.article}/?byRoute=1`, axioscfg);
       article = res.data;
     } catch (e) {
-      console.log('err Blog getinitialprops');
+      console.log('err Travels getinitialprops');
+    }
+  } else {
+    try {
+      const res = await axios.get('/api/pages/blog', axioscfg);
+      articles = await axios.get('/api/articles/?onlyPublic=1', axioscfg);
+      blogPage = res.data;
+    } catch (e) {
+      console.log('err Travels getinitialprops');
     }
   }
-
   return { article, page: blogPage, articles: articles.data };
 };
 
