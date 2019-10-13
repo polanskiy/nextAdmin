@@ -9,7 +9,8 @@ export default {
     strong: [],
     ul: ['style'],
     li: ['style'],
-    img: ['style', 'src', 'alt'],
+    img: ['src', 'style'],
     ol: ['style'],
   },
+  css: false,
 };
