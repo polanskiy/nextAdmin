@@ -3,6 +3,7 @@ import xss from 'xss';
 import xssOptions from '../../../utils/xssOptions';
 import { Link } from '../../../routes';
 import SearchForm from './SearchForm';
+import Arr from '../../../static/images/icons/downArr.svg';
 
 const Header = ({
   title = 'заголовок отсутствует', subtitle = '', headerBg, noSearch,
@@ -46,7 +47,8 @@ const Header = ({
           )}
       </div>
       <div className="downArr" onClick={handleScroll}>
-        <img src="/static/images/icons/downArr.svg" alt="down arrow" />
+        {/* <img src="/static/images/icons/downArr.svg" alt="down arrow" /> */}
+        <Arr />
       </div>
     </div>
   );

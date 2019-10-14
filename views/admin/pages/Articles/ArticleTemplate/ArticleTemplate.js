@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 import request from '../../../../../utils/request';
 import Settings from './Settings';
 import Text from './Text';
@@ -6,6 +7,7 @@ import Images from './Images';
 
 const ArticleTemplate = ({ id, preloader }) => {
   const [articleData, setArticleData] = useState({ data: null, isFetching: false });
+  const [deleteImg, setDeleteImg] = useState('');
   const { data, isFetching } = articleData;
   const kek = useCallback(React.createRef(), []);
   let isMount = true;
@@ -45,9 +47,14 @@ const ArticleTemplate = ({ id, preloader }) => {
     preloader();
     try {
       await request('/api/articles', 'patch', newTravel);
+      if (deleteImg) {
+        console.log('delete');
+        request(`/api/images/${data._id}`, 'delete', { filename: deleteImg.split(`${data._id}/`)[1] });
+      }
     } catch (err) {
       console.log('err update article');
     }
+
     preloader();
   };
 
@@ -67,7 +74,7 @@ const ArticleTemplate = ({ id, preloader }) => {
           <>
             <h1 className="adminTitle">{data.route}</h1>
             <Settings data={data} setArticleData={setArticleData} updateArticle={updateArticle} />
-            <Text data={data} setArticleData={setArticleData} handleFocus={handleFocus} />
+            <Text data={data} setArticleData={setArticleData} handleFocus={handleFocus} setDeleteImg={setDeleteImg} />
             <Images data={data} setArticleData={setArticleData} updateArticle={updateArticle} />
           </>
         ) : 'такого путешествия нет'}

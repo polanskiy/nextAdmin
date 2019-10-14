@@ -409,8 +409,9 @@
   right: 0;
   margin: 0 auto;
   z-index: 9;
-  img {
-    width: 50%;
+  svg {
+    height: 20px;
+    max-width: 100%;
   }
 }
 
@@ -534,6 +535,16 @@
   .headerMenuBox {
     a {
       padding: 20px 0 12px 40px;
+    }
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .downArr {
+    bottom: 4%;
+    border: 3px solid $pink;
+    .downArr_svg__st0 {
+      fill: $pink;
     }
   }
 }

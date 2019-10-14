@@ -3,7 +3,7 @@ import TextEditor from '../../../elements/Editor/TextEditor';
 
 
 const Text = ({
-  data, handleFocus, setArticleData,
+  data, handleFocus, setArticleData, setDeleteImg,
 }) => {
   const handleTitle = (title) => {
     setArticleData({ data: { ...data, title }, isFetching: false });
@@ -49,6 +49,7 @@ const Text = ({
         handleFocus={handleFocus}
         height={650}
         name={data._id}
+        setDeleteImg={setDeleteImg}
       />
     </div>
   );
