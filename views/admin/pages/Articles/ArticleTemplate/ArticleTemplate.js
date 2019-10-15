@@ -77,7 +77,7 @@ const ArticleTemplate = ({ id, preloader }) => {
             <Text data={data} setArticleData={setArticleData} handleFocus={handleFocus} setDeleteImg={setDeleteImg} />
             <Images data={data} setArticleData={setArticleData} updateArticle={updateArticle} />
           </>
-        ) : 'такого путешествия нет'}
+        ) : 'такой статьи нет'}
       <button type="button" className="adminBtn absoluteBtn" onClick={() => updateArticle(data)}>Сохранить</button>
     </div>
   );

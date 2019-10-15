@@ -34,10 +34,10 @@ const CelebForm = () => {
             {...dpConfig}
             selected={startDate}
             startDate={startDate}
-            onChange={date => dateChange({ startD: date })}
+            onChange={(date) => dateChange({ startD: date })}
             minDate={Date.now()}
             className="customFormInputDate"
-            placeholderText="Дата вылета"
+            placeholderText="Дата"
           />
         </label>
         <label htmlFor="budget" className="participants customFormItem">
