@@ -8,10 +8,8 @@
 .smallSliderBox {
   display: flex;
   padding: 80px 0;
-}
-
-.smallSlider {
-
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .smallSliderText {
@@ -28,29 +26,11 @@
   overflow: hidden;
 }
 
-.nextArrow, .prevArrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 40%;
-  right: 10px;
-  width: 60px;
-  height: 60px;
-  transform: rotate(180deg);
-  cursor: pointer;
-  z-index: 999;
-}
-
-.prevArrow {
-  left: 5px;
-  transform: rotate(0deg);
-  cursor: pointer;
-}
-
 .sliderItem {
   display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   margin: 10px;
   img {
     max-width: 700px;
@@ -61,41 +41,29 @@
 .travelSlider, .aboutSlider {
   position: relative;
   padding: 0 25px;
-  .slick-track {
-    display: flex;
-    margin: 0 -10px;
-  }
-  .slick-slide {
-    margin: 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .slick-dots {
-    display: flex!important;
-    justify-content: center;
-    li {
-      padding: 5px;
-    }
-    .slick-active {
-      div {
-        background: #ccc;
-      }
-    }
-  }
+}
 
-  .sliderDot {
-    width: 10px;
-    height: 10px;
-    background: #000;
-    border-radius: 50%;
-    margin: 0 10px;
-    cursor: pointer;
-  }
+.control-prev:before{
+  border-right: 8px solid #000!important;
+}
+
+.control-next:before{
+  border-left: 8px solid #000!important;
 }
 
 @media only screen and (max-width: 992px) {
+  .smallSliderBox {
+    flex-direction: column;
+    .smallSlider {
+      width: 100%;
+      margin: 0 0 35px;
+    }
+    .smallSliderText {
+      width: 100%;
+      order: 1;
+      padding: 0 5%;
+    }
+  }
   .sliderItem {
     img {
       max-width: 500px;

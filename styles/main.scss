@@ -11,6 +11,7 @@
 @import './site/event.scss';
 @import './site/contacts.scss';
 @import 'site/faq.scss';
+@import 'site/carousel.scss';
 
 .tox-notifications-container {
   display: none!important;
@@ -30,7 +31,7 @@ body{
   overflow-x: hidden;
 }
 
-.preloadCss * {
+.preloadCss {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -ms-transition: none !important;

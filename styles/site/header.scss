@@ -465,6 +465,7 @@
       font-size: 34px!important;
     }
   }
+
   .headerSubTitle {
     * {
       font-size: 18px!important;
@@ -479,13 +480,14 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .menuFixedBox {
-    max-width: 75px;
-    min-height: 65px;
-    .hamburger--arrowturn {
-      transform: translateX(1px) translateY(8px);
+    .menuFixedBox {
+      max-width: 75px;
+      min-height: 65px;
+      .hamburger--arrowturn {
+        transform: translateX(1px) translateY(8px);
+      }
     }
-  }
+
 
   .headerContactBox {
     width: 100%;
@@ -520,6 +522,12 @@
 }
 
 @media only screen and (max-width: 368px) {
+  .headerSubTitle {
+    * {
+      font-size: 14px!important;
+    }
+  }
+
   .menuFixedBox {
     max-width: 65px;
     min-height: 55px;

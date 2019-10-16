@@ -36,3 +36,10 @@
   background: linear-gradient(to bottom,  #f1c40f 0%,#e67e22 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   cursor: pointer;
 }
+
+@media only screen and (max-width: 768px) {
+  .orngBtn {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+}
