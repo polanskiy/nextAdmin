@@ -11,5 +11,15 @@
 .blogTextBox {
   img {
     max-width: 100%;
+    padding: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 668px) {
+  .blogTextBox {
+    img {
+     float: none;
+    }
   }
 }
