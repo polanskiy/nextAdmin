@@ -31,7 +31,7 @@ const NewTravel = ({ travelList, fetchTravels }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <button type="button" onClick={toggleOpen} className="adminBtn mgb">
         Добавить
       </button>
@@ -56,7 +56,7 @@ const NewTravel = ({ travelList, fetchTravels }) => {
           <button type="button" className="adminBtn danger">Отмена</button>
         </div>
       </Modal>
-    </React.Fragment>
+    </>
   );
 };
 
