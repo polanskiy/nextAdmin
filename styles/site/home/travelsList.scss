@@ -5,7 +5,6 @@
 .travelsList {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   padding: 70px 0;
 }
 
@@ -51,5 +50,76 @@
   }
   p > span:not(:first-child) {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1400px) { 
+  .travelListLink {
+    height: 160px;
+    * {
+      color: #000!important;
+      font-family: 'Roboto'!important;
+      font-size: 13px!important;
+    }
+    p > span:first-child {
+      position: absolute;
+      background: #fff;
+      bottom: 0;
+      left: 0;
+      max-width: 260px;
+      padding: 20px 50px 20px 20px
+    }
+    p > span:not(:first-child) {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .travelsListTitle {
+    padding: 20px 0 0;
+    font-size: 34px;
+  }
+
+  .travelsList {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .travelsListItem {
+    width: 48%;
+    margin: 0 0 20px;
+    max-width: 390px;
+  }
+  
+  .travelListLink {
+    height: 220px;
+    p > span:first-child {
+      position: absolute;
+      background: #fff;
+      bottom: 0;
+      left: 0;
+      max-width: 260px;
+      padding: 50px 80px 30px 20px
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .travelsList {
+    justify-content: center;
+  }
+
+  .travelsListItem {
+    width: 100%;
+  }
+
+  .travelListLink {
+    height: 160px;
+    * {
+      color: #000!important;
+      font-family: 'Roboto'!important;
+      font-size: 14px!important;
+    }
   }
 }

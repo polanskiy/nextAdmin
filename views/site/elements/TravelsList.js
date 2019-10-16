@@ -4,13 +4,15 @@ import xssOptions from '../../../utils/xssOptions';
 import { Link } from '../../../routes';
 
 const TravelsList = ({ articles, title = '', route }) => {
-  const renderTravelList = () => articles.map(article => (
+  const renderTravelList = () => articles.map((article) => (
     <div className="travelsListItem" key={article._id} style={{ backgroundImage: `url(${article.images.thumb})` }}>
       <Link route={route} params={{ article: article.route }}>
-        <div
-          className="travelListLink"
-          dangerouslySetInnerHTML={{ __html: xss(article.title, xssOptions) }}
-        />
+        <a>
+          <div
+            className="travelListLink"
+            dangerouslySetInnerHTML={{ __html: xss(article.title, xssOptions) }}
+          />
+        </a>
       </Link>
     </div>
   ));

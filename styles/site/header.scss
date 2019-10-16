@@ -501,7 +501,7 @@
   }
 
   .downArr {
-    bottom: 10%;
+    bottom: 10%!important;
   }
     
   .headerContentBox {
@@ -520,6 +520,15 @@
 }
 
 @media only screen and (max-width: 368px) {
+  .menuFixedBox {
+    max-width: 65px;
+    min-height: 55px;
+    .hamburger--arrowturn {
+      padding: 12px;
+      transform: translateX(3px) translateY(3px);
+    }
+  }
+
   .headerContactBox {
     a{
       display: flex;
