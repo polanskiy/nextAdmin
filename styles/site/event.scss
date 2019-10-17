@@ -11,9 +11,11 @@
 }
 
 .eventIconBox {
+  max-width: 900px;
+  margin: 0 auto;
   padding: 40px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .eventIcon {
@@ -37,5 +39,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 60px 0 0;
+}
+
+@media only screen and (max-width: 992px) { 
+ .eventIcon {
+   width: 80px;
+   height: 80px;
+   img {
+    width: 40px;
+  }
+ }
+
+ .eventIconItemBox {
+   font-size: 14px;
+ }
+}
+
+@media only screen and (max-width: 600px) { 
+  .eventTitle {
+    font-size: 18px;
+  }
+
+  .eventIconBox {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .eventIconItemBox {
+    width: 50%;
+    margin: 0 0 20px 0;
+  }
 }

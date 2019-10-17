@@ -5,6 +5,7 @@ const travelsRoute = require('./travels');
 const imagesRoute = require('./images');
 const { User } = require('../models/user');
 const { auth } = require('../middleware/auth');
+const mailer = require('../middleware/nodemailer');
 
 const router = express.Router();
 
@@ -26,6 +27,17 @@ router.get('/auth', auth, (req, res) => {
 //     });
 //   });
 // });
+
+router.post('/mail', (req, res) => {
+  const newMail = { ...req.body };
+  const message = {
+    to: 'info@dasyatravel.ru',
+    subject: 'sosi',
+    text: 'lololololo',
+  };
+  mailer(message);
+  return res.json({ status: true, mail: newMail });
+});
 
 router.post('/login', (req, res) => {
   User.findOne({ login: req.body.login }, (er, user) => {

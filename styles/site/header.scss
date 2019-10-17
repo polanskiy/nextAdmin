@@ -89,7 +89,6 @@
   top: 0;
   right: 0;
   min-height: 80px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f1c40f+0,e67e22+100 */
   background: #f1c40f; /* Old browsers */
   background: -moz-linear-gradient(left,  #f1c40f 0%, #e67e22 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left,  #f1c40f 0%,#e67e22 100%); /* Chrome10-25,Safari5.1-6 */
@@ -269,8 +268,36 @@
 }
 
 .way { 
+  flex: 1;
   &:before {
     background: url('/static/images/icons/direction.svg') no-repeat;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.name { 
+  flex: 1;
+  &:before {
+    background: url('/static/images/icons/user_name.svg') no-repeat;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.email { 
+  flex: 1;
+  &:before {
+    background: url('/static/images/icons/user_mail.svg') no-repeat;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.number { 
+  flex: 1;
+  &:before {
+    background: url('/static/images/icons/number.svg') no-repeat;
     width: 30px;
     height: 30px;
   }
@@ -293,6 +320,7 @@
 }
 
 .calendar { 
+  flex: 1;
   &:before {
     background: url('/static/images/icons/calendar.svg') no-repeat;
     width: 25px;
@@ -310,7 +338,6 @@
 }
 
 .participants {
-  width: 100%;
   &:before {
     background: url('/static/images/icons/participants.svg') no-repeat;
     width: 37px;
@@ -373,6 +400,7 @@
     }
   }
   .customSearchBtn {
+    flex: 1;
     width: 50%;
     background: $pink;
     color: $white;
@@ -462,8 +490,17 @@
   }
 
   .headerTitle {
-    * {
+    h1 {
       font-size: 34px!important;
+      * {
+        font-size: 34px!important;
+      }
+    }
+    p {
+      font-size: 18px!important;
+      * {
+        font-size: 18px!important;
+      }
     }
   }
 
@@ -523,6 +560,7 @@
 }
 
 @media only screen and (max-width: 368px) {
+
   .headerSubTitle {
     * {
       font-size: 14px!important;

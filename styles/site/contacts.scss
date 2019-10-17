@@ -23,8 +23,17 @@
   text-transform: uppercase;
   font-weight: 700;
   cursor: pointer;
+  flex: 1;
 }
 
 .customFormItemLong {
   width: 100%;
+}
+
+.wishes {
+  flex: 2;
+}
+
+.members {
+  flex: 1;
 }

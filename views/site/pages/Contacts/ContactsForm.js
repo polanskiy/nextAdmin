@@ -9,7 +9,7 @@ const ContactsForm = () => (
       <br />
       <span>путешествия</span>
     </p>
-    <SearchForm />
+    <SearchForm noPlus vis />
     <p className="contactsTitle">
 Форма заказа вашего
       <br />

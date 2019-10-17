@@ -7,8 +7,8 @@ import ruDate from 'date-fns/locale/ru';
 import { isAfter } from 'date-fns';
 import useToggle from '../../../utils/useToggle';
 
-const SearchForm = () => {
-  const [isOpen, toggleOpen] = useToggle(false);
+const SearchForm = ({ noPlus, vis }) => {
+  const [isOpen, toggleOpen] = useToggle(vis);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
@@ -42,12 +42,12 @@ const SearchForm = () => {
         <label htmlFor="rest" className="rest customFormItem">
           <input className="customFormInput" placeholder="Тип отдыха" />
         </label>
-        <label htmlFor="budget" className="budget customFormItem">
-          <input className="customFormInput" placeholder="Бюджет" />
+        <label htmlFor="budget" className="number customFormItem">
+          <input className="customFormInput" placeholder="Ваш телефон" />
         </label>
         <div className="customFormItem customFormSearchItem">
-          <div role="presentation" className="customFormItemBtn" onClick={() => toggleOpen()}><img src="/static/images/icons/plus.svg" alt="" /></div>
-          <div className="customFormItemBtn"><img src="/static/images/icons/search.svg" alt="" /></div>
+          {!noPlus && <div role="presentation" className="customFormItemBtn" onClick={() => toggleOpen()}><img src="/static/images/icons/plus.svg" alt="" /></div>}
+          {/* <div className="customFormItemBtn"><img src="/static/images/icons/search.svg" alt="" /></div> */}
           <div className="customFormItemBtn customSearchBtn">подобрать</div>
         </div>
       </div>
@@ -59,7 +59,7 @@ const SearchForm = () => {
             selectsStart
             startDate={startDate}
             endDate={endDate}
-            onChange={date => dateChange({ startD: date })}
+            onChange={(date) => dateChange({ startD: date })}
             minDate={Date.now()}
             className="customFormInputDate"
             placeholderText="Дата вылета"
@@ -73,7 +73,7 @@ const SearchForm = () => {
             startDate={startDate}
             endDate={endDate}
             minDate={startDate || Date.now()}
-            onChange={date => dateChange({ endD: date })}
+            onChange={(date) => dateChange({ endD: date })}
             className="customFormInputDate"
             placeholderText="Дата прилета"
           />

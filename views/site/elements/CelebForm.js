@@ -40,17 +40,28 @@ const CelebForm = () => {
             placeholderText="Дата"
           />
         </label>
-        <label htmlFor="budget" className="participants customFormItem">
+        <label htmlFor="budget" className="participants members customFormItem">
           <input className="customFormInput" placeholder="Число участников" />
+        </label>
+      </div>
+      <div className="customFormBoxSecond vis">
+        <label htmlFor="way" className="name customFormItem">
+          <input className="customFormInput" placeholder="Ваше имя" />
+        </label>
+        <label htmlFor="budget" className="number customFormItem">
+          <input className="customFormInput" placeholder="Ваш телефон" />
+        </label>
+        <label htmlFor="budget" className="email customFormItem">
+          <input className="customFormInput" placeholder="Ваш e-mail" />
+        </label>
+      </div>
+      <div className="customFormBoxSecond vis">
+        <label htmlFor="calendar" className="calendar wishes customFormItem customFormItemLong">
+          <input className="customFormInput" placeholder="Особые пожелания" />
         </label>
         <div className="customFormItem customCelebFormSearchItem">
           <div className="customFormItemBtn customSearchBtn">Заказать праздник</div>
         </div>
-      </div>
-      <div className="customFormBoxSecond vis">
-        <label htmlFor="calendar" className="calendar customFormItem customFormItemLong">
-          <input className="customFormInput" placeholder="Особые пожелания" />
-        </label>
       </div>
     </div>
   );
