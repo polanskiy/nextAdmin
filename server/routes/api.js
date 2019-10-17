@@ -29,14 +29,26 @@ router.get('/auth', auth, (req, res) => {
 // });
 
 router.post('/mail', (req, res) => {
-  const newMail = { ...req.body };
+  const {
+    title, phone, start, end, city, members, type, way,
+  } = req.body;
   const message = {
     to: 'info@dasyatravel.ru',
-    subject: 'sosi',
-    text: 'lololololo',
+    subject: 'НОВЫЙ ЗАКАЗ',
+    html: `<h2>Новый заказ ${title}</h2>
+      <ul>
+        <li>Номер телефона: ${phone}</li>
+        <li>Дата вылета: ${start}</li>
+        <li>Номер прилета: ${end}</li>
+        <li>Город вылета: ${city}</li>
+        <li>Кол-во участников: ${members}</li>
+        <li>Тип отдыха: ${type}</li>
+        <li>Направление: ${way}</li>
+      </ul>
+    `,
   };
   mailer(message);
-  return res.json({ status: true, mail: newMail });
+  return res.json({ status: true });
 });
 
 router.post('/login', (req, res) => {
