@@ -414,6 +414,20 @@
     border: 0;
   }
 }
+.customFormItem {
+  button {
+    background: $pink;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 0;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    cursor: pointer;
+  }
+}
 
 .cloudBox {
   width: 100%;

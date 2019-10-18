@@ -16,8 +16,8 @@ export default function request(url, method = 'get', data = {}, limit = 10, offs
     })
       .then((res) => {
         const { data: resData } = res;
-
-        if (resData.error && (resData.error.code === '204' || resData.error.code === '202' || resData.error.code === '401')) {
+        console.log('res', res);
+        if (resData.error && (resData.error.code === '204' || resData.error.code === '202')) {
           window.localStorage.removeItem('tokendasya');
           window.location.reload();
         }
@@ -28,6 +28,11 @@ export default function request(url, method = 'get', data = {}, limit = 10, offs
           resolve(res);
         }
       }, (err) => {
+        console.log('err', err.response.status === 401);
+        if (err.response.status === 401) {
+          window.localStorage.removeItem('tokendasya');
+          window.location.reload();
+        }
         reject(err);
       });
   }));

@@ -30,7 +30,7 @@ router.get('/auth', auth, (req, res) => {
 
 router.post('/mail', (req, res) => {
   const {
-    title, phone, start, end, city, members, type, way, name, mail, wishes,
+    title, phone, start, end, city, members, type, way, name, mail, wishes, text,
   } = req.body;
   const message = {
     to: 'info@dasyatravel.ru',
@@ -58,6 +58,15 @@ router.post('/mail', (req, res) => {
       <li>Тип праздника: ${type}</li>
       <li>Число участников: ${members}</li>
       <li>Особые пожелание: ${wishes}</li>
+    </ul>
+  `;
+  } else if (title === 'Вопрос') {
+    message.html = `<h2>Новый ${title}</h2>
+    <ul>
+      <li>Номер телефона: ${phone}</li>
+      <li>Имя: ${name}</li>
+      <li>E-mail: ${mail}</li>
+      <li>Сообщение: ${text}</li>
     </ul>
   `;
   }

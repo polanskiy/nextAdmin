@@ -1,5 +1,6 @@
 import React from 'react';
 import xss from 'xss';
+import { Link } from '../../../../routes';
 import Header from '../../elements/Header';
 import TravelAbout from './TravelAbout';
 import Slider from '../../elements/Slider';
@@ -20,7 +21,9 @@ const TravelItem = ({ article }) => (
               <div className="contentMidWrapper">
                 <div dangerouslySetInnerHTML={{ __html: xss(article.text, xssOptions) }} />
                 <div className="tac">
-                  <button type="button" className="btn">Забронировать поездку</button>
+                  <Link route="/contacts/form">
+                    <button type="button" className="btn">Забронировать поездку</button>
+                  </Link>
                 </div>
               </div>
             </div>

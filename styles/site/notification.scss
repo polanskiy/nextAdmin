@@ -1,0 +1,77 @@
+.notificationBox {
+  position: fixed;
+  top: 98px;
+  right: 0;
+}
+
+.notificationBody {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: $pink;
+  padding: 0 10px;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  svg {
+    width: 30px;
+    height: 30px;
+    fill: $pink;
+  }
+}
+
+@keyframes disappear {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.notificationLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: $pink;
+  animation: disappear 3s forwards linear;
+}
+
+.notificationTitle {
+  white-space: pre-wrap;
+  text-align: center;
+  padding: 20px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.notificationClose {
+  padding: 0 10px;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.notif-transition-enter {
+  transform: translateX(100%);
+}
+.notif-transition-enter-active {
+  transition: transform 300ms;
+  transform: translateX(0);
+}
+.notif-transition-exit {
+  transform: translateX(0);
+}
+.notif-transition-exit-active {
+  transition: transform 300ms;
+  transform: translateX(100%);
+}

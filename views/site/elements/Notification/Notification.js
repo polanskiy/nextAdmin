@@ -1,6 +1,6 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Portal from './PortalModal';
+import Portal from './Portal';
 
 const Modal = ({
   isOpen, toggleOpen, children, title, maxWidth,
@@ -8,8 +8,8 @@ const Modal = ({
   <>
     <CSSTransition
       in={isOpen}
-      className="modal-transition"
-      classNames="modal-transition"
+      className="notif-transition"
+      classNames="notif-transition"
       unmountOnExit
       timeout={300}
     >

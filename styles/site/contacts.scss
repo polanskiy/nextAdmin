@@ -34,7 +34,8 @@
   align-items: center;
   justify-content: center;
   text-align: center; 
-  background: $pink;
+  background: $pink!important;
+  border: 0;
   color: $white;
   width: 100%;
   text-transform: uppercase;
@@ -42,7 +43,6 @@
   cursor: pointer;
   flex: 1;
   white-space: nowrap;
-  padding: 0 20px;
 }
 
 .customFormItemLong {
