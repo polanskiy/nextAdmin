@@ -8,7 +8,7 @@ import { isAfter } from 'date-fns';
 import request from '../../../utils/request';
 import useToggle from '../../../utils/useToggle';
 
-const SearchForm = ({ noPlus, vis }) => {
+const SearchForm = ({ noPlus, vis, secondSearch }) => {
   const [isOpen, toggleOpen] = useToggle(vis);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -72,11 +72,20 @@ const SearchForm = ({ noPlus, vis }) => {
             }}
           />
         </label>
-        <div className="customFormItem customFormSearchItem">
-          {!noPlus && <div role="presentation" className="customFormItemBtn" onClick={() => toggleOpen()}><img src="/static/images/icons/plus.svg" alt="" /></div>}
-          {/* <div className="customFormItemBtn"><img src="/static/images/icons/search.svg" alt="" /></div> */}
-          <div className="customFormItemBtn customSearchBtn" onClick={handleMail}>подобрать</div>
-        </div>
+        {!secondSearch
+          ? (
+            <div className="customFormItem customFormSearchItem">
+              {!noPlus && <div role="presentation" className="customFormItemBtn" onClick={() => toggleOpen()}><img src="/static/images/icons/plus.svg" alt="" /></div>}
+              {/* <div className="customFormItemBtn"><img src="/static/images/icons/search.svg" alt="" /></div> */}
+              <div className="customFormItemBtn customSearchBtn" onClick={handleMail}>подобрать</div>
+            </div>
+          )
+          : (
+            <label htmlFor="city" className="city customFormItem">
+              <input className="customFormInput" placeholder="Город вылета" value={city} onChange={(e) => { setCity(e.target.value); }} />
+            </label>
+          )}
+
       </div>
       <div className={isOpen ? 'customFormBoxSecond vis' : 'customFormBoxSecond invis'}>
         <label htmlFor="calendar" className="calendar customFormItem">
@@ -105,12 +114,19 @@ const SearchForm = ({ noPlus, vis }) => {
             placeholderText="Дата прилета"
           />
         </label>
+        {!secondSearch && (
         <label htmlFor="city" className="city customFormItem">
           <input className="customFormInput" placeholder="Город вылета" value={city} onChange={(e) => { setCity(e.target.value); }} />
         </label>
+        )}
         <label htmlFor="participants" className="participants customFormSearchItem customFormItem">
-          <input className="customFormInput" placeholder="Количество участников" value={parts} onChange={(e) => { setParts(e.target.value); }} />
+          <input className="customFormInput" placeholder="Число участников" value={parts} onChange={(e) => { setParts(e.target.value); }} />
         </label>
+        {secondSearch && (
+        <div className="customFormItem customFormSearchItem customSecondSearchItem" onClick={handleMail}>
+          <div className="customFormItemBtn customSearchBtn">подобрать</div>
+        </div>
+        )}
       </div>
     </div>
   );

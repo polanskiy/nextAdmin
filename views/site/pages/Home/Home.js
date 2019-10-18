@@ -12,7 +12,7 @@ const Home = ({ page }) => (
       aboutText={page.about.value}
       aboutImg={page.images.about}
     />
-    <ColorBox text={page.description.value} colorBg={page.images.description} />
+    <ColorBox stars text={page.description.value} colorBg={page.images.description} />
   </div>
 );
 export default Home;
