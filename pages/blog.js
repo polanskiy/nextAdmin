@@ -5,8 +5,6 @@ import BlogItem from '../views/site/pages/Blog/BlogItem';
 
 const Blog = ({ article, page, articles }) => {
   const renderArticle = () => {
-    console.log('article', article);
-    console.log('articles', articles);
     if (article !== 'blog' && article) {
       return <BlogItem article={article} />;
     } if (page.title) {

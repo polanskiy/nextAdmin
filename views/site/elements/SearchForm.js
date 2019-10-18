@@ -4,7 +4,7 @@ import 'moment/locale/ru';
 import '../../../styles/site/datePicker.scss';
 import moment from 'moment';
 import ruDate from 'date-fns/locale/ru';
-import { isAfter, parseISO } from 'date-fns';
+import { isAfter } from 'date-fns';
 import request from '../../../utils/request';
 import useToggle from '../../../utils/useToggle';
 
@@ -23,10 +23,7 @@ const SearchForm = ({ noPlus, vis }) => {
     const defaultEndDate = endDate || Date.now();
     const newStartDate = startD || defaultStartDate;
     let newEndDate = endD || defaultEndDate;
-    console.log('isAfter(newStartDate, newEndDate)', isAfter(newStartDate, newEndDate));
     newEndDate = isAfter(newStartDate, newEndDate) ? newStartDate : newEndDate;
-    console.log({ newStartDate });
-    console.log({ newEndDate });
     const time = moment(newStartDate);
     const endTime = moment(newEndDate);
     setStartDate(time.toDate());

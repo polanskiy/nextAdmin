@@ -19,15 +19,6 @@ const TextEditor = ({
       });
   };
 
-  const handleDeleteImg = (src) => {
-    console.log('handleDeleteImg', src);
-    // axios({
-    //   method: 'delete',
-    //   url: `/api/images/${name}`,
-    //   data: { filename: src.split(`${name}/`)[1] },
-    // });
-  };
-
   return (
     <div>
       <p className="adminEditorTitle">
