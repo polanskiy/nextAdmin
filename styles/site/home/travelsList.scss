@@ -4,7 +4,7 @@
 
 .travelsList {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 70px 0;
 }
@@ -15,8 +15,9 @@
 }
 
 .travelsListItem {
-  width: 24%;
-  margin: 0 0px 25px 0;
+  position: relative;
+  width: 100%;
+  margin: 0 0px 20px 0;
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
@@ -34,28 +35,61 @@
 .travelListLink {
   position: relative;
   cursor: pointer;
-  height: 220px;
+  height: 200px;
   * {
     color: #000!important;
     font-family: 'Roboto'!important;
     font-size: 15px!important;
   }
-  p > span:first-child {
+  h1 {
     position: absolute;
+    text-align: left!important;
     background: #fff;
     bottom: 0;
     left: 0;
     max-width: 260px;
-    padding: 50px 80px 30px 20px
+    width: 100%;
+    font-weight: 400;
+    padding: 50px 20px 30px 20px
   }
-  p > span:not(:first-child) {
-    display: none;
+}
+
+.travelListItemsBox {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 20px);
+  flex-wrap: wrap;
+  max-height: 420px;
+  margin: 0 20px 20px 0;
+  align-items: center;
+  &:nth-child(even){
+    margin: 0 0 20px 0;
+    width: 50%;
+  }
+  .travelsListItem:nth-child(1) {
+    width: calc(50% - 20px);
+    min-height: 420px;
+    margin: 0 20px 0 0;
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .travelListLink {
+      height: 100%;
+    }
+  }
+  .travelsListItem:nth-child(2) {
+    width: 50%;
+  }
+  .travelsListItem:nth-child(3) {
+    width: 50%;
+    margin: 0
   }
 }
 
 @media only screen and (max-width: 1400px) { 
   .travelListLink {
-    height: 160px;
     * {
       color: #000!important;
       font-family: 'Roboto'!important;
@@ -81,44 +115,34 @@
     font-size: 34px;
   }
 
-  .travelsList {
-    justify-content: space-between;
-  }
-
-  .travelsListItem {
-    width: 48%;
+  .travelListItemsBox {
+    width: 100%;
     margin: 0 0 20px;
-    max-width: 390px;
-  }
-  
-  .travelListLink {
-    height: 220px;
-    p > span:first-child {
-      position: absolute;
-      background: #fff;
-      bottom: 0;
-      left: 0;
-      max-width: 260px;
-      padding: 50px 80px 30px 20px
+    &:nth-child(even){
+      width: 100%;
     }
   }
 }
 
 @media only screen and (max-width: 700px) {
-  .travelsList {
-    justify-content: center;
-  }
-
-  .travelsListItem {
-    width: 100%;
-  }
 
   .travelListLink {
-    height: 160px;
     * {
       color: #000!important;
       font-family: 'Roboto'!important;
       font-size: 14px!important;
     }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .travelListItemsBox {
+    max-height: initial;
+    margin: 0;
+  }
+  .travelsListItem {
+    width: 100%!important;
+    margin: 0 0 20px!important;
+    min-height: 200px!important;
   }
 }

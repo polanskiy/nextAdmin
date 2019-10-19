@@ -22,7 +22,8 @@ module.exports = {
         "browser": true,
         "node": true,
         "FormData": true,
-        "document": true
+        "document": true,
+        "navigator": true
     },
     "parserOptions": {
         "allowImportExportEverywhere": true

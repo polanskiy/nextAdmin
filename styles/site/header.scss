@@ -417,7 +417,7 @@
   }
 }
 .customFormItem {
-  button {
+  button[type=submit] {
     background: $pink;
     color: #fff;
     text-transform: uppercase;
@@ -499,6 +499,12 @@
   }
   .headerBg {
     object-fit: none;
+  }
+}
+
+@media only screen and (max-width: 1100px) { 
+  .headerBox {
+    background-attachment: scroll;
   }
 }
 

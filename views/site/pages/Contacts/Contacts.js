@@ -5,13 +5,27 @@ import ContactsForm from './ContactsForm';
 const Contacts = (props) => {
   const { page, scrollTo } = props;
 
-  useEffect(() => {
+  const handleScroll = (h) => {
     if (scrollTo) {
       const element = document.getElementById(scrollTo);
-      setTimeout(() => {
+      if (navigator.platform.toUpperCase().indexOf('WIN') >= 0) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 0);
+      } else {
+        const i = h || window.pageYOffset;
+        if (i < window.innerHeight) {
+          setTimeout(() => {
+            window.scrollTo(0, i);
+            handleScroll(i + 25);
+          }, 10);
+        }
+      }
     }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      handleScroll(0);
+    }, 0);
   }, [scrollTo]);
 
   return (

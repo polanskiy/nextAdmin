@@ -8,11 +8,21 @@ import Arr from '../../../static/images/icons/downArr.svg';
 const Header = ({
   title = 'заголовок отсутствует', subtitle = '', headerBg, noSearch,
 }) => {
-  const handleScroll = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    });
+  const handleScroll = (h) => {
+    if (navigator.platform.toUpperCase().indexOf('WIN') >= 0) {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth',
+      });
+    } else {
+      const i = h || window.pageYOffset;
+      if (i < window.innerHeight) {
+        setTimeout(() => {
+          window.scrollTo(0, i);
+          handleScroll(i + 25);
+        }, 10);
+      }
+    }
   };
 
   return (
@@ -46,7 +56,7 @@ const Header = ({
           <SearchForm />
           )}
       </div>
-      <div className="downArr" onClick={handleScroll}>
+      <div className="downArr" onClick={() => handleScroll()}>
         {/* <img src="/static/images/icons/downArr.svg" alt="down arrow" /> */}
         <Arr />
       </div>
