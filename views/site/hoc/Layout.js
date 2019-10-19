@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
         if (globalBox !== null) {
           timer = setTimeout(() => {
             globalBox.classList.remove('preloadCss');
-          }, 2000);
+          }, 1000);
         }
       } else {
         document.addEventListener('DOMContentLoaded', () => {
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
           if (globalBox !== null) {
             timer = setTimeout(() => {
               globalBox.classList.remove('preloadCss');
-            }, 2000);
+            }, 1000);
           }
         });
       }

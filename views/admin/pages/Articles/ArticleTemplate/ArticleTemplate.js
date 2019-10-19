@@ -48,7 +48,6 @@ const ArticleTemplate = ({ id, preloader }) => {
     try {
       await request('/api/articles', 'patch', newTravel);
       if (deleteImg) {
-        console.log('delete');
         request(`/api/images/${data._id}`, 'delete', { filename: deleteImg.split(`${data._id}/`)[1] });
       }
     } catch (err) {

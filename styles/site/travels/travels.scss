@@ -1,8 +1,25 @@
 .travelAboutBox {
   padding: 100px 0;
   background-size: cover;
+  background-position: center;
 }
 
 .travelItemBox {
   background: #fff;
+}
+
+.blogTextBox {
+  img {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 668px) {
+  .blogTextBox {
+    img {
+     float: none!important;
+    }
+  }
 }

@@ -1,6 +1,22 @@
 
 .contactsBox {
   background: #fff;
+  .participants {
+    width: 24%;
+  }
+  .customFormBox {
+    label {
+      flex: 1;
+    }
+  }
+  .customFormBoxSecond  {
+    label, div {
+      flex: 1;
+    }
+    .customSecondSearchItem {
+      border: 1px solid #F60B50;
+    }
+  }
 }
 
 .contactsTitle {
@@ -17,14 +33,68 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $pink;
+  text-align: center; 
+  background: $pink!important;
+  border: 0;
   color: $white;
   width: 100%;
   text-transform: uppercase;
   font-weight: 700;
   cursor: pointer;
+  flex: 1;
+  white-space: nowrap;
 }
 
 .customFormItemLong {
   width: 100%;
+}
+
+.wishes {
+  flex: 2!important;
+}
+
+.members {
+  flex: 1;
+}
+
+@media screen and (max-width: 1226px) {
+  .contactsBox {
+    .react-datepicker-wrapper {
+      padding: 0 0 0 45px!important;
+    }
+    .customFormBox, .customFormBoxSecond {
+      label {
+        &:before {
+          left: 8px;
+        }
+      }
+    }
+    .customFormInput {
+      padding: 0 0 0 45px;
+    }
+  }
+}
+
+@media screen and (max-width: 895px) {
+  .customFormInput {
+    font-size: 14px;
+  }
+  .react-datepicker-wrapper div input {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 795px) { 
+  .customFormBox, .customFormBoxSecond {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .customFormItem {
+    width: 100%;
+    height: 60px;
+  }
+  .customSecondSearchItem, .participants {
+    min-width: 100%;
+  }
 }

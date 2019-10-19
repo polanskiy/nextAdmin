@@ -137,6 +137,10 @@
       }
     }
   }
+
+  .colorCenterBox {
+    padding: 20px;
+  }
 }
 
 @media only screen and (max-width: 568px) {
@@ -147,13 +151,21 @@
 
   .colorBox {
     h1, h2, h3 {
-      font-weight: normal;
-      font-size: 26px;
-      line-height: 30px;
+      font-weight: normal!important;
+      font-size: 26px!important;
+      line-height: 30px!important;
       * {
-        font-weight: normal;
-        font-size: 26px;
-        line-height: 30px;
+        font-weight: normal!important;
+        font-size: 26px!important;
+        line-height: 30px!important;
+      }
+    }
+    p, ul {
+      font-size: 14px!important;
+      line-height: 20px!important;
+      * {
+        font-size: 14px!important;
+        line-height: 20px!important;
       }
     }
   }

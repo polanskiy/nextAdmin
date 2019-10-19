@@ -11,7 +11,7 @@ const NewArticle = ({ articleList, fetchArticles }) => {
 
   const createArticle = async () => {
     const newPostion = articleList.length + 1;
-    const route = translit(title);
+    const route = translit(title.toLowerCase()).replace(/\s/g, '_').replace(/,/g, '').replace(/–/g, '-');
     const initialData = {
       title,
       subtitle: '',
@@ -29,7 +29,7 @@ const NewArticle = ({ articleList, fetchArticles }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <button type="button" onClick={toggleOpen} className="adminBtn mgb">
         Добавить
       </button>
@@ -53,7 +53,7 @@ const NewArticle = ({ articleList, fetchArticles }) => {
           <button type="button" className="adminBtn danger">Отмена</button>
         </div>
       </Modal>
-    </React.Fragment>
+    </>
   );
 };
 
