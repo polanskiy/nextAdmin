@@ -95,21 +95,21 @@
 
   .colorBox {
     h1, h2, h3 {
-      font-weight: normal;
-      font-size: 32px;
-      line-height: 34px;
+      font-weight: normal!important;
+      font-size: 32px!important;
+      line-height: 34px!important;
       * {
-        font-weight: normal;
-        font-size: 32px;
-        line-height: 34px;
+        font-weight: normal!important;
+        font-size: 32px!important;
+        line-height: 34px!important;
       }
     }
     p, ul {
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 16px!important;
+      line-height: 22px!important;
       * {
-        font-size: 16px;
-        line-height: 22px;
+        font-size: 16px!important;
+        line-height: 22px!important;
       }
     }
   }
