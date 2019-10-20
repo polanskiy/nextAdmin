@@ -56,7 +56,7 @@ const Event = ({ page }) => (
       orngBtn
     />
     <ColorBox text={page.description.value} colorBg={page.images.description} />
-    <SmallSlider text={page.slider.value} slides={page.slides} link="/event" textLink="Заказать праздник" sliderBg={page.images.slider} />
+    <SmallSlider text={page.slider.value} slides={page.slides} link="/contacts" textLink="Заказать праздник" sliderBg={page.images.slider} />
   </div>
 );
 

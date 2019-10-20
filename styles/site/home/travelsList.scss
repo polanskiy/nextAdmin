@@ -23,6 +23,11 @@
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
   &:last-child {
     margin-right: 0;
   }
@@ -33,24 +38,34 @@
 }
 
 .travelListLink {
-  position: relative;
+  position: absolute;
+  text-align: left!important;
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  max-width: 260px;
+  width: 100%;
+  font-weight: 400;
+  padding: 50px 20px 30px 20px;
   cursor: pointer;
-  height: 200px;
   * {
     color: #000!important;
     font-family: 'Roboto'!important;
     font-size: 15px!important;
   }
   h1 {
-    position: absolute;
-    text-align: left!important;
-    background: #fff;
-    bottom: 0;
-    left: 0;
-    max-width: 260px;
-    width: 100%;
-    font-weight: 400;
-    padding: 50px 20px 30px 20px
+    position: relative;
+    display: inline;
+    &:after {
+      position: absolute;
+      right: -25px;
+      content: '';
+      background: url('/static/images/icons/arrTo.svg') no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
@@ -70,19 +85,13 @@
     width: calc(50% - 20px);
     min-height: 420px;
     margin: 0 20px 0 0;
-    a {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-    .travelListLink {
-      height: 100%;
-    }
   }
   .travelsListItem:nth-child(2) {
+    height: 200px;
     width: 50%;
   }
   .travelsListItem:nth-child(3) {
+    height: 200px;
     width: 50%;
     margin: 0
   }

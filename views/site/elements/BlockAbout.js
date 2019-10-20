@@ -13,15 +13,18 @@ const BlockAbout = ({
           <div dangerouslySetInnerHTML={{ __html: xss(aboutText, xssOptions) }} />
           {orngBtn ? (
             <Link route={btnLink}>
-              <button type="button" className="orngBtn">{btnText}</button>
+              <a className="orngBtn">
+                {btnText}
+              </a>
             </Link>
           )
             : (
               <Link route={btnLink}>
-                <button type="button" className="btn">{btnText}</button>
+                <a className="btn">
+                  <button type="button" className="btn">{btnText}</button>
+                </a>
               </Link>
-            )
-          }
+            )}
         </div>
         <div className="homeAboutImgBox">
           <img src={aboutImg} alt="дася сурикова туроператор" />
