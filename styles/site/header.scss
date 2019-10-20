@@ -350,6 +350,15 @@
   }
 }
 
+.wishes { 
+  flex: 2!important;
+  &:before {
+    background: url('/static/images/icons/note.svg') no-repeat;
+    width: 29px;
+    height: 29px;
+  }
+}
+
 .customFormInput { 
   display: flex;
   align-items: center;

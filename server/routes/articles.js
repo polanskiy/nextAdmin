@@ -1,6 +1,10 @@
 const express = require('express');
+const fs = require('fs-extra');
 const { Article } = require('../models/article');
 const { auth } = require('../middleware/auth');
+const staticPathes = require('../config/paths');
+
+const { imagesPath } = staticPathes;
 
 const router = express.Router();
 
@@ -74,6 +78,7 @@ router.patch('/', auth, (req, res) => {
 router.delete('/:id', auth, (req, res) => {
   if (req.isAuth) {
     const { id } = req.params;
+    fs.remove(`${imagesPath}/${id}`);
     Article.findByIdAndDelete({ _id: id }, (err) => {
       if (err) return res.status(400).send(err);
       return res.json(true);
