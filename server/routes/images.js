@@ -80,7 +80,7 @@ router.post('/:type', auth, upload.single('image'), async (req, res) => {
       if (isThumb !== 'false') {
         const fileName = images.filename.split('.')[0];
         await sharp(imgFile)
-          .resize(360, 220)
+          .resize(360, 420)
           .toFormat('jpeg')
           .toFile(`${imagesPath}/${dir}/thumb-${fileName}.jpg`, (err, info) => {
             // console.log(err, info);
