@@ -9,6 +9,7 @@ const { auth } = require('../middleware/auth');
 
 const router = express.Router();
 const { imagesPath, iconsPath } = staticPathes;
+const acceptExt = '.jpg .png .jpeg .svg';
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -21,9 +22,13 @@ const storage = multer.diskStorage({
     const { originalname } = file;
     const ts = String(Date.now()).substr(-5);
     const videoExt = path.extname(originalname);
-    const fileName = path.basename(originalname, videoExt);
-    const videoName = `${fileName}-${ts}${videoExt}`;
-    cb(null, videoName);
+    if (acceptExt.indexOf(videoExt) >= 0) {
+      const fileName = path.basename(originalname, videoExt);
+      const videoName = `${fileName}-${ts}${videoExt}`;
+      cb(null, videoName);
+    } else {
+      return false;
+    }
   },
 });
 
@@ -64,32 +69,6 @@ router.get('/useIcons', auth, async (req, res) => {
     isAuth: false,
   });
 });
-
-// router.post('/', auth, upload.single('image'), async (req, res) => {
-//   if (req.isAuth) {
-//     const images = req.file;
-//     try {
-//       const imgFile = fs.readFileSync(images.path);
-//       const fileName = images.filename.split('.')[0];
-//       await sharp(imgFile)
-//         .resize(360, 220)
-//         .toFormat('jpeg')
-//         .toFile(`${imagesPath}/thumbs/thumb-${fileName}.jpg`, (err, info) => {
-//           console.log(err, info);
-//         });
-//     } catch (err) {
-//       console.error('133323', err);
-//     }
-
-//     images.url = `/static/images/${images.filename}`;
-
-//     if (images.length === 0) res.json({ success: false, message: 'No Video' });
-//     return res.json({ success: true, images });
-//   }
-//   return res.status(401).json({
-//     isAuth: false,
-//   });
-// });
 
 router.post('/:type', auth, upload.single('image'), async (req, res) => {
   if (req.isAuth) {

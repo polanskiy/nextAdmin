@@ -37,7 +37,7 @@ const Uploader = ({ updateImage, link = '', thumb = false }) => {
         type="file"
         id="files"
         onChange={(e) => uploadVideo(e)}
-        accept="image/*"
+        accept=".png, .jpg, .jpeg .svg"
       />
     </>
   );

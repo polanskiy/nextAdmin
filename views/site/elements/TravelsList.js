@@ -13,7 +13,7 @@ const TravelsList = ({ articles, title = '', route }) => {
 
       if (i % 3) {
         newArr.push(
-          <div key={articles[k]._id} className="travelsListItem" style={{ backgroundImage: `url(${articles[k].images.thumb})` }}>
+          <div key={articles[k]._id} className="travelsListItem" style={{ backgroundImage: `url(${articles[k].images.thumb})`, backgroundImage: `-webkit-image-set(url(${articles[k].images.thumb})1x )` }}>
             <Link route={route} params={{ article: articles[k].route }}>
               <a>
                 <div
@@ -26,7 +26,7 @@ const TravelsList = ({ articles, title = '', route }) => {
         );
       } else if (i % 3 === 0) {
         newArr.push(
-          <div key={articles[k]._id} className="travelsListItem" style={{ backgroundImage: `url(${articles[k].images.thumb})` }}>
+          <div key={articles[k]._id} className="travelsListItem" style={{ backgroundImage: `url(${articles[k].images.thumb})`, backgroundImage: `-webkit-image-set(url(${articles[k].images.thumb})1x )` }}>
             <Link route={route} params={{ article: articles[k].route }}>
               <a>
                 <div
