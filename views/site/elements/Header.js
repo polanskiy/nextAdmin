@@ -43,7 +43,7 @@ const Header = ({
           <a href="https://instagram.com/dasya_travel/" target="_blank" rel="noopener noreferrer">
             <img src="/static/images/icons/inst.svg" alt="logo" />
           </a>
-          <a href="https://www.facebook.com/dasya.surikovatravel" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/dasyatravel/" target="_blank" rel="noopener noreferrer">
             <img src="/static/images/icons/fb.svg" alt="logo" />
           </a>
         </div>
