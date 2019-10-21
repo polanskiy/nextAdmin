@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', auth, (req, res) => {
   const { onlyPublic } = req.query;
   if (onlyPublic) {
-    Travel.find({ public: true }).exec((err, doc) => {
+    Travel.find({ public: true }, { title: 1, images: 1, route: 1 }).exec((err, doc) => {
       if (err) return res.status(400).send(err);
       return res.send(doc);
     });
