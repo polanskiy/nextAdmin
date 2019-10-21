@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import TravelsPage from '../views/site/pages/Travels/Travels';
 import TravelItem from '../views/site/pages/Travels/TravelItem';
+import Error from './_error';
 
 const Travels = ({ article, page, articles }) => {
   const renderArticle = () => {
@@ -9,7 +10,7 @@ const Travels = ({ article, page, articles }) => {
       return <TravelItem article={article} />;
     } if (page.title) {
       return <TravelsPage page={page} articles={articles} />;
-    } return <p>404</p>;
+    } return <Error />;
   };
   return (
     <>

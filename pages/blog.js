@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import BlogPage from '../views/site/pages/Blog/Blog';
 import BlogItem from '../views/site/pages/Blog/BlogItem';
+import Error from './_error';
 
 const Blog = ({ article, page, articles }) => {
   const renderArticle = () => {
@@ -9,7 +10,7 @@ const Blog = ({ article, page, articles }) => {
       return <BlogItem article={article} />;
     } if (page.title) {
       return <BlogPage page={page} articles={articles} />;
-    } return <p>404</p>;
+    } return <Error />;
   };
   return (
     <>

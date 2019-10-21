@@ -13,7 +13,7 @@ const Text = ({
   };
 
   const handleText = (text) => {
-    setArticleData({ data: { ...data, text }, isFetching: false });
+    setArticleData({ data: { ...data, text: { ...data.text, value: text } }, isFetching: false });
   };
 
   return (
@@ -44,7 +44,7 @@ const Text = ({
       <TextEditor
         selector="textSelector"
         title="Текст статьи"
-        data={data.text}
+        data={data.text.value}
         setData={handleText}
         handleFocus={handleFocus}
         height={650}

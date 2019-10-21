@@ -16,6 +16,10 @@ const NewArticle = ({ articleList, fetchArticles }) => {
       title,
       subtitle: '',
       route,
+      text: {
+        value: '',
+        background: '#fff',
+      },
       images: {
         header: '',
       },

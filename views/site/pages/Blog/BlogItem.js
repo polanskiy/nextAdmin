@@ -13,9 +13,9 @@ const BlogItem = ({ article }) => (
     />
     {article.public
         && (
-        <div className="whiteBg">
+        <div className="whiteBg" style={{ background: article.text.background }}>
           <div className="contentMidWrapper">
-            <div className="blogTextBox" dangerouslySetInnerHTML={{ __html: xss(article.text, xssOptions) }} />
+            <div className="blogTextBox" dangerouslySetInnerHTML={{ __html: xss(article.text.value, xssOptions) }} />
           </div>
         </div>
         )}

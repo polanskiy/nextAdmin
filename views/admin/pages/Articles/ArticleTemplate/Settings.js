@@ -1,4 +1,5 @@
 import React from 'react';
+import Gradient from '../../../elements/Gradient/Gradient';
 
 const Settings = ({ data, setArticleData, updateArticle }) => {
   const handleUri = (route) => {
@@ -12,13 +13,21 @@ const Settings = ({ data, setArticleData, updateArticle }) => {
     updateArticle({ ...data, public: checked });
   };
 
+  const handleGradient = (newBg) => {
+    setArticleData({ data: { ...data, text: { ...data.text, background: newBg } } });
+  };
+
   return (
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Настройки:</h1>
       <div className="adminSettingsBox">
         <label className="adminSettingsRoute">
           <span>URI страницы:</span>
-          <input type="text" placeholder="URI страницы" value={data.route} onChange={e => handleUri(e.target.value)} className="adminArticleInput" />
+          <input type="text" placeholder="URI страницы" value={data.route} onChange={(e) => handleUri(e.target.value)} className="adminArticleInput" />
+        </label>
+        <label className="adminSettingsGradient">
+          <span>Цвет Фона:</span>
+          <Gradient handleGradient={handleGradient} colorBg={data.text.background} />
         </label>
         <label className="adminArticleSettingsPublic">
           <span>Опубликовать:</span>

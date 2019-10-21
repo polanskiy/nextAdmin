@@ -1,0 +1,85 @@
+.pickerBox {
+  position: relative;
+  background-color: transparent !important;
+  padding: 0;
+  width: 100%;
+  height: 40px;
+}
+
+.colorBtn {
+  width: 100%;
+  min-width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  cursor: pointer;
+}
+
+.gradientBox {
+  position: absolute;
+  z-index: 2;
+  min-width: 440px;
+  // top: 50px;
+}
+
+.closeBox {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.gradientColorBox {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 0;
+  border-radius: 3px;
+  background: $color;
+  box-shadow: 0 3px 8px rgba(0,0,0,.1);
+  >div{
+    width: 45%;
+    margin: 0 10px;
+    p{
+      color: #ffffff;
+      font-size: 16px;
+    }
+    ul{
+      position: relative;
+      padding: 0px;
+      width: max-content;
+      margin-top: 10px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 10px;
+    }
+  }
+  >div:first-child{
+    width: 100%;
+  }
+}
+
+.gradientBtn {
+  padding: 5px 10px;
+  margin: 0px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  color: $white;
+}
+
+.gradientSmallBox {
+  p {
+    margin-bottom: 10px;
+  }
+}
+
+.sketch-picker {
+  max-width: 180px;
+  input {
+    height: 20px;
+    margin: 0;
+  }
+}
