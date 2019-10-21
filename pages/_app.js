@@ -26,9 +26,12 @@ class MyApp extends App {
   render() {
     const { Component, pageProps, pathname } = this.props;
     let wrongArticle = true;
-    if (pathname === '/travels' || pathname === '/blog' && !pageProps.article) {
+    const isErrorArticle = pageProps.article === '';
+    const isPath = pathname === '/travels' || pathname === '/blog';
+    if (isPath && isErrorArticle) {
       wrongArticle = false;
     }
+    console.log('wrongArticle', wrongArticle);
     return (
       <>
         <Head>
