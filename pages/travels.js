@@ -4,12 +4,12 @@ import TravelsPage from '../views/site/pages/Travels/Travels';
 import TravelItem from '../views/site/pages/Travels/TravelItem';
 import Error from './_error';
 
-const Travels = ({ article, page, articles }) => {
+const Travels = ({ page, articles }) => {
   const renderArticle = () => {
-    if (article !== 'travels' && article) {
-      return <TravelItem article={article} />;
-    } if (page.title) {
+    if (articles) {
       return <TravelsPage page={page} articles={articles} />;
+    } if (page && page.title) {
+      return <TravelItem article={page} />;
     } return <Error />;
   };
   return (
@@ -24,11 +24,10 @@ Travels.getInitialProps = async (props) => {
   const axioscfg = req ? { baseURL: 'http://localhost:3000' } : {};
   let travelPage = {};
   let articles = [];
-  let article;
   if (query.article) {
     try {
       const res = await axios.get(`/api/travels/${query.article}/?byRoute=1`, axioscfg);
-      article = res.data;
+      travelPage = res.data;
     } catch (e) {
       console.log('err Travels getinitialprops');
     }
@@ -41,7 +40,10 @@ Travels.getInitialProps = async (props) => {
       console.log('err Travels getinitialprops');
     }
   }
-  return { article, page: travelPage, articles: articles.data };
+  if (travelPage) {
+    return { page: travelPage, articles: articles.data };
+  }
+  return {};
 };
 
 export default Travels;

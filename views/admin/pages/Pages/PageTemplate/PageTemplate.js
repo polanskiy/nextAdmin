@@ -3,6 +3,7 @@ import request from '../../../../../utils/request';
 import i from '../../../../../utils/i18n';
 import Text from './Text';
 import Images from './Images';
+import Settings from './Settings';
 import Slides from '../../../elements/Slides/Slides';
 
 const PageTemplate = ({ name, preloader }) => {
@@ -62,8 +63,9 @@ const PageTemplate = ({ name, preloader }) => {
       {isFetching && 'загрузка'}
       {data
         ? (
-          <React.Fragment>
+          <>
             <h1 className="adminTitle">{i(data.name)}</h1>
+            <Settings data={data} setData={setPageData} />
             <Text data={data} updateData={updatePage} handleFocus={handleFocus} setPageData={setPageData} />
             <Images data={data} setTravelData={setPageData} updateData={updatePage} />
             {data.slides && (
@@ -73,7 +75,7 @@ const PageTemplate = ({ name, preloader }) => {
               updateData={updatePage}
             />
             )}
-          </React.Fragment>
+          </>
         ) : 'такой страницы нет'}
       <button type="button" className="adminBtn absoluteBtn" onClick={() => updatePage(data)}>Сохранить</button>
     </div>

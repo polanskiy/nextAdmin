@@ -4,12 +4,12 @@ import BlogPage from '../views/site/pages/Blog/Blog';
 import BlogItem from '../views/site/pages/Blog/BlogItem';
 import Error from './_error';
 
-const Blog = ({ article, page, articles }) => {
+const Blog = ({ page, articles }) => {
   const renderArticle = () => {
-    if (article !== 'blog' && article) {
-      return <BlogItem article={article} />;
-    } if (page.title) {
+    if (articles) {
       return <BlogPage page={page} articles={articles} />;
+    } if (page && page.title) {
+      return <BlogItem article={page} />;
     } return <Error />;
   };
   return (
@@ -24,11 +24,10 @@ Blog.getInitialProps = async (props) => {
   const axioscfg = req ? { baseURL: 'http://localhost:3000' } : {};
   let blogPage = {};
   let articles = [];
-  let article;
   if (query.article) {
     try {
       const res = await axios.get(`/api/articles/${query.article}/?byRoute=1`, axioscfg);
-      article = res.data;
+      blogPage = res.data;
     } catch (e) {
       console.log('err Travels getinitialprops');
     }
@@ -41,7 +40,10 @@ Blog.getInitialProps = async (props) => {
       console.log('err Travels getinitialprops');
     }
   }
-  return { article, page: blogPage, articles: articles.data };
+  if (blogPage) {
+    return { page: blogPage, articles: articles.data };
+  }
+  return {};
 };
 
 export default Blog;

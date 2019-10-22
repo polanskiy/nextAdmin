@@ -25,13 +25,7 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps, pathname } = this.props;
-    let wrongArticle = true;
-    const isErrorArticle = pageProps.article === '';
-    const isPath = pathname === '/travels' || pathname === '/blog';
-    if (isPath && isErrorArticle) {
-      wrongArticle = false;
-    }
-    console.log('wrongArticle', wrongArticle);
+    const isValidPage = pathname !== '/admin' && pathname !== '/dlogin' && pathname !== '/_error' && pageProps.page;
     return (
       <>
         <Head>
@@ -40,9 +34,9 @@ class MyApp extends App {
           {pathname === '/admin' && <script src="/static/tinymce.min.js" />}
         </Head>
         <Layout>
-          {pathname !== '/admin' && pathname !== '/dlogin' && pathname !== '/_error' && wrongArticle && <Nav pathname={pathname} />}
+          {isValidPage && <Nav pathname={pathname} />}
           <Component {...pageProps} />
-          {pathname !== '/admin' && pathname !== '/dlogin' && pathname !== '/_error' && wrongArticle && (
+          {isValidPage && (
           <div className="cloudBox">
             <picture>
               <source media="(max-width: 992px)" srcSet="/static/images/cloudSmall.png" />
@@ -50,7 +44,7 @@ class MyApp extends App {
             </picture>
           </div>
           )}
-          {pathname !== '/admin' && pathname !== '/dlogin' && pathname !== '/_error' && wrongArticle && <RequestForm />}
+          {isValidPage && <RequestForm />}
         </Layout>
         <NextNprogress
           color="linear-gradient(to right, #f1c40f 0%, #e67e22 100%)"

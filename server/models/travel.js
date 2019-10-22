@@ -33,6 +33,10 @@ const travelSchema = mongoose.Schema({
     type: String,
     default: 'n/a',
   },
+  meta: {
+    title: String,
+    description: String,
+  },
 }, { timestamps: true });
 
 const Travel = mongoose.model('Travel', travelSchema);

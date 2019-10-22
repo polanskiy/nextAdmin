@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
 import request from '../../../../../utils/request';
 import Settings from './Settings';
 import Text from './Text';

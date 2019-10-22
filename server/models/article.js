@@ -22,6 +22,10 @@ const articleSchema = mongoose.Schema({
     type: String,
     default: 'n/a',
   },
+  meta: {
+    title: String,
+    description: String,
+  },
 }, { timestamps: true });
 
 const Article = mongoose.model('Article', articleSchema);

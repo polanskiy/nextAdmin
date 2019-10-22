@@ -23,6 +23,10 @@ const pageSchema = mongoose.Schema({
     value: String,
     id: String,
   }],
+  meta: {
+    title: String,
+    description: String,
+  },
 }, { timestamps: true });
 
 const Page = mongoose.model('Page', pageSchema);
