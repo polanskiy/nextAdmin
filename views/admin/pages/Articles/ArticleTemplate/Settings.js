@@ -1,41 +1,19 @@
 import React from 'react';
-import Gradient from '../../../elements/Gradient/Gradient';
+import Gradient from '../../../elements/Settings/Gradient';
+import Metatags from '../../../elements/Settings/Metatags';
+import URIPage from '../../../elements/Settings/URI';
+import Public from '../../../elements/Settings/Public';
 
-const Settings = ({ data, setArticleData, updateArticle }) => {
-  const handleUri = (route) => {
-    updateArticle({ ...data, route });
-    setArticleData({ data: { ...data, route }, isFetching: false });
-  };
-
-  const handlePublic = (e) => {
-    const { checked } = e.target;
-    setArticleData({ data: { ...data, public: checked } });
-    updateArticle({ ...data, public: checked });
-  };
-
-  const handleGradient = (newBg) => {
-    setArticleData({ data: { ...data, text: { ...data.text, background: newBg } } });
-  };
-
-  return (
-    <div className="adminPageElement">
-      <h1 className="adminArticleTitle">Настройки:</h1>
-      <div className="adminSettingsBox">
-        <label className="adminSettingsRoute">
-          <span>URI страницы:</span>
-          <input type="text" placeholder="URI страницы" value={data.route} onChange={(e) => handleUri(e.target.value)} className="adminArticleInput" />
-        </label>
-        <label className="adminSettingsGradient">
-          <span>Цвет Фона:</span>
-          <Gradient handleGradient={handleGradient} colorBg={data.text.background} />
-        </label>
-        <label className="adminArticleSettingsPublic">
-          <span>Опубликовать:</span>
-          <input type="checkbox" onChange={handlePublic} defaultChecked={data.public} />
-        </label>
-      </div>
+const Settings = ({ data, setArticleData }) => (
+  <div className="adminPageElement">
+    <h1 className="adminArticleTitle">Настройки:</h1>
+    <div className="adminSettingsBox">
+      <Metatags data={data} setData={setArticleData} />
+      <Gradient data={data} setData={setArticleData} />
+      <URIPage data={data} setData={setArticleData} />
+      <Public data={data} setData={setArticleData} />
     </div>
-  );
-};
+  </div>
+);
 
 export default Settings;

@@ -5,7 +5,7 @@ import useToggle from '../../../../utils/useToggle';
 import request from '../../../../utils/request';
 import DeleteWarning from '../../elements/Modal/DeleteWarning';
 
-const Travels = (props) => {
+const Travels = () => {
   const [pageList, setPageList] = useState({ data: [], isFetching: false });
   const [travelId, setTravelId] = useState(false);
   const [showDelWarn, setShowDelWarn] = useToggle(false);
@@ -50,20 +50,20 @@ const Travels = (props) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <div>
         <h1 className="adminTitle">Страницы:</h1>
         <div className="adminPageElement">
-          <React.Fragment>
+          <>
             { pageList.isFetching ? <p>загрузка страниц</p> : pageList.data.length
               ? (
                 <Table data={pageList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
               ) : <div>Страниц нет</div>}
             <DeleteWarning confirmDel={delTravel} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
-          </React.Fragment>
+          </>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 export default Travels;

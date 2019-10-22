@@ -25,11 +25,18 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps, pathname } = this.props;
-    const isValidPage = pathname !== '/admin' && pathname !== '/dlogin' && pathname !== '/_error' && pageProps.page;
+    const { page } = pageProps;
+    const isValidPage = pathname !== '/admin' && pathname !== '/dlogin' && pathname !== '/_error' && page;
+    let meta = 'meta';
+    if (page && page.meta) {
+      meta = page.meta;
+    }
+
     return (
       <>
         <Head>
-          <title>Путешествия с Дасей Суриковой</title>
+          <title>{meta.title || ''}</title>
+          <meta name="description" content={meta.description || ''} />
           <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
           {pathname === '/admin' && <script src="/static/tinymce.min.js" />}
         </Head>

@@ -3,7 +3,7 @@ import { SketchPicker } from 'react-color';
 import gradientParser from 'gradient-parser';
 import useToggle from '../../../../utils/useToggle';
 
-const Gradient = ({ colorBg, handleGradient }) => {
+const Gradient = ({ data, setData }) => {
   const initialData = {
     type: 'linear-gradient',
     orientation: 'to bottom',
@@ -12,28 +12,32 @@ const Gradient = ({ colorBg, handleGradient }) => {
     gradient: 'linear-gradient(to bottom, rgba(255,255,255, 1), rgba(255,255,255, 1))',
   };
   const [isOpen, setIsOpen] = useToggle(false);
-  const [data, setData] = useState(initialData);
+  const [dataGradient, setDataGradient] = useState(initialData);
   const {
     type, orientation, color, nextColor,
-  } = data;
+  } = dataGradient;
+  const { background } = data.text;
 
+  const handleGradient = (newBg) => {
+    setData({ data: { ...data, text: { ...data.text, background: newBg } } });
+  };
 
   const setColors = () => {
-    if (colorBg.indexOf('gradient') !== -1) {
-      const { colorStops, orientation: newOrient, type: newType } = gradientParser.parse(colorBg)[0];
+    if (background && background.indexOf('gradient') !== -1) {
+      const { colorStops, orientation: newOrient, type: newType } = gradientParser.parse(background)[0];
       const colorOne = colorStops[0].value;
       const colorTwo = colorStops[1].value;
       const newColor = `rgba(${colorOne[0]}, ${colorOne[1]}, ${colorOne[2]}, ${colorOne[3]})`;
       const newNextColor = `rgba(${colorTwo[0]}, ${colorTwo[1]}, ${colorTwo[2]}, ${colorTwo[3]})`;
-      setData({
-        ...data, color: newColor, nextColor: newNextColor, orientation: `to ${newOrient.value}`, type: newType,
+      setDataGradient({
+        ...dataGradient, color: newColor, nextColor: newNextColor, orientation: `to ${newOrient.value}`, type: newType,
       });
     }
   };
 
   useEffect(() => {
-    setColors(colorBg);
-  }, [colorBg]);
+    setColors(background);
+  }, [background]);
 
   const handleColor = (colors) => {
     const {
@@ -42,7 +46,7 @@ const Gradient = ({ colorBg, handleGradient }) => {
     const newColor = `rgba(${r}, ${g}, ${b}, ${a})`;
     const gradient = `${type}(${orientation}, ${newColor}, ${nextColor})`;
     handleGradient(gradient);
-    setData({ ...data, color: newColor, gradient });
+    setDataGradient({ ...dataGradient, color: newColor, gradient });
   };
 
   const handleNextColor = (colors) => {
@@ -53,7 +57,7 @@ const Gradient = ({ colorBg, handleGradient }) => {
     const newNextColor = `rgba(${r}, ${g}, ${b}, ${a})`;
     const gradient = `${type}(${orientation}, ${color}, ${newNextColor})`;
     handleGradient(gradient);
-    setData({ ...data, nextColor: newNextColor, gradient });
+    setDataGradient({ ...dataGradient, nextColor: newNextColor, gradient });
   };
 
   const handleOrientation = (e) => {
@@ -61,7 +65,7 @@ const Gradient = ({ colorBg, handleGradient }) => {
       const newOrient = e.target.dataset.name;
       const gradient = `${type}(${newOrient}, ${color}, ${nextColor})`;
       handleGradient(gradient);
-      setData({ ...data, orientation: newOrient });
+      setDataGradient({ ...dataGradient, orientation: newOrient });
     }
   };
 
@@ -72,9 +76,11 @@ const Gradient = ({ colorBg, handleGradient }) => {
   };
 
   return (
-    <div className="pickerBox">
-      <div className="colorBtn" onClick={() => setIsOpen()} style={{ background: colorBg }} />
-      {isOpen
+    <label className="adminSettingsGradient">
+      <span>Цвет Фона:</span>
+      <div className="pickerBox">
+        <div className="colorBtn" onClick={() => setIsOpen()} style={{ background }} />
+        {isOpen
             && (
             <div className="gradientBox">
               <div className="closeBox" onClick={(e) => { e.stopPropagation(); setIsOpen(); }} />
@@ -99,7 +105,8 @@ const Gradient = ({ colorBg, handleGradient }) => {
               </div>
             </div>
             )}
-    </div>
+      </div>
+    </label>
   );
 };
 
