@@ -55,7 +55,7 @@ const Event = ({ page }) => (
       aboutImg={page.images.about}
       orngBtn
     />
-    <ColorBox text={page.description.value} colorBg={page.images.description} />
+    <ColorBox stars text={page.description.value} colorBg={page.images.description} />
     <SmallSlider text={page.slider.value} slides={page.slides} link="/contacts" textLink="Заказать праздник" sliderBg={page.images.slider} />
   </div>
 );
