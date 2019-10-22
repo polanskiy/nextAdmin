@@ -3,7 +3,6 @@ import { Link } from '../../../../routes';
 
 const SideNav = ({ slug }) => {
   const [active, setActive] = useState(slug || 'pages');
-
   return (
     <div className="adminSidenavBox">
       <div className="adminSidenavSticky">
@@ -20,7 +19,10 @@ const SideNav = ({ slug }) => {
           <a className={active === 'articles' ? 'adminActiveNav' : undefined} onClick={() => setActive('articles')}>Статьи</a>
         </Link>
         <Link route="admin" params={{ slug: 'media' }}>
-          <a>Медиа</a>
+          <a className={active === 'media' ? 'adminActiveNav' : undefined} onClick={() => setActive('media')}>Медиа</a>
+        </Link>
+        <Link route="admin" params={{ slug: 'test' }}>
+          <a className={active === 'test' ? 'adminActiveNav' : undefined} onClick={() => setActive('test')}>Test</a>
         </Link>
       </div>
     </div>

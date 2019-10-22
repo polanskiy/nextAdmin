@@ -14,7 +14,7 @@ const TravelAbout = ({ tabs, tabsBg }) => {
     />
   ));
   return (
-    <div className="travelAboutBox" style={{ backgroundImage: `url(${tabsBg})` }}>
+    <div className="travelAboutBox" style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(${tabsBg})` }}>
       <div className="contentMidWrapper ">
         {tabs.length && (
           <Tabs tabsBoxClass="travelTabsBox" tabHeaderBoxClass="travelTabsHeader" tabHeaderClass="travelTab">

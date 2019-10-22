@@ -4,12 +4,14 @@ import AdminLayout from '../views/admin/hoc/AdminLayout';
 import Home from '../views/admin/pages/Home/Home';
 import Pages from '../views/admin/pages/Pages/Pages';
 import Travels from '../views/admin/pages/Travels/Travels';
+import Test from '../views/admin/pages/Test/Test';
 import Media from '../views/admin/pages/Media/Media';
 import TravelTemplate from '../views/admin/pages/Travels/TravelTemplate/TravelTemplate';
 import ArticleTemplate from '../views/admin/pages/Articles/ArticleTemplate/ArticleTemplate';
 import Preloader from '../views/admin/elements/Preloader/Preloader';
 import useToggle from '../utils/useToggle';
 import PageTemplate from '../views/admin/pages/Pages/PageTemplate/PageTemplate';
+import TestTemplate from '../views/admin/pages/Test/TestTemplate/TestTemplate';
 import Articles from '../views/admin/pages/Articles/Articles';
 
 const Admin = (props) => {
@@ -26,6 +28,8 @@ const Admin = (props) => {
           return <Articles {...props} preloader={toggleOpen} />;
         case 'media':
           return <Media {...props} preloader={toggleOpen} />;
+        case 'test':
+          return <Test {...props} preloader={toggleOpen} />;
         default:
           return <Pages {...props} preloader={toggleOpen} />;
           // return <Home {...props} preloader={toggleOpen} />;
@@ -36,6 +40,8 @@ const Admin = (props) => {
       return <PageTemplate name={id} preloader={toggleOpen} />;
     } else if (slug === 'articles') {
       return <ArticleTemplate id={id} preloader={toggleOpen} />;
+    } else if (slug === 'test') {
+      return <TestTemplate id={id} preloader={toggleOpen} />;
     }
     return null;
   };

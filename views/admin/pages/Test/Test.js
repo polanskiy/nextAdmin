@@ -3,7 +3,7 @@ import request from '../../../../utils/request';
 import ArticlesTable from './ArticlesTable';
 import NewTravel from './NewArticle/NewArticle';
 
-const Articles = (props) => {
+const Test = (props) => {
   const [articleList, setArticleList] = useState({ data: [], isFetching: false });
   let isMount = true;
 
@@ -27,7 +27,7 @@ const Articles = (props) => {
   return (
     <>
       <div>
-        <h1 className="adminTitle">Статьи:</h1>
+        <h1 className="adminTitle">Тестовое:</h1>
         <NewTravel articleList={articleList.data} fetchArticles={fetchArticles} />
         <div className="adminPageElement">
           <ArticlesTable
@@ -40,4 +40,4 @@ const Articles = (props) => {
     </>
   );
 };
-export default Articles;
+export default Test;
