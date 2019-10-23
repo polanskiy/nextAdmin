@@ -125,3 +125,22 @@
     }
   }
 }
+
+.adminArticleElementBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.adminArticleElementBtns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adminSettingsGradientImage {
+  max-width: 400px;
+}
+
+.adminArticleSettingsCheckbox {
+  max-width: 200px;
+  text-align: center;
+}

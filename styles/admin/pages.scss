@@ -5,8 +5,10 @@
   max-width: 400px;
   width: 100%;
   min-height: 200px;
+  max-height: 200px;
   img {
     max-width: 100%;
+    max-height: inherit;
   }
 }
 .borderDashed {

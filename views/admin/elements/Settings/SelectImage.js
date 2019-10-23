@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Uploader from '../Uploader/Uploader';
-import i from '../../../../utils/i18n';
 
 const SelectImage = ({
-  page, image, updateData, setNowImages, nowImages, thumb, name = '',
+  image, handleImages, thumb, name = '',
 }) => {
-  const [nowImage, setNowImage] = useState(page.images[image]);
+  const [nowImage, setNowImage] = useState(image);
 
   useEffect(() => {
-    setNowImage(page.images[image]);
-  }, [page.images]);
+    setNowImage(image);
+  }, [image]);
 
   const updateImage = (newImageName) => {
     let path = '/static/images/';
@@ -20,24 +19,10 @@ const SelectImage = ({
     if (newImageName) {
       const newImg = `${path}${newImageName}`;
       setNowImage(newImg);
-      let newImages = {};
-      if (image === 'header' && thumb) {
-        newImages = { ...nowImages, [image]: newImg, thumb: `/static/images/${name}/thumb-${newImageName}` };
-      } else {
-        newImages = { ...nowImages, [image]: newImg };
-      }
-      setNowImages(newImages);
-      updateData({ _id: page._id, images: newImages });
+      handleImages(newImg);
     } else {
-      let delImage = {};
-      if (image === 'header' && thumb) {
-        delImage = { ...nowImages, [image]: '', thumb: '' };
-      } else {
-        delImage = { ...nowImages, [image]: '' };
-      }
-      setNowImage(newImageName);
-      setNowImages(delImage);
-      updateData({ _id: page._id, images: delImage });
+      setNowImage(null);
+      handleImages(null);
       axios({
         method: 'delete',
         url: `/api/images/${name}`,
@@ -47,9 +32,9 @@ const SelectImage = ({
   };
 
   return (
-    <div className="adminPageElement">
+    <div className="adminSettingsGradientImage">
       <p>
-        {i(image)}
+        Фоновое изображение
       :
       </p>
       <div className="adminBtnsBox">

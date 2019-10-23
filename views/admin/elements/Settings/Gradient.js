@@ -3,7 +3,7 @@ import { SketchPicker } from 'react-color';
 import gradientParser from 'gradient-parser';
 import useToggle from '../../../../utils/useToggle';
 
-const Gradient = ({ data, setData }) => {
+const Gradient = ({ background, handleGradient }) => {
   const initialData = {
     type: 'linear-gradient',
     orientation: 'to bottom',
@@ -16,11 +16,6 @@ const Gradient = ({ data, setData }) => {
   const {
     type, orientation, color, nextColor,
   } = dataGradient;
-  const { background } = data.text;
-
-  const handleGradient = (newBg) => {
-    setData({ data: { ...data, text: { ...data.text, background: newBg } } });
-  };
 
   const setColors = () => {
     if (background && background.indexOf('gradient') !== -1) {

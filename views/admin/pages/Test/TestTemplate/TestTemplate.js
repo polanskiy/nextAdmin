@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import request from '../../../../../utils/request';
 import Text from './Text';
 import Elements from './Elements';
+import TemplateCtx from './TemplateCtx';
 
 const TestTemplate = ({ id, preloader }) => {
   const [articleData, setArticleData] = useState({ data: null, isFetching: false });
@@ -55,6 +56,14 @@ const TestTemplate = ({ id, preloader }) => {
     preloader();
   };
 
+  const ctxData = {
+    data,
+    setArticleData,
+    handleFocus,
+    setDeleteImg,
+    updateArticle,
+  };
+
   return (
     <div className="travelTemplateBox">
       <input
@@ -70,8 +79,10 @@ const TestTemplate = ({ id, preloader }) => {
         ? (
           <>
             <h1 className="adminTitle">{data.route}</h1>
-            <Text data={data} setArticleData={setArticleData} handleFocus={handleFocus} setDeleteImg={setDeleteImg} />
-            <Elements data={data} setData={setArticleData} />
+            <TemplateCtx.Provider value={ctxData}>
+              <Text />
+              <Elements />
+            </TemplateCtx.Provider>
           </>
         ) : 'такой статьи нет'}
       <button type="button" className="adminBtn absoluteBtn" onClick={() => updateArticle(data)}>Сохранить</button>

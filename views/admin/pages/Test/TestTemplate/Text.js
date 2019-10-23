@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TextEditor from '../../../elements/Editor/TextEditor';
+import TemplateCtx from './TemplateCtx';
 
 
-const Text = ({
-  data, handleFocus, setArticleData,
-}) => {
+const Text = () => {
+  const { data, handleFocus, setArticleData } = useContext(TemplateCtx);
   const handleTitle = (title) => {
     setArticleData({ data: { ...data, title }, isFetching: false });
   };

@@ -1,17 +1,25 @@
 import React from 'react';
-import SelectImageArr from '../../../elements/Editor/SelectImageArr';
+import axios from 'axios';
+import SelectImageArr from '../../../../../elements/Editor/SelectImageArr';
 
 const SlideItem = ({
-  slide, updateData, data, setData, index,
+  slide, chunkData, setData, index, data,
 }) => {
   const handleSlides = (newSlides) => {
-    const newData = { ...data, slides: newSlides };
-    setData({ data: { ...newData, isFetching: false } });
-    updateData(newData);
+    setData(newSlides);
   };
 
   const delSlide = () => {
-    const newSlides = data.slides.filter((item) => item.id !== slide.id);
+    const newSlides = chunkData.slides.filter((item) => {
+      if (item.id !== slide.id) {
+        return item;
+      }
+      axios({
+        method: 'delete',
+        url: `/api/images/${data._id}`,
+        data: { filename: item.value.split(`${data._id}/`)[1] },
+      });
+    });
     handleSlides(newSlides);
   };
 
@@ -29,10 +37,10 @@ const SlideItem = ({
       <input type="text" value={slide.name} onChange={handleName} /> */}
       <SelectImageArr
         key={slide.id}
-        page={data}
+        name={data._id}
         item={slide}
         handleItems={handleSlides}
-        items={data.slides}
+        items={chunkData.slides}
       />
     </div>
   );
