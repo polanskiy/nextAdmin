@@ -110,6 +110,7 @@ const Elements = () => {
         return (
           <Element
             key={item.id}
+            length={elements.length}
             index={i}
             addElement={addElement}
             handleDel={handleDel}
@@ -125,6 +126,7 @@ const Elements = () => {
         return (
           <Element
             key={item.id}
+            length={elements.length}
             index={i}
             addElement={addElement}
             handleDel={handleDel}
@@ -144,7 +146,7 @@ const Elements = () => {
   console.log('data', data);
 
   return (
-    <div>
+    <div className="adminArticlesElementsBox">
       {!elements.length && <button type="button" onClick={toggleOpen}>+</button>}
       <Modal title="Добавление Статьи" isOpen={isOpen} toggleOpen={toggleOpen}>
         <ul onClick={addElement}>
