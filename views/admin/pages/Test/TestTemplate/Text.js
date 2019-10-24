@@ -14,7 +14,7 @@ const Text = () => {
 
   return (
     <div className="adminPageElement">
-      <h1 className="adminArticleTitle">Текст:</h1>
+      <h1 className="adminArticleTitle">Заголовок:</h1>
       <div className="adminArticleTitlesBox">
         <div>
           <TextEditor

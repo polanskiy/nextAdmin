@@ -5,14 +5,13 @@ import Elements from './Elements';
 import TemplateCtx from './TemplateCtx';
 
 const TestTemplate = ({ id, preloader }) => {
-  const [articleData, setArticleData] = useState({ data: null, isFetching: false });
+  const [articleData, setArticleData] = useState({ data: null, isFetching: true });
   const [deleteImg, setDeleteImg] = useState('');
   const { data, isFetching } = articleData;
   const kek = useCallback(React.createRef(), []);
   let isMount = true;
 
   const fetchTravelData = async () => {
-    setArticleData({ data: articleData.data, isFetching: true });
     preloader();
     try {
       const res = await request(`/api/articles/${id}`);
@@ -63,7 +62,7 @@ const TestTemplate = ({ id, preloader }) => {
     setDeleteImg,
     updateArticle,
   };
-
+  console.log('kek');
   return (
     <div className="travelTemplateBox">
       <input
@@ -74,7 +73,6 @@ const TestTemplate = ({ id, preloader }) => {
           opacity: 0, height: 0, margin: 0, padding: 0, border: 0, cursor: 'default',
         }}
       />
-      {isFetching && 'загрузка'}
       {data
         ? (
           <>
@@ -84,10 +82,10 @@ const TestTemplate = ({ id, preloader }) => {
               <Elements />
             </TemplateCtx.Provider>
           </>
-        ) : 'такой статьи нет'}
+        ) : !isFetching ? 'такой статьи нет' : 'загрузка'}
       <button type="button" className="adminBtn absoluteBtn" onClick={() => updateArticle(data)}>Сохранить</button>
     </div>
   );
 };
 
-export default TestTemplate;
+export default React.memo(TestTemplate);

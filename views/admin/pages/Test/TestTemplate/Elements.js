@@ -8,6 +8,7 @@ import TemplateCtx from './TemplateCtx';
 import Modal from '../../../elements/Modal/Modal';
 import DeleteWarning from '../../../elements/Modal/DeleteWarning';
 import Slider from './chunks/Slider/Slider';
+import Tabs from './chunks/Tabs/Tabs';
 
 const Elements = () => {
   const [isOpen, toggleOpen] = useToggle(false);
@@ -45,6 +46,18 @@ const Elements = () => {
           },
           gradient: '',
           slides: [],
+        };
+        break;
+      case 'tabs':
+        newElement = {
+          id,
+          type: name,
+          image: {
+            value: '',
+            repeat: '',
+          },
+          gradient: '',
+          tabs: [],
         };
         break;
 
@@ -121,7 +134,19 @@ const Elements = () => {
           </Element>
         );
       case 'tabs':
-        return <Element>вкладки</Element>;
+        return (
+          <Element
+            key={item.id}
+            length={elements.length}
+            index={i}
+            addElement={addElement}
+            handleDel={handleDel}
+            chunkData={item}
+            handleAdd={handleAdd}
+          >
+            <Tabs chunkData={item} />
+          </Element>
+        );
       case 'slider':
         return (
           <Element
@@ -134,7 +159,6 @@ const Elements = () => {
             handleAdd={handleAdd}
           >
             <Slider chunkData={item} />
-
           </Element>
         );
 
@@ -143,16 +167,14 @@ const Elements = () => {
     }
   });
 
-  console.log('data', data);
-
   return (
     <div className="adminArticlesElementsBox">
-      {!elements.length && <button type="button" onClick={toggleOpen}>+</button>}
-      <Modal title="Добавление Статьи" isOpen={isOpen} toggleOpen={toggleOpen}>
+      {!elements.length && <button type="button" className="adminBtn" onClick={toggleOpen}>+</button>}
+      <Modal title="Добавление элемента" isOpen={isOpen} toggleOpen={toggleOpen}>
         <ul onClick={addElement}>
-          <li data-name="text">text</li>
-          <li data-name="tabs">tabs</li>
-          <li data-name="slider">slider</li>
+          <li data-name="text" className="adminBtn">Текст</li>
+          <li data-name="tabs" className="adminBtn">Вкладки</li>
+          <li data-name="slider" className="adminBtn">Карусель</li>
         </ul>
       </Modal>
       <DeleteWarning confirmDel={delElement} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />

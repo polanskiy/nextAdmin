@@ -127,7 +127,7 @@
 }
 
 .adminArticlesElementsBox {
-  text-align: center;
+  // text-align: center;
 }
 
 .adminArticleElementBody {
@@ -136,8 +136,17 @@
 }
 
 .adminArticleElementBtns {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  button:nth-child(1) {
+    margin: 0 0 10px;
+  }
+  button:nth-child(2) {
+    position: absolute;
+    right: 0;
+    margin: 0;
+  }
 }
 
 .adminSettingsGradientImage {

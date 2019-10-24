@@ -23,7 +23,7 @@ const Tabs = ({
     await updateTravel(newTravel);
   };
 
-  const renderTabs = () => data.tabs.map(tab => (
+  const renderTabs = () => data.tabs.map((tab) => (
     <TabItem
       key={tab.id}
       tab={tab}
