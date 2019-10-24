@@ -19,19 +19,20 @@ const Elements = () => {
   const { elements } = data;
 
   const addElement = (e) => {
-    const { name } = e.target.dataset;
+    const { type } = e.target.dataset;
     const id = randomId(7);
     let newElement = {};
+    const image = {
+      value: '',
+      repeat: '',
+    };
     toggleOpen();
-    switch (name) {
+    switch (type) {
       case 'text':
         newElement = {
           id,
-          type: name,
-          image: {
-            value: '',
-            repeat: '',
-          },
+          type,
+          image,
           gradient: '',
           text: '',
         };
@@ -39,11 +40,8 @@ const Elements = () => {
       case 'slider':
         newElement = {
           id,
-          type: name,
-          image: {
-            value: '',
-            repeat: '',
-          },
+          type,
+          image,
           gradient: '',
           slides: [],
         };
@@ -51,11 +49,8 @@ const Elements = () => {
       case 'tabs':
         newElement = {
           id,
-          type: name,
-          image: {
-            value: '',
-            repeat: '',
-          },
+          type,
+          image,
           gradient: '',
           tabs: [],
         };
@@ -89,7 +84,7 @@ const Elements = () => {
           data: { filename: item.image.value.split(`${data._id}/`)[1] },
         });
       }
-      if (item.slides.length) {
+      if (item.slides && item.slides.length) {
         item.slides.forEach((slide) => {
           if (slide.value) {
             axios({
@@ -101,6 +96,7 @@ const Elements = () => {
         });
       }
     });
+
     setArticleData({ data: { ...data, elements: newElements }, isFetching: false });
     setShowDelWarn();
     updateArticle({ ...data, elements: newElements });
@@ -117,64 +113,60 @@ const Elements = () => {
     setShowDelWarn();
   };
 
-  const renderElements = () => elements.map((item, i) => {
-    switch (item.type) {
-      case 'text':
-        return (
-          <Element
-            key={item.id}
-            length={elements.length}
-            index={i}
-            addElement={addElement}
-            handleDel={handleDel}
-            chunkData={item}
-            handleAdd={handleAdd}
-          >
-            <Text chunkData={item} />
-          </Element>
-        );
-      case 'tabs':
-        return (
-          <Element
-            key={item.id}
-            length={elements.length}
-            index={i}
-            addElement={addElement}
-            handleDel={handleDel}
-            chunkData={item}
-            handleAdd={handleAdd}
-          >
-            <Tabs chunkData={item} />
-          </Element>
-        );
-      case 'slider':
-        return (
-          <Element
-            key={item.id}
-            length={elements.length}
-            index={i}
-            addElement={addElement}
-            handleDel={handleDel}
-            chunkData={item}
-            handleAdd={handleAdd}
-          >
-            <Slider chunkData={item} />
-          </Element>
-        );
+  const renderElements = () => {
+    const props = {
+      length: elements.length,
+      addElement,
+      handleDel,
+      handleAdd,
+    };
+    return elements.map((item, i) => {
+      props.index = i;
+      props.chunkData = item;
+      switch (item.type) {
+        case 'text':
+          return (
+            <Element
+              key={item.id}
+              {...props}
+            >
+              <Text chunkData={item} />
+            </Element>
+          );
+        case 'tabs':
+          return (
+            <Element
+              key={item.id}
+              {...props}
+            >
+              <Tabs chunkData={item} />
+            </Element>
+          );
+        case 'slider':
+          return (
+            <Element
+              key={item.id}
+              {...props}
+            >
+              <Slider chunkData={item} />
+            </Element>
+          );
 
-      default:
-        return null;
-    }
-  });
+        default:
+          return null;
+      }
+    });
+  };
 
   return (
     <div className="adminArticlesElementsBox">
       {!elements.length && <button type="button" className="adminBtn" onClick={toggleOpen}>+</button>}
       <Modal title="Добавление элемента" isOpen={isOpen} toggleOpen={toggleOpen}>
         <ul onClick={addElement}>
-          <li data-name="text" className="adminBtn">Текст</li>
-          <li data-name="tabs" className="adminBtn">Вкладки</li>
-          <li data-name="slider" className="adminBtn">Карусель</li>
+          <li data-type="text" className="adminBtn">Текст</li>
+          <li data-type="tabs" className="adminBtn">Вкладки</li>
+          <li data-type="slider" className="adminBtn">Карусель</li>
+          <li data-type="accord" className="adminBtn">Аккордеон</li>
         </ul>
       </Modal>
       <DeleteWarning confirmDel={delElement} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
