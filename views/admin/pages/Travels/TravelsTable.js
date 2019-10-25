@@ -31,13 +31,13 @@ const TravelsTable = ({
   const Setting = Config();
   const { columns } = Setting;
   return (
-    <>
+    <div className="adminTableBox">
       { travelList.isFetching ? <p>загрузка путешествий</p> : travelList.data.length
         ? (
           <Table data={travelList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
         ) : <div>Путешествий нет</div>}
       <DeleteWarning confirmDel={delTravel} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
-    </>
+    </div>
   );
 };
 

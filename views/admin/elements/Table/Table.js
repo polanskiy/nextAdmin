@@ -27,7 +27,7 @@ const Table = ({
   };
 
   return (
-    <div>
+    <>
       <PaginationProvider
         pagination={paginationFactory({ ...options, ...pagination })}
       >
@@ -37,7 +37,7 @@ const Table = ({
             paginationTableProps,
           } = props;
           return (
-            <div>
+            <>
               {/* {disablePagination ? null
                 : (
                   <PaginationBox>
@@ -73,13 +73,12 @@ const Table = ({
                       {...paginationProps}
                     />
                   </div>
-                )
-            }
-            </div>
+                )}
+            </>
           );
         }}
       </PaginationProvider>
-    </div>
+    </>
   );
 };
 export default Table;
