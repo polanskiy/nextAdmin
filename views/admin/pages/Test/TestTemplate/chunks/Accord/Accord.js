@@ -4,9 +4,9 @@ import TemplateCtx from '../../TemplateCtx';
 import Gradient from '../../../../../elements/Settings/Gradient';
 import SelectImage from '../../../../../elements/Settings/SelectImage';
 import Checkbox from '../../../../../elements/Settings/Checkbox';
-import TabItem from './TabItem';
+import AccordItem from './AccordItem';
 
-const Tabs = ({ chunkData }) => {
+const Accord = ({ chunkData }) => {
   const [isNewTab, setNewTab] = useState(false);
 
   const {
@@ -42,7 +42,7 @@ const Tabs = ({ chunkData }) => {
     const newElements = data.elements.map((item) => {
       if (item.id === chunkData.id) {
         const newItem = { ...item };
-        newItem.image.repeat = repeat ? 'repeat' : 'no-repeat';
+        newItem.image.repeat = repeat;
         return newItem;
       }
       return item;
@@ -73,7 +73,7 @@ const Tabs = ({ chunkData }) => {
   };
 
   const renderTabs = () => chunkData.tabs.map((tab) => (
-    <TabItem
+    <AccordItem
       key={tab.id}
       tab={tab}
       data={data}
@@ -86,7 +86,7 @@ const Tabs = ({ chunkData }) => {
 
   return (
     <div className="adminPageElement">
-      <h1 className="adminArticleTitle">Вкладки:</h1>
+      <h1 className="adminArticleTitle">Аккордеон:</h1>
       <div className="adminArticleElementBody">
         <div className="adminSettingsBox">
           <Gradient background={chunkData.gradient} handleGradient={handleGradient} />
@@ -97,7 +97,7 @@ const Tabs = ({ chunkData }) => {
             name={data._id}
             thumb={false}
           />
-          <Checkbox data={chunkData.image.repeat === 'repeat'} setData={handleRepeat} label="Повтор изображения" />
+          <Checkbox data={chunkData.image.repeat} setData={handleRepeat} label="Повтор изображения" />
         </div>
         <div className="adminBtnsBox">
           <button type="button" onClick={addTab} className="adminBtn">Добавить вкладку</button>
@@ -110,4 +110,4 @@ const Tabs = ({ chunkData }) => {
   );
 };
 
-export default Tabs;
+export default Accord;

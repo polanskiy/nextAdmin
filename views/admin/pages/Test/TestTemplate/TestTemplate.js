@@ -3,6 +3,8 @@ import request from '../../../../../utils/request';
 import Text from './Text';
 import Elements from './Elements';
 import TemplateCtx from './TemplateCtx';
+import Settings from './Settings';
+import Images from './Images';
 
 const TestTemplate = ({ id, preloader }) => {
   const [articleData, setArticleData] = useState({ data: null, isFetching: true });
@@ -62,7 +64,7 @@ const TestTemplate = ({ id, preloader }) => {
     setDeleteImg,
     updateArticle,
   };
-  console.log('kek');
+
   return (
     <div className="travelTemplateBox">
       <input
@@ -78,7 +80,9 @@ const TestTemplate = ({ id, preloader }) => {
           <>
             <h1 className="adminTitle">{data.route}</h1>
             <TemplateCtx.Provider value={ctxData}>
+              <Settings />
               <Text />
+              <Images />
               <Elements />
             </TemplateCtx.Provider>
           </>

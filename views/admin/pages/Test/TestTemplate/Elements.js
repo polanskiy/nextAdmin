@@ -9,6 +9,7 @@ import Modal from '../../../elements/Modal/Modal';
 import DeleteWarning from '../../../elements/Modal/DeleteWarning';
 import Slider from './chunks/Slider/Slider';
 import Tabs from './chunks/Tabs/Tabs';
+import Accord from './chunks/Accord/Accord';
 
 const Elements = () => {
   const [isOpen, toggleOpen] = useToggle(false);
@@ -24,7 +25,7 @@ const Elements = () => {
     let newElement = {};
     const image = {
       value: '',
-      repeat: '',
+      repeat: 'no-repeat',
     };
     toggleOpen();
     switch (type) {
@@ -47,6 +48,15 @@ const Elements = () => {
         };
         break;
       case 'tabs':
+        newElement = {
+          id,
+          type,
+          image,
+          gradient: '',
+          tabs: [],
+        };
+        break;
+      case 'accord':
         newElement = {
           id,
           type,
@@ -149,6 +159,15 @@ const Elements = () => {
               {...props}
             >
               <Slider chunkData={item} />
+            </Element>
+          );
+        case 'accord':
+          return (
+            <Element
+              key={item.id}
+              {...props}
+            >
+              <Accord chunkData={item} />
             </Element>
           );
 
