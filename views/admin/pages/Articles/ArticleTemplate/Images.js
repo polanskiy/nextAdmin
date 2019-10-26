@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SelectImage from '../../../elements/Editor/SelectImage';
+import TemplaceCtx from './TemplateCtx';
 
-const Images = ({ data, setArticleData, updateArticle }) => {
+const Images = () => {
+  const { data, setArticleData, updateArticle } = useContext(TemplaceCtx);
+
   const handleImages = (images) => {
     setArticleData({ data: { ...data, images }, isFetching: false });
   };
+
   const renderImages = () => Object.keys(data.images).map((image) => {
     if (image !== 'thumb') {
       return (

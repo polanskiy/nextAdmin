@@ -12,10 +12,8 @@ const articleSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  text: {
-    type: Object,
-  },
   images: { type: Object },
+  background: String,
   public: Boolean,
   position: Number,
   author: {

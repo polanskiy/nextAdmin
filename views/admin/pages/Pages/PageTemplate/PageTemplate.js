@@ -49,7 +49,7 @@ const PageTemplate = ({ name, preloader }) => {
     }
     preloader();
   };
-  console.log('data', data);
+
   return (
     <div className="travelTemplateBox">
       <input

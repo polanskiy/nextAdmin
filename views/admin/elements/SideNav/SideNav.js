@@ -6,9 +6,6 @@ const SideNav = ({ slug }) => {
   return (
     <div className="adminSidenavBox">
       <div className="adminSidenavSticky">
-        {/* <Link href="/admin">
-        <a style={{ fontSize: 20 }}>Главная</a>
-      </Link> */}
         <Link route="admin" params={{ slug: 'pages' }}>
           <a className={active === 'pages' ? 'adminActiveNav' : undefined} onClick={() => setActive('pages')}>Страницы</a>
         </Link>
@@ -20,9 +17,6 @@ const SideNav = ({ slug }) => {
         </Link>
         <Link route="admin" params={{ slug: 'media' }}>
           <a className={active === 'media' ? 'adminActiveNav' : undefined} onClick={() => setActive('media')}>Медиа</a>
-        </Link>
-        <Link route="admin" params={{ slug: 'test' }}>
-          <a className={active === 'test' ? 'adminActiveNav' : undefined} onClick={() => setActive('test')}>Test</a>
         </Link>
       </div>
     </div>

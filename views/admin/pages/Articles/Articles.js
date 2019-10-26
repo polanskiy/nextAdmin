@@ -27,7 +27,7 @@ const Articles = (props) => {
   return (
     <>
       <div>
-        <h1 className="adminTitle">Статьи:</h1>
+        <h1 className="adminTitle">Тестовое:</h1>
         <NewTravel articleList={articleList.data} fetchArticles={fetchArticles} />
         <div className="adminPageElement">
           <ArticlesTable

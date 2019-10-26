@@ -92,7 +92,7 @@ const TextEditor = ({
               });
             },
           }}
-          onChange={(e) => { setData(e.target.getContent()); console.log('kek'); }}
+          onChange={(e) => { setData(e.target.getContent()); }}
         />
       </div>
     </div>

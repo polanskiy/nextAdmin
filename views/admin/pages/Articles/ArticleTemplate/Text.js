@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TextEditor from '../../../elements/Editor/TextEditor';
+import TemplateCtx from './TemplateCtx';
 
 
-const Text = ({
-  data, handleFocus, setArticleData, setDeleteImg,
-}) => {
+const Text = () => {
+  const { data, handleFocus, setArticleData } = useContext(TemplateCtx);
   const handleTitle = (title) => {
     setArticleData({ data: { ...data, title }, isFetching: false });
   };
@@ -12,13 +12,9 @@ const Text = ({
     setArticleData({ data: { ...data, subtitle }, isFetching: false });
   };
 
-  const handleText = (text) => {
-    setArticleData({ data: { ...data, text: { ...data.text, value: text } }, isFetching: false });
-  };
-
   return (
     <div className="adminPageElement">
-      <h1 className="adminArticleTitle">Текст:</h1>
+      <h1 className="adminArticleTitle">Заголовок:</h1>
       <div className="adminArticleTitlesBox">
         <div>
           <TextEditor
@@ -41,16 +37,6 @@ const Text = ({
           />
         </div>
       </div>
-      <TextEditor
-        selector="textSelector"
-        title="Текст статьи"
-        data={data.text.value}
-        setData={handleText}
-        handleFocus={handleFocus}
-        height={650}
-        name={data._id}
-        setDeleteImg={setDeleteImg}
-      />
     </div>
   );
 };
