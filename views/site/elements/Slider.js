@@ -5,7 +5,7 @@ const Slider = ({ slides }) => {
   const renderSlides = () => slides.map((item) => (
     <div
       className="sliderItem"
-      key={item._id}
+      key={item.id}
     >
       <img src={item.value} alt="" />
 

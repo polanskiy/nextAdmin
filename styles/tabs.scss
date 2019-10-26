@@ -66,10 +66,14 @@
   min-width: 320px;
 }
 
+.st0{
+  transition: .4s;
+}
+
 .travelTabsBox .activeTab {
   background: #F60B50;
   color:#fff;
-  transition: .2s;
+  transition: .4s;
   .st0 {
     fill: #fff;
   }

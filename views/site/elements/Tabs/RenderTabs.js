@@ -1,20 +1,22 @@
 import React from 'react';
 import xss from 'xss';
 import xssOptions from '../../../../utils/xssOptions';
-import Tabs from '../../elements/Tabs';
+import Tabs from './Tabs';
 
-const TravelAbout = ({ tabs, tabsBg }) => {
-  const renderTabs = () => tabs.map(tab => (
+const RenderTabs = ({
+  tabs, tabsBg, gradient = 'linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%)', repeat,
+}) => {
+  const renderTabs = () => tabs.map((tab) => (
     <div
       name={tab.name}
       className="travelTabContent"
-      key={tab._id}
+      key={tab.id}
       icon={tab.icon}
       dangerouslySetInnerHTML={{ __html: xss(tab.value, xssOptions) }}
     />
   ));
   return (
-    <div className="travelAboutBox" style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%), url(${tabsBg})` }}>
+    <div className="travelAboutBox" style={{ background: `${gradient}, url(${tabsBg}) ${repeat}` }}>
       <div className="contentMidWrapper ">
         {tabs.length && (
           <Tabs tabsBoxClass="travelTabsBox" tabHeaderBoxClass="travelTabsHeader" tabHeaderClass="travelTab">
@@ -26,4 +28,4 @@ const TravelAbout = ({ tabs, tabsBg }) => {
   );
 };
 
-export default TravelAbout;
+export default RenderTabs;

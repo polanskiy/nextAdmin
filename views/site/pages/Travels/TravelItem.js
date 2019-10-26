@@ -2,9 +2,9 @@ import React from 'react';
 import xss from 'xss';
 import { Link } from '../../../../routes';
 import Header from '../../elements/Header';
-import TravelAbout from './TravelAbout';
 import Slider from '../../elements/Slider';
 import xssOptions from '../../../../utils/xssOptions';
+import RenderTabs from '../../elements/Tabs/RenderTabs';
 
 const TravelItem = ({ article }) => (
   <div className="travelItemBox">
@@ -27,7 +27,7 @@ const TravelItem = ({ article }) => (
                 </div>
               </div>
             </div>
-            <TravelAbout tabs={article.tabs} tabsBg={article.images.tabs} />
+            <RenderTabs tabs={article.tabs} tabsBg={article.images.tabs} />
             {article.slides.length ? (
               <div className="sliderBox">
                 <Slider

@@ -21,51 +21,28 @@ const Elements = () => {
 
   const addElement = (e) => {
     const { type } = e.target.dataset;
-    const id = randomId(7);
-    let newElement = {};
-    const image = {
-      value: '',
+    const newElement = {
+      id: randomId(7),
+      type,
+      image: '',
       repeat: 'no-repeat',
+      gradient: undefined,
     };
+
     toggleOpen();
     switch (type) {
       case 'text':
-        newElement = {
-          id,
-          type,
-          image,
-          gradient: '',
-          text: '',
-        };
+        newElement.text = '';
         break;
       case 'slider':
-        newElement = {
-          id,
-          type,
-          image,
-          gradient: '',
-          slides: [],
-        };
+        newElement.slides = [];
         break;
       case 'tabs':
-        newElement = {
-          id,
-          type,
-          image,
-          gradient: '',
-          tabs: [],
-        };
+        newElement.tabs = [];
         break;
       case 'accord':
-        newElement = {
-          id,
-          type,
-          image,
-          gradient: '',
-          tabs: [],
-        };
+        newElement.tabs = [];
         break;
-
       default:
         break;
     }
@@ -87,11 +64,11 @@ const Elements = () => {
       if (item.id !== nowChunkId) {
         return item;
       }
-      if (item.image.value) {
+      if (item.image) {
         axios({
           method: 'delete',
           url: `/api/images/${data._id}`,
-          data: { filename: item.image.value.split(`${data._id}/`)[1] },
+          data: { filename: item.image.split(`${data._id}/`)[1] },
         });
       }
       if (item.slides && item.slides.length) {

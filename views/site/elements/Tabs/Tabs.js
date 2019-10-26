@@ -31,17 +31,17 @@ const Tabs = ({
       return (tabs.map((tab, i) => (
         <React.Fragment key={tab.props.name}>
           {activeTab === i && (
-            <React.Fragment>
+            <>
               {tab}
-            </React.Fragment>
+            </>
           )}
         </React.Fragment>
       )));
     }
     return (
-      <React.Fragment>
+      <>
         {tabs}
-      </React.Fragment>
+      </>
     );
   };
 

@@ -2,6 +2,8 @@ import React from 'react';
 import xss from 'xss';
 import Header from '../../elements/Header';
 import xssOptions from '../../../../utils/xssOptions';
+import Slider from '../../elements/Slider';
+import RenderTabs from '../../elements/Tabs/RenderTabs';
 
 const BlogItem = ({ article }) => {
   const renderElemenets = () => {
@@ -25,18 +27,32 @@ const BlogItem = ({ article }) => {
           );
         case 'tabs':
           return (
-            <div
+            <RenderTabs
               key={item.id}
-              className="whiteBg"
-              style={{ background: `${item.gradient}, url(${item.image.value}) ${item.image.repeat}` }}
-            >
-              <div className="contentMidWrapper">
-                <div
-                  className="blogTextBox"
-                  dangerouslySetInnerHTML={{ __html: xss(item.text, xssOptions) }}
+              tabs={item.tabs}
+              tabsBg={item.image.value}
+              gradient={item.gradient}
+              repeat={item.image.repeat}
+            />
+          );
+        case 'slider':
+          return (
+            item.slides.length ? (
+              <div
+                className="sliderBox"
+                style={{ background: `${item.gradient}, url(${item.image.value}) ${item.image.repeat}` }}
+                key={item.id}
+              >
+                <Slider
+                  slides={item.slides}
+                  className="travelSlider"
+                  dots
+                  colorArr="#000"
+                  slidesToShow={1}
+                  fade={false}
                 />
               </div>
-            </div>
+            ) : null
           );
 
         default:

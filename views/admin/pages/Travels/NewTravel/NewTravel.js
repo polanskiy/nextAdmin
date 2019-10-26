@@ -21,6 +21,7 @@ const NewTravel = ({ travelList, fetchTravels }) => {
         header: '',
         tabs: '',
       },
+      slides: [],
       public: false,
       position: newPostion,
     };

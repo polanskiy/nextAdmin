@@ -13,43 +13,18 @@ const Tabs = ({ chunkData }) => {
     setArticleData, data, updateArticle, handleFocus,
   } = useContext(TemplateCtx);
 
-  const handleGradient = (newBg) => {
+  const handleEl = (newVal, el) => {
     const newElements = data.elements.map((item) => {
       if (item.id === chunkData.id) {
         const newItem = { ...item };
-        newItem.gradient = newBg;
+        newItem[el] = newVal;
         return newItem;
       }
       return item;
     });
     setArticleData({ data: { ...data, elements: newElements }, isFetching: false });
+    if (el === 'image') updateArticle({ ...data, elements: newElements });
   };
-
-  const handleImages = (newImage) => {
-    const newElements = data.elements.map((item) => {
-      if (item.id === chunkData.id) {
-        const newItem = { ...item };
-        newItem.image.value = newImage;
-        return newItem;
-      }
-      return item;
-    });
-    setArticleData({ data: { ...data, elements: newElements }, isFetching: false });
-    updateArticle({ ...data, elements: newElements });
-  };
-
-  const handleRepeat = (repeat) => {
-    const newElements = data.elements.map((item) => {
-      if (item.id === chunkData.id) {
-        const newItem = { ...item };
-        newItem.image.repeat = repeat ? 'repeat' : 'no-repeat';
-        return newItem;
-      }
-      return item;
-    });
-    setArticleData({ data: { ...data, elements: newElements }, isFetching: false });
-  };
-
 
   const addTab = async () => {
     const newTab = {
@@ -89,15 +64,15 @@ const Tabs = ({ chunkData }) => {
       <h1 className="adminArticleTitle">Вкладки:</h1>
       <div className="adminArticleElementBody">
         <div className="adminSettingsBox">
-          <Gradient background={chunkData.gradient} handleGradient={handleGradient} />
+          <Gradient background={chunkData.gradient} handleGradient={(val) => handleEl(val, 'gradient')} />
           <SelectImage
             page={chunkData}
-            image={chunkData.image.value}
-            handleImages={handleImages}
+            image={chunkData.image}
+            handleImages={(val) => handleEl(val, 'image')}
             name={data._id}
             thumb={false}
           />
-          <Checkbox data={chunkData.image.repeat === 'repeat'} setData={handleRepeat} label="Повтор изображения" />
+          <Checkbox data={chunkData.repeat === 'repeat'} setData={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')} label="Повтор изображения" />
         </div>
         <div className="adminBtnsBox">
           <button type="button" onClick={addTab} className="adminBtn">Добавить вкладку</button>
