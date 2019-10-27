@@ -162,7 +162,7 @@ const Elements = () => {
           <li data-type="text" className="adminBtn">Текст</li>
           <li data-type="tabs" className="adminBtn">Вкладки</li>
           <li data-type="slider" className="adminBtn">Карусель</li>
-          <li data-type="accord" className="adminBtn">Аккордеон</li>
+          {/* <li data-type="accord" className="adminBtn">Аккордеон</li> */}
         </ul>
       </Modal>
       <DeleteWarning confirmDel={delElement} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
