@@ -1,0 +1,32 @@
+
+.accordItemBox {
+  .accordTitle {
+    display: flex;
+    align-items: center;
+    border: 1px solid $color;
+    padding: 4px 8px;
+    cursor: pointer;
+    svg {
+      height: 40px;
+    }
+    .accordIcon {
+      margin: 0 10px 0 0;
+      div {
+        display: flex;
+      }
+    }
+  }
+  .accordContentBox {
+    transition: .4s;
+    overflow: hidden;
+    .accordContent {
+      padding: 8px;
+    }
+  }
+}
+
+.accordItemBoxActive {
+  .st0 {
+    fill: $pink;
+  }
+}
