@@ -4,7 +4,7 @@ import xssOptions from '../../../../utils/xssOptions';
 import Tabs from './Tabs';
 
 const RenderTabs = ({
-  tabs, tabsBg, gradient = 'linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%)', repeat,
+  tabs, tabsBg, gradient = 'linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%)', repeat = 'no-repeat',
 }) => {
   const renderTabs = () => tabs.map((tab) => (
     <div

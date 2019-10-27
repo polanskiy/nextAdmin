@@ -7,7 +7,6 @@ import RenderTabs from '../../elements/Tabs/RenderTabs';
 
 const BlogItem = ({ article }) => {
   const renderElemenets = () => {
-    console.log('article', article);
     return article.elements.map((item) => {
       switch (item.type) {
         case 'text':

@@ -11,7 +11,6 @@ const Text = ({ chunkData }) => {
   } = useContext(TemplateCtx);
 
   const handleEl = (newVal, el) => {
-    console.log('newVal, el', newVal, el);
     const newElements = data.elements.map((item) => {
       if (item.id === chunkData.id) {
         const newItem = { ...item };
