@@ -89,13 +89,13 @@ const Elements = () => {
     updateArticle({ ...data, elements: newElements });
   };
 
-  const handleAdd = (newPlace, index) => {
+  const modalAdd = (newPlace, index) => {
     setNowChunkId(index);
     setPlace(newPlace);
     toggleOpen();
   };
 
-  const handleDel = (chunkId) => {
+  const modalDel = (chunkId) => {
     setNowChunkId(chunkId);
     setShowDelWarn();
   };
@@ -104,8 +104,8 @@ const Elements = () => {
     const props = {
       length: elements.length,
       addElement,
-      handleDel,
-      handleAdd,
+      modalAdd,
+      modalDel,
     };
     return elements.map((item, i) => {
       props.index = i;

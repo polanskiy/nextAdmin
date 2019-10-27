@@ -15,7 +15,7 @@ const BlogItem = ({ article }) => {
             <div
               key={item.id}
               className="whiteBg"
-              style={{ background: `${item.gradient}, url(${item.image.value}) ${item.image.repeat}` }}
+              style={{ background: `${item.gradient}, url(${item.image}) ${item.repeat}` }}
             >
               <div className="contentMidWrapper">
                 <div
