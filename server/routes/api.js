@@ -76,6 +76,8 @@ router.post('/mail', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+  const time = Date(Date.now()).toString();
+  console.log(`someone try to login with ${req.body.login} and ${req.body.password} at ${time}`);
   User.findOne({ login: req.body.login }, (er, user) => {
     if (!user) return res.json({ isAuth: false, error: 'Неверные данные' });
     return user.comparePass(req.body.password, (errr, isMatch) => {

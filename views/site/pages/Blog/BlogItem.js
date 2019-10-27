@@ -30,9 +30,9 @@ const BlogItem = ({ article }) => {
             <RenderTabs
               key={item.id}
               tabs={item.tabs}
-              tabsBg={item.image.value}
+              tabsBg={item.image}
               gradient={item.gradient}
-              repeat={item.image.repeat}
+              repeat={item.repeat}
             />
           );
         case 'slider':
@@ -40,7 +40,7 @@ const BlogItem = ({ article }) => {
             item.slides.length ? (
               <div
                 className="sliderBox"
-                style={{ background: `${item.gradient}, url(${item.image.value}) ${item.image.repeat}` }}
+                style={{ background: `${item.gradient}, url(${item.image}) ${item.repeat}` }}
                 key={item.id}
               >
                 <Slider

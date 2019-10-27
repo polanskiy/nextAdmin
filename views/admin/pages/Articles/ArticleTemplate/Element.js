@@ -3,7 +3,7 @@ import React from 'react';
 const Element = ({
   children, modalDel, chunkData, modalAdd, index, length,
 }) => (
-  <div>
+  <>
     <div className="adminArticleElementBtns">
       <button type="button" className="adminBtn" onClick={() => (modalAdd('before', index))}>
         +
@@ -16,7 +16,7 @@ const Element = ({
       <button type="button" className="adminBtn" style={{ margin: '0 auto' }} onClick={() => (modalAdd('after', index))}>+</button>
     </div>
     )}
-  </div>
+  </>
 );
 
 export default Element;
