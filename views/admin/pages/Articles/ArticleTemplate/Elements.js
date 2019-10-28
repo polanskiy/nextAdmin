@@ -158,7 +158,7 @@ const Elements = () => {
     <div className="adminArticlesElementsBox">
       {!elements.length && <button type="button" className="adminBtn" onClick={toggleOpen}>+</button>}
       <Modal title="Добавление элемента" isOpen={isOpen} toggleOpen={toggleOpen}>
-        <ul onClick={addElement}>
+        <ul onClick={addElement} className="adminElementsList">
           <li data-type="text" className="adminBtn">Текст</li>
           <li data-type="tabs" className="adminBtn">Вкладки</li>
           <li data-type="slider" className="adminBtn">Карусель</li>

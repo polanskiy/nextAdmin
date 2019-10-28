@@ -11,9 +11,7 @@ const Header = () => {
   return (
     <div className="adminHeaderBox">
       <div>
-        <h1>Административная панель</h1>
-      </div>
-      <div>
+        <p>Административная панель</p>
         <Link route="/">
           <a target="_blank">Перейти на сайт</a>
         </Link>

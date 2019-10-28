@@ -51,7 +51,7 @@ const NewArticle = ({ articleList, fetchArticles }) => {
           >
             Создать
           </button>
-          <button type="button" className="adminBtn danger">Отмена</button>
+          <button type="button" onClick={toggleOpen} className="adminBtn adminDelBtn">Отмена</button>
         </div>
       </Modal>
     </>

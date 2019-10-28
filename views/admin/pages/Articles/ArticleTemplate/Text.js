@@ -16,26 +16,22 @@ const Text = () => {
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Заголовок:</h1>
       <div className="adminArticleTitlesBox">
-        <div>
-          <TextEditor
-            selector="titleSelector"
-            title="Заголовок статьи"
-            data={data.title}
-            setData={handleTitle}
-            focus="titleSelector"
-            handleFocus={handleFocus}
-          />
-        </div>
-        <div>
-          <TextEditor
-            selector="subtitleSelector"
-            title="Подзаголовок статьи"
-            data={data.subtitle}
-            setData={handleSubTitle}
-            focus="titleSelector"
-            handleFocus={handleFocus}
-          />
-        </div>
+        <TextEditor
+          selector="titleSelector"
+          title="Заголовок статьи"
+          data={data.title}
+          setData={handleTitle}
+          focus="titleSelector"
+          handleFocus={handleFocus}
+        />
+        <TextEditor
+          selector="subtitleSelector"
+          title="Подзаголовок статьи"
+          data={data.subtitle}
+          setData={handleSubTitle}
+          focus="titleSelector"
+          handleFocus={handleFocus}
+        />
       </div>
     </div>
   );

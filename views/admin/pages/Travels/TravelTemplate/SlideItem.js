@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import SelectImageArr from '../../../elements/Editor/SelectImageArr';
 
 const SlideItem = ({
@@ -26,6 +27,11 @@ const SlideItem = ({
 
   const delSlide = () => {
     const newSlides = data.slides.filter((item) => item.id !== slide.id);
+    axios({
+      method: 'delete',
+      url: `/api/images/${data._id}`,
+      data: { filename: slide.value.split(`${data._id}/`)[1] },
+    });
     handleSlides(newSlides);
   };
 
@@ -37,7 +43,7 @@ const SlideItem = ({
           {`${index + 1}`}
         :
         </p>
-        <button type="button" onClick={delSlide}>Удалить</button>
+        <button type="button" className="adminBtn adminDelBtn" onClick={delSlide}>Удалить</button>
       </div>
       {/* <p>текст:</p>
       <input type="text" value={slide.name} onChange={handleName} /> */}

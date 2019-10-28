@@ -54,7 +54,7 @@ const NewTravel = ({ travelList, fetchTravels }) => {
 Создать
 
           </button>
-          <button type="button" className="adminBtn danger">Отмена</button>
+          <button type="button" className="adminBtn adminDelBtn">Отмена</button>
         </div>
       </Modal>
     </>

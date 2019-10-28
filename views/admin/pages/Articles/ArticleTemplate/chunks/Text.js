@@ -22,23 +22,23 @@ const Text = ({ chunkData }) => {
     setArticleData({ data: { ...data, elements: newElements }, isFetching: false });
     if (el === 'image') updateArticle({ ...data, elements: newElements });
   };
-
+  console.log('chunkData.repeat', chunkData.repeat);
   return (
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Текст:</h1>
       <div className="adminArticleElementBody">
         <div className="adminSettingsBox">
-          <Gradient background={chunkData.gradient} handleGradient={(val) => handleEl(val, 'gradient')} />
           <SelectImage
             page={chunkData}
             image={chunkData.image}
             handleImages={(val) => handleEl(val, 'image')}
             name={data._id}
             thumb={false}
+            handleRepeat={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')}
           />
-          <Checkbox data={chunkData.repeat === 'repeat'} setData={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')} label="Повтор изображения" />
+          <Gradient background={chunkData.gradient} handleGradient={(val) => handleEl(val, 'gradient')} />
         </div>
-        <div>
+        <>
           <TextEditor
             selector={chunkData.id}
             title="Текст статьи"
@@ -49,7 +49,7 @@ const Text = ({ chunkData }) => {
             name={data._id}
             setDeleteImg={setDeleteImg}
           />
-        </div>
+        </>
       </div>
     </div>
   );

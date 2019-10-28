@@ -12,11 +12,33 @@ const SelectImage = ({
     setNowImage(page.images[image]);
   }, [page.images]);
 
+
+  const handleDelImg = () => {
+    let delImage = {};
+    if (image === 'header' && thumb) {
+      delImage = { ...nowImages, [image]: '', thumb: '' };
+    } else {
+      delImage = { ...nowImages, [image]: '' };
+    }
+    setNowImage(null);
+    setNowImages(delImage);
+    updateData({ _id: page._id, images: delImage });
+    axios({
+      method: 'delete',
+      url: `/api/images/${name}`,
+      data: { filename: nowImage.split(`${name}/`)[1] },
+    });
+  };
+
   const updateImage = (newImageName) => {
     let path = '/static/images/';
     if (name) {
       path = `/static/images/${name}/`;
     }
+    if (nowImage) {
+      handleDelImg();
+    }
+
     if (newImageName) {
       const newImg = `${path}${newImageName}`;
       setNowImage(newImg);
@@ -29,41 +51,31 @@ const SelectImage = ({
       setNowImages(newImages);
       updateData({ _id: page._id, images: newImages });
     } else {
-      let delImage = {};
-      if (image === 'header' && thumb) {
-        delImage = { ...nowImages, [image]: '', thumb: '' };
-      } else {
-        delImage = { ...nowImages, [image]: '' };
-      }
-      setNowImage(newImageName);
-      setNowImages(delImage);
-      updateData({ _id: page._id, images: delImage });
-      axios({
-        method: 'delete',
-        url: `/api/images/${name}`,
-        data: { filename: nowImage.split(`${name}/`)[1] },
-      });
+      handleDelImg();
     }
   };
 
+
   return (
-    <div className="adminPageElement">
-      <p>
+    <div className="adminElBox">
+      <p className="adminElTitle">
         {i(image)}
       :
       </p>
-      <div className="adminBtnsBox">
-        {image !== 'thumb'
+      <div className="adminElBody">
+        <div className="adminBtnsBox">
+          {image !== 'thumb'
         && (
           <>
             <Uploader updateImage={updateImage} link={name} thumb={image === 'header' && thumb} />
             {nowImage && <button type="button" className="adminBtn adminDelBtn" onClick={() => updateImage(null)}>Удалить</button>}
           </>
         )}
-      </div>
-      <div className={nowImage ? 'editorImageBox' : 'editorImageBox borderDashed'}>
-        {nowImage ? <img src={nowImage} alt="" />
-          : <p>изображения нет</p>}
+        </div>
+        <div className={nowImage ? 'editorImageBox' : 'editorImageBox borderDashed'}>
+          {nowImage ? <img src={nowImage} alt="" />
+            : <p>изображения нет</p>}
+        </div>
       </div>
     </div>
   );

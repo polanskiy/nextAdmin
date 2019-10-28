@@ -119,7 +119,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  animation: fadeIn 1s;
+  animation: fadeMenu 1s;
   height: 100%;
   top: 0;
   left: 0;
@@ -135,7 +135,7 @@
   }
 }
 
-@keyframes fadeIn{
+@keyframes fadeMenu{
   from {
     opacity: 0;
   }

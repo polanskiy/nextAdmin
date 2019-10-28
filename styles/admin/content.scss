@@ -2,19 +2,25 @@
   display: flex;
   flex: 1 0 auto;
   background: #E7EBF0;
+  margin: 60px 0 0;
 }
 
 .adminSidenavBox{
   display: flex;
   flex-direction: column;
-  background: #000;
-  padding: 20px;
+  background: $darkgray;
   flex: 1;
   a{
-    color: #ffffff;
-    margin: 10px;
+    color: $adminColor;
     transition: .4s;
     text-decoration: none;
+    border-bottom: 1px solid rgba(69, 74, 84, 0.7);
+    font-size: 16px;
+    padding: 10px 10px 10px 20px;
+    &:hover {
+      background: rgba(69, 74, 84, 0.3);
+      color: #fff;
+    }
   }
 }
 
@@ -22,22 +28,7 @@
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 40px;
-}
-
-@keyframes fadeIn{
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-}
-
-.adminHomeBox{
-  animation: fadeIn 1s;
+  top: 80px;
 }
 
 .adminContent {
@@ -51,11 +42,20 @@
 .adminBtn {
   background: $green;
   color: $white;
-  padding: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
   border: 0;
   cursor: pointer;
   margin: 0 10px 0 0;
   width: max-content;
+  border-radius: 15px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+  outline: 0;
+  opacity: .8;
+  transition: .4s;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .adminBtnsBox {
@@ -74,14 +74,20 @@
 }
 
 .adminDelBtn {
-  background: red!important;
+  background: $red!important;
+  opacity: .75;
+  transition: .4s;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .adminTitle {
   text-align: center;
   margin: 0 0 35px;
   padding: 6px;
-  background: $blue;
+  background: $adminBlue;
+  box-shadow: 0 -2px rgba(0,0,0,.1) inset;
   color: $white;
   text-transform: uppercase;
   font-size: 28px;
@@ -92,7 +98,7 @@
 }
 
 .adminSidenavBox a.adminActiveNav {
-  color: $lightgreen;
+  color: $white;
 }
 
 .loginBox {
@@ -123,4 +129,15 @@
       bottom: -50px;
     }
   }
+}
+
+.adminElBox {
+  border-radius: 15px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.adminSettingCheckbox {
+  display: flex;
+  align-items: center;
 }

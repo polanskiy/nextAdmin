@@ -71,11 +71,12 @@ const Gradient = ({ background, handleGradient }) => {
   };
 
   return (
-    <label className="adminSettingsGradient">
-      <span>Цвет Фона:</span>
-      <div className="pickerBox">
-        <div className="colorBtn" onClick={() => setIsOpen()} style={{ background }} />
-        {isOpen
+    <div className="adminSettingSmall adminSettingGradient">
+      <p className="adminElTitle">Цвет Фона:</p>
+      <div className="adminElBody">
+        <div className="pickerBox">
+          <div className="colorBtn" onClick={() => setIsOpen()} style={{ background }} />
+          {isOpen
             && (
             <div className="gradientBox">
               <div className="closeBox" onClick={(e) => { e.stopPropagation(); setIsOpen(); }} />
@@ -100,8 +101,9 @@ const Gradient = ({ background, handleGradient }) => {
               </div>
             </div>
             )}
+        </div>
       </div>
-    </label>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'next/router';
+import '../styles/admin/admin.scss';
 import AdminLayout from '../views/admin/hoc/AdminLayout';
 import Pages from '../views/admin/pages/Pages/Pages';
 import Articles from '../views/admin/pages/Articles/Articles';

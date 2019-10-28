@@ -3,7 +3,7 @@ import randomId from '../../../../../../../utils/randomId';
 import TemplateCtx from '../../TemplateCtx';
 import Gradient from '../../../../../elements/Settings/Gradient';
 import SelectImage from '../../../../../elements/Settings/SelectImage';
-import Checkbox from '../../../../../elements/Settings/Checkbox';
+
 import AccordItem from './AccordItem';
 
 const Accord = ({ chunkData }) => {
@@ -64,15 +64,15 @@ const Accord = ({ chunkData }) => {
       <h1 className="adminArticleTitle">Аккордеон:</h1>
       <div className="adminArticleElementBody">
         <div className="adminSettingsBox">
-          <Gradient background={chunkData.gradient} handleGradient={(val) => handleEl(val, 'gradient')} />
           <SelectImage
             page={chunkData}
             image={chunkData.image.value}
             handleImages={(val) => handleEl(val, 'image')}
             name={data._id}
             thumb={false}
+            handleRepeat={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')}
           />
-          <Checkbox data={chunkData.repeat} setData={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')} label="Повтор изображения" />
+          <Gradient background={chunkData.gradient} handleGradient={(val) => handleEl(val, 'gradient')} />
         </div>
         <div className="adminBtnsBox">
           <button type="button" onClick={addTab} className="adminBtn">Добавить вкладку</button>

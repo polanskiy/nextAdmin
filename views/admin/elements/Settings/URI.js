@@ -6,10 +6,12 @@ const URIPage = ({ data, setData }) => {
   };
 
   return (
-    <label className="adminSettingsRoute">
-      <span>URI страницы:</span>
-      <input type="text" placeholder="URI страницы" value={data.route} onChange={(e) => handleUri(e.target.value)} className="adminArticleInput" />
-    </label>
+    <div className="adminSettingSmall">
+      <p className="adminElTitle">URI страницы:</p>
+      <div className="adminElBody">
+        <input type="text" placeholder="URI страницы" value={data.route} onChange={(e) => handleUri(e.target.value)} className="adminArticleInput" />
+      </div>
+    </div>
   );
 };
 

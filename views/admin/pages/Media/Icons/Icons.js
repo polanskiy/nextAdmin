@@ -59,7 +59,7 @@ const Icons = () => {
         <Uploader link="useIcons" updateImage={fetchImages} />
         <button
           type="button"
-          className="adminBtn danger"
+          className="adminBtn adminDelBtn"
           onClick={nowIcon ? setShowDelWarn : toggleOpen}
         >
           Удалить

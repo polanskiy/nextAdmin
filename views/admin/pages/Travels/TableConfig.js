@@ -17,7 +17,7 @@ export default function () {
           <Edit fill="white" />
         </div>
       </Link>
-      <div data-name="del" className="tableIcon danger">
+      <div data-name="del" className="tableIcon adminDelBtn">
         <Trash fill="white" />
       </div>
     </div>

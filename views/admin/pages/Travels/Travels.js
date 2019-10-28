@@ -26,18 +26,16 @@ const Travels = (props) => {
 
   return (
     <>
-
-        <h1 className="adminTitle">Путешествия:</h1>
-        <NewTravel travelList={travelList.data} fetchTravels={fetchTravels} />
-        {/* <div style={{ height: 1200 }} /> */}
-        <div className="adminPageElement">
-          <TravelsTable
-            {...props}
-            travelList={travelList}
-            fetchTravels={fetchTravels}
-          />
-        </div>
-
+      <h1 className="adminTitle">Путешествия:</h1>
+      <NewTravel travelList={travelList.data} fetchTravels={fetchTravels} />
+      {/* <div style={{ height: 1200 }} /> */}
+      <div className="adminPageElement">
+        <TravelsTable
+          {...props}
+          travelList={travelList}
+          fetchTravels={fetchTravels}
+        />
+      </div>
     </>
   );
 };

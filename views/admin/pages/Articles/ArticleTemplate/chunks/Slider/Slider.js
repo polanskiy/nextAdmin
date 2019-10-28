@@ -56,15 +56,15 @@ const Slider = ({ chunkData }) => {
     <div className="adminPageElement">
       <h1 className="adminArticleTitle">Карусель:</h1>
       <div className="adminSettingsBox">
-        <Gradient background={chunkData.gradient} handleGradient={(val) => handleEl(val, 'gradient')} />
         <SelectImage
           page={chunkData}
           image={chunkData.image}
           handleImages={(val) => handleEl(val, 'image')}
           name={data._id}
           thumb={false}
+          handleRepeat={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')}
         />
-        <Checkbox data={chunkData.repeat === 'repeat'} setData={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')} label="Повтор изображения" />
+        <Gradient background={chunkData.gradient} handleGradient={(val) => handleEl(val, 'gradient')} />
       </div>
       <div className="adminBtnsBox">
         <button type="button" onClick={addSlide} className="adminBtn">Добавить слайд</button>

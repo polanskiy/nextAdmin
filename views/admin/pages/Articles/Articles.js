@@ -26,16 +26,14 @@ const Articles = (props) => {
 
   return (
     <>
-      <div>
-        <h1 className="adminTitle">Тестовое:</h1>
-        <NewTravel articleList={articleList.data} fetchArticles={fetchArticles} />
-        <div className="adminPageElement">
-          <ArticlesTable
-            {...props}
-            articleList={articleList}
-            fetchArticles={fetchArticles}
-          />
-        </div>
+      <h1 className="adminTitle">Статьи:</h1>
+      <NewTravel articleList={articleList.data} fetchArticles={fetchArticles} />
+      <div className="adminPageElement">
+        <ArticlesTable
+          {...props}
+          articleList={articleList}
+          fetchArticles={fetchArticles}
+        />
       </div>
     </>
   );

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Uploader from '../Uploader/Uploader';
+import Checkbox from './Checkbox';
 
 const SelectImage = ({
-  image, handleImages, thumb, name = '',
+  image, handleImages, thumb, name = '', page, handleRepeat,
 }) => {
   const [nowImage, setNowImage] = useState(image);
 
@@ -23,6 +24,7 @@ const SelectImage = ({
     } else {
       setNowImage(null);
       handleImages(null);
+      console.log('nowImage', nowImage);
       axios({
         method: 'delete',
         url: `/api/images/${name}`,
@@ -32,23 +34,26 @@ const SelectImage = ({
   };
 
   return (
-    <div className="adminSettingsGradientImage">
-      <p>
+    <div className="adminSetting">
+      <p className="adminElTitle">
         Фоновое изображение
       :
       </p>
-      <div className="adminBtnsBox">
-        {image !== 'thumb'
+      <div className="adminElBody">
+        <div className="adminBtnsBox">
+          {image !== 'thumb'
         && (
           <>
             <Uploader updateImage={updateImage} link={name} thumb={image === 'header' && thumb} />
             {nowImage && <button type="button" className="adminBtn adminDelBtn" onClick={() => updateImage(null)}>Удалить</button>}
           </>
         )}
-      </div>
-      <div className={nowImage ? 'editorImageBox' : 'editorImageBox borderDashed'}>
-        {nowImage ? <img src={nowImage} alt="" />
-          : <p>изображения нет</p>}
+          <Checkbox part data={page.repeat} setData={handleRepeat} label="Повтор" />
+        </div>
+        <div className={nowImage ? 'editorImageBox' : 'editorImageBox borderDashed'}>
+          {nowImage ? <img src={nowImage} alt="" />
+            : <p>изображения нет</p>}
+        </div>
       </div>
     </div>
   );

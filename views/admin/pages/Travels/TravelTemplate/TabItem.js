@@ -92,14 +92,16 @@ const TabItem = ({
     <div className="adminTabItemBox">
       <div className="adminEditorTitle">
         <div className="adminTabSettings">
-          <div>
-            <p>Заголовок вкладки:</p>
-            <input type="text" value={tab.name} onChange={handleTabName} className="adminArticleInput" />
+          <div className="adminElBox">
+            <p className="adminElTitle">Заголовок вкладки:</p>
+            <div className="adminElBody">
+              <input type="text" value={tab.name} onChange={handleTabName} className="adminArticleInput" />
+            </div>
           </div>
-          <div className="adminTabIconBox">
-            <p>Иконка:</p>
-            <div>
-              {tab.icon ? <img src={tab.icon} alt="" /> : <p>иконки нет</p>}
+          <div className="adminElBox">
+            <p className="adminElTitle">Иконка:</p>
+            <div className="adminElBody">
+              {tab.icon ? <img src={tab.icon} alt="" /> : <p style={{ height: 45 }}>иконки нет</p>}
               <button type="button" className="adminBtn" onClick={fetchImages}>Выбрать</button>
             </div>
           </div>
@@ -128,7 +130,7 @@ const TabItem = ({
           >
             Применить
           </button>
-          <button type="button" className="adminBtn danger">Отмена</button>
+          <button type="button" className="adminBtn adminDelBtn">Отмена</button>
         </div>
       </Modal>
     </div>

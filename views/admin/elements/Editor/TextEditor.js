@@ -20,12 +20,12 @@ const TextEditor = ({
   };
 
   return (
-    <div>
-      <p className="adminEditorTitle">
+    <div className="adminElBox">
+      <p className="adminElTitle">
         {title}
         :
       </p>
-      <div className={`${selector}`}>
+      <div className={`${selector} adminElBody`}>
         <Editor
           initialValue={data}
           // apiKey="ferbxo2i5dzep5bkr3ijc3ex5a5fffycvhnqmvsmqd9f66z5"

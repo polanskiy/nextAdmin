@@ -5,7 +5,27 @@ import Uploader from '../Uploader/Uploader';
 const SelectImageArr = ({
   handleItems, items, item, name,
 }) => {
+  const handleDelImage = () => {
+    const newImages = items.map((itemm) => {
+      if (itemm.id === item.id) {
+        const newItem = { ...itemm };
+        newItem.value = '';
+        return newItem;
+      }
+      return itemm;
+    });
+    handleItems(newImages);
+    axios({
+      method: 'delete',
+      url: `/api/images/${name}`,
+      data: { filename: item.value.split(`${name}/`)[1] },
+    });
+  };
+
   const updateImage = (newImageName) => {
+    if (item.value) {
+      handleDelImage();
+    }
     if (newImageName) {
       const newImg = `/static/images/${name}/${newImageName}`;
       const newImages = items.map((itemm) => {
@@ -18,20 +38,7 @@ const SelectImageArr = ({
       });
       handleItems(newImages);
     } else {
-      const newImages = items.map((itemm) => {
-        if (itemm.id === item.id) {
-          const newItem = { ...itemm };
-          newItem.value = '';
-          return newItem;
-        }
-        return itemm;
-      });
-      handleItems(newImages);
-      axios({
-        method: 'delete',
-        url: `/api/images/${name}`,
-        data: { filename: item.value.split(`${name}/`)[1] },
-      });
+      handleDelImage();
     }
   };
 

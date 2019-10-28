@@ -51,17 +51,15 @@ const Travels = () => {
 
   return (
     <>
-      <div>
-        <h1 className="adminTitle">Страницы:</h1>
-        <div className="adminPageElement">
-          <>
-            { pageList.isFetching ? <p>загрузка страниц</p> : pageList.data.length
-              ? (
-                <Table data={pageList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
-              ) : <div>Страниц нет</div>}
-            <DeleteWarning confirmDel={delTravel} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
-          </>
-        </div>
+      <h1 className="adminTitle">Страницы:</h1>
+      <div className="adminPageElement">
+        <>
+          { pageList.isFetching ? <p>загрузка страниц</p> : pageList.data.length
+            ? (
+              <Table data={pageList.data} handleIcon={handleTableIcon} columns={columns} keys="_id" />
+            ) : <div>Страниц нет</div>}
+          <DeleteWarning confirmDel={delTravel} isOpen={showDelWarn} toggleOpen={setShowDelWarn} />
+        </>
       </div>
     </>
   );
