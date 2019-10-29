@@ -8,7 +8,7 @@ const Slider = ({ slides }) => {
       key={item.id}
     >
       <img src={item.value} alt="" />
-
+      {/* <p className="legend">Legend 2</p> */}
     </div>
   ));
 
