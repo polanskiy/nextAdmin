@@ -31,6 +31,7 @@ app.prepare()
 
     // FILES ROUTES
     server.use('/images', express.static(imagesPath));
+    server.use('/', express.static('public'));
 
     server.get('/admin', (req, res) => {
       const actualPage = '/admin';
