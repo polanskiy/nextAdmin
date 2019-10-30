@@ -38,6 +38,7 @@ class MyApp extends App {
           <title>{meta.title || ''}</title>
           <meta name="description" content={meta.description || ''} />
           <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+          <meta name="yandex-verification" content="0bc5d2fabf0c1a80" />
           {pathname === '/admin' && <script src="/static/tinymce.min.js" />}
         </Head>
         <Layout>
