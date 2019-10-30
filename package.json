@@ -23,6 +23,7 @@
     "cookie-parser": "^1.4.4",
     "date-fns": "^2.4.1",
     "express": "^4.17.1",
+    "express-sitemap-xml": "^1.1.0",
     "fs-extra": "^8.1.0",
     "gradient-parser": "^0.1.5",
     "jsonwebtoken": "^8.5.1",
