@@ -17,7 +17,7 @@ const app = next({ dev });
 const handle = routes.getRequestHandler(app);
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://admin:dasyatravel89@localhost:27017/site', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/site', { useUnifiedTopology: true, useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
