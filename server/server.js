@@ -4,10 +4,13 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const compression = require('compression');
+const expressSitemapXml = require('express-sitemap-xml');
 const routes = require('../routes');
+
 
 const { imagesPath } = require('./config/paths');
 const apiRouter = require('./routes/api');
+const getUrls = require('./middleware/sitemap');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -24,9 +27,11 @@ app.prepare()
     server.use(bodyParser.json());
     server.use(cookieParser());
     server.use(compression());
+    server.use(expressSitemapXml(getUrls, 'https://dasyatravel.ru'));
 
     // FILES ROUTES
     server.use('/images', express.static(imagesPath));
+    server.use('/', express.static('public'));
 
     server.get('/admin', (req, res) => {
       const actualPage = '/admin';
