@@ -27,7 +27,7 @@ const Slider = ({ chunkData }) => {
     setArticleData({ data: { ...data, elements: newElements }, isFetching: false });
   };
 
-  const handleEl = (newVal, el) => {
+  const handleEl = (newVal, el, update) => {
     const newElements = data.elements.map((item) => {
       if (item.id === chunkData.id) {
         const newItem = { ...item };
@@ -37,14 +37,14 @@ const Slider = ({ chunkData }) => {
       return item;
     });
     setArticleData({ data: { ...data, elements: newElements }, isFetching: false });
-    if (el === 'image' || el === 'slides') updateArticle({ ...data, elements: newElements });
+    if (update) updateArticle({ ...data, elements: newElements });
   };
 
 
   const renderSlides = () => chunkData.slides.map((slide, i) => (
     <SlideItem
       key={slide.id}
-      setData={(val) => handleEl(val, 'slides')}
+      setData={handleEl}
       slide={slide}
       data={data}
       chunkData={chunkData}
@@ -59,7 +59,7 @@ const Slider = ({ chunkData }) => {
         <SelectImage
           page={chunkData}
           image={chunkData.image}
-          handleImages={(val) => handleEl(val, 'image')}
+          handleImages={(val) => handleEl(val, 'image', true)}
           name={data._id}
           thumb={false}
           handleRepeat={(val) => handleEl(val ? 'repeat' : 'no-repeat', 'repeat')}
