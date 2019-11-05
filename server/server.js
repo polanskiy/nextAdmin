@@ -15,9 +15,9 @@ const getUrls = require('./middleware/sitemap');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = routes.getRequestHandler(app);
-
+const mongoPass = dev ? '' : `${process.env.DB_ACC}@`;
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://${process.env.DB_ACC}@localhost:27017/site`, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(`mongodb://${mongoPass}localhost:27017/site`, { useUnifiedTopology: true, useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
