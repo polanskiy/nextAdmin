@@ -12,6 +12,7 @@ module.exports = withSass({
       test: /\.(raw)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       use: 'raw-loader',
     });
+    console.log('config.mode', config.mode);
     if (config.mode === 'production') {
       if (Array.isArray(config.optimization.minimizer)) {
         config.optimization.minimizer.push(new OptimizeCSSAssetsPlugin({}));

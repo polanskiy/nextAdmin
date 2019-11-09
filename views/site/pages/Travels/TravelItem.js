@@ -32,11 +32,6 @@ const TravelItem = ({ article }) => (
               <div className="sliderBox">
                 <Slider
                   slides={article.slides}
-                  className="travelSlider"
-                  dots
-                  colorArr="#000"
-                  slidesToShow={1}
-                  fade={false}
                 />
               </div>
             ) : null}

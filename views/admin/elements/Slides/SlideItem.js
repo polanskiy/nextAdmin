@@ -2,55 +2,28 @@ import React from 'react';
 import SelectImageArr from '../Editor/SelectImageArr';
 
 const SlideItem = ({
-  slide, updateData, data, index, setPageData,
-}) => {
-  // const handleName = (e) => {
-  //   const { value } = e.target;
-  //   const newData = data.slides.map((item) => {
-  //     const newItem = { ...item };
-  //     if (newItem._id === slide._id) {
-  //       newItem.name = value;
-  //       return newItem;
-  //     }
-  //     return item;
-  //   });
-  //   setTravelData({ data: { ...newData, isFetching: false } });
-  //   updateTravel(...newData);
-  // };
-
-  const handleSlides = (newSlides) => {
-    const newData = { ...data, slides: newSlides };
-    setPageData({ data: newData, isFetching: false });
-    updateData(newData);
-  };
-
-  const delSlide = () => {
-    const newSlides = data.slides.filter(item => item.id !== slide.id);
-    handleSlides(newSlides);
-  };
-
-  return (
+  slide, data, index, delSlide, handleSlides, handleName,
+}) => (
+  <div>
     <div>
-      <div>
-        <p>
+      <p>
         Слайд-
-          {`${index + 1}`}
+        {`${index + 1}`}
         :
-        </p>
-        <button type="button" className="adminBtn adminDelBtn" onClick={delSlide}>Удалить</button>
-      </div>
-      {/* <p>текст:</p>
-      <input type="text" value={slide.name} onChange={handleName} /> */}
-      <SelectImageArr
-        key={slide.id}
-        page={data}
-        item={slide}
-        handleItems={handleSlides}
-        items={data.slides}
-        name={data.name}
-      />
+      </p>
+      <button type="button" className="adminBtn adminDelBtn" onClick={() => delSlide(slide.id)}>Удалить</button>
     </div>
-  );
-};
+    <p>текст:</p>
+    <input type="text" value={slide.name} onChange={(e) => handleName(e, slide.id)} />
+    <SelectImageArr
+      key={slide.id}
+      page={data}
+      item={slide}
+      handleItems={handleSlides}
+      items={data.slides}
+      name={data.name}
+    />
+  </div>
+);
 
-export default SlideItem;
+export default React.memo(SlideItem);

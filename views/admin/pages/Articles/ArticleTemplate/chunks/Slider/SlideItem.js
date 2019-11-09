@@ -6,7 +6,20 @@ const SlideItem = ({
   slide, chunkData, setData, index, data,
 }) => {
   const handleSlides = (newSlides) => {
-    setData(newSlides);
+    setData(newSlides, 'slides', true);
+  };
+
+  const handleName = (e) => {
+    const { value } = e.target;
+    const newSlides = chunkData.slides.map((item) => {
+      if (item.id === slide.id) {
+        const newItem = { ...item };
+        newItem.name = value;
+        return newItem;
+      }
+      return item;
+    });
+    setData(newSlides, 'slides');
   };
 
   const delSlide = () => {
@@ -33,8 +46,8 @@ const SlideItem = ({
         </p>
         <button type="button" className="adminBtn adminDelBtn" onClick={delSlide}>Удалить</button>
       </div>
-      {/* <p>текст:</p>
-      <input type="text" value={slide.name} onChange={handleName} /> */}
+      <p>текст:</p>
+      <input type="text" value={slide.name} onChange={handleName} />
       <SelectImageArr
         key={slide.id}
         name={data._id}

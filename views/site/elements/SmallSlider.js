@@ -13,7 +13,7 @@ const SmallSlider = ({
       key={item._id}
     >
       <img src={item.value} alt="" />
-
+      {item.name && <p className="legend">{item.name}</p>}
     </div>
   ));
   return (
