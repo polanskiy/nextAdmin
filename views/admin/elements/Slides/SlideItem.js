@@ -11,7 +11,7 @@ const SlideItem = ({
         {`${index + 1}`}
         :
       </p>
-      <button type="button" className="adminBtn adminDelBtn" onClick={() => delSlide(slide.id)}>Удалить</button>
+      <button type="button" className="adminBtn adminDelBtn" onClick={() => delSlide(slide)}>Удалить</button>
     </div>
     <p>текст:</p>
     <input type="text" value={slide.name} onChange={(e) => handleName(e, slide.id)} />

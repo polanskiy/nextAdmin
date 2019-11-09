@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import axios from 'axios';
 import SlideItem from './SlideItem';
 import randomId from '../../../../utils/randomId';
 
@@ -36,15 +37,20 @@ const Slides = ({
     updateData(newData);
   };
 
-  const delSlide = (id) => {
-    const newSlides = data.slides.filter((item) => item.id !== id);
+  const delSlide = (slide) => {
+    const newSlides = data.slides.filter((item) => item.id !== slide.id);
+    axios({
+      method: 'delete',
+      url: `/api/images/${data.name}`,
+      data: { filename: slide.value.split('/images/about/')[1] },
+    });
     handleSlides(newSlides);
   };
 
   const renderSlides = useCallback(data.slides.map((slide, i) => (
     <SlideItem
       key={slide.id}
-      setPageData={setPageData}
+      handleSlides={handleSlides}
       slide={slide}
       data={data}
       updateData={updateData}
