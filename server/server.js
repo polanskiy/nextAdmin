@@ -60,7 +60,6 @@ app.prepare()
 
     server.use(handle).listen(3000, (err) => {
       if (err) throw err;
-      console.log('process.env', process.env);
       console.log('run on port 3000');
     });
   })
