@@ -11,7 +11,7 @@ const NewArticle = ({ articleList, fetchArticles }) => {
 
   const createArticle = async () => {
     const newPostion = articleList.length + 1;
-    const route = translit(title.toLowerCase()).replace(/\s/g, '_').replace(/,/g, '').replace(/–/g, '-');
+    const route = translit(title.toLowerCase()).replace(/\s/g, '_').replace(/,|!|\.|\?/g, '').replace(/–/g, '-');
     const initialData = {
       title,
       subtitle: '',
@@ -32,7 +32,7 @@ const NewArticle = ({ articleList, fetchArticles }) => {
   return (
     <>
       <button type="button" onClick={toggleOpen} className="adminBtn mgb">
-        Добавить
+        Добавить1
       </button>
       <Modal title="Добавление Статьи" isOpen={isOpen} toggleOpen={toggleOpen}>
         <input

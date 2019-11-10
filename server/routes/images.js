@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
     const ts = String(Date.now()).substr(-5);
     const videoExt = path.extname(originalname);
     if (acceptExt.indexOf(videoExt) >= 0) {
-      const fileName = path.basename(originalname, videoExt);
+      const fileName = path.basename(originalname.replace(/\s/g, '_').trim(), videoExt);
       const videoName = `${fileName}-${ts}${videoExt}`;
       cb(null, videoName);
     } else {
