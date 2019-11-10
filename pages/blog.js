@@ -6,6 +6,7 @@ import Error from './_error';
 
 const Blog = ({ page, articles }) => {
   const renderArticle = () => {
+    console.log('page, articles', page, articles);
     if (articles) {
       return <BlogPage page={page} articles={articles} />;
     } if (page && page.title) {
@@ -22,12 +23,13 @@ const Blog = ({ page, articles }) => {
 Blog.getInitialProps = async (props) => {
   const { query, req } = props;
   const axioscfg = req ? { baseURL: 'http://localhost:3000' } : {};
-  let blogPage = {};
+  let blogPage;
   let articles = [];
   if (query.article) {
     try {
       const res = await axios.get(`/api/articles/${query.article}/?byRoute=1`, axioscfg);
       blogPage = res.data;
+      console.log('blogPage', blogPage);
     } catch (e) {
       console.log('err Travels getinitialprops');
     }
