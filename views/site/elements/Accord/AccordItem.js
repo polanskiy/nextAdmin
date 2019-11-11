@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import ReactSVG from 'react-svg';
+import xss from 'xss';
+import xssOptions from '../../../../utils/xssOptions';
 import useToggle from '../../../../utils/useToggle';
 
 const AccordItem = ({ tab }) => {
@@ -20,9 +22,7 @@ const AccordItem = ({ tab }) => {
         <p>{tab.name}</p>
       </div>
       <div className="accordContentBox" style={{ height: active ? el.current.offsetHeight : 0 }}>
-        <div ref={el} className="accordContent">
-          {tab.value}
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: xss(tab.value, xssOptions) }} ref={el} className="accordContent" />
       </div>
     </div>
   );

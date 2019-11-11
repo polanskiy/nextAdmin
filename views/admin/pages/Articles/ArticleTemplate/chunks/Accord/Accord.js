@@ -17,7 +17,7 @@ const Accord = ({ chunkData }) => {
     const newElements = data.elements.map((item) => {
       if (item.id === chunkData.id) {
         const newItem = { ...item };
-        newItem[el] = newVal;
+        newItem[el] = newVal || '';
         return newItem;
       }
       return item;
