@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import App from 'next/app';
 import NextNprogress from 'nextjs-progressbar';
+import withYM from 'next-ym';
 import Nav from '../views/site/elements/Nav';
 import Layout from '../views/site/hoc/Layout';
 import '../styles/main.scss';
@@ -40,19 +41,6 @@ class MyApp extends App {
           <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
           <meta name="yandex-verification" content="0bc5d2fabf0c1a80" />
           {pathname === '/admin' && <script src="/static/tinymce.min.js" />}
-          <script type="text/javascript" >
-            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-            ym(56318479, "init", {
-                  clickmap: true,
-                  trackLinks:true,
-                  accurateTrackBounce:true,
-                  webvisor:true
-            });
-          </script>
-          <noscript><div><img src="https://mc.yandex.ru/watch/56318479" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         </Head>
         <Layout>
           {isValidPage && <Nav pathname={pathname} />}
@@ -78,4 +66,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withYM('56318479')(MyApp);
