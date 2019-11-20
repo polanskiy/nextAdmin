@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import App from 'next/app';
 import NextNprogress from 'nextjs-progressbar';
-import withYM from 'next-ym';
 import Nav from '../views/site/elements/Nav';
 import Layout from '../views/site/hoc/Layout';
 import '../styles/main.scss';
@@ -66,4 +65,4 @@ class MyApp extends App {
   }
 }
 
-export default withYM('56318479')(MyApp);
+export default MyApp;
