@@ -41,9 +41,9 @@ class MyApp extends App {
           <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
           <meta name="yandex-verification" content="0bc5d2fabf0c1a80" />
           {pathname === '/admin' && <script src="/static/tinymce.min.js" />}
-          <YMInitializer accounts={[56318479]} />
         </Head>
         <Layout>
+          <YMInitializer accounts={[56318479]} options={{ webvisor: true }} />
           {isValidPage && <Nav pathname={pathname} />}
           <Component {...pageProps} />
           {isValidPage && (
