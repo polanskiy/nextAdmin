@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Router from 'next/router';
+import axios from 'axios';
 
 const Auth = (Component) => (props) => {
   const [isAuth, setIsAuth] = useState(false);
 
-  useEffect(() => {
-    const theCookies = document.cookie.split(';');
-    const cookie = theCookies[0].split('=')[1];
-    if (Router.pathname !== '/dlogin' && !cookie) {
+  const handleAuth = async () => {
+    const res = await axios({
+      method: 'get',
+      url: '/api/auth/',
+    });
+    if (Router.pathname !== '/dlogin' && !res.data.isAuth) {
       Router.push('/dlogin');
     } else if (Router.pathname === '/blogs') {
       setIsAuth(true);
-    } else if (cookie) {
+    } else {
       setIsAuth(true);
     }
+  };
+
+  useEffect(() => {
+    handleAuth();
   }, []);
 
   return (

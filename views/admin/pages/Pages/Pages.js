@@ -5,7 +5,7 @@ import useToggle from '../../../../utils/useToggle';
 import request from '../../../../utils/request';
 import DeleteWarning from '../../elements/Modal/DeleteWarning';
 
-const Travels = () => {
+const Travels = ({ router }) => {
   const [pageList, setPageList] = useState({ data: [], isFetching: false });
   const [travelId, setTravelId] = useState(false);
   const [showDelWarn, setShowDelWarn] = useToggle(false);
@@ -17,7 +17,8 @@ const Travels = () => {
       const res = await request('/api/pages/', 'get');
       if (isMount) setPageList({ data: res.data, isFetching: false });
     } catch (e) {
-      if (isMount) setPageList({ data: [], isFetching: false });
+      router.push('/dlogin');
+      // if (isMount) setPageList({ data: [], isFetching: false });
     }
   };
 

@@ -10,11 +10,17 @@ const mailer = require('../middleware/nodemailer');
 const router = express.Router();
 
 router.get('/auth', auth, (req, res) => {
-  res.json({
-    isAuth: true,
-    id: req.user._id,
-    login: req.user.login,
-  });
+  if (req.isAuth) {
+    res.json({
+      isAuth: true,
+      id: req.user._id,
+      login: req.user.login,
+    });
+  } else {
+    return res.json({
+      isAuth: false,
+    });
+  }
 });
 
 // router.post('/register', (req, res) => {

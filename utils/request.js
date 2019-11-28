@@ -18,7 +18,7 @@ export default function request(url, method = 'get', data = {}, limit = 10, offs
         const { data: resData } = res;
         if (resData.error && (resData.error.code === '204' || resData.error.code === '202')) {
           window.localStorage.removeItem('tokendasya');
-          window.location.reload();
+          // window.location.reload();
         }
         if (resData.error) {
           // обработку ошибок
@@ -30,7 +30,7 @@ export default function request(url, method = 'get', data = {}, limit = 10, offs
         console.log('err', err.response.status === 401);
         if (err.response.status === 401) {
           window.localStorage.removeItem('tokendasya');
-          window.location.reload();
+          // window.location.reload();
         }
         reject(err);
       });

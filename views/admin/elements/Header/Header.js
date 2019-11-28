@@ -4,7 +4,7 @@ import { Link } from '../../../../routes';
 
 const Header = () => {
   const handleLogout = () => {
-    window.localStorage.setItem('tokendasya', '');
+    document.cookie = 'auth=';
     Router.push('/dlogin');
   };
 

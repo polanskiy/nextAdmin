@@ -4,14 +4,20 @@ const { auth } = require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  Page.find().exec((err, doc) => {
-    if (err) return res.status(400).send(err);
-    return res.send(doc);
-  });
+router.get('/', auth, (req, res) => {
+  if (req.isAuth) {
+    Page.find().exec((err, doc) => {
+      if (err) return res.status(400).send(err);
+      return res.send(doc);
+    });
+  } else {
+    return res.status(401).json({
+      isAuth: false,
+    });
+  }
 });
 
-router.get('/:name', (req, res) => {
+router.get('/:name', auth, (req, res) => {
   const { name } = req.params;
   Page.findOne({ name }, (err, doc) => {
     if (err) return res.status(400).send(err);
